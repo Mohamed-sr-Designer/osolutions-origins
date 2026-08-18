@@ -3,144 +3,146 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OSOLUTIONS: ORIGINS — Learning Path</title>
+<title>Osolutions: Origins — Learning Path</title>
 <meta name="description" content="Enhance &amp; Process — the 90-day learning path for the Osolutions design and motion team.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230E243E'/><path d='M16 3l11 6v14l-11 6L5 23V9z' fill='%23F76302'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%23F76302'/></svg>">
 </head>
 <body>
 
-<div class="starfield"></div>
-<div class="fx" aria-hidden="true">
-  <div class="fx__scan"></div>
-  <div class="fx__flicker"></div>
-  <div class="fx__vig"></div>
-</div>
-
 <!-- ============ TOP BAR ============ -->
-<header class="topbar" id="topbar">
+<header class="topbar">
   <div class="topbar__in">
-    <a class="brand" href="#roster">
-      <span class="brand__mark"></span>
-      <span>OSOLUTIONS: ORIGINS</span>
+    <a class="brand" href="#team">
+      <img src="assets/img/osolutions-logo.svg" alt="Osolutions">
+      <span class="brand__div"></span>
+      <span class="brand__tag">Origins · Learning Path</span>
     </a>
     <nav class="nav">
-      <button data-go="roster">ROSTER</button>
-      <button data-go="core">MISSIONS</button>
-      <button data-go="tree">SKILL TREE</button>
-      <button data-go="vault">VAULT</button>
+      <button data-go="team">Team</button>
+      <button data-go="missions">Missions</button>
+      <button data-go="tracks">Learning Tracks</button>
+      <button data-go="resources">Resources</button>
     </nav>
     <div class="hud" id="hud"></div>
   </div>
 </header>
 
-<!-- ============ BOOT ============ -->
-<section class="view is-active" id="view-boot">
-  <div class="boot" id="boot-screen">
-    <div>
-      <div class="boot__logo">OSOLUTIONS<br><span>ORIGINS</span></div>
-      <div class="boot__sub">ENHANCE &amp; PROCESS — 90 DAY LEARNING PATH</div>
-      <div class="boot__meta">
-        6 HEROES · 2 DIVISIONS · 3 PHASES<br>
-        WINDOW: <span id="boot-window"></span>
-      </div>
-      <div class="boot__divs">
-        <div class="boot__div notch-sm" style="color:#22E0F0">▶ KINETIC DIVISION · MOTION</div>
-        <div class="boot__div notch-sm" style="color:#F76302">◆ FORGE DIVISION · STATIC</div>
-      </div>
-      <div class="boot__start">▸ PRESS START ◂</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ROSTER ============ -->
-<section class="view" id="view-roster">
+<!-- ============ TEAM ============ -->
+<section class="view is-active" id="view-team">
   <div class="wrap">
-    <div class="eyebrow">CHARACTER SELECT</div>
-    <h1 class="sect-title">THE ROSTER</h1>
-    <p class="lede" style="margin-top:16px">
-      Six designers, two divisions, one 90-day window. Every hero runs the same Academy Core.
-      Each division adds its own track. Each hero carries a personal arc built around the one
-      thing standing in their way.
-    </p>
 
-    <div id="roster-clock" style="margin-top:28px"></div>
+    <div class="intro">
+      <div>
+        <div class="eyebrow">Enhance &amp; Process</div>
+        <h1 class="h-xl">A 90-day learning path<br>for six designers.</h1>
+        <p class="lede mt-s">
+          Two divisions, one shared standard. Every person runs the same nine core missions,
+          adds the craft their division needs, and carries a personal track built around the
+          one thing currently standing in their way.
+        </p>
+        <div class="intro__divs">
+          <span class="divtag" style="--dc:var(--teal);--ds:var(--teal-soft);--dl:var(--teal-line)"><i></i>Kinetic — Motion &amp; Video</span>
+          <span class="divtag" style="--dc:var(--orange);--ds:var(--orange-soft);--dl:var(--orange-line)"><i></i>Forge — Static &amp; Graphic</span>
+        </div>
+      </div>
 
-    <div class="roster-filters">
-      <button class="chip notch-sm is-on" data-div="all">ALL SIX</button>
-      <button class="chip notch-sm" data-div="kinetic">▶ KINETIC · MOTION</button>
-      <button class="chip notch-sm" data-div="forge">◆ FORGE · STATIC</button>
+      <div class="card-s pad">
+        <div class="eyebrow">How to read this</div>
+        <div class="legend">
+          <div class="legend__row"><div class="legend__k">Phase</div><div class="legend__v">One month of the plan. Three phases, ninety days.</div></div>
+          <div class="legend__row"><div class="legend__k">Skill level</div><div class="legend__v">Where each person started in May and where they are now.</div></div>
+          <div class="legend__row"><div class="legend__k">Blocker</div><div class="legend__v">The single thing holding this person back, and how to counter it.</div></div>
+          <div class="legend__row"><div class="legend__k">Mission</div><div class="legend__v">A course or exercise plus the deliverable that proves it landed.</div></div>
+          <div class="legend__row"><div class="legend__k">Goal</div><div class="legend__v">What the ninety days are supposed to produce.</div></div>
+        </div>
+      </div>
     </div>
 
-    <div class="roster" id="roster-grid"></div>
+    <div class="mt-l" id="stats"></div>
+
+    <div class="sec-head mt-l">
+      <div>
+        <h2 class="h-l">The team</h2>
+        <p class="lede small mt-s">Pick a person to see their plan, blocker and missions.</p>
+      </div>
+      <div class="filters">
+        <button class="chip is-on" data-div="all">All six</button>
+        <button class="chip" data-div="kinetic">Kinetic</button>
+        <button class="chip" data-div="forge">Forge</button>
+      </div>
+    </div>
+
+    <div class="roster" id="roster"></div>
   </div>
 </section>
 
-<!-- ============ HERO ============ -->
-<section class="view" id="view-hero"></section>
+<!-- ============ PERSON ============ -->
+<section class="view" id="view-person"></section>
 
 <!-- ============ MISSIONS ============ -->
-<section class="view" id="view-core">
+<section class="view" id="view-missions">
   <div class="wrap">
-    <div class="eyebrow">MISSION CATALOGUE</div>
-    <h1 class="sect-title">ACADEMY CORE<br>&amp; DIVISION TRACKS</h1>
-    <p class="lede" style="margin-top:16px">
-      What is shared stays shared. The nine Core missions are identical for all six heroes so the
-      standard is one standard. Each division then adds the craft only it needs.
-      <b style="color:var(--cyan)">FROM DECK</b> means the mission came straight out of
-      &ldquo;Enhance &amp; Process&rdquo;. <b style="color:var(--violet)">ADDED</b> means it was written to
-      close a gap the deck named but never filled.
+    <div class="eyebrow">Catalogue</div>
+    <h1 class="h-xl">Every mission,<br>in one place.</h1>
+    <p class="lede mt-s">
+      What is shared stays shared — the nine core missions are identical for all six people so
+      the standard is one standard. Each division then adds only the craft it needs.
+      Missions marked <b style="color:var(--teal)">From deck</b> came straight out of
+      &ldquo;Enhance &amp; Process&rdquo;. Those marked <b style="color:var(--violet)">Added</b> were
+      written to close a gap the deck named but never filled.
     </p>
-    <div id="core-body" class="mt-l"></div>
+    <div id="catalogue" class="mt-l"></div>
   </div>
 </section>
 
-<!-- ============ SKILL TREE ============ -->
-<section class="view" id="view-tree">
+<!-- ============ TRACKS ============ -->
+<section class="view" id="view-tracks">
   <div class="wrap">
-    <div class="eyebrow">THE THREE GEMS</div>
-    <h1 class="sect-title">SKILL TREE</h1>
-    <p class="lede" style="margin-top:16px">
-      The deck closes on a three-part Learning Track. These are those three, with every mission
-      that feeds them. A gem lights as the missions under it get cleared by anyone on the team.
+    <div class="eyebrow">The closing slide, expanded</div>
+    <h1 class="h-xl">Three learning tracks.</h1>
+    <p class="lede mt-s">
+      The deck ends on a three-part learning track. These are those three, with every mission
+      that feeds each one, and how far the team has got through them.
     </p>
-    <div class="grid-3 mt-l" id="tree-body"></div>
+    <div class="grid-3 mt-l" id="tracks"></div>
   </div>
 </section>
 
-<!-- ============ VAULT ============ -->
-<section class="view" id="view-vault">
+<!-- ============ RESOURCES ============ -->
+<section class="view" id="view-resources">
   <div class="wrap">
-    <div class="eyebrow">EXTERNAL INTEL</div>
-    <h1 class="sect-title">THE VAULT</h1>
-    <p class="lede" style="margin-top:16px">
-      Every external source named in the deck, in one place.
-    </p>
-    <div id="vault-body" class="mt-l"></div>
+    <div class="eyebrow">External sources</div>
+    <h1 class="h-xl">Resources.</h1>
+    <p class="lede mt-s">Every external source named in the deck, collected here.</p>
+    <div id="vault" class="mt-m"></div>
 
-    <div class="panel mt-xl"><div class="panel__in">
-      <div class="eyebrow">OPEN ITEMS FOR THE TEAM LEAD</div>
-      <ul class="counter-list" style="margin-top:0">
-        <li>Shimaa has no three-month plan in the deck — her slide repeats Alice&rsquo;s text. A plan is drafted here and needs sign-off.</li>
-        <li>Islam, Yomna and Asmaa have no recorded challenge note and no skill baseline. Both are left blank rather than invented.</li>
-        <li>Colour Theory appears in the Learning Track with no material attached. CORE-06 was written to fill it.</li>
+    <div class="card-s pad mt-xl">
+      <div class="eyebrow">Open items for the Team Lead</div>
+      <p class="lede small">These are real gaps in the source deck. They are surfaced here rather than filled in with guesses.</p>
+      <ul class="counter mt-s">
+        <li>Shimaa has no three-month plan in the deck — her slide repeats Alice&rsquo;s text word for word. A plan is drafted here and marked <b>Drafted</b>; it needs sign-off.</li>
+        <li>Islam, Yomna and Asmaa have no recorded blocker and no skill baseline. Both are left blank rather than invented.</li>
+        <li>Colour theory appears in the learning track with no material attached. CORE-06 was written to fill it.</li>
         <li>The Kinetic division had no motion-specific technical material in the deck. KIN-03 through KIN-10 were written to cover it.</li>
       </ul>
-      <button class="btn btn--ghost notch-sm" id="reset" style="margin-top:22px">RESET ALL PROGRESS</button>
-    </div></div>
+      <button class="btn btn--ghost mt-s" id="reset">Reset all progress</button>
+    </div>
   </div>
 </section>
 
-<div class="toast-host" id="toasts"></div>
+<div class="toasts" id="toasts"></div>
 
 <footer class="foot">
-  <div class="wrap">
-    <b>OSOLUTIONS: ORIGINS</b><br>
-    Built from &ldquo;Enhance &amp; Process&rdquo; — 62 slides, 6 heroes, 2 divisions.<br>
-    &copy; <span id="year"></span> Osolutions. Internal use only.
+  <div class="wrap foot__in">
+    <div>
+      <img src="assets/img/osolutions-logo.svg" alt="Osolutions" style="filter:brightness(0) invert(1)">
+      <p style="margin-top:12px">Origins — 90-day learning path. Internal use only.</p>
+    </div>
+    <p>Built from &ldquo;Enhance &amp; Process&rdquo;<br>&copy; <span id="year"></span> Osolutions</p>
   </div>
 </footer>
 

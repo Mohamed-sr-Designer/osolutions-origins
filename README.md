@@ -1,6 +1,6 @@
 # OSOLUTIONS: ORIGINS
 
-A pixel-art / Marvel-themed learning path site built from the **"Enhance & Process"** deck (62 slides).
+A learning-path site built from the **"Enhance & Process"** deck (62 slides).
 
 ## Run it
 
@@ -16,26 +16,30 @@ Then open `http://localhost:4700`. No build step — plain HTML, CSS and JS.
 osolutions-learning-path/
 ├─ index.html              # all views live here (hash router)
 ├─ assets/
-│  ├─ css/style.css        # design system, pixel/comic FX, responsive
+│  ├─ css/style.css        # design system, layout, responsive
 │  ├─ js/data.js           # ALL content — edit this, not the HTML
-│  ├─ js/app.js            # router, XP, progress, rendering
+│  ├─ js/app.js            # router, progress tracking, rendering
+│  ├─ img/                 # Osolutions logo
 │  └─ heroes/*.jpg         # 6 AI-generated pixel-art portraits
 └─ README.md
 ```
 
-## The concept
+## Design
 
-| Site element | What it actually is |
+Light editorial theme locked to the Osolutions logo palette — navy `#11253E` and orange `#F76302`.
+Archivo for headings, Inter for body, IBM Plex Mono for codes and labels.
+The pixel-art portraits are the one retro element kept; everything reads as a normal
+internal tool, not an arcade game.
+
+| Section | What it actually is |
 |---|---|
-| Phase 01 / 02 / 03 | The three months from the deck |
-| Division | Kinetic (motion, cyan) vs Forge (static, orange) |
-| Power Grid | The real skill assessment (May baseline → current) |
-| The Nemesis | The written challenge note for that person |
-| Missions | Courses + deliverables |
-| Final Boss | The stated 3-month goal |
-| Skill Tree gems | The Learning Track from the closing slide |
+| Phase | One month of the plan — three phases, ninety days |
+| Skill levels | The real May baseline vs. current assessment |
+| The blocker | The written challenge note for that person, plus counter-moves |
+| Missions | Course or exercise + the deliverable that proves it landed |
+| Goal | The stated 3-month outcome |
 
-## The 6 heroes
+## The team
 
 | Name | Codename | Division | Rank |
 |---|---|---|---|
