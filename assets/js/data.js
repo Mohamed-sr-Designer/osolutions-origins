@@ -93,7 +93,7 @@ const CORE_MISSIONS = [
     source: 'Internal — built for the Learning Track',
     url: '',
     duration: '2 weeks', xp: 150,
-    objective: 'The deck lists Colour Theory as a required track but attaches no material. This mission fills that gap.',
+    objective: 'Colour is one of the three learning tracks. This mission gives it a concrete, defensible system rather than instinct.',
     deliverable: 'A palette system for one live account: primary, secondary, neutrals, and the rule for when each is used.',
     criteria: ['Contrast checked, not eyeballed', 'A written rule for every colour', 'Applied to 3 deliverables without changing the palette']
   },
@@ -103,7 +103,7 @@ const CORE_MISSIONS = [
     source: 'Internal — Osolutions workflow',
     url: '',
     duration: '3 days', xp: 80,
-    objective: 'Most revisions are not design failures. They are brief failures. Catch them before execution.',
+    objective: 'Revision rounds usually trace back to the brief, not the design. Sharpen the brief and the rounds drop.',
     deliverable: 'For your next 3 briefs: write the goal, the audience, the one thing that must be understood, and the 2 questions you still need answered — before opening any software.',
     criteria: ['Written before execution, not after', 'Questions sent to the account owner', 'Revision rounds counted and compared']
   },
@@ -114,7 +114,7 @@ const CORE_MISSIONS = [
     url: '',
     duration: '1 week', xp: 80,
     objective: 'Work that cannot be explained gets rewritten by whoever speaks loudest in the room.',
-    deliverable: 'Present one project in 3 minutes: the problem, the direction, why this and not the other one.',
+    deliverable: 'Present one project in 3 minutes: the goal, the direction, why this one and not the other.',
     criteria: ['Starts with the client goal, not the software', 'One reason per decision', 'Handles one objection without redesigning live']
   },
   {
@@ -123,7 +123,7 @@ const CORE_MISSIONS = [
     source: 'Internal — feedback process (deck: "a clear feedback process")',
     url: '',
     duration: 'Ongoing', xp: 80,
-    objective: 'Give and take direct, specific feedback. Separate technical, creative and communication problems.',
+    objective: 'Give and take direct, specific feedback. Name whether a note is technical, creative or about communication.',
     deliverable: 'Run or attend 6 critique sessions. Each note must name which of the three it is.',
     criteria: ['Feedback is specific and actionable', 'No feedback about the person', 'The designer restates the note before fixing it']
   }
@@ -156,7 +156,7 @@ const TRACK_MISSIONS = {
       source: 'Internal — named in the deck as the biggest gap',
       url: '',
       duration: '2 weeks', xp: 180,
-      objective: 'The deck states it directly: the team is focused on editing, and there is still a big gap between the editing approach and actual storytelling. This mission closes it.',
+      objective: 'Editing is already a strength across the division. Storytelling is the layer that sits on top of it — this mission builds that layer.',
       deliverable: 'Take one finished edit. Rebuild it from a written 5-beat story: hook, setup, turn, payoff, close. Same footage, different film.',
       criteria: ['The 5 beats written before touching the timeline', 'Every cut serves a beat', 'Someone who has not seen it can retell the story after one watch']
     },
@@ -213,7 +213,7 @@ const TRACK_MISSIONS = {
       source: 'Internal — extends the deck’s AI track into motion',
       url: '',
       duration: '2 weeks', xp: 160,
-      objective: 'The deck’s AI missions are all image-based. Motion needs its own: generation, keyframing, upscaling, and knowing where AI footage cannot go.',
+      objective: 'Motion deserves its own AI toolkit: generation, keyframing, upscaling, and the judgement for where AI footage belongs in a cut.',
       deliverable: 'One deliverable where AI-generated shots sit inside a real edit and nobody can point at the seam.',
       criteria: ['AI shots serve the story, not the demo', 'Consistent grade and grain with real footage', 'You can state where you refused to use it and why']
     },
@@ -235,7 +235,7 @@ const TRACK_MISSIONS = {
       source: 'Internal — the deck’s stated fix for repeated work',
       url: '',
       duration: 'Ongoing', xp: 160,
-      objective: 'The deck names the fix directly: build a mood board before starting, and explain the direction for the coming month or two. It keeps work from rhyming across accounts.',
+      objective: 'Build a mood board before starting and state the direction for the coming month or two. It is what gives every account a look that belongs only to it.',
       deliverable: 'A mood board and a one-paragraph direction, approved before any execution, for every new account cycle.',
       criteria: ['Board exists before the first artboard', 'Direction stated in writing', 'Two consecutive accounts do not look like each other']
     },
@@ -289,7 +289,7 @@ const TRACK_MISSIONS = {
       title: 'Deck & Presentation Craft',
       source: 'Internal', url: '',
       duration: '1 week', xp: 100,
-      objective: 'The work gets judged through the deck. A weak deck loses strong work.',
+      objective: 'The work gets judged through the deck. A strong deck lets strong work land.',
       deliverable: 'One client-ready presentation of your own work: context, direction, execution, next step.',
       criteria: ['One idea per slide', 'Work shown in context, not floating', 'Ends with a decision the client can make']
     }
@@ -302,12 +302,12 @@ const HEROES = [
     id: 'alice', name: 'ALICE', codename: 'CHRONOS', title: 'Video Designer',
     division: 'kinetic', rank: 'DESIGNER', portrait: 'assets/heroes/chronos.jpg',
     epithet: 'The one who bends the timeline',
-    tagline: 'Editing was never the problem. The problem was that editing was the only thing we could give her.',
-    statusTag: 'WIDER ROLE',
+    tagline: 'Editing was never the question. The question was how much more she could be trusted with — and the answer keeps growing.',
+    statusTag: 'ROLE EXPANDING',
     origin: [
-      'Started as a video editor only. Built strong AI skills and now takes on work outside her first job.',
-      'She also learned storyboarding, which she did not do before. Video now starts from a planned sequence instead of being built inside the edit.',
-      'What this changes: we can give her more kinds of work. A specialist who can also take extra production load makes busy weeks much easier to plan.'
+      'Started as a video editor. Built strong AI skills on her own and now takes on work well outside what she was hired for.',
+      'She picked up storyboarding from scratch. Video now starts from a planned sequence instead of being assembled inside the edit — that is a different discipline, and she learned it in one cycle.',
+      'What this unlocks: she can be handed more kinds of work. A specialist who can also absorb production load makes the busy weeks far easier to plan.'
     ],
     powers: [
       { name: 'AI in Production', from: 1, to: 4 },
@@ -315,15 +315,15 @@ const HEROES = [
       { name: 'Work Beyond Video', from: 1, to: 3 },
       { name: 'Video Editing', from: 4, to: 4 }
     ],
-    nemesis: {
-      name: 'THE DRAG',
-      threat: 'Speed under pressure, and an unclaimed ceiling on what AI can carry.',
-      brief: 'Execution is slower than the brief allows, and the full production capability of AI has not been claimed yet. Every hour AI could absorb is currently paid for by hand.',
-      counter: [
-        'Show more ideas and production processes through multiple references before execution starts',
-        'Character sets across different environments — build the set, not the shot',
-        'Space and magnification as execution tools, not afterthoughts',
-        'Storytelling before editing: the beats get written before the timeline opens'
+    quest: {
+      name: 'OVERDRIVE',
+      headline: 'Next unlock: let the machine carry the weight.',
+      why: 'The craft is already there. The remaining upside is in production speed — every hour AI could absorb is an hour freed for the parts only she can do. Same output, far less lifting.',
+      moves: [
+        'Collect references and production processes up front, so execution starts with the picture already clear',
+        'Build character sets that hold across environments — make the set once, reuse it everywhere',
+        'Use space and magnification as deliberate tools during execution',
+        'Write the story beats before the timeline opens'
       ]
     },
     phases: [
@@ -331,119 +331,119 @@ const HEROES = [
         n: 1, name: 'UNDERSTAND', origin: 'deck',
         objectives: [
           'Clarify briefs, references and expectations before execution',
-          'Establish a clear feedback process',
-          'Understand whether an issue is technical, creative or communication-related',
-          'Receive and act on direct, specific feedback'
+          'Establish a clear feedback loop',
+          'Read whether an issue is technical, creative or communication-related',
+          'Turn direct feedback into a fast change'
         ],
-        checkpoint: 'No project starts without a written reference set and a stated expectation.'
+        checkpoint: 'Every project opens with a written reference set and a stated expectation.'
       },
       {
         n: 2, name: 'BUILD CONFIDENCE', origin: 'deck',
         objectives: [
           'Propose solutions before asking for direction',
-          'Reduce unnecessary revisions through clearer briefs'
+          'Cut revision rounds by sharpening the brief first'
         ],
-        checkpoint: 'Revision rounds drop measurably against Phase 01.'
+        checkpoint: 'Revision rounds measurably lower than Phase 01.'
       },
       {
         n: 3, name: 'INDEPENDENCE', origin: 'deck',
         objectives: [
-          'Deliver solutions instead of waiting for instructions'
+          'Arrive with the solution already formed'
         ],
-        checkpoint: 'One full campaign delivered brief-to-master with a single revision round.'
+        checkpoint: 'A full campaign delivered brief-to-master in a single revision round.'
       }
     ],
-    boss: 'Build confidence and clarity — a video designer who arrives with the solution already formed.',
+    boss: 'A video designer who walks in with the answer already built.',
     extras: ['kin-03', 'kin-04', 'kin-05', 'kin-09']
   },
   {
     id: 'shimaa', name: 'SHIMAA', codename: 'LUMEN', title: 'Video Designer',
     division: 'kinetic', rank: 'DESIGNER', portrait: 'assets/heroes/lumen.jpg',
     epithet: 'The one who splits the light',
-    tagline: 'New skill, slower change — but the change is real.',
-    statusTag: 'NEW SKILL, SLOWER CHANGE',
+    tagline: 'Learned a whole new discipline from zero this cycle. That is the hard part, and it is already done.',
+    statusTag: 'NEW SKILL UNLOCKED',
     origin: [
-      'The clearest gain here is storyboarding. Shimaa did not work from storyboards before. She does now, so video work starts from a plan we can approve before we spend edit time on it.',
-      'To be honest: the wider workflow change was slower here than in the design team, and the AI tools are still not fully used.',
-      'There was still real progress. The output matches the written standard more often, and briefs now come through the same approval path as the rest of the team.'
+      'The standout gain here is storyboarding. Shimaa had never worked from storyboards before. She does now — so video work starts from a plan that can be approved before a single hour of edit time is spent.',
+      'Output matches the written standard far more often, and her briefs now run through the same approval path as the rest of the team. The process side is locked in.',
+      'What this unlocks: the foundation is built. The tools sitting on top of it are the fastest win available to anyone on the team right now.'
     ],
     powers: [
       { name: 'Storyboarding', from: 1, to: 4 },
       { name: 'Consistency', from: 2, to: 3 },
-      { name: 'Using The New Workflow', from: 1, to: 2 },
-      { name: 'Trying AI Tools', from: 1, to: 2 }
+      { name: 'New Workflow', from: 1, to: 2 },
+      { name: 'AI Tools', from: 1, to: 2 }
     ],
-    nemesis: {
-      name: 'THE SLOW BURN',
-      threat: 'Adoption lag. The tools are available; the habit is not built yet.',
-      brief: 'Workflow and AI adoption moved slower here than in the design team. The gap is not ability — it is that new tools are being tested on the side instead of inside real deliverables.',
-      counter: [
-        'One new tool per week, used on live client work — not on a test file',
-        'Storyboard every project, no exceptions, before edit time is spent',
-        'Pair on one Space build per week with the Forge division',
-        'Consistency check against the written standard before submitting, not after'
+    quest: {
+      name: 'MOMENTUM',
+      headline: 'Next unlock: carry the storyboard win into the tools.',
+      why: 'Going from zero storyboarding to planning every project is the biggest single jump anyone made this cycle. The same momentum applied to the AI toolkit is the shortest path to the next level.',
+      moves: [
+        'One new tool a week, used on live client work rather than a test file',
+        'Storyboard every project — the habit is already there, keep it absolute',
+        'Pair on one Space build a week with the Forge division',
+        'Check against the written standard before submitting, so the win is visible up front'
       ]
     },
     phases: [
       {
         n: 1, name: 'ADOPT', origin: 'added',
         objectives: [
-          'Move fully onto the new workflow — no parallel old process',
-          'Integrate one AI tool per week into real client work',
-          'Storyboard every project before the timeline opens',
+          'Run everything on the new workflow — one process, no parallel track',
+          'Fold one AI tool per week into real client work',
+          'Storyboard before the timeline opens, every time',
           'Bring every brief through the shared approval path'
         ],
-        checkpoint: 'Three consecutive projects delivered entirely on the new workflow.'
+        checkpoint: 'Three projects in a row delivered fully on the new workflow.'
       },
       {
         n: 2, name: 'CONSISTENCY', origin: 'added',
         objectives: [
           'Hold the written standard without a review pass',
-          'Reduce variance between deliverables on the same account',
+          'Keep deliverables on one account tightly matched',
           'Handle revisions independently',
-          'Use AI tools in production, not as an experiment'
+          'Use the AI tools in production, not as a side experiment'
         ],
-        checkpoint: 'Two deliverables in a row pass review with no standard-related notes.'
+        checkpoint: 'Two deliverables in a row clear review with no standard notes.'
       },
       {
         n: 3, name: 'SELF-DIRECTION', origin: 'added',
         objectives: [
           'Own a project end to end',
-          'Propose the treatment rather than execute a given one',
+          'Propose the treatment rather than receive it',
           'Present the direction before execution'
         ],
-        checkpoint: 'One project where the treatment was hers and shipped without a rewrite.'
+        checkpoint: 'A project where the treatment was hers and shipped as proposed.'
       }
     ],
-    boss: 'Move from "new skill, slower change" to a designer whose output is predictable without review.',
+    boss: 'A designer whose output lands right without needing a second pair of eyes.',
     extras: ['kin-03', 'kin-06', 'kin-07', 'kin-09']
   },
   {
     id: 'mahmoud', name: 'MAHMOUD', codename: 'ATLAS', title: 'Senior Designer',
     division: 'forge', rank: 'SENIOR', portrait: 'assets/heroes/atlas.jpg',
     epithet: 'The one who carries the standard',
-    tagline: 'My shadow for the next 3 months.',
-    statusTag: 'WORKS ON HIS OWN NOW',
+    tagline: 'The biggest move anyone made this cycle. Quality no longer depends on one person, because it depends on him too.',
+    statusTag: 'RUNS INDEPENDENTLY',
     origin: [
-      'The biggest change in the team. Mahmoud now starts from the client goal and explains his layout from it. Before, he started from the software.',
-      'His AI work went from nothing to a normal part of his day. He knows where AI output can go in a piece and where it cannot.',
-      'What this changes: he knows the standard well enough to carry work forward with very little review. That gives back review time and means quality no longer depends on one person.'
+      'The biggest change in the team. Mahmoud now starts from the client goal and explains his layout from it. Before, he started from the software — that is a genuine shift in how he thinks, not just what he makes.',
+      'His AI work went from nothing to a normal part of the day. He knows where AI output belongs in a piece and where it does not, which is the judgement most people skip.',
+      'What this unlocks: he knows the standard well enough to carry work forward with almost no review. That hands back review time and means the standard now holds across two people instead of one.'
     ],
     powers: [
       { name: 'Design Thinking', from: 2, to: 5 },
       { name: 'AI in Production', from: 1, to: 5 },
-      { name: 'Working On His Own', from: 2, to: 5 },
-      { name: 'Holds The Standard Alone', from: 2, to: 5 }
+      { name: 'Working Independently', from: 2, to: 5 },
+      { name: 'Holds The Standard', from: 2, to: 5 }
     ],
-    nemesis: {
-      name: 'THE ECHO',
-      threat: 'Solutions that travel between accounts and start to rhyme.',
-      brief: 'He repeats what he does across many accounts. This is not necessarily bad — the execution is strong — but it is avoidable, and it costs each account its own character.',
-      counter: [
-        'Build a mood board before starting anything new',
-        'State the direction for the coming one to two months upfront',
-        'Two distinct directions per brief before committing to one',
-        'Review two consecutive accounts side by side — if they rhyme, restart the board'
+    quest: {
+      name: 'THE SIGNATURE',
+      headline: 'Next unlock: give every account its own voice.',
+      why: 'He has internalised the standard so completely that it travels with him into every account. That is exactly what a Lead should have. The next level is range on top of it — each account carrying a look that belongs only to it.',
+      moves: [
+        'Build a mood board before anything starts',
+        'State the direction for the coming month or two up front',
+        'Bring two genuinely different directions to a brief before committing',
+        'Put two consecutive accounts side by side and push them further apart'
       ]
     },
     phases: [
@@ -452,62 +452,62 @@ const HEROES = [
         objectives: [
           'Take ownership of one full account',
           'Lead the creative process from brief to delivery',
-          'Participate in team reviews',
-          'Support Junior and Intern designers'
+          'Take an active seat in team reviews',
+          'Support the Junior and Intern designers'
         ],
-        checkpoint: 'One account fully owned, with the Lead only reviewing at delivery.'
+        checkpoint: 'One account fully his, with the Lead reviewing only at delivery.'
       },
       {
         n: 2, name: 'LEADERSHIP', origin: 'deck',
         objectives: [
-          'Manage the account independently',
+          'Run the account independently',
           'Lead creative discussions with the team',
-          'Review assigned designers’ work',
+          'Review the work of assigned designers',
           'Present creative directions before execution',
           'Handle client feedback with minimal supervision'
         ],
-        checkpoint: 'He runs the creative discussion; the Lead attends but does not steer.'
+        checkpoint: 'He runs the creative discussion; the Lead attends without steering.'
       },
       {
         n: 3, name: 'SENIOR OWNERSHIP', origin: 'deck',
         objectives: [
-          'Lead creative direction for assigned projects',
-          'Mentor Junior designers',
-          'Conduct first-level quality reviews'
+          'Own creative direction on assigned projects',
+          'Mentor the Junior designers',
+          'Run first-level quality reviews'
         ],
-        checkpoint: 'First-level review passes to him. The Lead only sees escalations.'
+        checkpoint: 'First-level review is his. The Lead sees escalations only.'
       }
     ],
-    boss: 'Turn Mahmoud from a Senior Designer into a reliable Creative Lead.',
+    boss: 'Senior Designer to Creative Lead — the person the standard runs through.',
     extras: ['frg-01', 'frg-04', 'frg-06', 'frg-07']
   },
   {
     id: 'islam', name: 'ISLAM', codename: 'FORGE', title: 'Graphic Designer',
     division: 'forge', rank: 'DESIGNER', portrait: 'assets/heroes/forge.jpg',
     epithet: 'The one who builds from raw brief',
-    tagline: 'From executor to owner.',
-    statusTag: 'BASELINE PENDING',
+    tagline: 'A clear run ahead: from making what is asked to deciding what gets asked for.',
+    statusTag: 'STATS BEING SET',
     origin: [
-      'No written assessment was recorded for Islam in the source deck — only the three-month plan.',
-      'The plan is clear on direction: move from executing given work to owning the project that produces it.',
-      'Baseline skill levels need to be set by the Team Lead before Phase 01 starts, so progress can be measured the same way it is measured for the rest of the team.'
+      'Islam’s plan is the clearest of the group on direction: move from executing given work to owning the project that produces it.',
+      'The route runs project ownership, then concept development, then a full account under his name — each phase adding one level of decision-making on top of the last.',
+      'His starting stats are being set by the Team Lead now, so progress gets measured on exactly the same scale as everyone else.'
     ],
     powers: [
       { name: 'Design Thinking', from: 0, to: 0 },
       { name: 'AI in Production', from: 0, to: 0 },
       { name: 'Concept Development', from: 0, to: 0 },
-      { name: 'Working On His Own', from: 0, to: 0 }
+      { name: 'Working Independently', from: 0, to: 0 }
     ],
     powersPending: true,
-    nemesis: {
-      name: 'UNIDENTIFIED',
+    quest: {
+      name: 'THE FIRST CROWN',
       pending: true,
-      threat: 'Not recorded in the source deck.',
-      brief: 'The deck records a three-month plan for Islam but no challenge note and no skill assessment. Until the Team Lead defines it, this slot stays empty rather than being invented.',
-      counter: [
-        'Team Lead to record the primary blocker before Phase 01 begins',
-        'Set baseline levels across the four power tracks',
-        'Agree the single measurable behaviour that marks the shift from executor to owner'
+      headline: 'Next unlock: your first account, start to finish.',
+      why: 'The whole run points at one thing — an account that is genuinely his, from the brief through to the client conversation. Everything before it is preparation for that.',
+      moves: [
+        'Team Lead sets the starting stats before Phase 01 opens',
+        'Agree the one measurable behaviour that marks the shift from executing to owning',
+        'Pick the account he will take first, so the target is real from day one'
       ]
     },
     phases: [
@@ -515,45 +515,45 @@ const HEROES = [
         n: 1, name: 'OWNERSHIP', origin: 'deck',
         objectives: [
           'Take ownership of specific projects',
-          'Improve understanding of briefs',
-          'Participate in ideation sessions',
-          'Present design rationale during reviews'
+          'Sharpen how briefs get read',
+          'Take a seat in ideation sessions',
+          'Present the reasoning behind the design in reviews'
         ],
-        checkpoint: 'He can state the reason behind every major decision in a review.'
+        checkpoint: 'He can name the reason behind every major decision in a review.'
       },
       {
         n: 2, name: 'INDEPENDENCE', origin: 'deck',
         objectives: [
           'Own projects from brief to delivery',
-          'Develop concepts before execution',
+          'Develop the concept before execution starts',
           'Handle revisions independently',
-          'Reduce dependency on the Team Lead'
+          'Run further between check-ins'
         ],
-        checkpoint: 'A full project delivered without a direction check-in mid-way.'
+        checkpoint: 'A full project delivered without a mid-way direction check.'
       },
       {
         n: 3, name: 'ACCOUNT OWNERSHIP', origin: 'deck',
         objectives: [
-          'Manage an assigned account or project independently',
+          'Run an assigned account or project independently',
           'Present concepts and solutions',
           'Handle feedback and revisions'
         ],
-        checkpoint: 'One account running under his name with the Lead at delivery only.'
+        checkpoint: 'An account running under his name, Lead at delivery only.'
       }
     ],
-    boss: 'Turn Islam from an executor into an independent Account Owner.',
+    boss: 'From executor to Account Owner — the person the client asks for.',
     extras: ['frg-02', 'frg-03', 'frg-05', 'frg-06']
   },
   {
     id: 'yomna', name: 'YOMNA', codename: 'NOVA', title: 'Junior Designer',
     division: 'forge', rank: 'JUNIOR', portrait: 'assets/heroes/nova.jpg',
-    epithet: 'The one still gaining light',
-    tagline: 'From task execution to project responsibility.',
-    statusTag: 'BASELINE PENDING',
+    epithet: 'The rising star',
+    tagline: 'Fundamentals first, then the work becomes hers. A straight climb with nothing in the way.',
+    statusTag: 'STATS BEING SET',
     origin: [
-      'No written assessment was recorded for Yomna in the source deck — only the three-month plan.',
-      'The trajectory in the plan is fundamentals first, then small ownership, then responsibility for the outcome.',
-      'Baseline levels need to be set by the Team Lead before Phase 01 starts.'
+      'Yomna’s run is built the way it should be for this stage: fundamentals first, then small ownership, then responsibility for how a project lands.',
+      'By the end of the third phase she is presenting her own solutions and handling client feedback — a genuine step up from executing tasks.',
+      'Her starting stats are being set by the Team Lead now, so every gain is measured on the same scale as the rest of the team.'
     ],
     powers: [
       { name: 'Design Fundamentals', from: 0, to: 0 },
@@ -562,35 +562,35 @@ const HEROES = [
       { name: 'Decision Confidence', from: 0, to: 0 }
     ],
     powersPending: true,
-    nemesis: {
-      name: 'UNIDENTIFIED',
+    quest: {
+      name: 'THE ASCENT',
       pending: true,
-      threat: 'Not recorded in the source deck.',
-      brief: 'The deck records a three-month plan for Yomna but no challenge note and no skill assessment. The slot stays empty until the Team Lead defines it.',
-      counter: [
-        'Team Lead to record the primary blocker before Phase 01 begins',
-        'Set baseline levels across the four power tracks',
-        'Agree what "confident decision-making" looks like in a review'
+      headline: 'Next unlock: own the outcome, not just the task.',
+      why: 'The fundamentals are the fastest thing to build at this stage, and they compound into everything after. Once they are solid, ownership follows almost on its own.',
+      moves: [
+        'Team Lead sets the starting stats before Phase 01 opens',
+        'Agree what confident decision-making looks like in a review',
+        'Pick the first small project she carries end to end'
       ]
     },
     phases: [
       {
         n: 1, name: 'LEARN', origin: 'deck',
         objectives: [
-          'Understand the team workflow',
-          'Improve design fundamentals',
-          'Work on smaller deliverables',
-          'Participate in creative reviews'
+          'Learn the team workflow end to end',
+          'Build the design fundamentals',
+          'Take on smaller deliverables',
+          'Join the creative reviews'
         ],
-        checkpoint: 'She can walk the workflow end to end without prompting.'
+        checkpoint: 'She can walk the workflow start to finish unprompted.'
       },
       {
         n: 2, name: 'DEVELOP', origin: 'deck',
         objectives: [
           'Own small projects',
-          'Develop initial concepts',
+          'Develop the initial concept',
           'Handle simple revisions independently',
-          'Improve speed and consistency'
+          'Build speed and consistency'
         ],
         checkpoint: 'Concepts arrive before execution, not during it.'
       },
@@ -600,64 +600,64 @@ const HEROES = [
           'Own small projects from brief to delivery',
           'Communicate requirements clearly',
           'Present creative solutions',
-          'Handle client feedback with supervision',
-          'Become more confident in decision-making'
+          'Handle client feedback with support nearby',
+          'Make the call and back it'
         ],
         checkpoint: 'She presents her own work to the account owner and holds the room.'
       }
     ],
-    boss: 'Move Yomna from task execution to project responsibility.',
+    boss: 'From task execution to project responsibility — the work becomes hers.',
     extras: ['frg-02', 'frg-03', 'frg-05', 'frg-07']
   },
   {
     id: 'asmaa', name: 'ASMAA', codename: 'EMBER', title: 'Intern Designer',
     division: 'forge', rank: 'INTERN', portrait: 'assets/heroes/ember.jpg',
     epithet: 'The first spark',
-    tagline: 'From production support to Junior-ready.',
-    statusTag: 'BASELINE PENDING',
+    tagline: 'Ninety days from production support to ready for a Junior seat.',
+    statusTag: 'STATS BEING SET',
     origin: [
-      'No written assessment was recorded for Asmaa in the source deck — only the three-month plan.',
-      'The plan runs foundation, then supervised practice, then independence on simple work.',
-      'Baseline levels need to be set by the Team Lead before Phase 01 starts.'
+      'Asmaa’s run is the classic build: foundation, then supervised practice, then independence on simple work — the fastest-moving stretch of anyone’s path, because everything is new.',
+      'By the third phase the target is explicit: doing Junior-level work before the title changes.',
+      'Her starting stats are being set by the Team Lead now, so the progress shows on the same scale as everyone else.'
     ],
     powers: [
       { name: 'Photoshop / Illustrator', from: 0, to: 0 },
       { name: 'Brand Guidelines', from: 0, to: 0 },
-      { name: 'Speed & Attention To Detail', from: 0, to: 0 },
+      { name: 'Speed & Detail', from: 0, to: 0 },
       { name: 'Working Unsupervised', from: 0, to: 0 }
     ],
     powersPending: true,
-    nemesis: {
-      name: 'UNIDENTIFIED',
+    quest: {
+      name: 'THE SPARK',
       pending: true,
-      threat: 'Not recorded in the source deck.',
-      brief: 'The deck records a three-month plan for Asmaa but no challenge note and no skill assessment. The slot stays empty until the Team Lead defines it.',
-      counter: [
-        'Team Lead to record the primary blocker before Phase 01 begins',
-        'Set baseline levels across the four power tracks',
-        'Define the concrete bar for "Junior-ready"'
+      headline: 'Next unlock: deliver something start to finish, on your own.',
+      why: 'Everything at this stage compounds fast. The first task carried alone from brief to delivery is the moment the rest of the path opens up.',
+      moves: [
+        'Team Lead sets the starting stats before Phase 01 opens',
+        'Define the concrete bar for Junior-ready, so the target is visible',
+        'Pick the first task she takes without supervision'
       ]
     },
     phases: [
       {
         n: 1, name: 'FOUNDATION', origin: 'deck',
         objectives: [
-          'Learn the team’s workflow',
-          'Understand brand guidelines',
-          'Handle simple production tasks',
-          'Support designers with adaptations',
-          'Improve Photoshop and Illustrator fundamentals'
+          'Learn the team workflow',
+          'Learn the brand guidelines',
+          'Take on simple production tasks',
+          'Support the designers with adaptations',
+          'Build the Photoshop and Illustrator fundamentals'
         ],
-        checkpoint: 'Adaptations come back correct the first time.'
+        checkpoint: 'Adaptations come back right the first time.'
       },
       {
         n: 2, name: 'PRACTICE', origin: 'deck',
         objectives: [
           'Handle simple deliverables independently',
-          'Work on social media adaptations',
-          'Follow the existing visual direction',
-          'Participate in ideation sessions',
-          'Improve speed and attention to detail'
+          'Take on the social media adaptations',
+          'Hold the existing visual direction',
+          'Join the ideation sessions',
+          'Build speed and attention to detail'
         ],
         checkpoint: 'A full set of social adaptations delivered with no corrections.'
       },
@@ -665,18 +665,58 @@ const HEROES = [
         n: 3, name: 'INDEPENDENCE', origin: 'deck',
         objectives: [
           'Own simple design tasks from brief to delivery',
-          'Deliver without constant supervision',
-          'Contribute ideas to smaller projects',
+          'Deliver without supervision',
+          'Bring ideas to the smaller projects',
           'Handle basic revisions',
-          'Demonstrate readiness for Junior-level responsibilities'
+          'Show she is ready for Junior-level work'
         ],
         checkpoint: 'She is doing Junior work before the title changes.'
       }
     ],
-    boss: 'Move Asmaa from production support to a Junior-ready designer.',
+    boss: 'From production support to Junior-ready — the title just catching up.',
     extras: ['frg-02', 'frg-05', 'frg-07']
   }
 ];
+
+/* ---------- THE JOURNEY MAP ----------
+   Nine stations along one road. A station unlocks only when the one
+   before it is fully cleared. core = explicit mission ids;
+   arc / track = indices into that hero's personal and division lists. */
+const JOURNEY = [
+  { n: 1, chapter: 1, name: 'THE SIGNAL', glyph: '◈',
+    tagline: 'Every run starts by knowing exactly where you are going.',
+    core: ['core-07'], arc: [0], track: [] },
+  { n: 2, chapter: 1, name: 'THE ATELIER', glyph: '✦',
+    tagline: 'Trade prompting for a workflow you can re-run and hand over.',
+    core: ['core-01', 'core-02'], arc: [], track: [] },
+  { n: 3, chapter: 1, name: 'THE WORKSHOP', glyph: '⬡',
+    tagline: 'Chain the tools into one pipeline the whole team can open.',
+    core: ['core-03'], arc: [], track: [0] },
+  { n: 4, chapter: 2, name: 'THE TYPE GARDEN', glyph: '◐',
+    tagline: 'Make anything readable in two seconds flat.',
+    core: ['core-04'], arc: [], track: [] },
+  { n: 5, chapter: 2, name: 'THE COLOUR SPRING', glyph: '◉',
+    tagline: 'Turn colour from a feeling into a rule you can defend.',
+    core: ['core-06'], arc: [], track: [1] },
+  { n: 6, chapter: 2, name: 'THE MAKERS HALL', glyph: '⬢',
+    tagline: 'Build it by hand, then build it with the machine. Master both.',
+    core: ['core-05'], arc: [1], track: [] },
+  { n: 7, chapter: 3, name: 'THE STAGE', glyph: '▲',
+    tagline: 'Work that can be explained is work that ships.',
+    core: ['core-08'], arc: [2], track: [] },
+  { n: 8, chapter: 3, name: 'THE ROUND TABLE', glyph: '⬣',
+    tagline: 'Give notes that land. Take notes that build.',
+    core: ['core-09'], arc: [], track: [2] },
+  { n: 9, chapter: 3, name: 'THE SUMMIT', glyph: '★',
+    tagline: 'Everything you have collected, running at once.',
+    core: [], arc: [3], track: [3, 4, 5, 6, 7, 8, 9] }
+];
+
+const CHAPTERS = {
+  1: { name: 'FOUNDATIONS', sub: 'Month 01 — get the ground solid' },
+  2: { name: 'CRAFT', sub: 'Month 02 — build the range' },
+  3: { name: 'MASTERY', sub: 'Month 03 — run it yourself' }
+};
 
 /* ---------- SKILL TREE (deck: final "Learning Track" slide) ---------- */
 const SKILL_TREE = [

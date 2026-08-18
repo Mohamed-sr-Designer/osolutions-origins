@@ -26,18 +26,31 @@ osolutions-learning-path/
 
 ## Design
 
-Light editorial theme locked to the Osolutions logo palette — navy `#11253E` and orange `#F76302`.
-Archivo for headings, Inter for body, IBM Plex Mono for codes and labels.
-The pixel-art portraits are the one retro element kept; everything reads as a normal
-internal tool, not an arcade game.
+Dark arcade shell with the legibility of a normal internal tool. Palette locked to the
+Osolutions logo — navy  / orange , cyan for the Kinetic division.
+Press Start 2P for display only; Inter for body copy; IBM Plex Mono for codes.
 
-| Section | What it actually is |
+## The journey map
+
+Each person walks one road of **nine stations**. A station holds one to four missions and
+**only opens when the station before it is fully cleared** — the same gating idea as a game
+skill tree. Their portrait walks the road as they progress, and the road lights up behind them.
+
+| Station | Chapter |
 |---|---|
-| Phase | One month of the plan — three phases, ninety days |
-| Skill levels | The real May baseline vs. current assessment |
-| The blocker | The written challenge note for that person, plus counter-moves |
-| Missions | Course or exercise + the deliverable that proves it landed |
-| Goal | The stated 3-month outcome |
+| 1. The Signal · 2. The Atelier · 3. The Workshop | 1 — Foundations |
+| 4. The Type Garden · 5. The Colour Spring · 6. The Makers Hall | 2 — Craft |
+| 7. The Stage · 8. The Round Table · 9. The Summit | 3 — Mastery |
+
+Stations are defined in  in . Each one lists  mission ids plus
+ /  indices, resolved per person — so the same nine stations hold different
+missions depending on who is walking them.
+
+## Tone
+
+The content is written to encourage. Each person has a **next unlock** — the upgrade closest
+within reach, with the moves that get them there — rather than a list of shortcomings.
+Nothing on the site frames a person by what they are missing.
 
 ## The team
 
