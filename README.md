@@ -27,7 +27,7 @@ osolutions-learning-path/
 ## Design
 
 Dark arcade shell with the legibility of a normal internal tool. Palette locked to the
-Osolutions logo — navy  / orange , cyan for the Kinetic division.
+Osolutions logo — navy `#11253E` / orange `#F76302`, cyan for the Kinetic division.
 Press Start 2P for display only; Inter for body copy; IBM Plex Mono for codes.
 
 ## The journey map
@@ -42,8 +42,8 @@ skill tree. Their portrait walks the road as they progress, and the road lights 
 | 4. The Type Garden · 5. The Colour Spring · 6. The Makers Hall | 2 — Craft |
 | 7. The Stage · 8. The Round Table · 9. The Summit | 3 — Mastery |
 
-Stations are defined in  in . Each one lists  mission ids plus
- /  indices, resolved per person — so the same nine stations hold different
+Stations are defined in `JOURNEY` in `data.js`. Each one lists `core` mission ids plus
+`arc` / `track` indices, resolved per person — so the same nine stations hold different
 missions depending on who is walking them.
 
 ## Tone
