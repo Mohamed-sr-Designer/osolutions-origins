@@ -32,10 +32,16 @@ const MISSION_INDEX = (() => {
   const m = {};
   CORE_MISSIONS.forEach(x => m[x.id] = x);
   Object.values(TRACK_MISSIONS).flat().forEach(x => m[x.id] = x);
+  BONUS_MISSIONS.forEach(x => m[x.id] = x);
   return m;
 })();
 
 const heroById = id => HEROES.find(h => h.id === id);
+
+function nextRank(rank) {
+  const i = PROGRAM.ranks.indexOf(rank);
+  return i > -1 && i < PROGRAM.ranks.length - 1 ? PROGRAM.ranks[i + 1] : 'Top of the ladder';
+}
 
 function heroMissions(hero) {
   const track = TRACK_MISSIONS[hero.division] || [];
@@ -49,30 +55,39 @@ function heroMissions(hero) {
 const isDone = (h, m) => !!(progress[h] && progress[h][m]);
 
 /* ---------- stations ---------- */
+function heroBonus(hero) {
+  return (hero.bonus || []).map(id => BONUS_MISSIONS.find(m => m.id === id)).filter(Boolean);
+}
+
 function stationMissions(hero, st) {
   const g = heroMissions(hero);
+  const b = heroBonus(hero);
   return [
     ...st.core.map(id => MISSION_INDEX[id]),
     ...st.arc.map(i => g.arc[i]),
-    ...st.track.map(i => g.track[i])
+    ...st.track.map(i => g.track[i]),
+    ...(st.bonus || []).map(i => b[i])
   ].filter(Boolean);
 }
 
-/* Every station for this hero, with its lock state resolved in order. */
+/* Stations for this hero, empties dropped, lock state resolved in order.
+   Only people with a bonus track get the final station at all. */
 function journey(hero) {
   let unlocked = true;
-  return JOURNEY.map(st => {
-    const ms = stationMissions(hero, st);
-    const done = ms.filter(m => isDone(hero.id, m.id)).length;
-    const complete = ms.length > 0 && done === ms.length;
-    const row = {
-      st, missions: ms, done, total: ms.length, complete,
-      locked: !unlocked,
-      pct: ms.length ? Math.round(done / ms.length * 100) : 0
-    };
-    if (!complete) unlocked = false;   // the next station stays locked
-    return row;
-  });
+  return JOURNEY
+    .map(st => ({ st, missions: stationMissions(hero, st) }))
+    .filter(r => r.missions.length > 0)
+    .map((r, i, all) => {
+      const done = r.missions.filter(m => isDone(hero.id, m.id)).length;
+      const complete = done === r.missions.length;
+      const row = {
+        st: r.st, missions: r.missions, done, total: r.missions.length, complete,
+        locked: !unlocked, index: i, count: all.length,
+        pct: Math.round(done / r.missions.length * 100)
+      };
+      if (!complete) unlocked = false;   // the next station stays locked
+      return row;
+    });
 }
 
 function heroStats(hero) {
@@ -124,19 +139,20 @@ function renderTeam() {
   $('#roster').innerHTML = list.map(h => {
     const s = heroStats(h);
     const col = DIV_COLOR[h.division];
+    const d = DIVISIONS[h.division];
     return `
       <article class="card" data-id="${h.id}" tabindex="0" role="button"
-               style="--dc:${col}" aria-label="Open ${esc(title(h.name))}">
+               style="--dc:${col}" aria-label="Open ${esc(title(h.name))}, ${esc(h.title)}">
         <div class="card__img">
           <img src="${h.portrait}" alt="${esc(title(h.name))}" loading="lazy">
-          <span class="card__badge">${esc(title(h.rank))}</span>
+          <span class="card__team">${d.glyph} ${esc(title(d.name))}</span>
         </div>
         <div class="card__body">
           <div class="card__name">${esc(title(h.name))}</div>
-          <div class="card__code">${esc(h.codename)}</div>
           <div class="card__role">${esc(h.title)}</div>
+          <div class="card__code"><span>Call sign</span> ${esc(h.codename)}</div>
           <div class="card__bar"><i style="width:${s.pct}%"></i></div>
-          <div class="card__pct"><span>${s.done}/${s.total}</span><span>${s.pct}%</span></div>
+          <div class="card__pct"><span>${s.done}/${s.total} missions</span><span>${s.pct}%</span></div>
         </div>
       </article>`;
   }).join('');
@@ -182,30 +198,42 @@ function missionHTML(hero, m) {
 /* ============================================================
    THE MAP
    ============================================================ */
-const NODES = [
-  [150, 120], [500, 120], [850, 120],
-  [850, 320], [500, 320], [150, 320],
-  [150, 520], [500, 520], [850, 520]
-];
-const ROAD_D = 'M150,120 H850 V320 H150 V520 H850';
-/* cumulative distance along ROAD_D at each node */
-const NODE_DIST = [0, 350, 700, 900, 1250, 1600, 1800, 2150, 2500];
-const ROAD_LEN = 2500;
+/* Serpentine board laid out from the station count, so a hero with a
+   bonus station simply gets one more stop rather than a different map. */
+const COL_X = [150, 500, 850], ROW_Y0 = 120, ROW_H = 200, COLS = 3;
+
+function boardFor(n) {
+  const pts = [];
+  for (let i = 0; i < n; i++) {
+    const r = Math.floor(i / COLS), c = i % COLS;
+    pts.push([COL_X[r % 2 === 0 ? c : COLS - 1 - c], ROW_Y0 + r * ROW_H]);
+  }
+  let d = `M${pts[0][0]},${pts[0][1]}`;
+  const dist = [0];
+  for (let i = 1; i < n; i++) {
+    const [px, py] = pts[i - 1], [x, y] = pts[i];
+    d += py === y ? ` H${x}` : ` V${y}`;
+    dist.push(dist[i - 1] + Math.abs(x - px) + Math.abs(y - py));
+  }
+  const rows = Math.ceil(n / COLS);
+  return { pts, d, dist, len: dist[n - 1], height: ROW_Y0 + (rows - 1) * ROW_H + 130 };
+}
 
 let openStation = null;
 
 function renderMap(hero) {
   const rows = journey(hero);
   const col = DIV_COLOR[hero.division];
+  const b = boardFor(rows.length);
 
   const nodes = rows.map((r, i) => {
-    const [x, y] = NODES[i];
+    const [x, y] = b.pts[i];
     const state = r.complete ? 'is-done' : (r.locked ? 'is-locked' : 'is-current');
     const glyph = r.locked ? '⌾' : (r.complete ? '✓' : r.st.glyph);
     const isOpen = openStation === i ? ' is-open' : '';
     return `
       <g class="node ${state}${isOpen}" data-i="${i}" tabindex="0" role="button"
-         aria-label="Station ${r.st.n}: ${esc(title(r.st.name))}${r.locked ? ' (locked)' : ''}">
+         aria-label="Stop ${i + 1} of ${rows.length}: ${esc(title(r.st.name))}${r.locked ? ' (locked)' : ''}">
         ${state === 'is-current' ? `<circle class="pulse" cx="${x}" cy="${y}" r="34" fill="none" stroke="${col}" stroke-width="2"/>` : ''}
         <circle class="node__ring" cx="${x}" cy="${y}" r="34"/>
         <text class="node__glyph" x="${x}" y="${y}">${glyph}</text>
@@ -216,12 +244,12 @@ function renderMap(hero) {
 
   return `
     <div class="map-shell">
-      <svg class="map" viewBox="0 0 1000 640" role="img"
-           aria-label="Journey map: nine stations, ${rows.filter(r => r.complete).length} cleared">
-        <path class="road-base" d="${ROAD_D}"/>
-        <path class="road-dash" d="${ROAD_D}"/>
-        <path class="road-done" id="road-done" d="${ROAD_D}" style="stroke:${col}"
-              stroke-dasharray="${ROAD_LEN}" stroke-dashoffset="${ROAD_LEN}"/>
+      <svg class="map" viewBox="0 0 1000 ${b.height}" role="img"
+           aria-label="Journey map: ${rows.length} stops, ${rows.filter(r => r.complete).length} cleared">
+        <path class="road-base" d="${b.d}"/>
+        <path class="road-dash" d="${b.d}"/>
+        <path class="road-done" id="road-done" d="${b.d}" style="stroke:${col}"
+              stroke-dasharray="${b.len}" stroke-dashoffset="${b.len}"/>
         ${nodes}
         <g class="walker" id="walker">
           <circle r="21" fill="var(--void)" stroke="${col}" stroke-width="3"/>
@@ -236,10 +264,11 @@ function renderMap(hero) {
 /* How far along the road this hero has walked. */
 function walkedDistance(hero) {
   const rows = journey(hero);
-  let k = rows.findIndex(r => !r.complete);
-  if (k === -1) return ROAD_LEN;
-  const base = NODE_DIST[k];
-  const span = (NODE_DIST[k + 1] ?? ROAD_LEN) - base;
+  const b = boardFor(rows.length);
+  const k = rows.findIndex(r => !r.complete);
+  if (k === -1) return b.len;
+  const base = b.dist[k];
+  const span = (b.dist[k + 1] ?? b.len) - base;
   return base + span * (rows[k].pct / 100);
 }
 
@@ -247,11 +276,12 @@ function walkedDistance(hero) {
    so an element captured beforehand can already be detached. */
 function positionWalker(hero) {
   const dist = walkedDistance(hero);
+  const len = boardFor(journey(hero).length).len;
   setTimeout(() => {
     const road = document.querySelector('#road-done');
     const walker = document.querySelector('#walker');
     if (!road || !walker) return;
-    road.style.strokeDashoffset = String(ROAD_LEN - dist);
+    road.style.strokeDashoffset = String(len - dist);
     try {
       const p = road.getPointAtLength(dist);
       walker.setAttribute('transform', `translate(${p.x},${p.y})`);
@@ -290,7 +320,7 @@ function renderStation(hero, i) {
         <div style="flex:1;min-width:200px">
           <div class="station__name">${esc(title(r.st.name))}</div>
           <div class="station__tag">${esc(r.st.tagline)}</div>
-          <div class="mission__meta" style="margin-top:8px">Station ${r.st.n} of 9 · Chapter ${r.st.chapter} — ${esc(title(ch.name))}</div>
+          <div class="mission__meta" style="margin-top:8px">Stop ${r.index + 1} of ${r.count} · Chapter ${r.st.chapter} — ${esc(title(ch.name))} · Month ${r.st.chapter}</div>
         </div>
         ${state}
       </div>
@@ -429,13 +459,15 @@ function renderPerson(id) {
           <div class="hero-status">${esc(hero.statusTag)}</div>
         </div>
         <div>
-          <div class="hero-code">${esc(d.short)} DIVISION · ${esc(hero.codename)}</div>
+          <div class="hero-team"><span class="hero-team__dot"></span>${esc(title(d.name))} <span class="hero-team__role">— ${esc(d.role)}</span></div>
           <h1 class="hero-name">${esc(title(hero.name))}</h1>
-          <p class="hero-epithet">${esc(hero.title)} — “${esc(hero.epithet)}”</p>
+          <p class="hero-job">${esc(hero.title)}</p>
           <div class="hero-meta">
-            <span class="tag tag--accent">Rank · ${esc(title(hero.rank))}</span>
-            <span class="tag">${esc(d.role)}</span>
+            <span class="tag tag--accent"><b>Call sign</b> ${esc(hero.codename)}</span>
+            <span class="tag"><b>Level</b> ${esc(title(hero.rank))}</span>
+            <span class="tag"><b>Next level</b> ${esc(title(nextRank(hero.rank)))}</span>
           </div>
+          <p class="hero-epithet">“${esc(hero.epithet)}”</p>
           <p class="hero-quote">${esc(hero.tagline)}</p>
           <div class="mt-s">
             <div class="prog__top">
@@ -451,8 +483,8 @@ function renderPerson(id) {
         <div class="eyebrow">The road ahead</div>
         <div class="sec-head">
           <div>
-            <h2 class="h-l">Nine stations</h2>
-            <p class="lede small mt-s">Each station opens the next. Pick any station you have reached to see what is inside.</p>
+            <h2 class="h-l">${journey(hero).length} stops</h2>
+            <p class="lede small mt-s">Each stop opens the next. Pick any stop you have reached to see what is inside. ${esc(PROGRAM.cap)}</p>
           </div>
         </div>
         <div id="map-host">${renderMap(hero)}</div>
@@ -530,10 +562,14 @@ function renderCatalogue() {
       </div>${items.map(row).join('')}
     </div>`;
 
+  const who = m => HEROES.filter(h => (h.bonus || []).includes(m.id)).map(h => title(h.name)).join(', ');
+
   $('#catalogue').innerHTML =
-    block('Shared core', 'Everyone on the team runs all nine of these.', 'var(--ink)', CORE_MISSIONS) +
-    block('Kinetic division', 'Motion and video.', 'var(--cyan)', TRACK_MISSIONS.kinetic) +
-    block('Forge division', 'Static and graphic design.', 'var(--orange)', TRACK_MISSIONS.forge);
+    block('Shared core', 'Everyone runs all nine of these. One standard for the whole team.', 'var(--ink)', CORE_MISSIONS) +
+    block('Motion Team track', 'Video, animation and AI production.', 'var(--cyan)', TRACK_MISSIONS.kinetic) +
+    block('Design Team track', 'Graphic design, branding and AI production.', 'var(--orange)', TRACK_MISSIONS.forge) +
+    block('Bonus track', 'Personal, and only opens once someone has cleared their whole road. Still inside the 90 days.', 'var(--gold)',
+      BONUS_MISSIONS.map(m => ({ ...m, source: m.source + ' · assigned to ' + who(m) })));
 }
 
 function renderTracks() {
@@ -606,10 +642,10 @@ function route() {
    LOADING SCREEN
    ============================================================ */
 const TIPS = [
-  'Nine stations. Each one opens the next.',
+  'Each stop on the road opens the next one.',
   'Every mission ends with something you hand in.',
   'The shared core is the same for all six — one standard.',
-  'Your division track is the craft only you need.',
+  'Your team track is the craft only your team needs.',
   'Progress saves in this browser as you go.'
 ];
 

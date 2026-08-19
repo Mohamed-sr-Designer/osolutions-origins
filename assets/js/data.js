@@ -11,27 +11,30 @@ const PROGRAM = {
   startDate: '2026-08-18',
   days: 90,
   ranks: ['INTERN', 'JUNIOR', 'DESIGNER', 'SENIOR', 'LEAD'],
-  levels: ['—', 'EMERGING', 'DEVELOPING', 'COMPETENT', 'STRONG', 'INDEPENDENT']
+  levels: ['—', 'EMERGING', 'DEVELOPING', 'COMPETENT', 'STRONG', 'INDEPENDENT'],
+  cap: 'Every track is capped at 3 months. Nothing here runs past the 90-day window.'
 };
 
 const DIVISIONS = {
   kinetic: {
     id: 'kinetic',
-    name: 'KINETIC DIVISION',
-    short: 'KINETIC',
-    role: 'Motion / Video Editing',
+    name: 'MOTION TEAM',
+    codename: 'KINETIC',
+    short: 'MOTION',
+    role: 'Video editing, animation and AI production',
     color: '#22E0F0',
     glyph: '▶',
-    creed: 'We control time. The cut is the weapon.'
+    creed: 'We work in time. The cut carries the story.'
   },
   forge: {
     id: 'forge',
-    name: 'FORGE DIVISION',
-    short: 'FORGE',
-    role: 'Static / Graphic Design',
+    name: 'DESIGN TEAM',
+    codename: 'FORGE',
+    short: 'DESIGN',
+    role: 'Graphic design, branding and AI production',
     color: '#F76302',
     glyph: '◆',
-    creed: 'We build the frame. The layout is the argument.'
+    creed: 'We work in space. The layout carries the argument.'
   }
 };
 
@@ -296,6 +299,42 @@ const TRACK_MISSIONS = {
   ]
 };
 
+/* ---------- BONUS TRACK ----------
+   Opens only after the whole nine-station run is cleared, and still
+   inside the same 90-day window. Assigned per person, not per team. */
+const BONUS_MISSIONS = [
+  {
+    id: 'bon-motion', code: 'BONUS-M', origin: 'added', type: 'practice',
+    title: 'Motion Basics — a light first pass',
+    source: 'Internal — cross-team, Motion Team mentoring',
+    url: '',
+    duration: '2 weeks', xp: 160,
+    objective: 'A gentle introduction to movement for a designer who works in stills. Not a career change — just enough that a static layout can be given life, and enough shared language to brief the Motion Team properly.',
+    deliverable: 'Take one static piece you already made and bring it to life as a 10-second animation. Keep it simple: entrances, a hold, an exit.',
+    criteria: [
+      'Movement has a reason — nothing moves just because it can',
+      'Easing used deliberately rather than left on default',
+      'Type stays readable through the whole 10 seconds',
+      'Reviewed once with someone from the Motion Team'
+    ]
+  },
+  {
+    id: 'bon-brand', code: 'BONUS-B', origin: 'added', type: 'practice',
+    title: 'Brand Identity — building one from zero',
+    source: 'Internal — designed as the step beyond FRG-04 Brand Systems',
+    url: '',
+    duration: '3 weeks', xp: 200,
+    objective: 'Brand Systems teaches you to apply an identity. This teaches you to create one: positioning, personality, the mark, and the reasoning that holds it all together. It is the step from running an account to defining what the account looks like.',
+    deliverable: 'A complete mini identity for one brand, real or fictional: positioning line, personality, logo, type and colour, and three applications that prove it works.',
+    criteria: [
+      'The positioning is written before any visual is made',
+      'Every visual decision traces back to that positioning',
+      'The mark works at both large and favicon size',
+      'Presented as a story, not a sheet of assets'
+    ]
+  }
+];
+
 /* ---------- HEROES ---------- */
 const HEROES = [
   {
@@ -479,7 +518,8 @@ const HEROES = [
       }
     ],
     boss: 'Senior Designer to Creative Lead — the person the standard runs through.',
-    extras: ['frg-01', 'frg-04', 'frg-06', 'frg-07']
+    extras: ['frg-01', 'frg-04', 'frg-06', 'frg-07'],
+    bonus: ['bon-brand']
   },
   {
     id: 'islam', name: 'ISLAM', codename: 'FORGE', title: 'Graphic Designer',
@@ -542,7 +582,8 @@ const HEROES = [
       }
     ],
     boss: 'From executor to Account Owner — the person the client asks for.',
-    extras: ['frg-02', 'frg-03', 'frg-05', 'frg-06']
+    extras: ['frg-02', 'frg-03', 'frg-05', 'frg-06'],
+    bonus: ['bon-brand']
   },
   {
     id: 'yomna', name: 'YOMNA', codename: 'NOVA', title: 'Junior Designer',
@@ -674,7 +715,8 @@ const HEROES = [
       }
     ],
     boss: 'From production support to Junior-ready — the title just catching up.',
-    extras: ['frg-02', 'frg-05', 'frg-07']
+    extras: ['frg-02', 'frg-05', 'frg-07'],
+    bonus: ['bon-motion']
   }
 ];
 
@@ -685,31 +727,34 @@ const HEROES = [
 const JOURNEY = [
   { n: 1, chapter: 1, name: 'THE SIGNAL', glyph: '◈',
     tagline: 'Every run starts by knowing exactly where you are going.',
-    core: ['core-07'], arc: [0], track: [] },
+    core: ['core-07'], arc: [0], track: [], bonus: [] },
   { n: 2, chapter: 1, name: 'THE ATELIER', glyph: '✦',
     tagline: 'Trade prompting for a workflow you can re-run and hand over.',
-    core: ['core-01', 'core-02'], arc: [], track: [] },
+    core: ['core-01', 'core-02'], arc: [], track: [], bonus: [] },
   { n: 3, chapter: 1, name: 'THE WORKSHOP', glyph: '⬡',
     tagline: 'Chain the tools into one pipeline the whole team can open.',
-    core: ['core-03'], arc: [], track: [0] },
+    core: ['core-03'], arc: [], track: [0], bonus: [] },
   { n: 4, chapter: 2, name: 'THE TYPE GARDEN', glyph: '◐',
     tagline: 'Make anything readable in two seconds flat.',
-    core: ['core-04'], arc: [], track: [] },
+    core: ['core-04'], arc: [], track: [], bonus: [] },
   { n: 5, chapter: 2, name: 'THE COLOUR SPRING', glyph: '◉',
     tagline: 'Turn colour from a feeling into a rule you can defend.',
-    core: ['core-06'], arc: [], track: [1] },
+    core: ['core-06'], arc: [], track: [1], bonus: [] },
   { n: 6, chapter: 2, name: 'THE MAKERS HALL', glyph: '⬢',
     tagline: 'Build it by hand, then build it with the machine. Master both.',
-    core: ['core-05'], arc: [1], track: [] },
+    core: ['core-05'], arc: [1], track: [], bonus: [] },
   { n: 7, chapter: 3, name: 'THE STAGE', glyph: '▲',
     tagline: 'Work that can be explained is work that ships.',
-    core: ['core-08'], arc: [2], track: [] },
+    core: ['core-08'], arc: [2], track: [], bonus: [] },
   { n: 8, chapter: 3, name: 'THE ROUND TABLE', glyph: '⬣',
     tagline: 'Give notes that land. Take notes that build.',
-    core: ['core-09'], arc: [], track: [2] },
+    core: ['core-09'], arc: [], track: [2], bonus: [] },
   { n: 9, chapter: 3, name: 'THE SUMMIT', glyph: '★',
     tagline: 'Everything you have collected, running at once.',
-    core: [], arc: [3], track: [3, 4, 5, 6, 7, 8, 9] }
+    core: [], arc: [3], track: [3, 4, 5, 6, 7, 8, 9], bonus: [] },
+  { n: 10, chapter: 3, name: 'THE FRONTIER', glyph: '✧',
+    tagline: 'New ground, opened by finishing everything before it. Still inside the same 90 days.',
+    core: [], arc: [], track: [], bonus: [0, 1, 2] }
 ];
 
 const CHAPTERS = {

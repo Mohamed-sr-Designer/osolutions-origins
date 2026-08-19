@@ -30,9 +30,19 @@ Dark arcade shell with the legibility of a normal internal tool. Palette locked 
 Osolutions logo — navy `#11253E` / orange `#F76302`, cyan for the Kinetic division.
 Press Start 2P for display only; Inter for body copy; IBM Plex Mono for codes.
 
+## Teams
+
+| Team | Codename | Covers |
+|---|---|---|
+| **Motion Team** | Kinetic | Video editing, animation and AI production |
+| **Design Team** | Forge | Graphic design, branding and AI production |
+
+Each person also carries a **call sign** (Atlas, Nova, Chronos…) shown next to their real
+name and job title — flavour, never a replacement for either.
+
 ## The journey map
 
-Each person walks one road of **nine stations**. A station holds one to four missions and
+Each person walks one road of **nine stops**, or **ten** if they carry a bonus track. A station holds one to four missions and
 **only opens when the station before it is fully cleared** — the same gating idea as a game
 skill tree. Their portrait walks the road as they progress, and the road lights up behind them.
 
@@ -41,10 +51,24 @@ skill tree. Their portrait walks the road as they progress, and the road lights 
 | 1. The Signal · 2. The Atelier · 3. The Workshop | 1 — Foundations |
 | 4. The Type Garden · 5. The Colour Spring · 6. The Makers Hall | 2 — Craft |
 | 7. The Stage · 8. The Round Table · 9. The Summit | 3 — Mastery |
+| 10. The Frontier *(bonus track holders only)* | 3 — Mastery |
 
-Stations are defined in `JOURNEY` in `data.js`. Each one lists `core` mission ids plus
+**Every track is capped at 3 months** — the bonus stop included.
+
+### Bonus track
+
+Opens only after someone clears their whole road. Assigned per person, not per team.
+
+| Mission | Who |
+|---|---|
+| Motion Basics — a light first pass | Asmaa |
+| Brand Identity — building one from zero | Mahmoud, Islam |
+
+The board lays itself out from the stop count, so adding a stop needs no layout work.
+Stops are defined in `JOURNEY` in `data.js`. Each one lists `core` mission ids plus
 `arc` / `track` indices, resolved per person — so the same nine stations hold different
-missions depending on who is walking them.
+missions depending on who is walking them. A stop that resolves to zero missions is dropped,
+which is how the bonus stop only appears for the three people who have one.
 
 ## Tone
 

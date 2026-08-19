@@ -250,8 +250,21 @@ h1, h2, h3 { margin: 0; font-family: var(--f-px); font-weight: 400; line-height:
 }
 .card__body { padding: 15px 17px 17px; }
 .card__name { font-family: var(--f-px); font-size: 13px; }
-.card__code { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; color: var(--dc); margin-top: 7px; }
-.card__role { font-size: 13px; color: var(--muted); margin-top: 7px; }
+.card__role { font-size: 13.5px; font-weight: 600; color: var(--ink-2); margin-top: 9px; }
+.card__code {
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em;
+  color: var(--dc); margin-top: 6px;
+}
+.card__code span {
+  color: var(--faint); letter-spacing: .12em; text-transform: uppercase;
+  font-size: 9.5px; margin-right: 5px;
+}
+.card__team {
+  position: absolute; left: 9px; bottom: 9px; z-index: 2;
+  font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .1em;
+  text-transform: uppercase; padding: 5px 9px; border-radius: 4px;
+  background: rgba(7, 17, 32, .88); border: 1px solid var(--dc); color: var(--dc);
+}
 .card__bar { height: 5px; background: rgba(255, 255, 255, .09); border-radius: 100px; overflow: hidden; margin-top: 14px; }
 .card__bar i { display: block; height: 100%; background: var(--dc); border-radius: 100px; transition: width .5s ease; }
 .card__pct { display: flex; justify-content: space-between; margin-top: 7px; font-family: var(--f-mono); font-size: 10px; color: var(--faint); }
@@ -395,12 +408,29 @@ h1, h2, h3 { margin: 0; font-family: var(--f-px); font-weight: 400; line-height:
   letter-spacing: .1em; padding: 9px; border-radius: 5px;
   background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-line);
 }
-.hero-code { font-family: var(--f-mono); font-size: 12px; letter-spacing: .2em; color: var(--accent); margin-bottom: 12px; }
+.hero-team {
+  display: inline-flex; align-items: center; gap: 9px; margin-bottom: 14px;
+  font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--accent);
+  padding: 7px 14px; border-radius: 100px;
+  background: var(--accent-soft); border: 1px solid var(--accent-line);
+}
+.hero-team__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 9px var(--accent); }
+.hero-team__role { color: var(--muted); letter-spacing: .06em; text-transform: none; }
 .hero-name { font-family: var(--f-px); font-size: clamp(20px, 3.6vw, 34px); text-shadow: 3px 3px 0 rgba(0, 0, 0, .55); }
-.hero-epithet { color: var(--muted); margin-top: 12px; }
-.hero-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
-.tag { font-size: 12.5px; padding: 6px 13px; border-radius: 100px; background: rgba(255, 255, 255, .06); border: 1px solid var(--line); color: var(--ink-2); }
+.hero-job { font-size: 1.14rem; font-weight: 600; color: var(--ink); margin: 14px 0 0; }
+.hero-epithet { color: var(--muted); font-style: italic; margin-top: 14px; }
+.hero-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.tag {
+  font-size: 12.5px; padding: 7px 14px; border-radius: 100px;
+  background: rgba(255, 255, 255, .06); border: 1px solid var(--line); color: var(--ink);
+}
+.tag b {
+  font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--faint); font-weight: 400; margin-right: 7px;
+}
 .tag--accent { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-line); }
+.tag--accent b { color: var(--accent); opacity: .75; }
 .hero-quote { margin: 20px 0 0; padding: 14px 18px; background: rgba(255, 255, 255, .04); border-left: 3px solid var(--accent); border-radius: 0 var(--r) var(--r) 0; color: var(--ink); }
 
 /* ---------- POWERS ---------- */
