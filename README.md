@@ -27,7 +27,7 @@ osolutions-learning-path/
 ## Design
 
 Dark arcade shell with the legibility of a normal internal tool. Palette locked to the
-Osolutions logo — navy `#11253E` / orange `#F76302`, cyan for the Kinetic division.
+Osolutions logo — navy `#11253E` / orange `#F76302`, cyan for the Motion Team.
 Press Start 2P for display only; Inter for body copy; IBM Plex Mono for codes.
 
 ## Teams
@@ -42,11 +42,12 @@ name and job title — flavour, never a replacement for either.
 
 ## The journey map
 
-Each person walks one road of **nine stops**, or **ten** if they carry a bonus track. A station holds one to four missions and
-**only opens when the station before it is fully cleared** — the same gating idea as a game
-skill tree. Their portrait walks the road as they progress, and the road lights up behind them.
+Each person walks one road of **nine stops**, or **ten** if they carry a bonus track.
+A stop holds one to four missions and **only opens when the stop before it is fully cleared**
+— the same gating idea as a game skill tree. Their portrait walks the road as they progress,
+and the road lights up behind them.
 
-| Station | Chapter |
+| Stops | Chapter |
 |---|---|
 | 1. The Signal · 2. The Atelier · 3. The Workshop | 1 — Foundations |
 | 4. The Type Garden · 5. The Colour Spring · 6. The Makers Hall | 2 — Craft |
@@ -66,7 +67,7 @@ Opens only after someone clears their whole road. Assigned per person, not per t
 
 The board lays itself out from the stop count, so adding a stop needs no layout work.
 Stops are defined in `JOURNEY` in `data.js`. Each one lists `core` mission ids plus
-`arc` / `track` indices, resolved per person — so the same nine stations hold different
+`arc` / `track` indices, resolved per person — so the same stops hold different
 missions depending on who is walking them. A stop that resolves to zero missions is dropped,
 which is how the bonus stop only appears for the three people who have one.
 
@@ -76,48 +77,53 @@ The content is written to encourage. Each person has a **next unlock** — the u
 within reach, with the moves that get them there — rather than a list of shortcomings.
 Nothing on the site frames a person by what they are missing.
 
-## The team
+## The people
 
-| Name | Codename | Division | Rank |
-|---|---|---|---|
-| Alice | CHRONOS | Kinetic | Designer |
-| Shimaa | LUMEN | Kinetic | Designer |
-| Mahmoud | ATLAS | Forge | Senior |
-| Islam | FORGE | Forge | Designer |
-| Yomna | NOVA | Forge | Junior |
-| Asmaa | EMBER | Forge | Intern |
+| Name | Job title | Call sign | Team | Stops |
+|---|---|---|---|---|
+| Alice | Video Designer | Chronos | Motion | 9 |
+| Shimaa | Video Designer | Lumen | Motion | 9 |
+| Mahmoud | Senior Designer | Atlas | Design | 10 |
+| Islam | Graphic Designer | Forge | Design | 10 |
+| Yomna | Junior Designer | Nova | Design | 9 |
+| Asmaa | Intern Designer | Ember | Design | 10 |
 
 ## Mission architecture
 
-- **Academy Core** — 9 missions, identical for all six. One standard.
-- **Division Track** — 10 Kinetic / 7 Forge missions, shared within the division.
-- **Personal Arc** — the 3–4 track missions flagged as that hero's priority, chosen to answer their nemesis.
+- **Shared core** — 9 missions, identical for all six. One standard.
+- **Team track** — 10 Motion / 7 Design missions, shared within the team.
+- **Personal track** — the 3–4 team-track missions flagged as that person's priority,
+  chosen to answer their next unlock.
+- **Bonus track** — per person, opens only after their whole road is cleared.
 
-26 missions total: **8 came from the deck**, **18 were written** to close gaps the deck named
-but never filled. Every mission card is labelled `FROM DECK` or `ADDED` so the difference stays visible.
+28 missions total: **8 came from the deck**, **20 were written** to give named tracks real
+material. Every mission is labelled `From deck` or `Added` so the difference stays visible.
 
 ## Editing content
 
 Everything is in `assets/js/data.js`. Nothing is hard-coded in the HTML.
 
-- Add a mission → push to `CORE_MISSIONS` or `TRACK_MISSIONS.kinetic` / `.forge`
-- Assign it as someone's personal arc → add its `id` to that hero's `extras` array
-- Set a skill baseline → edit that hero's `powers` (`from` / `to`, values 0–5 mapping to
-  `— / EMERGING / DEVELOPING / COMPETENT / STRONG / INDEPENDENT`; `0` renders as "AWAITING BASELINE")
-- Fill in a missing nemesis → replace the `pending: true` block
+- Add a mission → push to `CORE_MISSIONS`, `TRACK_MISSIONS.kinetic` / `.forge`, or `BONUS_MISSIONS`
+- Make it someone's personal priority → add its `id` to that person's `extras` array
+- Give someone a bonus mission → add its `id` to their `bonus` array (this is what
+  creates their tenth stop; people with an empty `bonus` simply have nine)
+- Set a skill baseline → edit that person's `powers` (`from` / `to`, 0–5 mapping to
+  `— / Emerging / Developing / Competent / Strong / Independent`; `0` renders as "Being set")
+- Fill in someone's next unlock → replace the `pending: true` block in their `quest`
 - Change the start date → `PROGRAM.startDate` (the countdown reads from it)
+- Change the cap wording → `PROGRAM.cap`
 
 ## Progress tracking
 
-Ticking a mission stores it in `localStorage` under `osol-origins-progress-v1`, per hero.
-XP bars, the roster percentages, the team HUD and the skill-tree gems all read from it.
-**Reset all progress** is at the bottom of the Vault page.
+Ticking a mission stores it in `localStorage` under `osol-origins-progress-v1`, per person.
+The road, the walker, the roster percentages, the team counter and the learning-track bars
+all read from it. **Reset all progress** is at the bottom of the Resources page.
 
-## Open items for the Team Lead
+## To confirm with the Team Lead
 
-These are real gaps in the source deck, surfaced on the Vault page rather than papered over:
+Surfaced on the Resources page rather than guessed at:
 
-1. **Shimaa has no three-month plan** — her slide repeats Alice's text verbatim. A plan is drafted here and marked `DRAFTED`; it needs sign-off.
-2. **Islam, Yomna and Asmaa have no challenge note and no skill baseline.** Both are left blank rather than invented.
-3. **Colour Theory** is listed in the Learning Track with no material attached. `CORE-06` was written to fill it.
-4. **The Kinetic division had no motion-specific technical material.** `KIN-03` … `KIN-10` were written to cover it.
+1. **Shimaa's three-month plan** is drafted here and marked `Drafted` — needs sign-off.
+2. **Starting skill levels for Islam, Yomna and Asmaa**, so their gains show on the same scale.
+3. **Colour theory** is one of the three learning tracks; `CORE-06` was written to give it material.
+4. **The Motion Team** now has its own technical run, `KIN-03` … `KIN-10`.
