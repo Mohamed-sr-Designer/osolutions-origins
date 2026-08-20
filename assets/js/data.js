@@ -300,16 +300,81 @@ const TRACK_MISSIONS = {
 };
 
 /* ---------- BONUS TRACK ----------
-   Opens only after the whole nine-station run is cleared, and still
-   inside the same 90-day window. Assigned per person, not per team. */
+   Personal, not per team. Opens only after someone has cleared their
+   whole core road, and still inside the same 90-day window.
+   stopName = what the extra stop on the map is called for that person. */
 const BONUS_MISSIONS = [
   {
+    id: 'bon-montage', code: 'BONUS-ED', origin: 'added', type: 'practice',
+    stopName: 'THE CUTTING ROOM',
+    title: 'Advanced Montage — the editor’s specialism',
+    source: 'Internal — deep specialisation for the Motion Team',
+    url: '',
+    duration: '3 weeks', xp: 200,
+    objective: 'Editing is already the strongest tool in the kit. This turns it into a specialism: rhythm, structure, and the kind of cut that carries a whole film on its own.',
+    deliverable: 'Recut one existing project three ways — one built on rhythm, one on tension, one on contrast — and present which one earns its place.',
+    criteria: [
+      'Each version has a stated structural idea, not just different timings',
+      'Cut points are chosen before the timeline opens',
+      'One version uses only picture, no music crutch, and still works',
+      'You can defend the final choice in a sentence'
+    ]
+  },
+  {
+    id: 'bon-3d', code: 'BONUS-3D', origin: 'added', type: 'practice',
+    stopName: 'THE THIRD DIMENSION',
+    title: '3D Foundations — space, camera and light',
+    source: 'Internal — the step before Blender',
+    url: '',
+    duration: '2 weeks', xp: 180,
+    objective: 'Everything that makes 3D read well is decided before the software: where the camera sits, where the light comes from, how much space the subject gets. Learn that first and Blender becomes a tool rather than a puzzle.',
+    deliverable: 'One scene planned entirely on paper — camera position, key and fill light, subject placement — then matched in any 3D viewport.',
+    criteria: [
+      'Camera height and lens choice are deliberate',
+      'One clear key light with a reason behind its direction',
+      'The plan and the render sit side by side and match'
+    ]
+  },
+  {
+    id: 'bon-blender', code: 'BONUS-BL', origin: 'added', type: 'practice',
+    stopName: 'BLENDER',
+    title: 'Blender — from first open to a finished shot',
+    source: 'Internal — builds directly on BONUS-3D',
+    url: '',
+    duration: '4 weeks', xp: 240,
+    objective: 'The destination of the 3D run. Model, light, shade and render one shot end to end, then bring it into an edit like any other piece of footage.',
+    deliverable: 'One finished 3D shot, rendered and cut into a real sequence — not shown on its own.',
+    criteria: [
+      'Modelled, lit and shaded by you, not a downloaded scene',
+      'Render settings chosen on purpose and documented',
+      'Sits inside an edit without looking pasted in',
+      'The whole thing is repeatable — you could do it again next week'
+    ]
+  },
+  {
+    id: 'bon-edit', code: 'BONUS-VE', origin: 'added', type: 'practice',
+    stopName: 'MOVING PICTURES',
+    title: 'Video Editing & Simple Motion',
+    source: 'Internal — cross-team, Motion Team mentoring',
+    url: '',
+    duration: '3 weeks', xp: 200,
+    objective: 'A designer who can cut a simple video and animate a simple layout can carry a whole campaign alone. Not a career change — range, so an account never waits on someone else for a fifteen-second cut.',
+    deliverable: 'One short edit assembled start to finish, plus one static layout of yours animated as a simple motion piece.',
+    criteria: [
+      'The cut has a beginning, a turn and an end',
+      'Audio levelled, no clipping',
+      'Animation eased on purpose, nothing on default',
+      'Reviewed once with someone from the Motion Team'
+    ]
+  },
+  {
     id: 'bon-motion', code: 'BONUS-M', origin: 'added', type: 'practice',
+    stopName: 'FIRST MOVEMENT',
     title: 'Motion Basics — a light first pass',
     source: 'Internal — cross-team, Motion Team mentoring',
     url: '',
     duration: '2 weeks', xp: 160,
-    objective: 'A gentle introduction to movement for a designer who works in stills. Not a career change — just enough that a static layout can be given life, and enough shared language to brief the Motion Team properly.',
+    objective: 'A gentle introduction to movement for a designer who works in stills. Just enough that a static layout can be given life, and enough shared language to brief the Motion Team properly.',
     deliverable: 'Take one static piece you already made and bring it to life as a 10-second animation. Keep it simple: entrances, a hold, an exit.',
     criteria: [
       'Movement has a reason — nothing moves just because it can',
@@ -319,12 +384,29 @@ const BONUS_MISSIONS = [
     ]
   },
   {
-    id: 'bon-brand', code: 'BONUS-B', origin: 'added', type: 'practice',
-    title: 'Brand Identity — building one from zero',
-    source: 'Internal — designed as the step beyond FRG-04 Brand Systems',
+    id: 'bon-uiux', code: 'BONUS-UX', origin: 'added', type: 'practice',
+    stopName: 'SCREENS',
+    title: 'UI/UX Foundations',
+    source: 'Internal — designing for screens people use, not just look at',
     url: '',
     duration: '3 weeks', xp: 200,
-    objective: 'Brand Systems teaches you to apply an identity. This teaches you to create one: positioning, personality, the mark, and the reasoning that holds it all together. It is the step from running an account to defining what the account looks like.',
+    objective: 'Print and social are about attention. Screens are about what happens next. Learn the difference: flows, states, hierarchy under real constraints, and why a beautiful screen that nobody can use is a failed screen.',
+    deliverable: 'One small app or landing flow, three screens minimum, with every state drawn — empty, loading, filled and error.',
+    criteria: [
+      'A user flow is drawn before any screen is designed',
+      'Tap targets and text sizes work on a real phone, checked on one',
+      'Every screen has its empty and error state designed',
+      'One round of feedback from someone who has not seen it before'
+    ]
+  },
+  {
+    id: 'bon-brand', code: 'BONUS-BR', origin: 'added', type: 'practice',
+    stopName: 'IDENTITY',
+    title: 'Brand Identity — building one from zero',
+    source: 'Internal — the step beyond FRG-04 Brand Systems',
+    url: '',
+    duration: '3 weeks', xp: 200,
+    objective: 'Brand Systems teaches you to apply an identity. This teaches you to create one: positioning, personality, the mark, and the reasoning that holds it together. It is the step from running an account to defining what the account looks like.',
     deliverable: 'A complete mini identity for one brand, real or fictional: positioning line, personality, logo, type and colour, and three applications that prove it works.',
     criteria: [
       'The positioning is written before any visual is made',
@@ -393,7 +475,8 @@ const HEROES = [
       }
     ],
     boss: 'A video designer who walks in with the answer already built.',
-    extras: ['kin-03', 'kin-04', 'kin-05', 'kin-09']
+    extras: ['kin-03', 'kin-04', 'kin-05', 'kin-09'],
+    bonus: ['bon-montage']
   },
   {
     id: 'shimaa', name: 'SHIMAA', codename: 'LUMEN', title: 'Video Designer',
@@ -455,7 +538,8 @@ const HEROES = [
       }
     ],
     boss: 'A designer whose output lands right without needing a second pair of eyes.',
-    extras: ['kin-03', 'kin-06', 'kin-07', 'kin-09']
+    extras: ['kin-03', 'kin-06', 'kin-07', 'kin-09'],
+    bonus: ['bon-3d', 'bon-blender']
   },
   {
     id: 'mahmoud', name: 'MAHMOUD', codename: 'ATLAS', title: 'Senior Designer',
@@ -519,7 +603,7 @@ const HEROES = [
     ],
     boss: 'Senior Designer to Creative Lead — the person the standard runs through.',
     extras: ['frg-01', 'frg-04', 'frg-06', 'frg-07'],
-    bonus: ['bon-brand']
+    bonus: ['bon-brand', 'bon-edit']
   },
   {
     id: 'islam', name: 'ISLAM', codename: 'FORGE', title: 'Graphic Designer',
@@ -716,7 +800,7 @@ const HEROES = [
     ],
     boss: 'From production support to Junior-ready — the title just catching up.',
     extras: ['frg-02', 'frg-05', 'frg-07'],
-    bonus: ['bon-motion']
+    bonus: ['bon-motion', 'bon-uiux', 'bon-brand']
   }
 ];
 
@@ -754,7 +838,13 @@ const JOURNEY = [
     core: [], arc: [3], track: [3, 4, 5, 6, 7, 8, 9], bonus: [] },
   { n: 10, chapter: 3, name: 'THE FRONTIER', glyph: '✧',
     tagline: 'New ground, opened by finishing everything before it. Still inside the same 90 days.',
-    core: [], arc: [], track: [], bonus: [0, 1, 2] }
+    core: [], arc: [], track: [], bonus: [0] },
+  { n: 11, chapter: 3, name: 'THE CROSSING', glyph: '✦',
+    tagline: 'The next step out, once the one before it is behind you.',
+    core: [], arc: [], track: [], bonus: [1] },
+  { n: 12, chapter: 3, name: 'THE HORIZON', glyph: '◈',
+    tagline: 'The furthest point on this map.',
+    core: [], arc: [], track: [], bonus: [2] }
 ];
 
 const CHAPTERS = {

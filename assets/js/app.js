@@ -38,6 +38,32 @@ const MISSION_INDEX = (() => {
 
 const heroById = id => HEROES.find(h => h.id === id);
 
+/* ---------- video thumbnails ----------
+   YouTube links get their poster frame for free. For anything else, set
+   `thumb: 'https://…'` on the mission and it is used as-is. */
+function youtubeId(url) {
+  const m = String(url || '').match(
+    /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/
+  );
+  return m ? m[1] : null;
+}
+function thumbFor(m) {
+  if (m.thumb) return m.thumb;
+  const id = youtubeId(m.url);
+  return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null;
+}
+function thumbHTML(m) {
+  const t = thumbFor(m);
+  if (!t) return '';
+  return `
+    <a class="thumb" href="${esc(m.url)}" target="_blank" rel="noopener"
+       aria-label="Watch: ${esc(m.title)}">
+      <img src="${esc(t)}" alt="" loading="lazy"
+           onerror="this.closest('.thumb').remove()">
+      <span class="thumb__play" aria-hidden="true">▶</span>
+    </a>`;
+}
+
 function nextRank(rank) {
   const i = PROGRAM.ranks.indexOf(rank);
   return i > -1 && i < PROGRAM.ranks.length - 1 ? PROGRAM.ranks[i + 1] : 'Top of the ladder';
@@ -80,8 +106,13 @@ function journey(hero) {
     .map((r, i, all) => {
       const done = r.missions.filter(m => isDone(hero.id, m.id)).length;
       const complete = done === r.missions.length;
+      /* a bonus stop is named after the thing being learned there,
+         so Shimaa sees "Blender" where Asmaa sees "Screens" */
+      const isBonus = !r.st.core.length && !r.st.arc.length && !r.st.track.length;
       const row = {
         st: r.st, missions: r.missions, done, total: r.missions.length, complete,
+        label: (isBonus && r.missions[0].stopName) || r.st.name,
+        bonus: isBonus,
         locked: !unlocked, index: i, count: all.length,
         pct: Math.round(done / r.missions.length * 100)
       };
@@ -182,6 +213,7 @@ function missionHTML(hero, m) {
         <button class="mission__more">Details <span>›</span></button>
       </div>
       <div class="mission__body">
+        ${thumbHTML(m)}
         <div class="mrow"><div class="sub-label">What it is for</div><p>${esc(m.objective)}</p></div>
         <div class="mrow"><div class="sub-label">What you hand in</div><p>${esc(m.deliverable)}</p></div>
         <div class="mrow"><div class="sub-label">Cleared when</div>
@@ -233,11 +265,11 @@ function renderMap(hero) {
     const isOpen = openStation === i ? ' is-open' : '';
     return `
       <g class="node ${state}${isOpen}" data-i="${i}" tabindex="0" role="button"
-         aria-label="Stop ${i + 1} of ${rows.length}: ${esc(title(r.st.name))}${r.locked ? ' (locked)' : ''}">
+         aria-label="Stop ${i + 1} of ${rows.length}: ${esc(title(r.label))}${r.locked ? ' (locked)' : ''}">
         ${state === 'is-current' ? `<circle class="pulse" cx="${x}" cy="${y}" r="34" fill="none" stroke="${col}" stroke-width="2"/>` : ''}
         <circle class="node__ring" cx="${x}" cy="${y}" r="34"/>
         <text class="node__glyph" x="${x}" y="${y}">${glyph}</text>
-        <text class="node__label" x="${x}" y="${y + 58}">${esc(title(r.st.name))}</text>
+        <text class="node__label" x="${x}" y="${y + 58}">${esc(title(r.label))}</text>
         <text class="node__sub" x="${x}" y="${y + 78}">${r.done}/${r.total}${r.locked ? ' · locked' : ''}</text>
       </g>`;
   }).join('');
@@ -307,7 +339,7 @@ function renderStation(hero, i) {
     const prev = rows[i - 1];
     body = `<div class="locked-msg">
         <span style="font-size:22px">⌾</span>
-        <span>Clear <b>${esc(title(prev.st.name))}</b> first — ${prev.total - prev.done} mission${prev.total - prev.done === 1 ? '' : 's'} to go. Each station opens the next one.</span>
+        <span>Clear <b>${esc(title(prev.label))}</b> first — ${prev.total - prev.done} mission${prev.total - prev.done === 1 ? '' : 's'} to go. Each stop opens the next one.</span>
       </div>`;
   } else {
     body = r.missions.map(m => missionHTML(hero, m)).join('');
@@ -318,7 +350,7 @@ function renderStation(hero, i) {
       <div class="station__head">
         <div class="station__glyph">${r.locked ? '⌾' : r.st.glyph}</div>
         <div style="flex:1;min-width:200px">
-          <div class="station__name">${esc(title(r.st.name))}</div>
+          <div class="station__name">${esc(title(r.label))}</div>
           <div class="station__tag">${esc(r.st.tagline)}</div>
           <div class="mission__meta" style="margin-top:8px">Stop ${r.index + 1} of ${r.count} · Chapter ${r.st.chapter} — ${esc(title(ch.name))} · Month ${r.st.chapter}</div>
         </div>
@@ -336,7 +368,7 @@ function wireMap(hero) {
     const act = () => {
       const rows = journey(hero);
       if (rows[i].locked) {
-        toast(`Clear ${title(rows[i - 1].st.name)} first`);
+        toast(`Clear ${title(rows[i - 1].label)} first`);
         return;
       }
       openStation = i;
@@ -391,6 +423,8 @@ function refreshPerson(hero) {
   const f = $('#p-fill'); if (f) f.style.width = s.pct + '%';
   const l = $('#p-label'); if (l) l.innerHTML = `<b>${s.done}</b> of ${s.total} missions cleared`;
   const p = $('#p-pct'); if (p) p.textContent = s.pct + '%';
+  const nu = $('#nextup-host');
+  if (nu) { nu.innerHTML = nextUpHTML(hero); wireNextUp(hero); }
 
   const host = $('#map-host');
   if (host) {
@@ -400,6 +434,63 @@ function refreshPerson(hero) {
     positionWalker(hero);
   }
   updateHUD();
+}
+
+/* The single next thing this person should do. Drives the "Next up" card. */
+function nextUp(hero) {
+  const rows = journey(hero);
+  const r = rows.find(x => !x.complete);
+  if (!r) return null;
+  const m = r.missions.find(x => !isDone(hero.id, x.id));
+  return m ? { row: r, mission: m } : null;
+}
+
+function nextUpHTML(hero) {
+  const n = nextUp(hero);
+  if (!n) {
+    return `
+      <div class="nextup nextup--done">
+        <div class="nextup__icon">★</div>
+        <div class="nextup__body">
+          <div class="nextup__label">Road complete</div>
+          <div class="nextup__title">Every mission cleared</div>
+          <p class="nextup__meta">Nothing left on the map. Time to pick the next thing to chase.</p>
+        </div>
+      </div>`;
+  }
+  return `
+    <div class="nextup">
+      <div class="nextup__icon">▸</div>
+      <div class="nextup__body">
+        <div class="nextup__label">Next up${n.row.bonus ? ' · bonus track' : ''}</div>
+        <div class="nextup__title">${esc(n.mission.title)}</div>
+        <p class="nextup__meta">
+          ${esc(title(n.row.label))} · stop ${n.row.index + 1} of ${n.row.count} ·
+          ${esc(n.mission.duration)} · ${esc(n.mission.code)}
+        </p>
+      </div>
+      <button class="btn nextup__go" data-stop="${n.row.index}" data-mid="${n.mission.id}">Take me there</button>
+    </div>`;
+}
+
+function wireNextUp(hero) {
+  const b = $('.nextup__go');
+  if (!b) return;
+  b.addEventListener('click', () => {
+    const i = +b.dataset.stop, mid = b.dataset.mid;
+    openStation = i;
+    $$('.node').forEach(x => x.classList.toggle('is-open', +x.dataset.i === i));
+    renderStation(hero, i);
+    const el = $(`#station-panel .mission[data-mid="${mid}"]`);
+    if (el) {
+      el.classList.add('is-open');
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.add('is-flash');
+      setTimeout(() => el.classList.remove('is-flash'), 1400);
+    } else {
+      $('#station-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
 }
 
 function currentStation(hero) {
@@ -476,6 +567,7 @@ function renderPerson(id) {
             </div>
             <div class="prog__track"><div class="prog__fill" id="p-fill" style="width:${s.pct}%"></div></div>
           </div>
+          <div id="nextup-host">${nextUpHTML(hero)}</div>
         </div>
       </div>
 
@@ -530,6 +622,7 @@ function renderPerson(id) {
   wireMap(hero);
   renderStation(hero, openStation);
   positionWalker(hero);
+  wireNextUp(hero);
 
   window.scrollTo(0, 0);
 }
@@ -537,9 +630,24 @@ function renderPerson(id) {
 /* ============================================================
    CATALOGUE / TRACKS / RESOURCES
    ============================================================ */
+let catalogueQuery = '';
+
 function renderCatalogue() {
+  const q = catalogueQuery.trim().toLowerCase();
+  const tokens = q.split(/\s+/).filter(Boolean);
+
+  /* Every query word must hit. A short prefix is enough, so "branding"
+     still finds "Brand Identity" and "editing" finds "Video Editing". */
+  const match = m => {
+    if (!tokens.length) return true;
+    const hay = [m.code, m.title, m.stopName, m.objective, m.source, m.deliverable,
+                 (m.criteria || []).join(' ')].filter(Boolean).join(' ').toLowerCase();
+    return tokens.every(t => hay.includes(t) || (t.length >= 5 && hay.includes(t.slice(0, 5))));
+  };
+
   const row = m => `
     <div class="crow">
+      ${thumbHTML(m)}
       <div class="crow__top">
         <span class="mission__code">${esc(m.code)}</span>
         <span class="src src--${m.origin}">${m.origin === 'deck' ? 'From deck' : 'Added'}</span>
@@ -554,22 +662,29 @@ function renderCatalogue() {
       </div>
     </div>`;
 
-  const block = (t, note, color, items) => `
+  const block = (t, note, color, items) => {
+    const hits = items.filter(match);
+    if (!hits.length) return '';
+    return `
     <div class="mt-l">
       <div class="sec-head">
         <div><h2 class="h-l" style="color:${color}">${esc(t)}</h2><p class="lede small mt-s">${esc(note)}</p></div>
-        <span class="tag">${items.length} missions</span>
-      </div>${items.map(row).join('')}
+        <span class="tag">${hits.length}${q ? ' of ' + items.length : ''} missions</span>
+      </div>${hits.map(row).join('')}
     </div>`;
+  };
 
   const who = m => HEROES.filter(h => (h.bonus || []).includes(m.id)).map(h => title(h.name)).join(', ');
 
-  $('#catalogue').innerHTML =
+  const html =
     block('Shared core', 'Everyone runs all nine of these. One standard for the whole team.', 'var(--ink)', CORE_MISSIONS) +
     block('Motion Team track', 'Video, animation and AI production.', 'var(--cyan)', TRACK_MISSIONS.kinetic) +
     block('Design Team track', 'Graphic design, branding and AI production.', 'var(--orange)', TRACK_MISSIONS.forge) +
     block('Bonus track', 'Personal, and only opens once someone has cleared their whole road. Still inside the 90 days.', 'var(--gold)',
-      BONUS_MISSIONS.map(m => ({ ...m, source: m.source + ' · assigned to ' + who(m) })));
+      BONUS_MISSIONS.map(m => ({ ...m, source: m.source + ' · assigned to ' + (who(m) || 'nobody yet') })));
+
+  $('#catalogue').innerHTML = html ||
+    `<div class="empty">Nothing matches “${esc(catalogueQuery)}”. Try a mission code, a tool name, or a person.</div>`;
 }
 
 function renderTracks() {
@@ -684,6 +799,24 @@ function init() {
     filter = c.dataset.div;
     renderTeam();
   }));
+  const search = $('#msearch'), clear = $('#msearch-clear');
+  search.addEventListener('input', () => {
+    catalogueQuery = search.value;
+    clear.hidden = !catalogueQuery;
+    renderCatalogue();
+  });
+  clear.addEventListener('click', () => {
+    search.value = ''; catalogueQuery = ''; clear.hidden = true;
+    renderCatalogue(); search.focus();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (document.activeElement === search && search.value) { clear.click(); return; }
+      if (location.hash.startsWith('#person/')) location.hash = '#team';
+    }
+  });
+
   $('#reset').addEventListener('click', () => {
     if (confirm('Reset mission progress for the whole team?')) {
       progress = {}; save(); openStation = null; route(); toast('Progress reset');

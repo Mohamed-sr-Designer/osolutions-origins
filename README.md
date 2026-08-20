@@ -42,7 +42,8 @@ name and job title — flavour, never a replacement for either.
 
 ## The journey map
 
-Each person walks one road of **nine stops**, or **ten** if they carry a bonus track.
+Each person walks one road of **nine core stops**, plus one extra stop for each bonus
+mission they carry — between 9 and 12 in total.
 A stop holds one to four missions and **only opens when the stop before it is fully cleared**
 — the same gating idea as a game skill tree. Their portrait walks the road as they progress,
 and the road lights up behind them.
@@ -52,24 +53,39 @@ and the road lights up behind them.
 | 1. The Signal · 2. The Atelier · 3. The Workshop | 1 — Foundations |
 | 4. The Type Garden · 5. The Colour Spring · 6. The Makers Hall | 2 — Craft |
 | 7. The Stage · 8. The Round Table · 9. The Summit | 3 — Mastery |
-| 10. The Frontier *(bonus track holders only)* | 3 — Mastery |
+| 10–12. One stop per bonus mission *(only for those who have them)* | 3 — Mastery |
 
-**Every track is capped at 3 months** — the bonus stop included.
+**Every track is capped at 3 months** — bonus stops included.
 
 ### Bonus track
 
-Opens only after someone clears their whole road. Assigned per person, not per team.
+Opens only after someone clears their whole core road. Assigned per person, not per team.
+Each bonus mission gets its **own stop**, named after the thing being learned — so Shimaa
+sees a stop called Blender where Asmaa sees one called Screens.
 
-| Mission | Who |
+| Person | Bonus stops, in order |
 |---|---|
-| Motion Basics — a light first pass | Asmaa |
-| Brand Identity — building one from zero | Mahmoud, Islam |
+| Alice | The Cutting Room *(Advanced Montage)* |
+| Shimaa | The Third Dimension *(3D Foundations)* → Blender |
+| Mahmoud | Identity *(Brand Identity)* → Moving Pictures *(Video Editing & Simple Motion)* |
+| Islam | Identity *(Brand Identity)* |
+| Yomna | — none assigned yet |
+| Asmaa | First Movement *(Motion Basics)* → Screens *(UI/UX)* → Identity *(Brand Identity)* |
 
 The board lays itself out from the stop count, so adding a stop needs no layout work.
 Stops are defined in `JOURNEY` in `data.js`. Each one lists `core` mission ids plus
 `arc` / `track` indices, resolved per person — so the same stops hold different
 missions depending on who is walking them. A stop that resolves to zero missions is dropped,
-which is how the bonus stop only appears for the three people who have one.
+which is how a bonus stop only appears for the person it belongs to.
+
+## Adding course links
+
+Drop a new mission into `CORE_MISSIONS`, `TRACK_MISSIONS.*` or `BONUS_MISSIONS` in `data.js`.
+
+**Video thumbnails are automatic.** Any YouTube `url` — `watch?v=`, `youtu.be/`, `/embed/`
+or `/shorts/` — has its poster frame pulled from `img.youtube.com` with no extra work.
+For a non-YouTube video, set `thumb: 'https://…'` on the mission and that image is used
+instead. A thumbnail that fails to load removes itself, so a broken link never leaves a gap.
 
 ## Tone
 
@@ -81,22 +97,23 @@ Nothing on the site frames a person by what they are missing.
 
 | Name | Job title | Call sign | Team | Stops |
 |---|---|---|---|---|
-| Alice | Video Designer | Chronos | Motion | 9 |
-| Shimaa | Video Designer | Lumen | Motion | 9 |
-| Mahmoud | Senior Designer | Atlas | Design | 10 |
+| Alice | Video Designer | Chronos | Motion | 10 |
+| Shimaa | Video Designer | Lumen | Motion | 11 |
+| Mahmoud | Senior Designer | Atlas | Design | 11 |
 | Islam | Graphic Designer | Forge | Design | 10 |
 | Yomna | Junior Designer | Nova | Design | 9 |
-| Asmaa | Intern Designer | Ember | Design | 10 |
+| Asmaa | Intern Designer | Ember | Design | 12 |
 
 ## Mission architecture
 
 - **Shared core** — 9 missions, identical for all six. One standard.
 - **Team track** — 10 Motion / 7 Design missions, shared within the team.
+- **Next up card** — on every person page, the exact next mission plus a jump straight to it.
 - **Personal track** — the 3–4 team-track missions flagged as that person's priority,
   chosen to answer their next unlock.
-- **Bonus track** — per person, opens only after their whole road is cleared.
+- **Bonus track** — per person, one stop each, opens only after their core road is cleared.
 
-28 missions total: **8 came from the deck**, **20 were written** to give named tracks real
+33 missions total: **8 came from the deck**, **25 were written** to give named tracks real
 material. Every mission is labelled `From deck` or `Added` so the difference stays visible.
 
 ## Editing content
@@ -105,8 +122,8 @@ Everything is in `assets/js/data.js`. Nothing is hard-coded in the HTML.
 
 - Add a mission → push to `CORE_MISSIONS`, `TRACK_MISSIONS.kinetic` / `.forge`, or `BONUS_MISSIONS`
 - Make it someone's personal priority → add its `id` to that person's `extras` array
-- Give someone a bonus mission → add its `id` to their `bonus` array (this is what
-  creates their tenth stop; people with an empty `bonus` simply have nine)
+- Give someone a bonus mission → add its `id` to their `bonus` array (each one creates an
+  extra stop for them; someone with an empty `bonus` simply has the nine core stops)
 - Set a skill baseline → edit that person's `powers` (`from` / `to`, 0–5 mapping to
   `— / Emerging / Developing / Competent / Strong / Independent`; `0` renders as "Being set")
 - Fill in someone's next unlock → replace the `pending: true` block in their `quest`
