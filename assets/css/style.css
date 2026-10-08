@@ -576,3 +576,6 @@ h1, h2, h3 { margin: 0; font-family: var(--f-display); font-weight: 700; letter-
   display: inline-block; margin-right: 12px; font-family: var(--f-mono); font-size: 10px;
   letter-spacing: .14em; text-transform: uppercase; color: var(--orange); font-weight: 500;
 }
+
+.lvl--intermediate, .lvl--strong-mid-level { background: var(--teal-soft); color: var(--teal); }
+.lvl--extra-skill, .lvl--stage-2 { background: var(--violet-soft); color: var(--violet); }

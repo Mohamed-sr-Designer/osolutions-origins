@@ -118,7 +118,7 @@ function stages(p) {
         /* a specialisation stage is named after the subject being learned */
         label: (isSpec && r.courses[0].stopName) || r.st.name,
         hours: r.courses.reduce((t, c) => t + hrs(c), 0),
-        level: r.st.level,
+        level: (p.midCap && r.st.level === 'Senior') ? 'Strong mid-level' : r.st.level,
         spec: isSpec,
         locked: !unlocked, index: i, count: all.length,
         pct: Math.round(done / r.courses.length * 100)
@@ -286,7 +286,9 @@ function pathHTML(p) {
   rows.forEach(r => {
     if (r.st.chapter !== lastMonth) {
       lastMonth = r.st.chapter;
-      const ch = CHAPTERS[lastMonth];
+      const ch = (p.midCap && lastMonth === 3)
+        ? { name: 'Stage 1 · Month 3 — Strong mid-level', sub: 'Strong mid-level work and a capstone' }
+        : CHAPTERS[lastMonth];
       const mh = rows.filter(x => x.st.chapter === lastMonth).reduce((s, x) => s + x.hours, 0);
       html += `
         <div class="phase-head">
@@ -308,7 +310,7 @@ function pathHTML(p) {
         <button class="stage__head" aria-expanded="${openStage === r.index}">
           <span class="stage__num">${r.complete ? '✓' : (r.locked ? '🔒' : r.index + 1)}</span>
           <span class="stage__text">
-            <span class="stage__name">${esc(r.label)}<span class="lvl lvl--${r.level.toLowerCase()}">${esc(r.level)}</span></span>
+            <span class="stage__name">${esc(r.label)}<span class="lvl lvl--${r.level.toLowerCase().replace(/[^a-z0-9]+/g, '-')}">${esc(r.level)}</span></span>
             <span class="stage__tag">${esc(r.st.tagline)}</span>
           </span>
           <span class="stage__side">
@@ -530,7 +532,7 @@ function renderPerson(id) {
             <p class="lede small mt-s">${esc(PROGRAM.cap)}</p>
           </div>
         </div>
-        <div class="grid-3">${months}</div>
+        <div class="grid-2">${months}</div>
         <div class="goal mt-m">
           <span class="goal__l">120-day goal</span>
           <span class="goal__t">${esc(p.boss)}</span>

@@ -305,7 +305,7 @@ const LADDER_MISSIONS = [
     source: "Free YouTube courses (Premiere Pro is part of the Adobe licence)",
     url: 'https://www.youtube.com/watch?v=48Fn-PQILIY',
     duration: '6 hours',
-    videos: [{ id: '48Fn-PQILIY', title: "Premiere Pro For Beginners — 2025 Edition", by: "Valentina Vee x Adobe Video" }, { id: 'u4vX5RgUX0E', title: "Premiere Pro Tutorial for Beginners — Full Course in 1 Hour", by: "" }, { id: 'oLMdXC_B1vQ', title: "Learn Adobe Premiere Pro Start to Finish — 2 Hour Workshop", by: "Adobe Video" }],
+    videos: [{ id: '48Fn-PQILIY', title: "Premiere Pro For Beginners — 2025 Edition", by: "Valentina Vee x Adobe Video" }, { id: 'u4vX5RgUX0E', title: "Premiere Pro Tutorial for Beginners — Full Course in 1 Hour", by: "" }, { id: 'oLMdXC_B1vQ', title: "Learn Adobe Premiere Pro Start to Finish — 2 Hour Workshop", by: "Adobe Video" }, { id: 'xDq3ij-oHJA', title: "Premiere Pro Tutorial for Beginners — Full Course", by: "" }, { id: 'aq-_Gd9EI_c', title: "Free Course: How to Use Adobe Premiere Pro for Beginners", by: "" }],
     objective: "Premiere Pro is the first editing tool everyone learns here, since it sits beside After Effects in the same Adobe workflow. Import, cut, trim, transitions, titles and export, end to end.",
     deliverable: "A 60 second edit built from raw footage, exported and shared with the team.",
     criteria: ["Clean cuts with no accidental gaps","Titles and audio levelled","Exported at the right size and format for its platform"]
@@ -333,18 +333,18 @@ const LADDER_MISSIONS = [
     criteria: ["Each version has a stated idea behind its pacing","You can name the cut types you used","The two versions feel clearly different"]
   },
   {
-    id: 'lad-03', code: 'MOTION-1', origin: 'added', type: 'course', level: 'Practitioner', hours: 8,
+    id: 'lad-03', code: 'MOTION-1', origin: 'added', type: 'course', level: 'Intermediate', hours: 8,
     title: "Motion Foundations in After Effects",
     source: "Free YouTube courses (After Effects is part of the Adobe licence)",
     url: 'https://www.youtube.com/watch?v=lHlyBUn9OAs',
     duration: "8 hours",
-    videos: [{ id: 'lHlyBUn9OAs', title: "After Effects for Beginners — Free Course", by: "Motion by Nick" }, { id: 'ALmYrTm6EKQ', title: "Learn After Effects — Beginner Motion Design Workshop", by: "Adobe Video" }], 
+    videos: [{ id: 'lHlyBUn9OAs', title: "After Effects for Beginners — Free Course", by: "Motion by Nick" }, { id: 'ALmYrTm6EKQ', title: "Learn After Effects — Beginner Motion Design Workshop", by: "Adobe Video" }, { id: 'ROw_Xnmg2W4', title: "Complete Intro to Motion Design — Full After Effects Course", by: "TipTut" }, { id: '9dl2vd2vbk4', title: "After Effects Basics Tutorial Series for Beginners", by: "Motion Nations" }], 
     objective: "Animate shapes, text and layers with keyframes, masks and precomps, and know where everything lives in the timeline.",
     deliverable: "A 10 second looping motion piece built from your own layout.",
     criteria: ["Loops cleanly with no visible jump","Layers named and organised","Rendered and shared with the team"]
   },
   {
-    id: 'lad-04', code: 'MOTION-2', origin: 'added', type: 'course', level: 'Practitioner', hours: 4,
+    id: 'lad-04', code: 'MOTION-2', origin: 'added', type: 'course', level: 'Intermediate', hours: 4,
     title: "Timing, Easing and Graph Editor",
     source: "Free YouTube lessons",
     url: 'https://www.youtube.com/watch?v=6zrEKEuJGKs',
@@ -355,7 +355,7 @@ const LADDER_MISSIONS = [
     criteria: ["No keyframe left on default easing","Heavy and light objects move differently","Shown next to the original so the difference is visible"]
   },
   {
-    id: 'lad-05', code: '3D-1', origin: 'added', type: 'course', level: 'Practitioner', hours: 10,
+    id: 'lad-05', code: '3D-1', origin: 'added', type: 'course', level: 'Intermediate', hours: 10,
     title: "Blender Foundations",
     source: "Free — Blender is open source",
     url: 'https://www.youtube.com/watch?v=4haAdmHqGOw',
@@ -448,7 +448,7 @@ const LADDER_MISSIONS = [
    Free material for the Design Team: craft, branding, art direction, AI. */
 const DESIGN_MISSIONS = [
   {
-    id: 'des-01', code: 'CRAFT-1', origin: 'added', type: 'course', level: 'Practitioner', hours: 6,
+    id: 'des-01', code: 'CRAFT-1', origin: 'added', type: 'course', level: 'Intermediate', hours: 6,
     title: "Photoshop Craft",
     source: "Free YouTube lessons (Photoshop is part of the Adobe licence)",
     url: 'https://www.youtube.com/watch?v=RzBHzo-IWQU',
@@ -459,7 +459,7 @@ const DESIGN_MISSIONS = [
     criteria: ["Every edit can be changed later","Layers named and grouped so a colleague can open the file","Edges and masks hold up at 100% zoom"]
   },
   {
-    id: 'des-02', code: 'CRAFT-2', origin: 'added', type: 'course', level: 'Practitioner', hours: 6,
+    id: 'des-02', code: 'CRAFT-2', origin: 'added', type: 'course', level: 'Intermediate', hours: 6,
     title: "Illustrator and Logo Construction",
     source: "Free YouTube lessons (Illustrator is part of the Adobe licence)",
     url: 'https://www.youtube.com/watch?v=0_4-hbHM0Ck',
@@ -470,7 +470,7 @@ const DESIGN_MISSIONS = [
     criteria: ["Paths use the fewest points that work","Curves are smooth at 400% zoom","The mark works in one colour"]
   },
   {
-    id: 'des-03', code: 'LAYOUT-1', origin: 'added', type: 'course', level: 'Practitioner', hours: 5,
+    id: 'des-03', code: 'LAYOUT-1', origin: 'added', type: 'course', level: 'Intermediate', hours: 5,
     title: "Layout Systems: Grids and Composition",
     source: "Free YouTube lessons",
     url: 'https://www.youtube.com/watch?v=kWbp1vEEuB0',
@@ -481,7 +481,7 @@ const DESIGN_MISSIONS = [
     criteria: ["The grid is drawn and written down","Every break from the grid is deliberate","Holds across all three formats"]
   },
   {
-    id: 'des-04', code: 'BRAND-1', origin: 'added', type: 'course', level: 'Practitioner', hours: 5,
+    id: 'des-04', code: 'BRAND-1', origin: 'added', type: 'course', level: 'Intermediate', hours: 5,
     title: "Brand Strategy and Positioning",
     source: "Free YouTube lessons",
     url: 'https://www.youtube.com/watch?v=y1YiAKzivsg',
@@ -536,7 +536,7 @@ const DESIGN_MISSIONS = [
     criteria: ["The idea fits in one sentence","The three executions clearly belong together","You rejected at least ten other ideas on paper"]
   },
   {
-    id: 'des-09', code: 'AI-2', origin: 'added', type: 'course', level: 'Practitioner', hours: 5,
+    id: 'des-09', code: 'AI-2', origin: 'added', type: 'course', level: 'Intermediate', hours: 5,
     title: "AI for Designers: Free Image Workflow",
     source: "Free and open source tools",
     url: 'https://www.youtube.com/watch?v=w8EcDV3tOCI',
@@ -700,7 +700,7 @@ const STAGE2_MISSIONS = [
    Personal, free, and they start once the shared path is done. */
 const BONUS_MISSIONS = [
   {
-    id: 'bon-montage', code: 'SPEC-ED', origin: 'added', type: 'course', level: 'Specialisation', hours: 8,
+    id: 'bon-montage', code: 'SPEC-ED', origin: 'added', type: 'course', level: 'Extra skill', hours: 8,
     title: "Advanced Montage",
     source: "Internal — editing as a specialism",
     url: 'https://www.youtube.com/watch?v=2AfnqysJuFI',
@@ -712,7 +712,7 @@ const BONUS_MISSIONS = [
     criteria: ["Each version has a stated structural idea","Cut points are chosen before the timeline opens","One version works on picture alone","You can defend the final choice in a sentence"]
   },
   {
-    id: 'bon-blender', code: 'SPEC-3D', origin: 'added', type: 'course', level: 'Specialisation', hours: 10,
+    id: 'bon-blender', code: 'SPEC-3D', origin: 'added', type: 'course', level: 'Extra skill', hours: 10,
     title: "Blender Deep Dive",
     source: "Free YouTube courses",
     url: 'https://www.youtube.com/watch?v=q3q3-iweRZ8',
@@ -724,7 +724,7 @@ const BONUS_MISSIONS = [
     criteria: ["Both pieces rendered and edited together","The Geometry Nodes setup is organised and reusable","Notes on what you would do differently next time"]
   },
   {
-    id: 'bon-uiux', code: 'SPEC-UX', origin: 'added', type: 'course', level: 'Specialisation', hours: 10,
+    id: 'bon-uiux', code: 'SPEC-UX', origin: 'added', type: 'course', level: 'Extra skill', hours: 10,
     title: "UI/UX Foundations",
     source: "Free YouTube courses (Figma free plan)",
     url: 'https://www.youtube.com/watch?v=cKZEgtQUxlU',
@@ -1085,6 +1085,7 @@ const HEROES = [
   },
   {
     id: 'yomna', name: 'Yomna', title: 'Junior Designer',
+    midCap: true,
     target: "A strong mid-level designer in branding, art direction and AI, with working skills in editing, motion and Blender.",
     division: 'forge', rank: 'Junior',
     tagline: 'Fundamentals first, then the work becomes hers. A straight climb with nothing in the way.',
@@ -1156,6 +1157,7 @@ const HEROES = [
   },
   {
     id: 'asmaa', name: 'Asmaa', title: 'Intern Designer',
+    midCap: true,
     target: "A strong mid-level designer, well beyond the junior track, with working skills in editing, motion and Blender.",
     division: 'forge', rank: 'Intern',
     tagline: 'Ninety days from production support to ready for a Junior seat.',
@@ -1253,22 +1255,22 @@ const JOURNEY = [
   { n: 6, chapter: 1, level: 'Foundation', name: "Photoshop & Illustrator Craft",
     tagline: "The file craft that every strong design sits on.",
     core: [], arc: [], track: [], team: {}, people: {'islam':['des-01','des-02'],'yomna':['des-01','des-02'],'asmaa':['des-01','des-02']}, bonus: [] },
-  { n: 7, chapter: 2, level: 'Practitioner', name: "Motion Foundations",
+  { n: 7, chapter: 2, level: 'Intermediate', name: "Motion Foundations",
     tagline: "Animate in After Effects, then shape the timing.",
     core: ['lad-03'], arc: [], track: [], team: {'kinetic':['lad-04']}, people: {}, bonus: [] },
-  { n: 8, chapter: 2, level: 'Practitioner', name: "Blender Foundations",
+  { n: 8, chapter: 2, level: 'Intermediate', name: "Blender Foundations",
     tagline: "One complete 3D scene from first open to final render.",
     core: ['lad-05'], arc: [], track: [], team: {}, people: {}, bonus: [] },
-  { n: 9, chapter: 2, level: 'Practitioner', name: "Craft & Composition",
+  { n: 9, chapter: 2, level: 'Intermediate', name: "Craft & Composition",
     tagline: "Manual and AI technique, and knowing which one a job needs.",
     core: ['core-05'], arc: [1], track: [], team: {}, people: {}, bonus: [] },
-  { n: 10, chapter: 2, level: 'Practitioner', name: "Brand Strategy",
+  { n: 10, chapter: 2, level: 'Intermediate', name: "Brand Strategy",
     tagline: "Decide who the brand is for before drawing anything.",
     core: [], arc: [], track: [], team: {'forge':['des-04']}, people: {}, bonus: [] },
-  { n: 11, chapter: 2, level: 'Practitioner', name: "Grade & Sound",
+  { n: 11, chapter: 2, level: 'Intermediate', name: "Grade & Sound",
     tagline: "Colour grade and sound, the two things that finish an edit.",
     core: [], arc: [], track: [], team: {'kinetic':['lad-13','lad-07','lad-08']}, people: {}, bonus: [] },
-  { n: 12, chapter: 2, level: 'Practitioner', name: "Presenting & Review",
+  { n: 12, chapter: 2, level: 'Intermediate', name: "Presenting & Review",
     tagline: "Explain the work, and give and take feedback that is specific.",
     core: ['core-08','core-09'], arc: [2], track: [], team: {}, people: {}, bonus: [] },
   { n: 13, chapter: 3, level: 'Senior', name: "Identity & Guidelines",
@@ -1290,7 +1292,7 @@ const JOURNEY = [
     tagline: "Run the review: frame the problem, present the direction, move the work.",
     core: [], arc: [], track: [], team: {}, people: {'mahmoud':['des-11']}, bonus: [] },
   { n: 19, chapter: 3, level: 'Senior', name: "Capstone",
-    tagline: "One piece that uses every skill, presented as a senior would.",
+    tagline: "One piece that uses every skill, presented clearly with your reasoning.",
     core: [], arc: [3], track: [], team: {'kinetic':['lad-11'],'forge':['des-12']}, people: {}, bonus: [] },
   { n: 20, chapter: 4, level: 'Stage 2', name: "Portfolio & Case Studies",
     tagline: "Document the work so it can be seen.",
@@ -1319,17 +1321,17 @@ const JOURNEY = [
   { n: 28, chapter: 4, level: 'Stage 2', name: "Stage 2 Project",
     tagline: "One real piece that proves the extra depth.",
     core: [], arc: [], track: [], team: {'kinetic':['s2-09'],'forge':['s2-11']}, people: {}, bonus: [] },
-  { n: 29, chapter: 4, level: 'Specialisation', name: "Specialisation I",
+  { n: 29, chapter: 4, level: 'Extra skill', name: "Specialisation I",
     tagline: "A personal specialisation, starting once the shared path is complete.",
     core: [], arc: [], track: [], team: {}, people: {}, bonus: [0] },
-  { n: 30, chapter: 4, level: 'Specialisation', name: "Specialisation II",
+  { n: 30, chapter: 4, level: 'Extra skill', name: "Specialisation II",
     tagline: "The second specialisation.",
     core: [], arc: [], track: [], team: {}, people: {}, bonus: [1] }
 ];
 
 const CHAPTERS = {
   1: { name: 'Stage 1 · Month 1 — Foundations', sub: 'Mid-level fundamentals, built in order' },
-  2: { name: 'Stage 1 · Month 2 — Practitioner', sub: 'Motion, 3D and craft in practice' },
+  2: { name: 'Stage 1 · Month 2 — Intermediate', sub: 'Motion, 3D and craft in practice' },
   3: { name: 'Stage 1 · Month 3 — Senior', sub: 'Senior-level work and a capstone' },
   4: { name: 'Stage 2 · Month 4 — Depth', sub: 'Extra craft, a portfolio and a real project' }
 };
