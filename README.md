@@ -45,9 +45,9 @@ courses and only opens once the stage before it is complete.
 
 | Month | Level | Stages |
 |---|---|---|
-| 1 — Foundations | Foundation | Briefing & Planning · AI Workflow · Editing Foundations · Typography · Colour |
-| 2 — Practitioner | Practitioner | Motion Foundations · Blender Foundations · Craft & Composition · Presenting & Review |
-| 3 — Senior | Senior | Blender: Light & Product · Grade & Sound · AI Video Workflow · Senior Capstone |
+| 1 — Foundations | Foundation | Briefing & Planning · AI Workflow · Editing Foundations (Premiere Pro, then story concepts, then cuts and pacing) · Typography · Colour |
+| 2 — Practitioner | Practitioner | Motion Foundations · Blender Foundations · Craft & Composition · Presenting & Review · Grade & Sound (DaVinci Resolve) |
+| 3 — Senior | Senior | Blender: Light & Product · AI Video Workflow · Senior Capstone |
 | 3 | Specialisation | Personal, one stage each, after the shared path |
 
 Every course lists its own **YouTube videos** with thumbnails, a hand-in piece of work and
@@ -58,13 +58,13 @@ and per person (about 9 to 10 hours a week across 13 weeks). **Every track is ca
 
 | Person | Specialisations | Stages | Hours |
 |---|---|---|---|
-| Alice | Advanced Montage | 14 | 125 |
-| Shimaa | Advanced Montage → Blender Deep Dive | 15 | 135 |
-| Abdelrahman Makhlouf | Advanced Montage → Blender Deep Dive | 15 | 135 |
-| Mahmoud | Brand Identity | 14 | 132 |
-| Islam | Brand Identity | 14 | 131 |
-| Yomna | none assigned yet | 13 | 119 |
-| Asmaa | UI/UX → Brand Identity | 15 | 134 |
+| Alice | Advanced Montage | 14 | 129 |
+| Shimaa | Advanced Montage → Blender Deep Dive | 15 | 139 |
+| Abdelrahman Makhlouf | Advanced Montage → Blender Deep Dive | 15 | 139 |
+| Mahmoud | Brand Identity | 14 | 136 |
+| Islam | Brand Identity | 14 | 135 |
+| Yomna | none assigned yet | 13 | 123 |
+| Asmaa | UI/UX → Brand Identity | 15 | 138 |
 
 Stages live in `JOURNEY` in `data.js`. A person's priority courses fill the `arc` slots in the order
 of their `extras` array (use `null` to leave a slot empty). A stage with no courses for someone is dropped.
