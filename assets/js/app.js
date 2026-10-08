@@ -29,6 +29,7 @@ const COURSE_INDEX = (() => {
   LADDER_MISSIONS.forEach(x => m[x.id] = x);
   DESIGN_MISSIONS.forEach(x => m[x.id] = x);
   STAGE2_MISSIONS.forEach(x => m[x.id] = x);
+  STAGE3_MISSIONS.forEach(x => m[x.id] = x);
   BONUS_MISSIONS.forEach(x => m[x.id] = x);
   return m;
 })();
@@ -150,7 +151,7 @@ function programClock() {
   const start = new Date(PROGRAM.startDate + 'T00:00:00');
   const day = Math.floor((new Date() - start) / 86400000) + 1;
   const d = Math.min(Math.max(day, 1), PROGRAM.days);
-  return { day: d, left: Math.max(PROGRAM.days - d, 0), month: Math.min(Math.ceil(d / 30), 4) };
+  return { day: d, left: Math.max(PROGRAM.days - d, 0), month: Math.min(Math.ceil(d / 30), 6) };
 }
 
 function toast(msg, sub) {
@@ -463,7 +464,7 @@ function renderPerson(id) {
 
   const months = p.phases.map(ph => `
     <div class="card month">
-      <div class="month__n">Month ${ph.n}${ph.origin === 'added' ? '<span class="draft">Draft</span>' : ''}</div>
+      <div class="month__n">${esc(ph.label || 'Month ' + ph.n)}${ph.origin === 'added' ? '<span class="draft">Draft</span>' : ''}</div>
       <div class="month__name">${esc(ph.name)}</div>
       <ul>${ph.objectives.map(o => `<li>${esc(o)}</li>`).join('')}</ul>
       <div class="month__check"><b>Checkpoint</b>${esc(ph.checkpoint)}</div>
@@ -495,11 +496,13 @@ function renderPerson(id) {
           </div>
           <div class="prog__track"><div class="prog__fill" id="p-fill" style="width:${s.pct}%"></div></div>
           <div id="nextup-host">${nextUpHTML(p)}</div>
+          <button class="btn btn--ghost btn--small mt-s" id="person-reset">Reset ${esc(p.name.split(' ')[0])}’s progress</button>
         </div>
       </div>
 
       <p class="quote">${esc(p.tagline)}</p>
       <p class="target"><b>Target</b>${esc(p.target || PROGRAM.target)}</p>
+      <p class="target-note">This target is a starting point. The final goal for ${esc(p.name.split(' ')[0])} will be set from the evaluation the Team Lead sent.</p>
 
       <div class="grid-2 mt-l">
         <div class="card pad">
@@ -552,6 +555,12 @@ function renderPerson(id) {
 
   wirePath(p);
   wireNextUp(p);
+  const rb = $('#person-reset');
+  if (rb) rb.addEventListener('click', () => {
+    if (!confirm('Reset all progress for ' + p.name + '? Other people are not affected.')) return;
+    delete progress[p.id]; save(); openStage = null;
+    renderPerson(p.id); updateHUD(); toast('Progress reset', p.name.split(' ')[0]);
+  });
   window.scrollTo(0, 0);
 }
 
@@ -608,6 +617,7 @@ function renderCatalogue() {
   const html =
     block('Shared core', 'Everyone takes all nine. One standard across the team.', 'var(--ink)', CORE_MISSIONS) +
     block('Editing, motion and Blender ladder', 'Free material, taken by everyone, ordered from mid-level to senior.', 'var(--orange)', LADDER_MISSIONS) +
+    block('Stage 2 courses (months 4 to 6)', 'More free video lessons for the second half: motion, 3D, editing, design craft, UX and leadership.', 'var(--violet)', [...STAGE2_MISSIONS, ...STAGE3_MISSIONS]) +
     block('Design Team ladder', 'Free material for craft, branding, art direction and AI, taken by the Design Team at the depth each person needs.', 'var(--orange)', DESIGN_MISSIONS) +
     block('Personal priority courses', 'Chosen for specific people. They sit inside the path at the stage where they fit.', 'var(--teal)', priority) +
     block('Specialisations', 'Personal, and only start once someone has completed the shared plan.', 'var(--violet)',

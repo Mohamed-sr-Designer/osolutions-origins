@@ -1,6 +1,6 @@
 # Osolutions — Learning Path
 
-A 120 day development plan for the Osolutions design and motion teams, built from the
+A 180 day development plan for the Osolutions design and motion teams, built from the
 **"Enhance & Process"** deck (62 slides).
 
 ## Run it
@@ -53,7 +53,7 @@ foundations, Blender foundations, craft and presenting stages. Then the path spl
 
 Each course lists its own YouTube videos with thumbnails, a hand-in piece of work and a
 completion checklist, plus an hour estimate rolled up per stage, month and person.
-**Every track is capped at 4 months.**
+**Every track is capped at 6 months.**
 
 ### The Design Team, by person
 

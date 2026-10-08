@@ -7,13 +7,13 @@
 
 const PROGRAM = {
   title: 'Osolutions Learning Path',
-  subtitle: 'Enhance & Process — 120 day development plan',
+  subtitle: 'Enhance & Process — 180 day development plan',
   startDate: '2026-08-18',
-  days: 120,
+  days: 180,
   ranks: ['Intern', 'Junior', 'Designer', 'Senior', 'Lead'],
   levels: ['—', 'Emerging', 'Developing', 'Competent', 'Strong', 'Independent'],
-  cap: 'Every track is capped at 4 months: three for Stage 1, one for Stage 2. Nothing here runs past the 120-day window.',
-  target: 'By day 120 everyone works at senior level in editing, motion and Blender, using free learning material.'
+  cap: 'Every track is capped at 6 months: three for Stage 1, three for Stage 2. Nothing here runs past the 180-day window.',
+  target: 'By day 180 everyone works at senior level in editing, motion and Blender, using free video lessons. Final goals are set from each person\'s evaluation.'
 };
 
 const DIVISIONS = {
@@ -98,7 +98,7 @@ const CORE_MISSIONS = [
     criteria: ['Contrast checked, not eyeballed', 'A written rule for every colour', 'Applied to 3 deliverables without changing the palette']
   },
   {
-    id: 'core-07', code: 'CORE-07', hours: 2, origin: 'added', type: 'practice',
+    id: 'core-07', code: 'CORE-07', hours: 2, videos: [{ id: 'cJrpeLgW_Wc', title: "10 Questions to Ask a Client Before Creating a Design Brief", by: "WebFX" }, { id: '2txi9YNAyjc', title: "16 Client Project Questions for Graphic Designers", by: "Graphic Design How To" }, { id: 'eHi_Y64tiYE', title: "Anatomy of a Strong Graphic Design Brief", by: "Gareth David Studio" }, { id: 'NGnSnGUB1vs', title: "How to Nail Your Design Brief", by: "Digisnapsss" }], origin: 'added', type: 'practice',
     title: 'Reading The Brief',
     source: 'Internal — Osolutions workflow',
     url: '',
@@ -118,7 +118,7 @@ const CORE_MISSIONS = [
     criteria: ['Starts with the client goal, not the software', 'One reason per decision', 'Handles one objection without redesigning live']
   },
   {
-    id: 'core-09', code: 'CORE-09', hours: 3, origin: 'added', type: 'practice',
+    id: 'core-09', code: 'CORE-09', hours: 3, videos: [{ id: 'fcoMDIn52pE', title: "How to Give Better Design Feedback", by: "Superside" }, { id: 'JcqG3dILKZY', title: "How to Give a Professional Design Critique", by: "Lindsay Marsh" }, { id: 'F-sGQ1rM6Bw', title: "How to Give Design Feedback", by: "Jesse Showalter" }], origin: 'added', type: 'practice',
     title: 'The Critique Protocol',
     source: 'Internal — feedback process (deck: "a clear feedback process")',
     url: '',
@@ -161,7 +161,7 @@ const TRACK_MISSIONS = {
       criteria: ['The 5 beats written before touching the timeline', 'Every cut serves a beat', 'Someone who has not seen it can retell the story after one watch']
     },
     {
-      id: 'kin-04', code: 'KIN-04', hours: 5, origin: 'added', type: 'practice',
+      id: 'kin-04', code: 'KIN-04', hours: 5, videos: [{ id: 'Uls_jXy9RuU', title: "Create Consistent Characters from an Input Image with Flux", by: "Mickmumpitz" }, { id: 'QpUhPw_H6Qk', title: "Generate Image Using Reference Image with Stable Diffusion and Flux", by: "AI Ninja" }], origin: 'added', type: 'practice',
       title: 'Character Sets & Environments',
       source: 'Internal — named in the deck as a required skill',
       url: '',
@@ -171,7 +171,7 @@ const TRACK_MISSIONS = {
       criteria: ['Same face, wardrobe and proportions across all 6', 'Environments lit differently on purpose', 'Reference sheet saved and reusable']
     },
     {
-      id: 'kin-05', code: 'KIN-05', hours: 4, origin: 'added', type: 'practice',
+      id: 'kin-05', code: 'KIN-05', hours: 4, videos: [{ id: '53C4JPULu68', title: "All Camera Shot Sizes Explained", by: "Shawn Dolinski" }, { id: 'wiMUHOuwI5M', title: "What Are Camera Shot Sizes and Framing", by: "Postpace" }, { id: 'XEEgxwduYFA', title: "Mastering 27 Camera Shots, Moves, and Angles", by: "jimcostafilms" }], origin: 'added', type: 'practice',
       title: 'Space & Magnification',
       source: 'Internal — named in the deck for the execution phase',
       url: '',
@@ -208,7 +208,7 @@ const TRACK_MISSIONS = {
       criteria: ['Dialogue or VO always intelligible', 'At least 3 designed effects', 'No clipping, levels checked against a standard']
     },
     {
-      id: 'kin-09', code: 'KIN-09', hours: 6, origin: 'added', type: 'practice',
+      id: 'kin-09', code: 'KIN-09', hours: 6, videos: [{ id: '0z8Pp4TaAl8', title: "How to Generate AI Videos for FREE with ComfyUI", by: "Kevin Stratvert" }, { id: 'vQyLzgFprFU', title: "ComfyUI: Wan 2.1 Image to Video, Made Simple", by: "Arcane Ai Alchemy" }], origin: 'added', type: 'practice',
       title: 'AI Video Production',
       source: 'Internal — extends the deck’s AI track into motion',
       url: '',
@@ -432,7 +432,7 @@ const LADDER_MISSIONS = [
     criteria: ["The workflow is written down so someone else can repeat it","Matches the grade of surrounding footage","Used where it helps the story"]
   },
   {
-    id: 'lad-11', code: 'CAPSTONE', origin: 'added', type: 'course', level: 'Senior', hours: 8,
+    id: 'lad-11', code: 'CAPSTONE', origin: 'added', type: 'course', level: 'Senior', hours: 8, videos: [{ id: 'vlRmtD1FGlA', title: "The Story to Motion Design Workflow: From Brief to Animation", by: "Styleframe Saturdays" }, { id: 'UMTyVhq7k-E', title: "How to edit a TV Commercial", by: "Michael Odelberth" }, { id: 'Zs9DPR9AsS8', title: "How To Edit A Product Commercial", by: "The Blenderender" }],
     title: "Senior Capstone — one piece, every skill",
     source: "Internal — the proof of senior level",
     url: '',
@@ -569,7 +569,7 @@ const DESIGN_MISSIONS = [
     criteria: ["Notes are specific and about the work","The designer leaves knowing what to change","The review ends with a decision"]
   },
   {
-    id: 'des-12', code: 'CAPSTONE-D', origin: 'added', type: 'course', level: 'Senior', hours: 8,
+    id: 'des-12', code: 'CAPSTONE-D', origin: 'added', type: 'course', level: 'Senior', hours: 8, videos: [{ id: 'FBTvh_OOcNY', title: "How to Design a Brand Identity (Full Guide 2026)", by: "Yanis Xavier" }, { id: 'vVmJXUakZUk', title: "Product Packaging Design From Scratch: Full Process", by: "itsbossin" }, { id: 'LEEiSUlfgIo', title: "Design Better Social Media Posts (Full Process)", by: "GraphiqVibe" }],
     title: "Design Capstone: one brand, one campaign",
     source: "Internal — the proof of level",
     url: 'https://www.youtube.com/watch?v=mhUMNu7XeTE',
@@ -673,7 +673,7 @@ const STAGE2_MISSIONS = [
     criteria: ["Notes are about the work, never the person","The designer knows exactly what to do next","You asked at least one question per critique"]
   },
   {
-    id: 's2-09', code: 'S2-PROJ-M', origin: 'added', type: 'course', level: 'Stage 2', hours: 10,
+    id: 's2-09', code: 'S2-PROJ-M', origin: 'added', type: 'course', level: 'Stage 2', hours: 10, videos: [{ id: 'vlRmtD1FGlA', title: "The Story to Motion Design Workflow: From Brief to Animation", by: "Styleframe Saturdays" }, { id: 'UMTyVhq7k-E', title: "How to edit a TV Commercial", by: "Michael Odelberth" }, { id: 'EAjbcod1HRQ', title: "Complete Blender Camera Tracking Tutorial", by: "Axel Olsson" }],
     title: "Stage 2 Project: a real motion piece",
     source: "Internal — the proof of Stage 2",
     url: '',
@@ -684,7 +684,7 @@ const STAGE2_MISSIONS = [
     criteria: ["Starts from a written brief","At least two Stage 2 techniques used","Delivered and accepted by the account owner"]
   },
   {
-    id: 's2-11', code: 'S2-PROJ-D', origin: 'added', type: 'course', level: 'Stage 2', hours: 10,
+    id: 's2-11', code: 'S2-PROJ-D', origin: 'added', type: 'course', level: 'Stage 2', hours: 10, videos: [{ id: 'mhUMNu7XeTE', title: "Complete Brand Identity Design from Zero to Mockups", by: "GraphiqVibe" }, { id: 'LEEiSUlfgIo', title: "Design Better Social Media Posts (Full Process)", by: "GraphiqVibe" }, { id: 'vVmJXUakZUk', title: "Product Packaging Design From Scratch", by: "itsbossin" }],
     title: "Stage 2 Project: a real design system",
     source: "Internal — the proof of Stage 2",
     url: '',
@@ -693,6 +693,230 @@ const STAGE2_MISSIONS = [
     objective: "Deliver one real piece of work that proves the extra depth: not a single asset but a system.",
     deliverable: "A real project delivered end to end: strategy, identity or packaging or editorial, and the templates to run it.",
     criteria: ["Starts from a written brief","More than one format delivered","Delivered and accepted by the account owner"]
+  }
+];
+
+/* ---------- STAGE 2, months 5 and 6 ---------- */
+const STAGE3_MISSIONS = [
+  {
+    id: 'm-01', code: 'S2-ANIM', origin: 'added', type: 'course', level: 'Stage 2', hours: 5,
+    title: "Animation Principles in After Effects",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=Cxuk8wJQNsY',
+    duration: '5 hours',
+    videos: [{ id: 'Cxuk8wJQNsY', title: "Anticipation: The 12 Principles of Animation", by: "Purple Pie Studios" }, { id: 'feCnLnqqFsI', title: "Animation 201: Secondary Action in After Effects", by: "Adobe Live" }, { id: 'PlLO2WFET6s', title: "Animation Principles in After Effects", by: "Gareth David Studio" }, { id: 'dd1goyY3eXg', title: "12 Principles of Animation: The Complete Series", by: "TipTut" }, { id: 'zfaZtLyyxAI', title: "Making the most of the 12 basic principles for Motion Graphics", by: "Escape Studios" }],
+    objective: "Follow the videos, then apply anticipation, overshoot and follow through to your own work.",
+    deliverable: "Redo one earlier animation so it uses at least four principles, and show before and after.",
+    criteria: ["Four principles clearly visible","Motion feels weighted, not floaty","Before and after shown side by side"]
+  },
+  {
+    id: 'm-02', code: 'S2-TYPE', origin: 'added', type: 'course', level: 'Stage 2', hours: 5,
+    title: "Kinetic Typography",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=-UiaPUbTaME',
+    duration: '5 hours',
+    videos: [{ id: '-UiaPUbTaME', title: "After Effects Tutorial: Kinetic Typography #018", by: "Masd*Lab" }, { id: '4vLwhXY0ZRw', title: "Typography Motion Graphics Animation in After Effects", by: "Motion Nations" }, { id: 'kD73GVXwLXg', title: "Kinetic Typography in After Effects: No Plugins", by: "Avnish Parker" }, { id: 'ICQL3SnPOcU', title: "Text Motion Graphics Tutorial", by: "Ag Motion Designs" }],
+    objective: "Make text move with rhythm and hierarchy, following four full builds.",
+    deliverable: "A 15 second kinetic type piece from a short script, timed to a voice or music track.",
+    criteria: ["Hierarchy stays readable while moving","Timing follows the audio","No default easing"]
+  },
+  {
+    id: 'm-03', code: 'S2-DOC', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "Interview and Documentary Editing",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=q4ZxiJbPD9A',
+    duration: '6 hours',
+    videos: [{ id: 'q4ZxiJbPD9A', title: "Documentary editing: Cut interviews short for story", by: "Moundain" }, { id: 'S9iZ2ZvHVHo', title: "Documentary Scene Editing: B-Roll, A-Roll, Music and Sound", by: "Joshua Kirk" }, { id: '6k7ahnIWvcY', title: "How to Edit a Documentary Like a Pro (4 Lessons)", by: "Austen Menges" }, { id: 'R89niSkCdkg', title: "How to Edit Interviews with B-Roll in Premiere Pro", by: "ParEdits" }, { id: 'LWa-35PXDDg', title: "How to Edit B-Roll: Beginners Guide", by: "Jeven Dovey" }],
+    objective: "Cut long interviews into a clear story and cover them with B-roll.",
+    deliverable: "A 90 second interview piece with at least five B-roll cutaways.",
+    criteria: ["The story makes sense without the questions","B-roll supports the words, not decorates them","Audio levelled"]
+  },
+  {
+    id: 'm-04', code: 'S2-3DANIM', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "Blender Animation Basics",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=5WOrfMz2Sqs',
+    duration: '6 hours',
+    videos: [{ id: '5WOrfMz2Sqs', title: "Beginners Guide to Animation in Blender 4: Keyframes", by: "Grant Abbitt" }, { id: 'geE8Sy97CQE', title: "Beginners Guide to Animation in Blender 4: Graph Editor", by: "Grant Abbitt" }, { id: 'xACMr9nFELU', title: "The Basics of Animation & Keyframes in Blender", by: "Ryan King Art" }, { id: 'sc64wS-gukU', title: "How to Use the Graph Editor for Beginners", by: "Ryan King Art" }, { id: '1_WbNMZplIQ', title: "Animation Quick Start Guide for Absolute Beginners", by: "Ryan King Art" }],
+    objective: "Move objects with intent in 3D: keyframes, interpolation and the graph editor.",
+    deliverable: "A 6 second bouncing and sliding object animation with hand-shaped curves.",
+    criteria: ["Curves edited, not left on default","Clear weight and timing","Rendered and shared"]
+  },
+  {
+    id: 'm-05', code: 'S2-CAM', origin: 'added', type: 'course', level: 'Stage 2', hours: 4,
+    title: "Shots, Angles and Camera Movement",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=53C4JPULu68',
+    duration: '4 hours',
+    videos: [{ id: '53C4JPULu68', title: "All Camera Shot Sizes Explained", by: "Shawn Dolinski" }, { id: 'SlNviMsi0K0', title: "12 Camera Angles to Enhance Your Films", by: "Full Time Filmmaker" }, { id: 'Ce923BeqsXU', title: "Camera Movements Explained 101", by: "Rebel Filmmakers" }, { id: 'XEEgxwduYFA', title: "Mastering 27 Camera Shots, Moves, and Angles", by: "jimcostafilms" }],
+    objective: "Know the shot you want before you cut or animate it.",
+    deliverable: "Pick one scene from your own work and list the shot size, angle and move for every shot, with a reason.",
+    criteria: ["Every shot has a stated reason","At least four different shot sizes","Camera moves are motivated"]
+  },
+  {
+    id: 'm-06', code: 'S2-STYLE', origin: 'added', type: 'course', level: 'Stage 2', hours: 5,
+    title: "Storyboards and Style Frames for Motion",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=G1AK-mrDrnw',
+    duration: '5 hours',
+    videos: [{ id: 'G1AK-mrDrnw', title: "Motion graphics design process: How to create style frames", by: "Milanote" }, { id: '3k7Tj6tcUIs', title: "How To Storyboard For Motion Design", by: "Motion Array Tutorials" }, { id: '43dHC3O_iMU', title: "Designing Style Frames for Motion Design", by: "Kristina ExplainersEasy" }, { id: 'sRMwjqh3cJY', title: "Motion graphics design process: How to make the final animation", by: "Milanote" }, { id: 'vlRmtD1FGlA', title: "The Story to Motion Design Workflow: From Brief to Animation", by: "Styleframe Saturdays" }],
+    objective: "Plan motion work the way studios do: board it, design the key frames, then animate.",
+    deliverable: "A six panel storyboard and three style frames for one real brief, approved before animation.",
+    criteria: ["Storyboard approved before animating","Style frames look like the final piece","Animation matches the style frames"]
+  },
+  {
+    id: 'm-07', code: 'S2-BEAT', origin: 'added', type: 'course', level: 'Stage 2', hours: 3,
+    title: "Cutting to Music",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=GaIGE3FWUJA',
+    duration: '3 hours',
+    videos: [{ id: 'GaIGE3FWUJA', title: "How to Edit to the Beat Using Markers in Premiere", by: "Merle Becker" }, { id: 'rZsRYWJ0FCs', title: "Cut to the Music Beat FAST", by: "Javier Mercedes" }, { id: 'Yd2XFVXGiVU', title: "How To Sync Edits to the Music in Premiere Pro 2025", by: "Tigran H." }, { id: '1NpMieBm1ok', title: "How to edit to the beat in Premiere Pro", by: "Video Editing With Finn" }],
+    objective: "Make the picture and the music feel like one thing.",
+    deliverable: "A 30 second montage cut to a track, with markers on every beat that matters.",
+    criteria: ["Cuts land on the beat","Not every beat is cut","Pace changes with the music"]
+  },
+  {
+    id: 'm-08', code: 'S2-LINK', origin: 'added', type: 'course', level: 'Stage 2', hours: 3,
+    title: "Premiere Pro and After Effects Together",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=oP5oo6gJcus',
+    duration: '3 hours',
+    videos: [{ id: 'oP5oo6gJcus', title: "How Dynamic Link Works with After Effects and Premiere", by: "Adobe Creative Cloud" }, { id: 'DMWM9vaj7B0', title: "How To Create Dynamic Links Between Premiere Pro and After Effects", by: "Mike Murphy" }, { id: 'kNN_wk40kBY', title: "Premiere Pro and After Effects Dynamic Link: Workflow Tips", by: "FilterGrade" }, { id: 'Hzhv_jx8JrQ', title: "Dynamic Link Tutorial", by: "Ben Wood Animation Studio" }],
+    objective: "Move between the two apps without exporting every time.",
+    deliverable: "Take one edit, send three shots to After Effects with Dynamic Link, and bring them back finished.",
+    criteria: ["No intermediate exports","Changes in After Effects update in Premiere","Project files stay organised"]
+  },
+  {
+    id: 'm-09', code: 'S2-SHORT', origin: 'added', type: 'course', level: 'Stage 2', hours: 4,
+    title: "Short-form and Social Video Editing",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=5H2gPnRVI_o',
+    duration: '4 hours',
+    videos: [{ id: '5H2gPnRVI_o', title: "How to Edit Video in Premiere Pro for TikTok, Reels and Shorts", by: "Bolam Unbound" }, { id: 'pq-O1VgEj_4', title: "My Exact Premiere Pro Workflow for Short-Form Content", by: "Chriss Boustedt" }, { id: 'u8E68WsqniU', title: "How to Set Up Premiere Pro for TikTok and Reels", by: "Maxwell Ridgeway" }, { id: 'Z4TvefEhJX8', title: "Edit Viral Hooks Like a Pro in Premiere Pro", by: "Chriss Boustedt" }],
+    objective: "Edit for vertical, for the first three seconds, and for people who watch with the sound off.",
+    deliverable: "Three 20 second vertical edits of one story, each with a different hook.",
+    criteria: ["Hook lands in three seconds","Captions readable on a phone","Safe areas respected"]
+  },
+  {
+    id: 'm-10', code: 'S2-SHADE', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "Blender Shading and Procedural Materials",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=J5t7gzIfTt0',
+    duration: '6 hours',
+    videos: [{ id: 'J5t7gzIfTt0', title: "Introduction to Procedural Shader Nodes for Complete Beginners", by: "Ryan King Art" }, { id: '5B244CYX1Tw', title: "Procedural Nodes For Beginners", by: "Ryan King Art" }, { id: '5DM2K0svM-I', title: "Master Procedural Materials In Blender", by: "Extra 3d" }, { id: '9r26hI7_Nms', title: "Procedural Shading: Fundamentals and Beyond", by: "Dr Eye Render" }],
+    objective: "Build materials from nodes instead of downloading them.",
+    deliverable: "Three procedural materials of your own on one scene.",
+    criteria: ["No image textures used","Materials hold up in close-up","Node trees are tidy and named"]
+  },
+  {
+    id: 'm-11', code: 'S2-REEL', origin: 'added', type: 'course', level: 'Stage 2', hours: 3,
+    title: "Showreel",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=8XNtme1h6EM',
+    duration: '3 hours',
+    videos: [{ id: '8XNtme1h6EM', title: "7 Showreel Tips to Help You Get Hired", by: "The Video Shop" }, { id: 'yedsKSMD_k8', title: "20 Tips For An Amazing Showreel", by: "Ben Marriott" }, { id: 'Le5ylFHXck0', title: "How to build your Motion Graphics Showreel", by: "Digital Motion Academy" }, { id: '6NuGFzgnUrs', title: "Reacting to Motion Graphics Reels: Showreel Review", by: "Ben Marriott" }],
+    objective: "Turn six months of work into one reel people actually finish watching.",
+    deliverable: "A 60 to 90 second showreel with your strongest piece first and your name and contact at the end.",
+    criteria: ["Starts with the best shot","Cut to music","Each piece labelled with your role"]
+  },
+  {
+    id: 'd-01', code: 'S2-MOGFX', origin: 'added', type: 'course', level: 'Stage 2', hours: 5,
+    title: "Animating Your Designs",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=abauHdmiOZw',
+    duration: '5 hours',
+    videos: [{ id: 'abauHdmiOZw', title: "How to animate social media posts in After Effects", by: "Digital Motion Academy" }, { id: 'WzBOY92vanY', title: "Create Social Media Animation in After Effects", by: "Dope Motions" }, { id: 'slbBhLLrCe4', title: "Social Media Pop-up Animation", by: "Skyline Motions" }, { id: 'RFFx92Jk7a4', title: "Animate Motion Graphic Social Media Post", by: "Vijay Gupta" }],
+    objective: "Take a finished static post and bring it to life in After Effects.",
+    deliverable: "Three of your own static posts animated as 6 second clips.",
+    criteria: ["Layout survives the animation","Type stays readable throughout","Exported at platform size"]
+  },
+  {
+    id: 'd-02', code: 'S2-RETOUCH', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "Photo Retouching",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=9GFPYPl7RJQ',
+    duration: '6 hours',
+    videos: [{ id: '9GFPYPl7RJQ', title: "Frequency Separation + Dodge & Burn: Professional Retouching Workflow", by: "Nevison Photography" }, { id: '3B69Djm1gIA', title: "Frequency Separation + Dodge & Burn for high end retouching", by: "Roberta Montagnini" }, { id: 'u_9nnvkhIXI', title: "Frequency Separation and Dodge & Burn in Photoshop: Full Tutorial", by: "Ronnix Photography" }, { id: 'erSPHKcSQKA', title: "My Complete Retouching Workflow", by: "Jerry Besong" }],
+    objective: "Clean, believable retouching that keeps skin and texture.",
+    deliverable: "Retouch one portrait and one product photo, with before and after.",
+    criteria: ["Skin texture is kept","No visible patches at 100%","Non-destructive layers"]
+  },
+  {
+    id: 'd-03', code: 'S2-KERN', origin: 'added', type: 'course', level: 'Stage 2', hours: 4,
+    title: "Type Detail: Kerning and Pairing",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=j6MBrSmi7_M',
+    duration: '4 hours',
+    videos: [{ id: 'j6MBrSmi7_M', title: "4 Essential Tips for Kerning Type & Lettering", by: "The Futur" }, { id: 'MXdAmttDOz4', title: "Kerning and Tracking Type Explained", by: "Gary Bradley" }, { id: 'djn-bHQ_gLw', title: "How to Pair Fonts Like a Pro", by: "Pariah Burke" }, { id: 'zJH3SXlyi1A', title: "Pairing fonts the EASY way", by: "Learn UI Design" }],
+    objective: "The details that make type look professionally set.",
+    deliverable: "Kern one wordmark by hand and pair fonts for three different brands.",
+    criteria: ["Spacing looks even at small and large size","Each pairing has a clear contrast","Used in a real layout"]
+  },
+  {
+    id: 'd-04', code: 'S2-ICON', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "Icons and Illustration",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=FUiRufl7vUw',
+    duration: '6 hours',
+    videos: [{ id: 'FUiRufl7vUw', title: "Adobe Illustrator Illustration for Beginners", by: "Envato Tuts+" }, { id: '3AMZbUW4VYE', title: "Vector Favela Free Illustration Course", by: "Jeremy Mura" }, { id: 'C0f1IRGvmFs', title: "From Concept to Icon: Flat Icon Design in Illustrator", by: "Design with Saad Ahmed" }, { id: 'I7YyZsrWE-k', title: "Illustrating Flat Icons", by: "Adobe Live" }, { id: 'IhAgSPZwl_U', title: "Design a flat icon using Illustrator", by: "The Simple Designers" }],
+    objective: "Draw your own icons and simple illustrations instead of searching for them.",
+    deliverable: "A set of 12 icons in one style, plus one flat illustration for a brand.",
+    criteria: ["All 12 icons share one grid and stroke","Readable at 24px","The illustration uses the brand colours"]
+  },
+  {
+    id: 'd-05', code: 'S2-DECK', origin: 'added', type: 'course', level: 'Stage 2', hours: 4,
+    title: "Presentation and Pitch Deck Design",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=x-ta0Uls0vE',
+    duration: '4 hours',
+    videos: [{ id: 'x-ta0Uls0vE', title: "Mastering Pitch Deck Design with The Deckery", by: "MKW Creative Co." }, { id: '0GC1-a1Rao4', title: "Pitch Deck Narrative and Design Workshop", by: "Village Global" }, { id: 'XEc9SpkjBrI', title: "How To Improve Storytelling In A Pitch Deck", by: "Alejandro Cremades" }, { id: 's2rERXHOTpw', title: "How To Nail Your Pitch Deck's Narrative", by: "Alejandro Cremades" }],
+    objective: "Design decks that tell a story, since this is how most work gets sold.",
+    deliverable: "A 10 slide deck for one of your own projects, designed and ready to present.",
+    criteria: ["One idea per slide","Work shown in context","Ends with a decision"]
+  },
+  {
+    id: 'u-01', code: 'S2-UXPROC', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "UX Process: Research to Wireframes",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=KIWNconZd6E',
+    duration: '6 hours',
+    videos: [{ id: 'KIWNconZd6E', title: "Best Free UX/UI Design Course with Assignments", by: "Dropout Academy" }, { id: 'DAUh0qR8anw', title: "How to learn UI/UX Design for free as a beginner", by: "Dezinx by Kirtanya" }, { id: 'JkEMg9Ctg0A', title: "Intro to UX Design", by: "Noble Desktop" }, { id: 'MBblN98-5lg', title: "UI UX Design Full Course For Beginners", by: "Intellipaat" }],
+    objective: "Follow the real UX process: talk to people, find the problem, sketch, wireframe and test.",
+    deliverable: "For one app idea: five user interviews, a problem statement, and a set of wireframes tested with three people.",
+    criteria: ["Findings come from real people","Wireframes change after testing","Process is documented"]
+  },
+  {
+    id: 'u-02', code: 'S2-PROTO', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "Figma Prototyping and Motion",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=0RP1PDu2di0',
+    duration: '6 hours',
+    videos: [{ id: '0RP1PDu2di0', title: "Motion Design Crash Course: Figma, Smart Animate & UI Animations", by: "Zero To Mastery" }, { id: 'O4e62tbnEFE', title: "Advanced Figma Animation and Prototyping (Free Course)", by: "UIX Design Academy" }, { id: 'KD-EsBfWJmY', title: "Figma tutorial: Prototyping and Interactions", by: "Yariv BE" }, { id: 'eqaahu5-FjY', title: "Figma Course 14: Prototyping and Animation", by: "Joshua Pomeroy" }, { id: 'p0j8CwjBEIM', title: "How to Use Smart Animate in Figma", by: "Soren Iverson" }],
+    objective: "Make screens feel real with interactions and motion.",
+    deliverable: "A clickable prototype of your UX Process screens with at least three animated interactions.",
+    criteria: ["Every main flow can be clicked through","Animations explain, not decorate","Shown to a user and fixed once"]
+  },
+  {
+    id: 'u-03', code: 'S2-SYSTEM', origin: 'added', type: 'course', level: 'Stage 2', hours: 5,
+    title: "Figma Design Systems",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=L-tpK7Eeuow',
+    duration: '5 hours',
+    videos: [{ id: 'L-tpK7Eeuow', title: "Design System & Figma Variable Set Up: Full Tutorial", by: "UI Collective" }, { id: 'iLTGLS-vw3k', title: "Figma Design System Setup: Foundations & Variables", by: "Jonathan Waterworth" }, { id: 'HwiHqfax7Uk', title: "Figma tutorial: auto layout & components", by: "Aliena Cai" }, { id: 'SuJOdt-BP-I', title: "Master Auto Layout & Components in Figma", by: "praise onyenwe" }, { id: 'NcQneN8zt5I', title: "Figma Design Best Practices", by: "Kevin Geary" }],
+    objective: "Turn your screens into a system others can build from.",
+    deliverable: "A small component library with variables, auto layout and variants, used in two screens.",
+    criteria: ["Components use auto layout","Colours and type come from variables","Another designer could use it unaided"]
+  },
+  {
+    id: 'd-06', code: 'S2-LEAD2', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "Leading a Design Team",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=jrm5rVNhZ2I',
+    duration: '6 hours',
+    videos: [{ id: 'jrm5rVNhZ2I', title: "Design Leadership Skills: One on One Meetings to Build Trust", by: "Headway" }, { id: 'XqmgkYvocYU', title: "Design Leadership Skills: Growing and Managing a Design Team", by: "Headway" }, { id: 'vIaWMnfEzlE', title: "An Absolute Beginner's Guide to Design Leadership", by: "Game Devs of Color Expo" }, { id: 'wySDdnwxtRY', title: "How to give great creative direction to other creatives and designers", by: "Creative Director Studio" }, { id: 'dRjW-bscMVA', title: "Advice for New Creative Directors", by: "Philip VanDusen" }],
+    objective: "Run a small team: set direction, hold one to one meetings, and grow the people around you.",
+    deliverable: "Run four one to one meetings and one team review, and write down what you changed because of them.",
+    criteria: ["Each person leaves knowing their next step", "Direction is given as a question or a reason, not an order", "You wrote down what worked and what did not"]
   }
 ];
 
@@ -792,7 +1016,7 @@ const HEROES = [
         checkpoint: 'A full campaign delivered brief-to-master in a single revision round.'
       },
       {
-        n: 4, name: 'Stage 2 — Depth', origin: 'added',
+        n: 4, label: 'Months 4 to 6', name: 'Stage 2 — Depth', origin: 'added',
         objectives: ['Speed up repeatable motion with expressions',
           'Add real VFX and commercial structure to the toolkit',
           'Turn the work into portfolio case studies',
@@ -861,7 +1085,7 @@ const HEROES = [
         checkpoint: 'A project where the treatment was hers and shipped as proposed.'
       },
       {
-        n: 4, name: 'Stage 2 — Depth', origin: 'added',
+        n: 4, label: 'Months 4 to 6', name: 'Stage 2 — Depth', origin: 'added',
         objectives: ['Speed up repeatable motion with expressions',
           'Add real VFX and commercial structure to the toolkit',
           'Turn the work into portfolio case studies',
@@ -876,7 +1100,7 @@ const HEROES = [
   {
     id: 'abdelrahman', name: 'Abdelrahman Makhlouf', title: 'Video Designer',
     division: 'kinetic', rank: 'Designer',
-    tagline: 'A fresh start on the same road: editing, motion and Blender, taken to senior level in 120 days.',
+    tagline: 'A fresh start on the same road: editing, motion and Blender, taken to senior level in 180 days.',
     statusTag: 'Joining the Motion Team',
     origin: [
       'Abdelrahman joins the Motion Team on the same road as Shimaa: the shared standard first, then deeper editing, motion and Blender.',
@@ -891,7 +1115,7 @@ const HEROES = [
     ],
     powersPending: true,
     focus: {
-      headline: 'Focus: reach senior editing, motion and Blender by day 120.',
+      headline: 'Focus: reach senior editing, motion and Blender by day 180.',
       why: 'Editing is the main craft here, with motion and 3D around it. The ladder is ordered so each step makes the next one easier.',
       moves: [
         'Follow the path in order: each stop opens the next',
@@ -931,7 +1155,7 @@ const HEROES = [
         checkpoint: 'A project where the treatment was hers and shipped as proposed.'
       },
       {
-        n: 4, name: 'Stage 2 — Depth', origin: 'added',
+        n: 4, label: 'Months 4 to 6', name: 'Stage 2 — Depth', origin: 'added',
         objectives: ['Speed up repeatable motion with expressions',
           'Add real VFX and commercial structure to the toolkit',
           'Turn the work into portfolio case studies',
@@ -1002,7 +1226,7 @@ const HEROES = [
         checkpoint: 'First-level review is his. The Lead sees escalations only.'
       },
       {
-        n: 4, name: 'Stage 2 — Lead', origin: 'added',
+        n: 4, label: 'Months 4 to 6', name: 'Stage 2 — Lead', origin: 'added',
         objectives: ['Give direction and critique that moves the work',
           'Build systems that hold across social, print and packaging',
           'Turn the work into portfolio case studies',
@@ -1072,7 +1296,7 @@ const HEROES = [
         checkpoint: 'An account running under his name, Lead at delivery only.'
       },
       {
-        n: 4, name: 'Stage 2 — Senior-ready', origin: 'added',
+        n: 4, label: 'Months 4 to 6', name: 'Stage 2 — Senior-ready', origin: 'added',
         objectives: ['Add packaging, editorial and systems work to the range',
           'Give and take direction as a senior would',
           'Turn the work into portfolio case studies',
@@ -1145,7 +1369,7 @@ const HEROES = [
         checkpoint: 'She presents her own work to the account owner and holds the room.'
       },
       {
-        n: 4, name: 'Stage 2 — Stronger', origin: 'added',
+        n: 4, label: 'Months 4 to 6', name: 'Stage 2 — Stronger', origin: 'added',
         objectives: ['Add packaging, editorial and systems work to the range',
           'Turn the work into portfolio case studies',
           'Deliver one real project end to end'],
@@ -1220,7 +1444,7 @@ const HEROES = [
         checkpoint: 'She is doing Junior work before the title changes.'
       },
       {
-        n: 4, name: 'Stage 2 — Stronger', origin: 'added',
+        n: 4, label: 'Months 4 to 6', name: 'Stage 2 — Stronger', origin: 'added',
         objectives: ['Add packaging, editorial and systems work to the range',
           'Turn the work into portfolio case studies',
           'Deliver one real project end to end'],
@@ -1228,8 +1452,7 @@ const HEROES = [
       }
     ],
     boss: 'From production support to Junior-ready — the title just catching up.',
-    extras: [null, 'frg-03', 'frg-05', 'frg-07'],
-    bonus: ['bon-uiux']
+    extras: [null, 'frg-03', 'frg-05', 'frg-07']
   }
 ];
 
@@ -1295,46 +1518,87 @@ const JOURNEY = [
   { n: 19, chapter: 3, level: 'Senior', name: "Capstone",
     tagline: "One piece that uses every skill, presented clearly with your reasoning.",
     core: [], arc: [3], track: [], team: {'kinetic':['lad-11'],'forge':['des-12']}, people: {}, bonus: [] },
-  { n: 20, chapter: 4, level: 'Stage 2', name: "Portfolio & Case Studies",
-    tagline: "Document the work so it can be seen.",
-    core: ['s2-01'], arc: [], track: [], team: {}, people: {}, bonus: [] },
-  { n: 21, chapter: 4, level: 'Stage 2', name: "Expressions",
-    tagline: "Build motion once and reuse it.",
-    core: [], arc: [], track: [], team: {'kinetic':['s2-02']}, people: {}, bonus: [] },
-  { n: 22, chapter: 4, level: 'Stage 2', name: "Tracking & VFX",
-    tagline: "Put 3D into real footage.",
-    core: [], arc: [], track: [], team: {}, people: {'alice':['s2-03']}, bonus: [] },
-  { n: 23, chapter: 4, level: 'Stage 2', name: "Commercial Editing",
+  { n: 20, chapter: 4, level: 'Stage 2', name: "Motion Craft",
+    tagline: "Link the apps, build with expressions, apply the principles.",
+    core: [], arc: [], track: [], team: {'kinetic':['m-08','s2-02','m-01']}, people: {}, bonus: [] },
+  { n: 21, chapter: 4, level: 'Stage 2', name: "Camera & Story",
+    tagline: "Know the shot, then cut the interview into a story.",
+    core: [], arc: [], track: [], team: {'kinetic':['m-05','m-03']}, people: {}, bonus: [] },
+  { n: 22, chapter: 4, level: 'Stage 2', name: "Commercial Editing",
     tagline: "Cut to a clock and a message.",
     core: [], arc: [], track: [], team: {'kinetic':['s2-04']}, people: {}, bonus: [] },
-  { n: 24, chapter: 4, level: 'Stage 2', name: "Packaging",
-    tagline: "Identity you can hold.",
-    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['s2-05'],'islam':['s2-05'],'yomna':['s2-05'],'asmaa':['s2-05']}, bonus: [] },
-  { n: 25, chapter: 4, level: 'Stage 2', name: "Editorial Layout",
-    tagline: "Long form layout with real systems.",
-    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['s2-06'],'islam':['s2-06'],'yomna':['s2-06'],'asmaa':['s2-06']}, bonus: [] },
-  { n: 26, chapter: 4, level: 'Stage 2', name: "Social Systems",
-    tagline: "Templates other people can use without breaking the brand.",
-    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['s2-07'],'islam':['s2-07'],'yomna':['s2-07'],'asmaa':['s2-07']}, bonus: [] },
+  { n: 23, chapter: 4, level: 'Stage 2', name: "Tracking & VFX",
+    tagline: "Put 3D into real footage.",
+    core: [], arc: [], track: [], team: {}, people: {'alice':['s2-03']}, bonus: [] },
+  { n: 24, chapter: 4, level: 'Stage 2', name: "Packaging & Editorial",
+    tagline: "Identity you can hold, and long-form layout.",
+    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['s2-05','s2-06'],'islam':['s2-05','s2-06'],'yomna':['s2-05','s2-06'],'asmaa':['s2-05','s2-06']}, bonus: [] },
+  { n: 25, chapter: 4, level: 'Stage 2', name: "Social & Motion Design",
+    tagline: "Templates others can use, then bring them to life.",
+    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['s2-07','d-01'],'islam':['s2-07','d-01'],'yomna':['s2-07','d-01'],'asmaa':['s2-07','d-01']}, bonus: [] },
+  { n: 26, chapter: 4, level: 'Stage 2', name: "Photo Retouching",
+    tagline: "Clean, believable retouching.",
+    core: [], arc: [], track: [], team: {}, people: {'islam':['d-02'],'yomna':['d-02'],'asmaa':['d-02']}, bonus: [] },
   { n: 27, chapter: 4, level: 'Stage 2', name: "Direction & Critique",
-    tagline: "Give notes that move the work and build trust.",
+    tagline: "Give notes that move the work.",
     core: [], arc: [], track: [], team: {}, people: {'mahmoud':['s2-08'],'islam':['s2-08']}, bonus: [] },
-  { n: 28, chapter: 4, level: 'Stage 2', name: "Stage 2 Project",
-    tagline: "One real piece that proves the extra depth.",
-    core: [], arc: [], track: [], team: {'kinetic':['s2-09'],'forge':['s2-11']}, people: {}, bonus: [] },
-  { n: 29, chapter: 4, level: 'Extra skill', name: "Specialisation I",
+  { n: 28, chapter: 4, level: 'Stage 2', name: "UI/UX Foundations",
+    tagline: "Design for screens people use.",
+    core: [], arc: [], track: [], team: {}, people: {'asmaa':['bon-uiux']}, bonus: [] },
+  { n: 29, chapter: 5, level: 'Stage 2', name: "Animated Type & Pacing",
+    tagline: "Type that moves, edits that sit on the music, video for social.",
+    core: [], arc: [], track: [], team: {'kinetic':['m-02','m-07','m-09']}, people: {}, bonus: [] },
+  { n: 30, chapter: 5, level: 'Stage 2', name: "3D Animation & Shading",
+    tagline: "Move things in Blender, then build their materials.",
+    core: [], arc: [], track: [], team: {'kinetic':['m-04','m-10']}, people: {}, bonus: [] },
+  { n: 31, chapter: 5, level: 'Stage 2', name: "Storyboards & Style Frames",
+    tagline: "Plan motion the way studios do.",
+    core: [], arc: [], track: [], team: {'kinetic':['m-06']}, people: {}, bonus: [] },
+  { n: 32, chapter: 5, level: 'Stage 2', name: "Type Detail & Icons",
+    tagline: "Kerning, pairing and a set of your own icons.",
+    core: [], arc: [], track: [], team: {'forge':['d-03']}, people: {'islam':['d-04'],'yomna':['d-04'],'asmaa':['d-04']}, bonus: [] },
+  { n: 33, chapter: 5, level: 'Stage 2', name: "Brand Guidelines",
+    tagline: "Document the identity so it survives handover.",
+    core: [], arc: [], track: [], team: {}, people: {'yomna':['des-06']}, bonus: [] },
+  { n: 34, chapter: 5, level: 'Stage 2', name: "UX Process & Prototyping",
+    tagline: "From research to a clickable prototype.",
+    core: [], arc: [], track: [], team: {}, people: {'asmaa':['u-01','u-02']}, bonus: [] },
+  { n: 35, chapter: 5, level: 'Stage 2', name: "Video for Designers",
+    tagline: "Edit to music, link Premiere and After Effects, and cut for social.",
+    core: [], arc: [], track: [], team: {'forge':['m-07','m-08','m-09']}, people: {}, bonus: [] },
+  { n: 36, chapter: 5, level: 'Stage 2', name: "3D Animation",
+    tagline: "Move things in Blender.",
+    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['m-04'],'islam':['m-04'],'yomna':['m-04']}, bonus: [] },
+  { n: 37, chapter: 5, level: 'Extra skill', name: "Specialisation I",
     tagline: "A personal specialisation, starting once the shared path is complete.",
     core: [], arc: [], track: [], team: {}, people: {}, bonus: [0] },
-  { n: 30, chapter: 4, level: 'Extra skill', name: "Specialisation II",
+  { n: 38, chapter: 6, level: 'Stage 2', name: "Pitch & Presentation Design",
+    tagline: "Design the deck that sells the work.",
+    core: [], arc: [], track: [], team: {'forge':['d-05']}, people: {}, bonus: [] },
+  { n: 39, chapter: 6, level: 'Stage 2', name: "Design Systems",
+    tagline: "Turn screens into a system.",
+    core: [], arc: [], track: [], team: {}, people: {'asmaa':['u-03']}, bonus: [] },
+  { n: 40, chapter: 6, level: 'Stage 2', name: "Portfolio & Showreel",
+    tagline: "Document the work so it can be seen.",
+    core: ['s2-01'], arc: [], track: [], team: {'kinetic':['m-11']}, people: {}, bonus: [] },
+  { n: 41, chapter: 6, level: 'Stage 2', name: "Leading a Design Team",
+    tagline: "Run one to ones and reviews that grow people.",
+    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['d-06'],'islam':['d-06']}, bonus: [] },
+  { n: 42, chapter: 6, level: 'Extra skill', name: "Specialisation II",
     tagline: "The second specialisation.",
-    core: [], arc: [], track: [], team: {}, people: {}, bonus: [1] }
+    core: [], arc: [], track: [], team: {}, people: {}, bonus: [1] },
+  { n: 43, chapter: 6, level: 'Stage 2', name: "Stage 2 Project",
+    tagline: "One real piece that proves the extra depth.",
+    core: [], arc: [], track: [], team: {'kinetic':['s2-09'],'forge':['s2-11']}, people: {}, bonus: [] }
 ];
 
 const CHAPTERS = {
   1: { name: 'Stage 1 · Month 1 — Foundations', sub: 'Mid-level fundamentals, built in order' },
   2: { name: 'Stage 1 · Month 2 — Intermediate', sub: 'Motion, 3D and craft in practice' },
   3: { name: 'Stage 1 · Month 3 — Senior', sub: 'Senior-level work and a capstone' },
-  4: { name: 'Stage 2 · Month 4 — Depth', sub: 'Extra craft, a portfolio and a real project' }
+  4: { name: 'Stage 2 · Month 4 — Depth', sub: 'New skills, still all on video' },
+  5: { name: 'Stage 2 · Month 5 — Range', sub: 'More tools, more formats' },
+  6: { name: 'Stage 2 · Month 6 — Proof', sub: 'Portfolio, specialisation and a real project' }
 };
 
 /* ---------- SKILL TREE (deck: final "Learning Track" slide) ---------- */
