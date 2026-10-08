@@ -66,14 +66,14 @@ and per person (about 9 to 10 hours a week across 13 weeks). **Every track is ca
 | Yomna | none assigned yet | 13 | 119 |
 | Asmaa | UI/UX → Brand Identity | 15 | 134 |
 
-Stages live in  in . A person's priority courses fill the  slots in the order
-of their  array (use  to leave a slot empty). A stage with no courses for someone is dropped.
+Stages live in `JOURNEY` in `data.js`. A person's priority courses fill the `arc` slots in the order
+of their `extras` array (use `null` to leave a slot empty). A stage with no courses for someone is dropped.
 
 ## Adding course links
 
 Drop a new course into `CORE_MISSIONS`, `TRACK_MISSIONS.*` or `BONUS_MISSIONS` in `data.js`.
 
-**Videos:** add  to a course and each one renders as a thumbnail card with its title.
+**Videos:** add `videos: [{ id, title, by }]` to a course and each one renders as a thumbnail card with its title.
 
 **Single links are automatic.** Any YouTube `url` — `watch?v=`, `youtu.be/`, `/embed/`
 or `/shorts/` — has its poster frame pulled from `img.youtube.com` with no extra work.
