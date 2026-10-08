@@ -230,7 +230,7 @@ const TRACK_MISSIONS = {
   ],
   forge: [
     {
-      id: 'frg-01', code: 'FRG-01', hours: 4, origin: 'deck', type: 'practice',
+      id: 'frg-01', code: 'FRG-01', hours: 4, videos: [{ id: '-oMqEVHcukg', title: "How a Brand Designer Actually Moodboards", by: "Will Paterson" }, { id: 'gK0ynvv9Yas', title: "How I Create Mood Boards For My Design Projects", by: "Paola Kassa" }, { id: 'GSBjVedREWE', title: "Mastering Moodboards: Great Creative Work", by: "orenmeetsworld" }], origin: 'deck', type: 'practice',
       title: 'Mood Board Before Execution',
       source: 'Internal — the deck’s stated fix for repeated work',
       url: '',
@@ -249,7 +249,7 @@ const TRACK_MISSIONS = {
       criteria: ['Grid documented and reusable', 'Every break from it is intentional', 'Holds across all 4 formats']
     },
     {
-      id: 'frg-03', code: 'FRG-03', hours: 5, origin: 'added', type: 'practice',
+      id: 'frg-03', code: 'FRG-03', hours: 5, videos: [{ id: 'L70dxMOSecU', title: "Advanced Photoshop for Everyone (free course)", by: "Envato Tuts+" }, { id: 'RzBHzo-IWQU', title: "Adobe Photoshop Free Course for Beginners", by: "Pixel & Bracket" }], origin: 'added', type: 'practice',
       title: 'Retouching & Compositing',
       source: 'Internal — extends CORE-05', url: '',
       duration: '1 week',
@@ -267,7 +267,7 @@ const TRACK_MISSIONS = {
       criteria: ['Another designer can use it without asking you', 'Covers at least 5 recurring formats', 'Written, not implied']
     },
     {
-      id: 'frg-05', code: 'FRG-05', hours: 4, origin: 'added', type: 'practice',
+      id: 'frg-05', code: 'FRG-05', hours: 4, videos: [{ id: 'N8TQfE1qKeE', title: "Master Layout & Composition Design", by: "Satori Graphics" }, { id: 'v04_46cWiDY', title: "7 Advanced Tips For Layout & Composition", by: "Typefool" }], origin: 'added', type: 'practice',
       title: 'Layout For Social',
       source: 'Internal', url: '',
       duration: '1 week',
@@ -285,7 +285,7 @@ const TRACK_MISSIONS = {
       criteria: ['The two directions are genuinely different', 'Each has a written rationale', 'You recommend one and can defend it']
     },
     {
-      id: 'frg-07', code: 'FRG-07', hours: 4, origin: 'added', type: 'practice',
+      id: 'frg-07', code: 'FRG-07', hours: 4, videos: [{ id: '_WyYr1p1XVk', title: "How to Present Design So Clients Say YES", by: "Flux Academy" }, { id: 'RJEINa1G1cQ', title: "How to Present Logo Concepts to Clients", by: "Megan Weeks" }], origin: 'added', type: 'practice',
       title: 'Deck & Presentation Craft',
       source: 'Internal', url: '',
       duration: '1 week',
@@ -444,6 +444,143 @@ const LADDER_MISSIONS = [
   }
 ];
 
+/* ---------- DESIGN LADDER ----------
+   Free material for the Design Team: craft, branding, art direction, AI. */
+const DESIGN_MISSIONS = [
+  {
+    id: 'des-01', code: 'CRAFT-1', origin: 'added', type: 'course', level: 'Practitioner', hours: 6,
+    title: "Photoshop Craft",
+    source: "Free YouTube lessons (Photoshop is part of the Adobe licence)",
+    url: 'https://www.youtube.com/watch?v=RzBHzo-IWQU',
+    duration: '6 hours',
+    videos: [{ id: 'RzBHzo-IWQU', title: "Adobe Photoshop Free Course for Beginners (Full)", by: "Pixel & Bracket" }, { id: 'L70dxMOSecU', title: "Advanced Photoshop for Everyone", by: "Envato Tuts+" }, { id: 'y501KkJGsOY', title: "Free Graphic Design Course: Beginner to Advanced Photoshop", by: "Azad Chaiwala" }],
+    objective: "Strong layout is only as good as the craft under it: layers, masks, selections, smart objects and non-destructive workflow done properly.",
+    deliverable: "Rebuild one of your own older pieces with a fully non-destructive file: named layers, masks, smart objects, nothing flattened.",
+    criteria: ["Every edit can be changed later","Layers named and grouped so a colleague can open the file","Edges and masks hold up at 100% zoom"]
+  },
+  {
+    id: 'des-02', code: 'CRAFT-2', origin: 'added', type: 'course', level: 'Practitioner', hours: 6,
+    title: "Illustrator and Logo Construction",
+    source: "Free YouTube lessons (Illustrator is part of the Adobe licence)",
+    url: 'https://www.youtube.com/watch?v=0_4-hbHM0Ck',
+    duration: '6 hours',
+    videos: [{ id: '0_4-hbHM0Ck', title: "Adobe Illustrator Course: 100% FREE", by: "Jeremy Mura" }, { id: 'mXYPZ7YGwcM', title: "Create a Vector Logo Design from Sketch", by: "Dom Designs" }, { id: 'xE8-LyEJQd8', title: "Learn How To Draw a Vector Logo in Adobe Illustrator", by: "Dansky" }],
+    objective: "Vector craft is the base of every identity. Learn clean paths, shape building and the sketch to vector process.",
+    deliverable: "Take three pencil sketches of a mark and build them as clean vectors, then pick one.",
+    criteria: ["Paths use the fewest points that work","Curves are smooth at 400% zoom","The mark works in one colour"]
+  },
+  {
+    id: 'des-03', code: 'LAYOUT-1', origin: 'added', type: 'course', level: 'Practitioner', hours: 5,
+    title: "Layout Systems: Grids and Composition",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=kWbp1vEEuB0',
+    duration: '5 hours',
+    videos: [{ id: 'kWbp1vEEuB0', title: "Learn Grids and Layouts in Graphic Design", by: "Paola Kassa" }, { id: 'oPrDgIuxdYQ', title: "Better Layouts in Minutes: Using 6 Professional Grids", by: "GraphiqVibe" }, { id: 'DDDFYt7N4Xg', title: "Grid Systems in Graphic Design", by: "4 The Creatives" }, { id: 'N8TQfE1qKeE', title: "Master Layout & Composition Design", by: "Satori Graphics" }],
+    objective: "Stop centring everything. Build a grid, use it, then break it on purpose. Pairs with CORE-04 so type and layout are learned together.",
+    deliverable: "One campaign laid out on a documented grid in three formats.",
+    criteria: ["The grid is drawn and written down","Every break from the grid is deliberate","Holds across all three formats"]
+  },
+  {
+    id: 'des-04', code: 'BRAND-1', origin: 'added', type: 'course', level: 'Practitioner', hours: 5,
+    title: "Brand Strategy and Positioning",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=y1YiAKzivsg',
+    duration: '5 hours',
+    videos: [{ id: 'y1YiAKzivsg', title: "Brand Strategy for Beginners: Audience, Positioning, Values & Personality", by: "4 The Creatives" }, { id: 'swPSJGXExgo', title: "How To Create A Brand Positioning Strategy", by: "Brand Master Academy" }, { id: 'CivS0WAZzlc', title: "Brand Positioning: A 4-Step Framework", by: "Elements Brand Management" }, { id: 'Rcv-J6534oE', title: "What Is Brand Positioning? With Examples", by: "Brand Master Academy" }],
+    objective: "A strong identity starts with a decision about who the brand is for and why it matters. Learn audience, positioning, values and personality before drawing anything.",
+    deliverable: "A one page brand strategy for a real or fictional brand: audience, positioning line, three values, personality in five words.",
+    criteria: ["The positioning fits in one sentence","It names what the brand is not","Written before any visual work starts"]
+  },
+  {
+    id: 'des-05', code: 'BRAND-2', origin: 'added', type: 'course', level: 'Senior', hours: 7,
+    title: "Logo and Identity Design",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=mhUMNu7XeTE',
+    duration: '7 hours',
+    videos: [{ id: 'mhUMNu7XeTE', title: "Complete Brand Identity Design from Zero to Mockups", by: "GraphiqVibe" }, { id: 'FBTvh_OOcNY', title: "How to Design a Brand Identity (Full Guide 2026)", by: "Yanis Xavier" }, { id: 'yB2j6JJmnJk', title: "How To Design a Brand Identity: Real Client Process", by: "Anik Jain" }],
+    objective: "Turn the strategy into a mark, a type and colour system and a set of applications, following the process working studios use.",
+    deliverable: "A full identity built on your BRAND-1 strategy: logo, colour, type and three mockups.",
+    criteria: ["Every visual choice traces back to the positioning","The mark works large and at favicon size","Presented as a story, not a sheet of assets"]
+  },
+  {
+    id: 'des-06', code: 'BRAND-3', origin: 'added', type: 'course', level: 'Senior', hours: 5,
+    title: "Brand Guidelines and Applications",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=bj5UMd1IQUs',
+    duration: '5 hours',
+    videos: [{ id: 'bj5UMd1IQUs', title: "How to Create Brand Guidelines", by: "Edward White" }, { id: 'STWzeKO2CGE', title: "How to design a brand style guide", by: "Kayla" }, { id: 'qFEROyN9kWc', title: "How to create a brandbook", by: "Simplified HQ" }, { id: 'isl5vIjqKDA', title: "Let's InDesign: A Brand Guide", by: "Adobe Live" }],
+    objective: "An identity only survives handover if it is documented. Build the guidelines another designer could use without asking you.",
+    deliverable: "A guidelines document for your BRAND-2 identity: logo rules, colour, type, layout, do and do not.",
+    criteria: ["Another designer could use it unaided","Covers at least five recurring formats","Exported as a clean PDF"]
+  },
+  {
+    id: 'des-07', code: 'ART-1', origin: 'added', type: 'course', level: 'Senior', hours: 6,
+    title: "Art Direction: Visual Language and Moodboards",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=-oMqEVHcukg',
+    duration: '6 hours',
+    videos: [{ id: '-oMqEVHcukg', title: "How a Brand Designer Actually Moodboards", by: "Will Paterson" }, { id: 'FzNpsv6l-mY', title: "Brand Identity Design Process: Mood Board & Visual Direction", by: "Megan Weeks" }, { id: 'GSBjVedREWE', title: "Mastering Moodboards: Great Creative Work", by: "orenmeetsworld" }, { id: 'gK0ynvv9Yas', title: "How I Create Mood Boards For My Design Projects", by: "Paola Kassa" }, { id: 'uOvNil7caN4', title: "How to Art Direct your Mood Board in Photoshop", by: "Jason Murray" }],
+    objective: "Art direction is deciding what the work should look like and why, before anyone opens a file. Learn to build a visual language, not a collage.",
+    deliverable: "Two genuinely different visual directions for one brief, each with a moodboard, a written rationale and a recommendation.",
+    criteria: ["The two directions are clearly different","Each moodboard is annotated, not just pretty","You recommend one and can defend it"]
+  },
+  {
+    id: 'des-08', code: 'ART-2', origin: 'added', type: 'course', level: 'Senior', hours: 6,
+    title: "Campaign Concepting",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=9pCUKOSXrjM',
+    duration: '6 hours',
+    videos: [{ id: '9pCUKOSXrjM', title: "Intro to Concepting: How Ad Creatives Actually Start Ideas", by: "Stuff About Advertising" }, { id: 'fXtb_BH0QQ4', title: "How Great Campaign Ideas Are Actually Created", by: "MySkill" }, { id: '2q4ri4pvVIQ', title: "How to Brainstorm: Pro Advertising Methods", by: "Stuff About Advertising" }, { id: 'Qo7RZSO2YFg', title: "Creative Block? 3 Ways to Get Unstuck", by: "Stuff About Advertising" }, { id: '_VtCIjVVU2s', title: "Creative Strategy for Beginners", by: "Julian Cole" }],
+    objective: "A campaign is one idea that works in many places. Learn to find that idea, test it and carry it across formats.",
+    deliverable: "A campaign concept from brief to three executions, with the one line idea written first.",
+    criteria: ["The idea fits in one sentence","The three executions clearly belong together","You rejected at least ten other ideas on paper"]
+  },
+  {
+    id: 'des-09', code: 'AI-2', origin: 'added', type: 'course', level: 'Practitioner', hours: 5,
+    title: "AI for Designers: Free Image Workflow",
+    source: "Free and open source tools",
+    url: 'https://www.youtube.com/watch?v=w8EcDV3tOCI',
+    duration: '5 hours',
+    videos: [{ id: 'w8EcDV3tOCI', title: "Beginner's Guide to Writing Your First Prompt", by: "OpenArt" }, { id: 'Fc_DmHp2hOc', title: "Use Flux and Stable Diffusion for Free in ComfyUI", by: "Open Integrator" }, { id: '2mZgRdcyN8w', title: "Full AI Art Workflow: ControlNet & Stable Diffusion", by: "Sebastian Kamph" }, { id: 'g-9wo9v4mCs', title: "120 FREE Art Styles to Unlock Flux", by: "Promptvara" }, { id: 'Hd1Li22jjBU', title: "How to Install Stable Diffusion (Forge)", by: "Endangered AI" }],
+    objective: "Use free generative tools as part of a design workflow rather than a one off trick: prompting, references, and finishing in Photoshop. If the workstation cannot run models locally, use the free cloud options shown in the videos.",
+    deliverable: "Three finished assets for a real brief where AI made the raw image and you did the finishing, with the workflow written down.",
+    criteria: ["The workflow is documented so someone can repeat it","Finished in Photoshop, not used raw","Style matches the brand, not the tool default"]
+  },
+  {
+    id: 'des-10', code: 'AI-3', origin: 'added', type: 'course', level: 'Senior', hours: 5,
+    title: "AI Art Direction: Consistent Style and Characters",
+    source: "Free and open source tools",
+    url: 'https://www.youtube.com/watch?v=Uls_jXy9RuU',
+    duration: '5 hours',
+    videos: [{ id: 'Uls_jXy9RuU', title: "Create Consistent Characters from an Input Image with Flux", by: "Mickmumpitz" }, { id: 'QpUhPw_H6Qk', title: "Generate Image Using Reference Image with Stable Diffusion and Flux", by: "AI Ninja" }, { id: 'phtGr4mZ-vU', title: "Improve your Flux image generation with prompts", by: "Code Crafters Corner" }],
+    objective: "The senior skill is control: one visual language held across a whole set, not a lucky single image.",
+    deliverable: "A set of six images in one consistent style or with one consistent character, with the setup that produced them.",
+    criteria: ["All six clearly belong to one world","The reference and prompt set is saved and reusable","Directed by the brand moodboard from ART-1"]
+  },
+  {
+    id: 'des-11', code: 'ART-3', origin: 'added', type: 'course', level: 'Senior', hours: 4,
+    title: "Presenting Ideas and Leading Reviews",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=mU6vF385Z1k',
+    duration: '4 hours',
+    videos: [{ id: 'mU6vF385Z1k', title: "How to Present Ideas to Creative Director With Confidence", by: "Stuff About Advertising" }, { id: '_WyYr1p1XVk', title: "How to Present Design So Clients Say YES", by: "Flux Academy" }, { id: 'RJEINa1G1cQ', title: "How to Present Logo Concepts to Clients", by: "Megan Weeks" }],
+    objective: "A creative lead runs the review: frames the problem, presents the direction and gives notes that move the work forward.",
+    deliverable: "Run one internal review for another designer: frame the brief, give notes, and agree the next step.",
+    criteria: ["Notes are specific and about the work","The designer leaves knowing what to change","The review ends with a decision"]
+  },
+  {
+    id: 'des-12', code: 'CAPSTONE-D', origin: 'added', type: 'course', level: 'Senior', hours: 8,
+    title: "Design Capstone: one brand, one campaign",
+    source: "Internal — the proof of level",
+    url: 'https://www.youtube.com/watch?v=mhUMNu7XeTE',
+    duration: '8 hours',
+    videos: [{ id: 'mhUMNu7XeTE', title: "Complete Brand Identity Design from Zero to Mockups (reference)", by: "GraphiqVibe" }],
+    objective: "Bring strategy, identity, art direction and AI into one piece of work, the way it happens on a real account.",
+    deliverable: "A mini brand with strategy, identity, guidelines and a three execution campaign, presented in five minutes.",
+    criteria: ["Starts from a written strategy","Identity and campaign clearly belong together","At least one AI assisted asset, finished by hand","Presented with the reasoning for every major decision"]
+  }
+];
+
 /* ---------- SPECIALISATIONS ----------
    Personal, free, and they start once the shared path is done. */
 const BONUS_MISSIONS = [
@@ -482,18 +619,6 @@ const BONUS_MISSIONS = [
     objective: "Print and social are about attention. Screens are about what happens next. Learn flows, states and hierarchy for screens people actually use.",
     deliverable: "One small app or landing flow, three screens minimum, with empty, loading, filled and error states.",
     criteria: ["A user flow is drawn before any screen","Tap targets and text sizes checked on a real phone","Every screen has its empty and error state","One round of feedback from someone new"]
-  },
-  {
-    id: 'bon-brand', code: 'SPEC-BR', origin: 'added', type: 'course', level: 'Specialisation', hours: 10,
-    title: "Brand Identity — from zero",
-    source: "Free YouTube courses",
-    url: 'https://www.youtube.com/watch?v=mhUMNu7XeTE',
-    stopName: "Brand Identity",
-    duration: "10 hours",
-    videos: [{ id: 'mhUMNu7XeTE', title: "Complete Brand Identity Design from Zero to Mockups", by: "GraphiqVibe" }, { id: 'FBTvh_OOcNY', title: "How to Design a Brand Identity (Full Guide 2026)", by: "Yanis Xavier" }, { id: 'yB2j6JJmnJk', title: "How To Design a Brand Identity — a real client process", by: "Anik Jain" }], 
-    objective: "Brand Systems teaches you to apply an identity. This teaches you to create one: positioning, personality, the mark, and the reasoning behind it.",
-    deliverable: "A mini identity for one brand, real or fictional: positioning line, personality, logo, type and colour, and three applications.",
-    criteria: ["The positioning is written before any visual","Every visual decision traces back to it","The mark works large and at favicon size","Presented as a story, not a sheet of assets"]
   }
 ];
 
@@ -681,6 +806,7 @@ const HEROES = [
   },
   {
     id: 'mahmoud', name: 'Mahmoud', title: 'Senior Designer',
+    target: "Senior-level branding, art direction and creative direction, with working skills in editing, motion and Blender.",
     division: 'forge', rank: 'Senior',
     tagline: 'The biggest move anyone made this cycle. Quality no longer depends on one person, because it depends on him too.',
     statusTag: 'Works independently',
@@ -738,11 +864,11 @@ const HEROES = [
       }
     ],
     boss: 'Senior Designer to Creative Lead — the person the standard runs through.',
-    extras: ['frg-01', 'frg-04', 'frg-06', 'frg-07'],
-    bonus: ['bon-brand']
+    extras: ['frg-01', null, null, 'frg-07']
   },
   {
     id: 'islam', name: 'Islam', title: 'Graphic Designer',
+    target: "Senior-bound: complete branding, art direction and AI practice, ready for a senior role, with working skills in editing, motion and Blender.",
     division: 'forge', rank: 'Designer',
     tagline: 'A clear run ahead: from making what is asked to deciding what gets asked for.',
     statusTag: 'Baseline being set',
@@ -800,11 +926,11 @@ const HEROES = [
       }
     ],
     boss: 'From executor to Account Owner — the person the client asks for.',
-    extras: ['frg-02', 'frg-03', 'frg-05', 'frg-06'],
-    bonus: ['bon-brand']
+    extras: [null, 'frg-03', 'frg-05', null]
   },
   {
     id: 'yomna', name: 'Yomna', title: 'Junior Designer',
+    target: "A strong mid-level designer in branding, art direction and AI, with working skills in editing, motion and Blender.",
     division: 'forge', rank: 'Junior',
     tagline: 'Fundamentals first, then the work becomes hers. A straight climb with nothing in the way.',
     statusTag: 'Baseline being set',
@@ -864,10 +990,11 @@ const HEROES = [
       }
     ],
     boss: 'From task execution to project responsibility — the work becomes hers.',
-    extras: ['frg-02', 'frg-03', 'frg-05', 'frg-07']
+    extras: [null, 'frg-03', 'frg-05', 'frg-07']
   },
   {
     id: 'asmaa', name: 'Asmaa', title: 'Intern Designer',
+    target: "A strong mid-level designer, well beyond the junior track, with working skills in editing, motion and Blender.",
     division: 'forge', rank: 'Intern',
     tagline: 'Ninety days from production support to ready for a Junior seat.',
     statusTag: 'Baseline being set',
@@ -929,8 +1056,8 @@ const HEROES = [
       }
     ],
     boss: 'From production support to Junior-ready — the title just catching up.',
-    extras: ['frg-02', 'frg-05', null, 'frg-07'],
-    bonus: ['bon-uiux', 'bon-brand']
+    extras: [null, 'frg-03', 'frg-05', 'frg-07'],
+    bonus: ['bon-uiux']
   }
 ];
 
@@ -939,51 +1066,69 @@ const HEROES = [
    before it is fully complete. core = explicit course ids;
    arc / track = indices into that person's priority and team lists. */
 const JOURNEY = [
-  { n: 1, chapter: 1, level: 'Foundation', name: 'Briefing & Planning',
+  { n: 1, chapter: 1, level: 'Foundation', name: "Briefing & Planning",
     tagline: "Start every project knowing the goal, and plan before you open any software.",
-    core: ['core-07'], arc: [0], track: [], bonus: [] },
-  { n: 2, chapter: 1, level: 'Foundation', name: 'AI Workflow',
+    core: ['core-07'], arc: [0], track: [], team: {}, people: {}, bonus: [] },
+  { n: 2, chapter: 1, level: 'Foundation', name: "AI Workflow",
     tagline: "Move from prompting to a node workflow you can re-run and hand over.",
-    core: ['core-01','core-02','core-03'], arc: [], track: [], bonus: [] },
-  { n: 3, chapter: 1, level: 'Foundation', name: 'Editing Foundations',
+    core: ['core-01','core-02','core-03'], arc: [], track: [], team: {}, people: {}, bonus: [] },
+  { n: 3, chapter: 1, level: 'Foundation', name: "Editing Foundations",
     tagline: "Premiere Pro end to end, the story concepts behind every edit, then the craft of the cut.",
-    core: ['lad-01','lad-12','lad-02'], arc: [], track: [], bonus: [] },
-  { n: 4, chapter: 1, level: 'Foundation', name: 'Typography',
-    tagline: "Text hierarchy, so anything reads in two seconds.",
-    core: ['core-04'], arc: [], track: [], bonus: [] },
-  { n: 5, chapter: 1, level: 'Foundation', name: 'Colour',
+    core: ['lad-01','lad-12'], arc: [], track: [], team: {'kinetic':['lad-02']}, people: {}, bonus: [] },
+  { n: 4, chapter: 1, level: 'Foundation', name: "Typography & Layout",
+    tagline: "Text hierarchy and layout systems, so anything reads in two seconds.",
+    core: ['core-04'], arc: [], track: [], team: {'forge':['des-03']}, people: {}, bonus: [] },
+  { n: 5, chapter: 1, level: 'Foundation', name: "Colour",
     tagline: "Turn colour from instinct into a system you can defend.",
-    core: ['core-06'], arc: [], track: [], bonus: [] },
-  { n: 6, chapter: 2, level: 'Practitioner', name: 'Motion Foundations',
+    core: ['core-06'], arc: [], track: [], team: {}, people: {}, bonus: [] },
+  { n: 6, chapter: 1, level: 'Foundation', name: "Photoshop & Illustrator Craft",
+    tagline: "The file craft that every strong design sits on.",
+    core: [], arc: [], track: [], team: {}, people: {'islam':['des-01','des-02'],'yomna':['des-01','des-02'],'asmaa':['des-01','des-02']}, bonus: [] },
+  { n: 7, chapter: 2, level: 'Practitioner', name: "Motion Foundations",
     tagline: "Animate in After Effects, then shape the timing.",
-    core: ['lad-03','lad-04'], arc: [], track: [], bonus: [] },
-  { n: 7, chapter: 2, level: 'Practitioner', name: 'Blender Foundations',
+    core: ['lad-03'], arc: [], track: [], team: {'kinetic':['lad-04']}, people: {}, bonus: [] },
+  { n: 8, chapter: 2, level: 'Practitioner', name: "Blender Foundations",
     tagline: "One complete 3D scene from first open to final render.",
-    core: ['lad-05'], arc: [], track: [], bonus: [] },
-  { n: 8, chapter: 2, level: 'Practitioner', name: 'Craft & Composition',
+    core: ['lad-05'], arc: [], track: [], team: {}, people: {}, bonus: [] },
+  { n: 9, chapter: 2, level: 'Practitioner', name: "Craft & Composition",
     tagline: "Manual and AI technique, and knowing which one a job needs.",
-    core: ['core-05'], arc: [1], track: [], bonus: [] },
-  { n: 9, chapter: 2, level: 'Practitioner', name: 'Presenting & Review',
-    tagline: "Explain the work, and give and take feedback that is specific.",
-    core: ['core-08','core-09'], arc: [2], track: [], bonus: [] },
-  { n: 10, chapter: 2, level: 'Practitioner', name: 'Grade & Sound',
+    core: ['core-05'], arc: [1], track: [], team: {}, people: {}, bonus: [] },
+  { n: 10, chapter: 2, level: 'Practitioner', name: "Brand Strategy",
+    tagline: "Decide who the brand is for before drawing anything.",
+    core: [], arc: [], track: [], team: {'forge':['des-04']}, people: {}, bonus: [] },
+  { n: 11, chapter: 2, level: 'Practitioner', name: "Grade & Sound",
     tagline: "Colour grade and sound, the two things that finish an edit.",
-    core: ['lad-13','lad-07','lad-08'], arc: [], track: [], bonus: [] },
-  { n: 11, chapter: 3, level: 'Senior', name: 'Blender: Light & Product',
+    core: [], arc: [], track: [], team: {'kinetic':['lad-13','lad-07','lad-08']}, people: {}, bonus: [] },
+  { n: 12, chapter: 2, level: 'Practitioner', name: "Presenting & Review",
+    tagline: "Explain the work, and give and take feedback that is specific.",
+    core: ['core-08','core-09'], arc: [2], track: [], team: {}, people: {}, bonus: [] },
+  { n: 13, chapter: 3, level: 'Senior', name: "Identity & Guidelines",
+    tagline: "Build the identity, then document it so it survives handover.",
+    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['des-05','des-06'],'islam':['des-05','des-06'],'yomna':['des-05'],'asmaa':['des-05']}, bonus: [] },
+  { n: 14, chapter: 3, level: 'Senior', name: "Art Direction",
+    tagline: "Visual language, moodboards and campaign ideas.",
+    core: [], arc: [], track: [], team: {'forge':['des-07']}, people: {'mahmoud':['des-08'],'islam':['des-08']}, bonus: [] },
+  { n: 15, chapter: 3, level: 'Senior', name: "AI for Design",
+    tagline: "A free, repeatable AI image workflow, and control over style.",
+    core: [], arc: [], track: [], team: {'forge':['des-09']}, people: {'mahmoud':['des-10'],'islam':['des-10']}, bonus: [] },
+  { n: 16, chapter: 3, level: 'Senior', name: "Blender: Light & Product",
     tagline: "Lighting, materials and a finished animated shot.",
-    core: ['lad-06','lad-09'], arc: [], track: [], bonus: [] },
-  { n: 12, chapter: 3, level: 'Senior', name: 'AI Video Workflow',
+    core: [], arc: [], track: [], team: {'kinetic':['lad-06','lad-09']}, people: {}, bonus: [] },
+  { n: 17, chapter: 3, level: 'Senior', name: "AI Video Workflow",
     tagline: "A free, repeatable AI video pipeline.",
-    core: ['lad-10'], arc: [], track: [], bonus: [] },
-  { n: 13, chapter: 3, level: 'Senior', name: 'Senior Capstone',
+    core: [], arc: [], track: [], team: {'kinetic':['lad-10']}, people: {}, bonus: [] },
+  { n: 18, chapter: 3, level: 'Senior', name: "Creative Direction",
+    tagline: "Run the review: frame the problem, present the direction, move the work.",
+    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['des-11']}, bonus: [] },
+  { n: 19, chapter: 3, level: 'Senior', name: "Capstone",
     tagline: "One piece that uses every skill, presented as a senior would.",
-    core: ['lad-11'], arc: [3], track: [], bonus: [] },
-  { n: 14, chapter: 3, level: 'Specialisation', name: 'Specialisation I',
+    core: [], arc: [3], track: [], team: {'kinetic':['lad-11'],'forge':['des-12']}, people: {}, bonus: [] },
+  { n: 20, chapter: 3, level: 'Specialisation', name: "Specialisation I",
     tagline: "A personal specialisation, starting once the shared path is complete.",
-    core: [], arc: [], track: [], bonus: [0] },
-  { n: 15, chapter: 3, level: 'Specialisation', name: 'Specialisation II',
+    core: [], arc: [], track: [], team: {}, people: {}, bonus: [0] },
+  { n: 21, chapter: 3, level: 'Specialisation', name: "Specialisation II",
     tagline: "The second specialisation.",
-    core: [], arc: [], track: [], bonus: [1] }
+    core: [], arc: [], track: [], team: {}, people: {}, bonus: [1] }
 ];
 
 const CHAPTERS = {

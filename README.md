@@ -39,35 +39,47 @@ IBM Plex Mono for codes and labels.
 
 ## The learning path
 
-One path for everyone, ordered from mid-level to senior, using **free material only**
-(YouTube courses, Blender, DaVinci Resolve, Figma free plan). A stage holds one to four
-courses and only opens once the stage before it is complete.
+One path per person, ordered from mid-level to senior, using **free material only** (YouTube
+courses, Blender, DaVinci Resolve, the Figma free plan; Premiere, After Effects, Photoshop and
+Illustrator courses are free, the apps are covered by the Adobe licence). A stage holds one to
+four courses and only opens once the stage before it is complete.
 
-| Month | Level | Stages |
+Everyone shares the briefing, AI workflow, editing foundations, typography, colour, motion
+foundations, Blender foundations, craft and presenting stages. Then the path splits by team:
+
+| | Motion Team | Design Team |
 |---|---|---|
-| 1 — Foundations | Foundation | Briefing & Planning · AI Workflow · Editing Foundations (Premiere Pro, then story concepts, then cuts and pacing) · Typography · Colour |
-| 2 — Practitioner | Practitioner | Motion Foundations · Blender Foundations · Craft & Composition · Presenting & Review · Grade & Sound (DaVinci Resolve) |
-| 3 — Senior | Senior | Blender: Light & Product · AI Video Workflow · Senior Capstone |
-| 3 | Specialisation | Personal, one stage each, after the shared path |
+| Month 2-3 | Cuts and pacing, easing, grade and sound, Blender light and product, AI video workflow, senior capstone | Photoshop and Illustrator craft, layout systems, brand strategy, identity and guidelines, art direction, AI for design, design capstone |
 
-Every course lists its own **YouTube videos** with thumbnails, a hand-in piece of work and
-a completion checklist. Each course carries an hour estimate, rolled up per stage, per month
-and per person (about 9 to 10 hours a week across 13 weeks). **Every track is capped at 3 months.**
+Each course lists its own YouTube videos with thumbnails, a hand-in piece of work and a
+completion checklist, plus an hour estimate rolled up per stage, month and person.
+**Every track is capped at 3 months.**
 
-### Specialisations
+### The Design Team, by person
+
+| Person | Target | Extra depth |
+|---|---|---|
+| Mahmoud | Senior-level branding, art direction and creative direction | Strategy, identity and guidelines, campaign concepting, AI art direction, presenting and leading reviews |
+| Islam | Senior-bound: the densest design path | Everything above except leading reviews, plus Photoshop and Illustrator craft and layout systems |
+| Yomna | Strong mid-level | Craft, layout, strategy, identity, art direction, AI for design |
+| Asmaa | Strong mid-level, a deliberate push | Same as Yomna, plus a UI/UX specialisation |
+
+### Specialisations and hours
 
 | Person | Specialisations | Stages | Hours |
 |---|---|---|---|
 | Alice | Advanced Montage | 14 | 129 |
-| Shimaa | Advanced Montage → Blender Deep Dive | 15 | 139 |
-| Abdelrahman Makhlouf | Advanced Montage → Blender Deep Dive | 15 | 139 |
-| Mahmoud | Brand Identity | 14 | 136 |
-| Islam | Brand Identity | 14 | 135 |
-| Yomna | none assigned yet | 13 | 123 |
-| Asmaa | UI/UX → Brand Identity | 15 | 138 |
+| Shimaa | Advanced Montage, then Blender Deep Dive | 15 | 139 |
+| Abdelrahman Makhlouf | Advanced Montage, then Blender Deep Dive | 15 | 139 |
+| Mahmoud | none | 15 | 127 |
+| Islam | none | 15 | 136 |
+| Yomna | none | 15 | 124 |
+| Asmaa | UI/UX | 16 | 134 |
 
-Stages live in `JOURNEY` in `data.js`. A person's priority courses fill the `arc` slots in the order
-of their `extras` array (use `null` to leave a slot empty). A stage with no courses for someone is dropped.
+Stages live in `JOURNEY` in `data.js`. A stage lists `core` course ids for everyone, `team` ids per
+team, `people` ids per person, and `arc` slots filled from a person's `extras` array (use `null` to leave a
+slot empty). A stage with no courses for someone is dropped.
+
 
 ## Adding course links
 

@@ -27,6 +27,7 @@ const COURSE_INDEX = (() => {
   CORE_MISSIONS.forEach(x => m[x.id] = x);
   Object.values(TRACK_MISSIONS).flat().forEach(x => m[x.id] = x);
   LADDER_MISSIONS.forEach(x => m[x.id] = x);
+  DESIGN_MISSIONS.forEach(x => m[x.id] = x);
   BONUS_MISSIONS.forEach(x => m[x.id] = x);
   return m;
 })();
@@ -93,6 +94,8 @@ function stageCourses(p, st) {
   const b = personBonus(p);
   return [
     ...st.core.map(id => COURSE_INDEX[id]),
+    ...((st.team || {})[p.division] || []).map(id => COURSE_INDEX[id]),
+    ...((st.people || {})[p.id] || []).map(id => COURSE_INDEX[id]),
     ...st.arc.map(i => g.arc[i]),
     ...st.track.map(i => g.track[i]),
     ...(st.bonus || []).map(i => b[i])
@@ -493,7 +496,7 @@ function renderPerson(id) {
       </div>
 
       <p class="quote">${esc(p.tagline)}</p>
-      <p class="target"><b>Target</b>${esc(PROGRAM.target)}</p>
+      <p class="target"><b>Target</b>${esc(p.target || PROGRAM.target)}</p>
 
       <div class="grid-2 mt-l">
         <div class="card pad">
@@ -602,6 +605,7 @@ function renderCatalogue() {
   const html =
     block('Shared core', 'Everyone takes all nine. One standard across the team.', 'var(--ink)', CORE_MISSIONS) +
     block('Editing, motion and Blender ladder', 'Free material, taken by everyone, ordered from mid-level to senior.', 'var(--orange)', LADDER_MISSIONS) +
+    block('Design Team ladder', 'Free material for craft, branding, art direction and AI, taken by the Design Team at the depth each person needs.', 'var(--orange)', DESIGN_MISSIONS) +
     block('Personal priority courses', 'Chosen for specific people. They sit inside the path at the stage where they fit.', 'var(--teal)', priority) +
     block('Specialisations', 'Personal, and only start once someone has completed the shared plan.', 'var(--violet)',
       BONUS_MISSIONS.map(c => ({ ...c, source: c.source + ' · assigned to ' + (who(c) || 'nobody yet') }))) +
