@@ -582,3 +582,6 @@ h1, h2, h3 { margin: 0; font-family: var(--f-display); font-weight: 700; letter-
 
 .btn--small { padding: 7px 13px; font-size: 13px; }
 .target-note { margin: 8px 0 0; font-size: .85rem; color: var(--muted); }
+
+.lvl--basics { background: #EDF1F6; color: var(--muted); }
+.lvl--advanced { background: var(--orange-soft); color: var(--orange); }

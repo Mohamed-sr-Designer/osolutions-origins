@@ -30,6 +30,7 @@ const COURSE_INDEX = (() => {
   DESIGN_MISSIONS.forEach(x => m[x.id] = x);
   STAGE2_MISSIONS.forEach(x => m[x.id] = x);
   STAGE3_MISSIONS.forEach(x => m[x.id] = x);
+  TL_MISSIONS.forEach(x => m[x.id] = x);
   BONUS_MISSIONS.forEach(x => m[x.id] = x);
   return m;
 })();
@@ -94,11 +95,12 @@ const isDone = (pid, cid) => !!(progress[pid] && progress[pid][cid]);
 function stageCourses(p, st) {
   const g = personCourses(p);
   const b = personBonus(p);
+  /* a custom path takes only the courses named for that person */
   return [
-    ...st.core.map(id => COURSE_INDEX[id]),
-    ...((st.team || {})[p.division] || []).map(id => COURSE_INDEX[id]),
+    ...(p.custom ? [] : st.core).map(id => COURSE_INDEX[id]),
+    ...(p.custom ? [] : ((st.team || {})[p.division] || [])).map(id => COURSE_INDEX[id]),
     ...((st.people || {})[p.id] || []).map(id => COURSE_INDEX[id]),
-    ...st.arc.map(i => g.arc[i]),
+    ...(p.custom ? [] : st.arc).map(i => g.arc[i]),
     ...st.track.map(i => g.track[i]),
     ...(st.bonus || []).map(i => b[i])
   ].filter(Boolean);
@@ -287,7 +289,7 @@ function pathHTML(p) {
   rows.forEach(r => {
     if (r.st.chapter !== lastMonth) {
       lastMonth = r.st.chapter;
-      const ch = (p.midCap && lastMonth === 3)
+      const ch = (p.chapterNames && p.chapterNames[lastMonth]) ? p.chapterNames[lastMonth] : (p.midCap && lastMonth === 3)
         ? { name: 'Stage 1 · Month 3 — ' + (p.midLabel || 'Strong mid-level'), sub: (p.midLabel || 'Strong mid-level') + ' work and a capstone' }
         : CHAPTERS[lastMonth];
       const mh = rows.filter(x => x.st.chapter === lastMonth).reduce((s, x) => s + x.hours, 0);
@@ -516,7 +518,7 @@ function renderPerson(id) {
             <span><i class="sw sw--base"></i>May baseline</span>
             <span><i class="sw sw--now"></i>Now</span>
           </div>
-          ${p.powersPending ? `<p class="note">Baseline levels for ${esc(p.name)} are being set by the Team Lead, so progress is measured on the same scale as the rest of the team.</p>` : ''}
+          ${p.powersPending ? `<p class="note">${esc(p.pendingNote || ('Baseline levels for ' + p.name + ' are being set by the Team Lead, so progress is measured on the same scale as the rest of the team.'))}</p>` : ''}
         </div>
       </div>
 
@@ -617,6 +619,7 @@ function renderCatalogue() {
   const html =
     block('Shared core', 'Everyone takes all nine. One standard across the team.', 'var(--ink)', CORE_MISSIONS) +
     block('Editing, motion and Blender ladder', 'Free material, taken by everyone, ordered from mid-level to senior.', 'var(--orange)', LADDER_MISSIONS) +
+    block('Team Lead track: Blender, Cinema 4D, AI and VFX', 'Free video lessons, from basics to advanced, for the Graphic Team Lead.', 'var(--orange)', TL_MISSIONS) +
     block('Stage 2 courses (months 4 to 6)', 'More free video lessons for the second half: motion, 3D, editing, design craft, UX and leadership.', 'var(--violet)', [...STAGE2_MISSIONS, ...STAGE3_MISSIONS]) +
     block('Design Team ladder', 'Free material for craft, branding, art direction and AI, taken by the Design Team at the depth each person needs.', 'var(--orange)', DESIGN_MISSIONS) +
     block('Personal priority courses', 'Chosen for specific people. They sit inside the path at the stage where they fit.', 'var(--teal)', priority) +

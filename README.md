@@ -121,3 +121,12 @@ Surfaced on the Resources page rather than guessed at:
 3. **Colour theory** is one of the three learning tracks; `CORE-06` gives it real material.
 4. **The Motion Team** now has its own technical run, `KIN-03` … `KIN-10`.
 5. **Yomna has no specialisation assigned yet** — the only person without one.
+
+## The Team Lead track
+
+Mohamed Tarek (Graphic Team Lead) has his own custom path, separate from the shared core:
+Blender from basics to advanced (modeling, sculpting, light and materials, geometry nodes,
+simulation, rigging), Cinema 4D from basics to production (MoGraph, product lighting), AI from
+zero to advanced (prompting, ComfyUI, ControlNet and IPAdapter, training your own LoRA, AI video),
+and VFX (keying, tracking, Fusion compositing). Six months, all video, about 6 hours a week.
+A person with `custom: true` takes only the courses listed for them in a stage's `people` map.

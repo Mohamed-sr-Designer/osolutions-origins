@@ -920,6 +920,175 @@ const STAGE3_MISSIONS = [
   }
 ];
 
+/* ---------- TEAM LEAD TRACK (Blender, Cinema 4D, AI, VFX) ---------- */
+const TL_MISSIONS = [
+  {
+    id: 'tl-01', code: 'TL-3D-1', origin: 'added', type: 'course', level: 'Basics', hours: 8,
+    title: "Blender Hard Surface Modeling",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=zxhaCD-Zlfw',
+    duration: '8 hours',
+    videos: [{ id: 'zxhaCD-Zlfw', title: "Hard-Surface Modeling in Blender for Beginners (Full Course)", by: "CG Boost" }, { id: 'pSFeDo7aOp4', title: "How to Learn Hard Surface Modelling in Blender", by: "Grant Abbitt" }],
+    objective: "Clean modeling is the base of everything else in 3D: booleans, bevels and good topology.",
+    deliverable: "One hard-surface object of your own design, fully modeled and rendered.",
+    criteria: ["Clean topology with no stray triangles","Bevels catch the light","Rendered on a plain background"]
+  },
+  {
+    id: 'tl-02', code: 'TL-AI-1', origin: 'added', type: 'course', level: 'Basics', hours: 5,
+    title: "AI from Zero: Prompting and Free Tools",
+    source: "Free YouTube courses",
+    url: 'https://www.youtube.com/watch?v=B-qwrTFRCF4',
+    duration: '5 hours',
+    videos: [{ id: 'B-qwrTFRCF4', title: "Prompt Engineering Made Easy for Beginners", by: "PowerPoint University" }, { id: 'dUulqgLqPBk', title: "Learn Prompt Engineering from Scratch (Full Free Course)", by: "Digital Skills" }, { id: 'XbB3zFuU57g', title: "Prompt Engineering 2026 Full Course (Free)", by: "CA Shivam Palan" }, { id: '8ib4Qnh2HFE', title: "Full AI Prompting Course with Andrew Ng", by: "DeepLearning.AI" }],
+    objective: "Start from the very beginning: what a prompt is, how to write a good one, and which free tools to use.",
+    deliverable: "A one page prompt guide for your own work, with five prompts that worked and why.",
+    criteria: ["Each prompt names subject, style and constraint","Results compared across two free tools","The guide is short enough to reuse"]
+  },
+  {
+    id: 'tl-03', code: 'TL-3D-2', origin: 'added', type: 'course', level: 'Basics', hours: 6,
+    title: "Blender Sculpting",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=KURuPAVJ6hM',
+    duration: '6 hours',
+    videos: [{ id: 'KURuPAVJ6hM', title: "Sculpting in Blender for Beginners (Full Course)", by: "CG Boost" }, { id: 'Lxem4yMs5Dg', title: "Sculpting for Complete Beginners", by: "Ryan King Art" }, { id: 'lORLr-bt3v0', title: "Blender Character Sculpting for Beginners", by: "Twan Olig" }],
+    objective: "Shape organic forms by hand, from a first blob to a finished sculpt.",
+    deliverable: "One finished sculpt, from block-out to detail.",
+    criteria: ["Big forms before small detail","Clean silhouette from every side","Shown with a simple material"]
+  },
+  {
+    id: 'tl-04', code: 'TL-C4D-1', origin: 'added', type: 'course', level: 'Basics', hours: 7,
+    title: "Cinema 4D: Getting Started",
+    source: "Free YouTube lessons (the course is free, Cinema 4D itself needs a Maxon licence)",
+    url: 'https://www.youtube.com/watch?v=srqJKX8OH0k',
+    duration: '7 hours',
+    videos: [{ id: 'srqJKX8OH0k', title: "Cinema 4D Jumpstart: Free C4D Course", by: "CG Shortcuts" }, { id: 'lJfX5xS0tew', title: "C4D Quickstart", by: "CG Shortcuts" }, { id: 'bdu7dXAFQg4', title: "Camera Basics", by: "CG Shortcuts" }, { id: '_dz3bGizluc', title: "Cinema 4D Absolute Beginner's Tutorial: Part 1", by: "SOFTER" }, { id: 'EY3jWUA1p20', title: "Easy Cinema 4D Tutorial", by: "Fattu Tutorials" }, { id: 'VKMlvYkAc8Q', title: "The Ultimate Beginners Guide To Cinema 4D in 2026", by: "CG Shortcuts" }],
+    objective: "Learn the interface, objects, cameras and a first render in Cinema 4D.",
+    deliverable: "A simple still scene you built, lit and rendered yourself.",
+    criteria: ["Scene is organised and named","Camera placed on purpose","Rendered at final quality"]
+  },
+  {
+    id: 'tl-05', code: 'TL-C4D-2', origin: 'added', type: 'course', level: 'Intermediate', hours: 6,
+    title: "Cinema 4D: MoGraph",
+    source: "Free YouTube lessons (the course is free, Cinema 4D itself needs a Maxon licence)",
+    url: 'https://www.youtube.com/watch?v=1BICYTY2_0w',
+    duration: '6 hours',
+    videos: [{ id: '1BICYTY2_0w', title: "Mograph 101: Master the Basics", by: "Ace5 Studios" }, { id: 'KBO0nIk8taE', title: "Cloners, Effectors and Fields", by: "QuickVFX" }, { id: '-z-kQNfWdWg', title: "MoGraph Cloner, Effectors and Fields", by: "Maxon Training Team" }, { id: 'JwMx84b9-Lg', title: "Trigger Animation Using Mograph Effectors", by: "eyedesyn" }, { id: '97AcZAGcCDE', title: "Intro to the Mograph Shader Effector", by: "eyedesyn" }, { id: '7eJoFcYRnDA', title: "Cloner Object and Shader Effector", by: "Michael Balchaitis" }],
+    objective: "Make hundreds of objects move together with cloners, effectors and fields.",
+    deliverable: "A 10 second looping MoGraph piece built from one cloner.",
+    criteria: ["Loops without a visible jump","At least two effectors and one field","Rendered cleanly"]
+  },
+  {
+    id: 'tl-06', code: 'TL-AI-2', origin: 'added', type: 'course', level: 'Intermediate', hours: 6,
+    title: "ComfyUI: ControlNet and IPAdapter",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=hTSt0yCY-oE',
+    duration: '6 hours',
+    videos: [{ id: 'hTSt0yCY-oE', title: "ComfyUI ControlNet Tutorial (Control LoRA)", by: "ControlAltAI" }, { id: 'WD0EmOE4boc', title: "ComfyUI Controlnet + IPAdapter Workflow", by: "Rudy's Hobby Channel" }, { id: 'KinUqRWG8q4', title: "IPAdapter and LoRA for Flux", by: "ELPixel" }, { id: 'g8W3xe5kRBQ', title: "Flux.1: IPAdapter, ControlNets & LoRAs from XLabs AI", by: "Nerdy Rodent" }],
+    objective: "Steer the result instead of hoping: pose, depth and style references.",
+    deliverable: "Five images that follow a reference pose and share one style reference.",
+    criteria: ["Pose follows the reference","Style stays consistent across the set","Workflow file saved"]
+  },
+  {
+    id: 'tl-07', code: 'TL-C4D-3', origin: 'added', type: 'course', level: 'Intermediate', hours: 7,
+    title: "Cinema 4D: Product Lighting and Rendering",
+    source: "Free YouTube lessons (the course is free, Cinema 4D itself needs a Maxon licence)",
+    url: 'https://www.youtube.com/watch?v=kN00Z7UsW5U',
+    duration: '7 hours',
+    videos: [{ id: 'kN00Z7UsW5U', title: "Cinema 4D Product Lighting: From Flat to Premium Renders", by: "Derek Kirk" }, { id: 'fZqLT6_kIk8', title: "Cinema 4D and Physical Render: Product Lighting", by: "HDR Light Studio" }, { id: 'kY827e8dQt4', title: "How to make a Product Visualisation background", by: "Maxon" }, { id: 'su5dQbPkNW8', title: "Visualization in C4D (2 of 4)", by: "Maxon Training Team" }],
+    objective: "Light a product so it looks like a campaign shot.",
+    deliverable: "One main product render and two alternate lighting setups.",
+    criteria: ["Reflections shaped on purpose","Background supports the product","Three clearly different moods"]
+  },
+  {
+    id: 'tl-08', code: 'TL-3D-3', origin: 'added', type: 'course', level: 'Intermediate', hours: 6,
+    title: "Blender Geometry Nodes: Procedural Art",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=_m6bh9O5MJk',
+    duration: '6 hours',
+    videos: [{ id: '_m6bh9O5MJk', title: "Blender Geometry Nodes for Beginners: Full Course", by: "Jakob Design" }, { id: 'cLI_1S1Nl3w', title: "Blender Geometry Nodes: Turn ANY Mesh into Procedural Art", by: "Jaleed Khan 3D" }, { id: 'vgqtYgrVTRQ', title: "FREE Road Generator: Procedural Geometry Nodes", by: "HuyKhoi2407" }, { id: 'tWvgHbZXCtA', title: "Geometry Nodes for Complete Beginners: Part 1", by: "Ryan King Art" }],
+    objective: "Build things that can be changed with a slider instead of redone.",
+    deliverable: "A procedural scene with at least three controls that change the result.",
+    criteria: ["Controls exposed and named","Nothing hand-placed that should be generated","Setup is tidy"]
+  },
+  {
+    id: 'tl-09', code: 'TL-3D-4', origin: 'added', type: 'course', level: 'Advanced', hours: 6,
+    title: "Blender Simulations: Smoke, Cloth and Fluid",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=2oivpTS5Azs',
+    duration: '6 hours',
+    videos: [{ id: '2oivpTS5Azs', title: "Blender Smoke Simulation Tutorial for Beginners", by: "VISH 3D" }, { id: '46UcFP3QQQE', title: "2023 Blender Cloth Physics Simulation (Easy)", by: "KennyPhases" }, { id: '5tvoYKukhdc', title: "Simple Cloth Physics Tutorial", by: "Blender Rookie" }, { id: 'DkOrAFihTYA', title: "Ultimate Cloth & Fluid Simulations in Blender", by: "b3dt." }],
+    objective: "Add believable physics to your shots.",
+    deliverable: "Three simulated elements (smoke, cloth, liquid) in one short shot.",
+    criteria: ["Simulations are cached","Scale looks right","Rendered without flicker"]
+  },
+  {
+    id: 'tl-10', code: 'TL-3D-5', origin: 'added', type: 'course', level: 'Advanced', hours: 8,
+    title: "Blender Rigging and Character Animation",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=mapuLpQNSAw',
+    duration: '8 hours',
+    videos: [{ id: 'mapuLpQNSAw', title: "Full animated character course for Free: The Gameboy Project", by: "Pierrick Picaut" }, { id: '2nlMZx0vp6E', title: "Character Rigging in Blender: Easy Setup for Beginners", by: "Grant Abbitt" }, { id: 'Zx2LtlZqG3g', title: "The QUICKEST way to RIG your Characters", by: "Lewis Animation" }, { id: '4z7G4TyKE9g', title: "Rig and Animate Character in 10 Minutes", by: "Poly Flo" }],
+    objective: "Bring a character to life: rig it, pose it and animate it.",
+    deliverable: "A rigged character performing a 5 second action.",
+    criteria: ["Rig bends without breaking","Action has anticipation and follow through","Rendered and cut into a sequence"]
+  },
+  {
+    id: 'tl-11', code: 'TL-AI-3', origin: 'added', type: 'course', level: 'Advanced', hours: 6,
+    title: "Training Your Own LoRA",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=8AZmT8gS7TI',
+    duration: '6 hours',
+    videos: [{ id: '8AZmT8gS7TI', title: "Training LoRA inside ComfyUI for character and style", by: "Iren Bondareva" }, { id: 'DYzHAX15QL4', title: "ComfyUI Tutorial Series Ep 72: Z-Image Turbo, ControlNet, LoRA Training", by: "pixaroma" }, { id: 'Y2kUmaYldkk', title: "FREE Generative AI Workshop: ComfyUI, ControlNet", by: "Miro Leon" }],
+    objective: "Teach a model your own style or character so results stay on brand.",
+    deliverable: "A trained LoRA of one style or character, with ten test images.",
+    criteria: ["Training images are curated and captioned","The style holds across ten different prompts","Settings and files documented"]
+  },
+  {
+    id: 'tl-12', code: 'TL-VFX-1', origin: 'added', type: 'course', level: 'Intermediate', hours: 5,
+    title: "VFX: Keying and Rotoscoping in After Effects",
+    source: "Free YouTube lessons (After Effects is part of the Adobe licence)",
+    url: 'https://www.youtube.com/watch?v=L0WTGEqcD4E',
+    duration: '5 hours',
+    videos: [{ id: 'L0WTGEqcD4E', title: "Easy Green Screen Keying in After Effects", by: "KaiCreative" }, { id: 'aR8D6nBzVB0', title: "Key Green Screen Footage Fast in After Effects", by: "Yeager Film" }, { id: '2b796PpS9y8', title: "Green Screen Keying with Keylight in After Effects CC", by: "What Make Art" }, { id: 'QmgIoRaG6b4', title: "Quick Green Screen Keying Tutorial", by: "Luka Parac" }, { id: 'K-uOFPoIm6U', title: "Advanced Green Screen Keying in After Effects", by: "Advanced Indie VFX" }],
+    objective: "Cut a subject cleanly out of footage, whether it is a perfect green screen or not.",
+    deliverable: "A keyed shot with a new background and clean edges, plus one hand-rotoscoped shot.",
+    criteria: ["No green fringing","Hair and edges look natural","Light on the subject matches the new background"]
+  },
+  {
+    id: 'tl-13', code: 'TL-VFX-2', origin: 'added', type: 'course', level: 'Advanced', hours: 8,
+    title: "VFX Compositing in DaVinci Resolve Fusion",
+    source: "Free YouTube lessons (DaVinci Resolve is free)",
+    url: 'https://www.youtube.com/watch?v=vZdxA_2Dan8',
+    duration: '8 hours',
+    videos: [{ id: 'vZdxA_2Dan8', title: "FREE 2 Hour Compositing Course For Beginners", by: "The Blenderender" }, { id: 'q2Goepyqyi4', title: "Learn Fusion in DaVinci Resolve: 5h Free Course", by: "VFXstudy" }, { id: 'gaFT_Kj2yeQ', title: "DaVinci Resolve Fusion Tutorial: Motion Graphics and VFX", by: "Kevin Stratvert" }, { id: 'xZSpi51XoJE', title: "Fusion for Production: VFX Compositing", by: "pixeltrain" }],
+    objective: "Work node-based, the way film VFX is built, in a free tool.",
+    deliverable: "A composited shot that combines footage, a 3D render and an effect.",
+    criteria: ["Node tree is tidy and labelled","Colour and grain match across elements","The shot holds up frame by frame"]
+  },
+  {
+    id: 'tl-14', code: 'TL-AI-4', origin: 'added', type: 'course', level: 'Advanced', hours: 5,
+    title: "AI Video: Advanced Workflow",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=htpz-FgzJdM',
+    duration: '5 hours',
+    videos: [{ id: 'htpz-FgzJdM', title: "Kling 3.0 AI Video Generator: Free AI Video Tool", by: "BrainyBytes" }, { id: '0YccN8G7-_A', title: "100% Free AI Video Generator: Kling, Veo and Runway", by: "Zohaib Bodla" }, { id: 'VwMFUbRg70g', title: "Workflow Completo com Kling e Wan", by: "INEMA TDS" }, { id: '17YPqat8aDE', title: "Kling AI Image to Video Tutorial", by: "Cem Eygi Media" }],
+    objective: "Build a repeatable video pipeline: first and last frame control, reference video, and finishing.",
+    deliverable: "A 15 second AI sequence with consistent look, finished and graded.",
+    criteria: ["Same character and style across shots","First and last frames planned","Graded to match real footage"]
+  },
+  {
+    id: 'tl-15', code: 'TL-CAP', origin: 'added', type: 'course', level: 'Advanced', hours: 10,
+    title: "Lead Capstone: 3D, AI and VFX in one piece",
+    source: "Internal — the proof of the track",
+    url: 'https://www.youtube.com/watch?v=EAjbcod1HRQ',
+    duration: '10 hours',
+    videos: [{ id: 'EAjbcod1HRQ', title: "Complete Blender Camera Tracking Tutorial: From Footage to Finished VFX", by: "Axel Olsson" }, { id: 'vlRmtD1FGlA', title: "The Story to Motion Design Workflow: From Brief to Animation", by: "Styleframe Saturdays" }, { id: 'vZdxA_2Dan8', title: "FREE 2 Hour Compositing Course For Beginners", by: "The Blenderender" }],
+    objective: "Combine everything into one piece that shows the whole range.",
+    deliverable: "A 30 second piece with a Blender or Cinema 4D render, an AI element and a VFX shot, ready for the studio reel.",
+    criteria: ["Starts from a written brief","All three skills serve the idea","Presented to the team with the reasoning"]
+  }
+];
+
 /* ---------- SPECIALISATIONS ----------
    Personal, free, and they start once the shared path is done. */
 const BONUS_MISSIONS = [
@@ -1453,6 +1622,55 @@ const HEROES = [
     ],
     boss: 'From production support to Junior-ready — the title just catching up.',
     extras: [null, 'frg-03', 'frg-05', 'frg-07']
+  },
+  {
+    id: 'tarek', name: 'Mohamed Tarek', title: 'Graphic Team Lead',
+    custom: true,
+    division: 'forge', rank: 'Lead',
+    target: 'Strong, hands-on range in Blender, Cinema 4D, AI production and VFX, from basics to advanced, so the lead can direct and produce across the whole studio.',
+    chapterNames: {
+      1: { name: 'Month 1 — Blender and AI basics', sub: 'Modeling, sculpting and prompting' },
+      2: { name: 'Month 2 — Cinema 4D basics', sub: 'First scenes, MoGraph and ComfyUI' },
+      3: { name: 'Month 3 — Production', sub: 'Product work, procedural 3D and controlled AI' },
+      4: { name: 'Month 4 — Advanced 3D', sub: 'Simulations, characters and your own AI model' },
+      5: { name: 'Month 5 — VFX', sub: 'Keying, tracking, compositing and AI video' },
+      6: { name: 'Month 6 — Proof', sub: 'A capstone, leading the team and the reel' }
+    },
+    statusTag: 'Building new range',
+    tagline: 'A lead who can do the work as well as direct it: 3D, AI and VFX, learned in order.',
+    origin: [
+      'This track is built for the Graphic Team Lead: Blender from first open to advanced, Cinema 4D from basics to production, AI from zero to advanced, and VFX.',
+      'It is hands-on and all video: every course lists the lessons to watch and the piece of work to make.',
+      'Everything on it is free to learn from. Cinema 4D and the Adobe apps need their normal licences.'
+    ],
+    powers: [
+      { name: 'Blender', from: 0, to: 0 },
+      { name: 'Cinema 4D', from: 0, to: 0 },
+      { name: 'AI Production', from: 0, to: 0 },
+      { name: 'VFX', from: 0, to: 0 }
+    ],
+    powersPending: true,
+    pendingNote: 'Place yourself on the scale in each of these four areas to see your progress against it.',
+    focus: {
+      headline: 'Focus: 3D, AI and VFX from basics to advanced.',
+      why: 'These are the areas that open the most new work for the studio. Learning them in order, with a small piece of work at every step, is faster than learning them in parallel.',
+      moves: [
+        'Follow the path in order: each stage opens the next',
+        'Make the piece each course asks for, however small',
+        'Use the capstone to build a reel piece the studio can use',
+        'Reset any part you want to repeat with the button on this page'
+      ]
+    },
+    phases: [
+      { n: 1, name: 'Basics', origin: 'added', objectives: ['Learn Blender modeling and sculpting', 'Learn lighting and materials in Blender', 'Start AI from zero with prompting and free tools'], checkpoint: 'A modeled object, a sculpt and a working prompt guide.' },
+      { n: 2, name: 'Cinema 4D', origin: 'added', objectives: ['Learn the Cinema 4D interface and first scenes', 'Build MoGraph pieces', 'Run a free image workflow in ComfyUI'], checkpoint: 'A Cinema 4D still, a MoGraph loop and a free AI image workflow.' },
+      { n: 3, name: 'Production', origin: 'added', objectives: ['Light and render products in Cinema 4D and Blender', 'Build procedural scenes with Geometry Nodes', 'Control AI results with ControlNet and IPAdapter'], checkpoint: 'A main product render and a controlled AI image set.' },
+      { n: 4, name: 'Advanced 3D', origin: 'added', objectives: ['Add simulations to shots', 'Rig and animate a character', 'Train your own LoRA'], checkpoint: 'A simulated shot, an animated character and a trained LoRA.' },
+      { n: 5, name: 'VFX', origin: 'added', objectives: ['Key and rotoscope footage', 'Track 3D into real footage', 'Composite in Fusion and build an AI video pipeline'], checkpoint: 'A composited VFX shot and a 15 second AI sequence.' },
+      { n: 6, name: 'Proof', origin: 'added', objectives: ['Make one capstone using 3D, AI and VFX', 'Lead the team with what you have learned', 'Build the studio reel and portfolio'], checkpoint: 'A capstone piece and a reel the studio can show.' }
+    ],
+    boss: 'A Graphic Team Lead who can produce in 3D, AI and VFX, not only direct it.',
+    extras: []
   }
 ];
 
@@ -1589,7 +1807,70 @@ const JOURNEY = [
     core: [], arc: [], track: [], team: {}, people: {}, bonus: [1] },
   { n: 43, chapter: 6, level: 'Stage 2', name: "Stage 2 Project",
     tagline: "One real piece that proves the extra depth.",
-    core: [], arc: [], track: [], team: {'kinetic':['s2-09'],'forge':['s2-11']}, people: {}, bonus: [] }
+    core: [], arc: [], track: [], team: {'kinetic':['s2-09'],'forge':['s2-11']}, people: {}, bonus: [] },
+  { n: 44, chapter: 1, level: 'Basics', name: "Blender: Foundations",
+    tagline: "From first open to a finished scene.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['lad-05']}, bonus: [] },
+  { n: 45, chapter: 1, level: 'Basics', name: "Blender: Modeling",
+    tagline: "Hard surface and sculpting.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-01','tl-03']}, bonus: [] },
+  { n: 46, chapter: 1, level: 'Basics', name: "AI from Zero",
+    tagline: "Prompting and free image tools.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-02','des-09']}, bonus: [] },
+  { n: 47, chapter: 2, level: 'Basics', name: "Blender: Light & Materials",
+    tagline: "Lighting and materials that look professional.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['lad-06']}, bonus: [] },
+  { n: 48, chapter: 2, level: 'Basics', name: "Cinema 4D: Getting Started",
+    tagline: "Interface, objects, cameras and a first render.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-04']}, bonus: [] },
+  { n: 49, chapter: 2, level: 'Intermediate', name: "Cinema 4D: MoGraph",
+    tagline: "Cloners, effectors and fields.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-05']}, bonus: [] },
+  { n: 50, chapter: 2, level: 'Intermediate', name: "Free AI Workflows",
+    tagline: "A repeatable image to video pipeline.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['lad-10']}, bonus: [] },
+  { n: 51, chapter: 3, level: 'Intermediate', name: "Cinema 4D: Product Work",
+    tagline: "Lighting and rendering for campaigns.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-07']}, bonus: [] },
+  { n: 52, chapter: 3, level: 'Intermediate', name: "Blender: Production",
+    tagline: "Product animation and procedural scenes.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['lad-09','tl-08']}, bonus: [] },
+  { n: 53, chapter: 3, level: 'Intermediate', name: "AI: Control",
+    tagline: "ControlNet and IPAdapter.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-06']}, bonus: [] },
+  { n: 54, chapter: 4, level: 'Advanced', name: "Blender: Simulation",
+    tagline: "Smoke, cloth and fluid.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-09']}, bonus: [] },
+  { n: 55, chapter: 4, level: 'Advanced', name: "Blender: Characters",
+    tagline: "Rigging and animation.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-10']}, bonus: [] },
+  { n: 56, chapter: 4, level: 'Advanced', name: "Blender: Procedural Materials",
+    tagline: "Build materials from nodes.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['m-10']}, bonus: [] },
+  { n: 57, chapter: 4, level: 'Advanced', name: "AI: Your Own Model",
+    tagline: "Train a LoRA.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-11']}, bonus: [] },
+  { n: 58, chapter: 5, level: 'Intermediate', name: "VFX: Keying & Roto",
+    tagline: "Clean cut-outs in After Effects.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-12']}, bonus: [] },
+  { n: 59, chapter: 5, level: 'Advanced', name: "VFX: Tracking",
+    tagline: "Put 3D into real footage.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['s2-03']}, bonus: [] },
+  { n: 60, chapter: 5, level: 'Advanced', name: "VFX: Compositing",
+    tagline: "Node-based compositing in Fusion.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-13']}, bonus: [] },
+  { n: 61, chapter: 5, level: 'Advanced', name: "AI Video",
+    tagline: "Advanced video workflow.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-14']}, bonus: [] },
+  { n: 62, chapter: 6, level: 'Advanced', name: "Lead Capstone",
+    tagline: "One piece with 3D, AI and VFX.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['tl-15']}, bonus: [] },
+  { n: 63, chapter: 6, level: 'Advanced', name: "Leading the Team",
+    tagline: "Run one to ones and reviews.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['d-06']}, bonus: [] },
+  { n: 64, chapter: 6, level: 'Advanced', name: "Portfolio & Reel",
+    tagline: "Document the work.",
+    core: [], arc: [], track: [], team: {}, people: {'tarek':['s2-01','m-11']}, bonus: [] }
 ];
 
 const CHAPTERS = {
