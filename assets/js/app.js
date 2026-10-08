@@ -118,7 +118,7 @@ function stages(p) {
         /* a specialisation stage is named after the subject being learned */
         label: (isSpec && r.courses[0].stopName) || r.st.name,
         hours: r.courses.reduce((t, c) => t + hrs(c), 0),
-        level: (p.midCap && r.st.level === 'Senior') ? 'Strong mid-level' : r.st.level,
+        level: (p.midCap && r.st.level === 'Senior') ? (p.midLabel || 'Strong mid-level') : r.st.level,
         spec: isSpec,
         locked: !unlocked, index: i, count: all.length,
         pct: Math.round(done / r.courses.length * 100)
@@ -287,7 +287,7 @@ function pathHTML(p) {
     if (r.st.chapter !== lastMonth) {
       lastMonth = r.st.chapter;
       const ch = (p.midCap && lastMonth === 3)
-        ? { name: 'Stage 1 · Month 3 — Strong mid-level', sub: 'Strong mid-level work and a capstone' }
+        ? { name: 'Stage 1 · Month 3 — ' + (p.midLabel || 'Strong mid-level'), sub: (p.midLabel || 'Strong mid-level') + ' work and a capstone' }
         : CHAPTERS[lastMonth];
       const mh = rows.filter(x => x.st.chapter === lastMonth).reduce((s, x) => s + x.hours, 0);
       html += `

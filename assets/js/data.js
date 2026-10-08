@@ -1158,7 +1158,8 @@ const HEROES = [
   {
     id: 'asmaa', name: 'Asmaa', title: 'Intern Designer',
     midCap: true,
-    target: "A strong mid-level designer, well beyond the junior track, with working skills in editing, motion and Blender.",
+    midLabel: 'Full mid-level',
+    target: "A full mid-level designer, well beyond the junior track, with working skills in editing, motion and Blender.",
     division: 'forge', rank: 'Intern',
     tagline: 'Ninety days from production support to ready for a Junior seat.',
     statusTag: 'Baseline being set',
