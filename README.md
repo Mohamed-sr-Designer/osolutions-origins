@@ -39,67 +39,43 @@ IBM Plex Mono for codes and labels.
 
 ## The learning path
 
-Each person has a path of **nine shared stages**, plus one extra stage for each
-specialisation they carry — between 9 and 12 in total. A stage holds one to four courses
-and **only opens once the stage before it is complete**. Stages are grouped by month.
+One path for everyone, ordered from mid-level to senior, using **free material only**
+(YouTube courses, Blender, DaVinci Resolve, Figma free plan). A stage holds one to four
+courses and only opens once the stage before it is complete.
 
-| Stages | Month |
-|---|---|
-| Briefing & Feedback · AI Production I · AI Production II | 1 — Foundations |
-| Typography · Colour · Craft & Retouching | 2 — Craft |
-| Presenting Work · Critique & Review · Consolidation | 3 — Independence |
-| One stage per specialisation | 3 — Independence |
+| Month | Level | Stages |
+|---|---|---|
+| 1 — Foundations | Foundation | Briefing & Planning · AI Workflow · Editing Foundations · Typography · Colour |
+| 2 — Practitioner | Practitioner | Motion Foundations · Blender Foundations · Craft & Composition · Presenting & Review |
+| 3 — Senior | Senior | Blender: Light & Product · Grade & Sound · AI Video Workflow · Senior Capstone |
+| 3 | Specialisation | Personal, one stage each, after the shared path |
 
-**Every track is capped at 3 months**, specialisations included.
+Every course lists its own **YouTube videos** with thumbnails, a hand-in piece of work and
+a completion checklist. Each course carries an hour estimate, rolled up per stage, per month
+and per person (about 9 to 10 hours a week across 13 weeks). **Every track is capped at 3 months.**
 
 ### Specialisations
 
-Personal, not per team. They start once someone has completed the shared plan, and each
-one gets its own stage named after the subject.
-
-| Person | Specialisations, in order | Stages |
-|---|---|---|
-| Alice | Advanced Editing | 10 |
-| Shimaa | 3D Foundations → Blender | 11 |
-| Mahmoud | Brand Identity → Video & Motion | 11 |
-| Islam | Brand Identity | 10 |
-| Yomna | *none assigned yet* | 9 |
-| Asmaa | Motion Basics → UI/UX → Brand Identity | 12 |
-
-Stages are defined in `JOURNEY` in `data.js`. Each lists `core` course ids plus
-`arc` / `track` / `bonus` indices resolved per person, so the same stages hold different
-courses depending on who is walking them. A stage that resolves to zero courses is dropped
-— which is how a specialisation stage only appears for the person it belongs to. The
-month grouping comes from each stage's `chapter`.
-
-## The people
-
-| Name | Job title | Team | Level |
+| Person | Specialisations | Stages | Hours |
 |---|---|---|---|
-| Alice | Video Designer | Motion | Designer |
-| Shimaa | Video Designer | Motion | Designer |
-| Mahmoud | Senior Designer | Design | Senior |
-| Islam | Graphic Designer | Design | Designer |
-| Yomna | Junior Designer | Design | Junior |
-| Asmaa | Intern Designer | Design | Intern |
+| Alice | Advanced Montage | 14 | 125 |
+| Shimaa | Advanced Montage → Blender Deep Dive | 15 | 135 |
+| Abdelrahman Makhlouf | Advanced Montage → Blender Deep Dive | 15 | 135 |
+| Mahmoud | Brand Identity | 14 | 132 |
+| Islam | Brand Identity | 14 | 131 |
+| Yomna | none assigned yet | 13 | 119 |
+| Asmaa | UI/UX → Brand Identity | 15 | 134 |
 
-Avatars are initials in the brand navy — no photos are stored in the repo.
-
-## Course architecture
-
-- **Shared core** — 9 courses, identical for all six. One standard.
-- **Team track** — 10 Motion / 7 Design courses, shared within the team.
-- **Priority courses** — the 3–4 team-track courses flagged as that person's focus.
-- **Specialisations** — per person, one stage each, after the shared plan.
-
-33 courses total: **8 came from the deck**, **25 were written** to give the named tracks
-real material. Every course is labelled `From deck` or `Added` so the difference stays visible.
+Stages live in  in . A person's priority courses fill the  slots in the order
+of their  array (use  to leave a slot empty). A stage with no courses for someone is dropped.
 
 ## Adding course links
 
 Drop a new course into `CORE_MISSIONS`, `TRACK_MISSIONS.*` or `BONUS_MISSIONS` in `data.js`.
 
-**Video thumbnails are automatic.** Any YouTube `url` — `watch?v=`, `youtu.be/`, `/embed/`
+**Videos:** add  to a course and each one renders as a thumbnail card with its title.
+
+**Single links are automatic.** Any YouTube `url` — `watch?v=`, `youtu.be/`, `/embed/`
 or `/shorts/` — has its poster frame pulled from `img.youtube.com` with no extra work.
 For a non-YouTube video, set `thumb: 'https://…'` and that image is used instead.
 A thumbnail that fails to load removes itself, so a broken link never leaves a gap.

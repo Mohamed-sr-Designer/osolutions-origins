@@ -12,7 +12,8 @@ const PROGRAM = {
   days: 90,
   ranks: ['Intern', 'Junior', 'Designer', 'Senior', 'Lead'],
   levels: ['—', 'Emerging', 'Developing', 'Competent', 'Strong', 'Independent'],
-  cap: 'Every track is capped at 3 months. Nothing here runs past the 90-day window.'
+  cap: 'Every track is capped at 3 months. Nothing here runs past the 90-day window.',
+  target: 'By day 90 everyone works at senior level in editing, motion and Blender, using free learning material.'
 };
 
 const DIVISIONS = {
@@ -37,7 +38,7 @@ const DIVISIONS = {
 /* ---------- SHARED CORE — everyone takes these ---------- */
 const CORE_MISSIONS = [
   {
-    id: 'core-01', code: 'CORE-01', origin: 'deck', type: 'video',
+    id: 'core-01', code: 'CORE-01', hours: 3, origin: 'deck', type: 'video',
     title: 'The New AI Workflow',
     source: 'Freepik Spaces — "This New AI Workflow Replaces Prompting"',
     url: 'https://www.youtube.com/watch?v=xG7fACIFSGk',
@@ -47,7 +48,7 @@ const CORE_MISSIONS = [
     criteria: ['The graph runs twice and gives a controllable result', 'You can explain every node to a teammate', 'No manual re-prompting between versions']
   },
   {
-    id: 'core-02', code: 'CORE-02', origin: 'deck', type: 'video',
+    id: 'core-02', code: 'CORE-02', hours: 2, origin: 'deck', type: 'video',
     title: 'Every Node Explained — Part I',
     source: 'Magnific AI Tutorial (Freepik Spaces)',
     url: 'https://www.youtube.com/watch?v=52WhUjkmsTk',
@@ -57,7 +58,7 @@ const CORE_MISSIONS = [
     criteria: ['Every node named with its real use case', 'At least 3 nodes you had never used before', 'Posted to the team channel']
   },
   {
-    id: 'core-03', code: 'CORE-03', origin: 'deck', type: 'video',
+    id: 'core-03', code: 'CORE-03', hours: 3, origin: 'deck', type: 'video',
     title: 'Every Node Explained — Part II',
     source: 'Magnific AI Tutorial (Freepik Spaces)',
     url: 'https://www.youtube.com/watch?v=FdLRSKxkA6k',
@@ -67,7 +68,7 @@ const CORE_MISSIONS = [
     criteria: ['Named and documented', 'Works on someone else’s brief without edits', 'Handles at least 2 aspect ratios']
   },
   {
-    id: 'core-04', code: 'CORE-04', origin: 'deck', type: 'course',
+    id: 'core-04', code: 'CORE-04', hours: 8, origin: 'deck', type: 'course',
     title: 'Typography & Visual Hierarchy',
     source: 'Graphic Design Course — Before & After Edition',
     url: 'https://www.youtube.com/watch?v=Tm25IxJQPWM&list=PL-c9Rq56P4Kln7CVqo4UY85zElYfW6_2j&index=3',
@@ -77,7 +78,7 @@ const CORE_MISSIONS = [
     criteria: ['Three levels of hierarchy readable in 2 seconds', 'Type scale is deliberate, not default', 'Before/after posted for review']
   },
   {
-    id: 'core-05', code: 'CORE-05', origin: 'deck', type: 'video',
+    id: 'core-05', code: 'CORE-05', hours: 6, origin: 'deck', type: 'video',
     title: 'Manipulation — Back to REAL Art',
     source: 'Spider-Man Poster Design Without AI (Photoshop manipulation)',
     url: 'https://www.youtube.com/watch?v=b1QoecESJJE',
@@ -87,7 +88,7 @@ const CORE_MISSIONS = [
     criteria: ['Manual version has real masking and light logic', 'You can say where AI helped and where it lied', 'Both versions presented side by side']
   },
   {
-    id: 'core-06', code: 'CORE-06', origin: 'added', type: 'practice',
+    id: 'core-06', code: 'CORE-06', hours: 6, videos: [{ id: '2QTHs7QSR9o', title: "Color Theory for Beginners (free course)", by: "Envato Tuts+" }, { id: 'Tznnrjkhp7E', title: "Color Theory for Graphic Design: How to Choose Better Colors", by: "4 The Creatives" }, { id: '8N_TW6q5-Bw', title: "Color Theory Masterclass 2026", by: "Saurabh Saini" }], origin: 'added', type: 'practice',
     title: 'Colour Theory & Application',
     source: 'Internal — built for the Learning Track',
     url: '',
@@ -97,7 +98,7 @@ const CORE_MISSIONS = [
     criteria: ['Contrast checked, not eyeballed', 'A written rule for every colour', 'Applied to 3 deliverables without changing the palette']
   },
   {
-    id: 'core-07', code: 'CORE-07', origin: 'added', type: 'practice',
+    id: 'core-07', code: 'CORE-07', hours: 2, origin: 'added', type: 'practice',
     title: 'Reading The Brief',
     source: 'Internal — Osolutions workflow',
     url: '',
@@ -107,7 +108,7 @@ const CORE_MISSIONS = [
     criteria: ['Written before execution, not after', 'Questions sent to the account owner', 'Revision rounds counted and compared']
   },
   {
-    id: 'core-08', code: 'CORE-08', origin: 'added', type: 'practice',
+    id: 'core-08', code: 'CORE-08', hours: 3, videos: [{ id: '_WyYr1p1XVk', title: "How to Present Design So Clients Say YES", by: "Flux Academy" }, { id: 'RJEINa1G1cQ', title: "How to Present Logo Concepts to Clients", by: "Megan Weeks" }], origin: 'added', type: 'practice',
     title: 'Present Your Work',
     source: 'Internal — Osolutions workflow',
     url: '',
@@ -117,7 +118,7 @@ const CORE_MISSIONS = [
     criteria: ['Starts with the client goal, not the software', 'One reason per decision', 'Handles one objection without redesigning live']
   },
   {
-    id: 'core-09', code: 'CORE-09', origin: 'added', type: 'practice',
+    id: 'core-09', code: 'CORE-09', hours: 3, origin: 'added', type: 'practice',
     title: 'The Critique Protocol',
     source: 'Internal — feedback process (deck: "a clear feedback process")',
     url: '',
@@ -132,7 +133,7 @@ const CORE_MISSIONS = [
 const TRACK_MISSIONS = {
   kinetic: [
     {
-      id: 'kin-01', code: 'KIN-01', origin: 'deck', type: 'course',
+      id: 'kin-01', code: 'KIN-01', hours: 6, origin: 'deck', type: 'course',
       title: 'Soni Courses',
       source: 'sonicourses.com', url: 'https://www.sonicourses.com/',
       duration: 'Self-paced',
@@ -141,7 +142,7 @@ const TRACK_MISSIONS = {
       criteria: ['Finished, not sampled', 'Reworked with a real brief', 'Technique named and added to your notes']
     },
     {
-      id: 'kin-02', code: 'KIN-02', origin: 'deck', type: 'course',
+      id: 'kin-02', code: 'KIN-02', hours: 6, origin: 'deck', type: 'course',
       title: 'Seif Hussam — 3D Courses',
       source: 'seifhussam3d.com', url: 'https://seifhussam3d.com/ar/',
       duration: 'Self-paced',
@@ -150,7 +151,7 @@ const TRACK_MISSIONS = {
       criteria: ['Camera move has a reason', 'Light direction is consistent', 'Renders integrated into an edit, not shown alone']
     },
     {
-      id: 'kin-03', code: 'KIN-03', origin: 'added', type: 'practice',
+      id: 'kin-03', code: 'KIN-03', hours: 4, origin: 'added', type: 'practice',
       title: 'Storytelling vs Editing',
       source: 'Internal — named in the deck as the biggest gap',
       url: '',
@@ -160,7 +161,7 @@ const TRACK_MISSIONS = {
       criteria: ['The 5 beats written before touching the timeline', 'Every cut serves a beat', 'Someone who has not seen it can retell the story after one watch']
     },
     {
-      id: 'kin-04', code: 'KIN-04', origin: 'added', type: 'practice',
+      id: 'kin-04', code: 'KIN-04', hours: 5, origin: 'added', type: 'practice',
       title: 'Character Sets & Environments',
       source: 'Internal — named in the deck as a required skill',
       url: '',
@@ -170,7 +171,7 @@ const TRACK_MISSIONS = {
       criteria: ['Same face, wardrobe and proportions across all 6', 'Environments lit differently on purpose', 'Reference sheet saved and reusable']
     },
     {
-      id: 'kin-05', code: 'KIN-05', origin: 'added', type: 'practice',
+      id: 'kin-05', code: 'KIN-05', hours: 4, origin: 'added', type: 'practice',
       title: 'Space & Magnification',
       source: 'Internal — named in the deck for the execution phase',
       url: '',
@@ -180,7 +181,7 @@ const TRACK_MISSIONS = {
       criteria: ['Every push-in has a narrative trigger', 'Negative space used deliberately at least twice', 'The two versions feel different, not decorated']
     },
     {
-      id: 'kin-06', code: 'KIN-06', origin: 'added', type: 'practice',
+      id: 'kin-06', code: 'KIN-06', hours: 3, origin: 'added', type: 'practice',
       title: 'Pacing & Rhythm',
       source: 'Internal', url: '',
       duration: '1 week',
@@ -189,7 +190,7 @@ const TRACK_MISSIONS = {
       criteria: ['Cut points marked before editing', 'Rhythm changes at the turn', 'You can explain the choice in one sentence']
     },
     {
-      id: 'kin-07', code: 'KIN-07', origin: 'added', type: 'practice',
+      id: 'kin-07', code: 'KIN-07', hours: 4, origin: 'added', type: 'practice',
       title: 'Colour Grading',
       source: 'Internal', url: '',
       duration: '1 week',
@@ -198,7 +199,7 @@ const TRACK_MISSIONS = {
       criteria: ['Skin tones survive the grade', 'Shots match across sources', 'The look has a stated intention']
     },
     {
-      id: 'kin-08', code: 'KIN-08', origin: 'added', type: 'practice',
+      id: 'kin-08', code: 'KIN-08', hours: 3, origin: 'added', type: 'practice',
       title: 'Sound Design & Mix',
       source: 'Internal', url: '',
       duration: '1 week',
@@ -207,7 +208,7 @@ const TRACK_MISSIONS = {
       criteria: ['Dialogue or VO always intelligible', 'At least 3 designed effects', 'No clipping, levels checked against a standard']
     },
     {
-      id: 'kin-09', code: 'KIN-09', origin: 'added', type: 'practice',
+      id: 'kin-09', code: 'KIN-09', hours: 6, origin: 'added', type: 'practice',
       title: 'AI Video Production',
       source: 'Internal — extends the deck’s AI track into motion',
       url: '',
@@ -217,7 +218,7 @@ const TRACK_MISSIONS = {
       criteria: ['AI shots serve the story, not the demo', 'Consistent grade and grain with real footage', 'You can state where you refused to use it and why']
     },
     {
-      id: 'kin-10', code: 'KIN-10', origin: 'added', type: 'practice',
+      id: 'kin-10', code: 'KIN-10', hours: 4, origin: 'added', type: 'practice',
       title: 'Motion Typography',
       source: 'Internal — bridges CORE-04 into motion',
       url: '',
@@ -229,7 +230,7 @@ const TRACK_MISSIONS = {
   ],
   forge: [
     {
-      id: 'frg-01', code: 'FRG-01', origin: 'deck', type: 'practice',
+      id: 'frg-01', code: 'FRG-01', hours: 4, origin: 'deck', type: 'practice',
       title: 'Mood Board Before Execution',
       source: 'Internal — the deck’s stated fix for repeated work',
       url: '',
@@ -239,7 +240,7 @@ const TRACK_MISSIONS = {
       criteria: ['Board exists before the first artboard', 'Direction stated in writing', 'Two consecutive accounts do not look like each other']
     },
     {
-      id: 'frg-02', code: 'FRG-02', origin: 'added', type: 'practice',
+      id: 'frg-02', code: 'FRG-02', hours: 4, origin: 'added', type: 'practice',
       title: 'Grid & Composition',
       source: 'Internal', url: '',
       duration: '1 week',
@@ -248,7 +249,7 @@ const TRACK_MISSIONS = {
       criteria: ['Grid documented and reusable', 'Every break from it is intentional', 'Holds across all 4 formats']
     },
     {
-      id: 'frg-03', code: 'FRG-03', origin: 'added', type: 'practice',
+      id: 'frg-03', code: 'FRG-03', hours: 5, origin: 'added', type: 'practice',
       title: 'Retouching & Compositing',
       source: 'Internal — extends CORE-05', url: '',
       duration: '1 week',
@@ -257,7 +258,7 @@ const TRACK_MISSIONS = {
       criteria: ['Edges hold at 100% zoom', 'Contact shadows present', 'Colour temperature matched']
     },
     {
-      id: 'frg-04', code: 'FRG-04', origin: 'added', type: 'practice',
+      id: 'frg-04', code: 'FRG-04', hours: 6, origin: 'added', type: 'practice',
       title: 'Brand Systems',
       source: 'Internal', url: '',
       duration: '2 weeks',
@@ -266,7 +267,7 @@ const TRACK_MISSIONS = {
       criteria: ['Another designer can use it without asking you', 'Covers at least 5 recurring formats', 'Written, not implied']
     },
     {
-      id: 'frg-05', code: 'FRG-05', origin: 'added', type: 'practice',
+      id: 'frg-05', code: 'FRG-05', hours: 4, origin: 'added', type: 'practice',
       title: 'Layout For Social',
       source: 'Internal', url: '',
       duration: '1 week',
@@ -275,7 +276,7 @@ const TRACK_MISSIONS = {
       criteria: ['Readable at thumbnail size', 'Safe areas respected', 'Each format composed, not resized']
     },
     {
-      id: 'frg-06', code: 'FRG-06', origin: 'added', type: 'practice',
+      id: 'frg-06', code: 'FRG-06', hours: 6, origin: 'added', type: 'practice',
       title: 'Art Direction',
       source: 'Internal', url: '',
       duration: '2 weeks',
@@ -284,7 +285,7 @@ const TRACK_MISSIONS = {
       criteria: ['The two directions are genuinely different', 'Each has a written rationale', 'You recommend one and can defend it']
     },
     {
-      id: 'frg-07', code: 'FRG-07', origin: 'added', type: 'practice',
+      id: 'frg-07', code: 'FRG-07', hours: 4, origin: 'added', type: 'practice',
       title: 'Deck & Presentation Craft',
       source: 'Internal', url: '',
       duration: '1 week',
@@ -295,121 +296,182 @@ const TRACK_MISSIONS = {
   ]
 };
 
-/* ---------- BONUS TRACK ----------
-   Personal, not per team. Opens only after someone has cleared their
-   whole core road, and still inside the same 90-day window.
-   stopName = what the extra stop on the map is called for that person. */
+/* ---------- THE LADDER ----------
+   Free material, ordered from mid-level to senior, taken by everyone. */
+const LADDER_MISSIONS = [
+  {
+    id: 'lad-01', code: 'EDIT-1', origin: 'added', type: 'course', level: 'Foundation', hours: 7,
+    title: "Editing Foundations in DaVinci Resolve",
+    source: "Free DaVinci Resolve — full version costs nothing",
+    url: 'https://www.youtube.com/watch?v=fDe7G8Tz6cA',
+    duration: "7 hours",
+    videos: [{ id: 'fDe7G8Tz6cA', title: "DaVinci Resolve 20 for Beginners: Crash Course", by: "Jason Yadlovski" }, { id: 'CC_-V5qjhaY', title: "DaVinci Resolve 20 — Complete Tutorial for Beginners", by: "Justin Brown" }], 
+    objective: "Get fluent in one editing tool end to end: import, cut, trim, transitions, titles, export. Resolve is free, so everyone starts from the same place.",
+    deliverable: "A 60 second edit built from raw footage, exported and shared with the team.",
+    criteria: ["Clean cuts with no accidental gaps","Titles and audio levelled","Exported at the right size and format for its platform"]
+  },
+  {
+    id: 'lad-02', code: 'EDIT-2', origin: 'added', type: 'course', level: 'Foundation', hours: 4,
+    title: "Cuts, Pacing and Storytelling",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=J0ydlAqg6_8',
+    duration: "4 hours",
+    videos: [{ id: 'J0ydlAqg6_8', title: "The ONLY 7 Cuts You Need To Tell Any Story", by: "Tim Runia" }, { id: 'eraB3u3e7aM', title: "How to Control PACING in your Video Editing", by: "Abhay PS Rajawat" }, { id: 'WOVroZM6NCo', title: "Rhythm in Film Editing", by: "John Tindell" }, { id: 'a9reuDw4cnU', title: "How to Pace Your Film", by: "StudioBinder" }], 
+    objective: "A senior editor chooses each cut for a reason. Learn the cut types, how pace shapes feeling, and how to build a story out of footage.",
+    deliverable: "Recut your edit from EDIT-1 twice with different pacing, then write one sentence on which one ships and why.",
+    criteria: ["Each version has a stated idea behind its pacing","You can name the cut types you used","The two versions feel clearly different"]
+  },
+  {
+    id: 'lad-03', code: 'MOTION-1', origin: 'added', type: 'course', level: 'Practitioner', hours: 8,
+    title: "Motion Foundations in After Effects",
+    source: "Free YouTube courses (After Effects is part of the Adobe licence)",
+    url: 'https://www.youtube.com/watch?v=lHlyBUn9OAs',
+    duration: "8 hours",
+    videos: [{ id: 'lHlyBUn9OAs', title: "After Effects for Beginners — Free Course", by: "Motion by Nick" }, { id: 'ALmYrTm6EKQ', title: "Learn After Effects — Beginner Motion Design Workshop", by: "Adobe Video" }], 
+    objective: "Animate shapes, text and layers with keyframes, masks and precomps, and know where everything lives in the timeline.",
+    deliverable: "A 10 second looping motion piece built from your own layout.",
+    criteria: ["Loops cleanly with no visible jump","Layers named and organised","Rendered and shared with the team"]
+  },
+  {
+    id: 'lad-04', code: 'MOTION-2', origin: 'added', type: 'course', level: 'Practitioner', hours: 4,
+    title: "Timing, Easing and Graph Editor",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=6zrEKEuJGKs',
+    duration: "4 hours",
+    videos: [{ id: '6zrEKEuJGKs', title: "Beautiful easing curves in After Effects", by: "Jake In Motion" }, { id: 'IzUxpC5xVi4', title: "After Effects Basics: 'Easing' and the Graph Editor", by: "Motion Teaching" }, { id: 'a1_b1uEOb8U', title: "Motion Graphics Masterclass (8 hours) — optional deep dive", by: "Ag Motion Designs" }], 
+    objective: "What separates mid-level motion from senior motion is timing. Learn to shape the curve instead of accepting the default.",
+    deliverable: "Take your MOTION-1 piece and rebuild every move with hand-shaped easing curves.",
+    criteria: ["No keyframe left on default easing","Heavy and light objects move differently","Shown next to the original so the difference is visible"]
+  },
+  {
+    id: 'lad-05', code: '3D-1', origin: 'added', type: 'course', level: 'Practitioner', hours: 10,
+    title: "Blender Foundations",
+    source: "Free — Blender is open source",
+    url: 'https://www.youtube.com/watch?v=4haAdmHqGOw',
+    duration: "10 hours",
+    videos: [{ id: '4haAdmHqGOw', title: "Beginner Blender 4.0 Tutorial — the full donut course", by: "Blender Guru" }, { id: 'z-Xl9tGqH14', title: "Beginner Blender Tutorial (2026)", by: "Blender Guru" }], 
+    objective: "Learn the interface, modelling, materials, lighting and rendering by building one complete scene. Everything later builds on this.",
+    deliverable: "Your own finished render of the tutorial scene, with at least one change that makes it yours.",
+    criteria: ["Modelled, shaded and lit by you","Rendered at final quality","One deliberate change from the tutorial"]
+  },
+  {
+    id: 'lad-06', code: '3D-2', origin: 'added', type: 'course', level: 'Senior', hours: 6,
+    title: "Blender Lighting and Materials",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=xACzjrh-pYo',
+    duration: "6 hours",
+    videos: [{ id: 'xACzjrh-pYo', title: "FREE Blender Course — Part 2: Lighting & Materials", by: "ukramedia" }, { id: 'vXe2Vsr0PEg', title: "Product Lighting in Blender (Free Course: Part 3)", by: "The Blenderender" }], 
+    objective: "Light and material choices decide whether a 3D shot looks professional. Learn key, fill and rim lights and believable surfaces.",
+    deliverable: "One object lit three different ways, with a note on what each setup communicates.",
+    criteria: ["A reason behind every light","Materials look believable up close","Three clearly different moods"]
+  },
+  {
+    id: 'lad-07', code: 'GRADE-1', origin: 'added', type: 'course', level: 'Senior', hours: 5,
+    title: "Colour Grading in DaVinci Resolve",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=jvQhY8F30uw',
+    duration: "5 hours",
+    videos: [{ id: 'jvQhY8F30uw', title: "DaVinci Resolve Color Grading for Beginners — Free Course", by: "Envato Tuts+" }, { id: 'QK6pAiaiXO4', title: "The Only Color Grading Guide You Need", by: "Graham Hunt" }, { id: 'LQiySO0eXGQ', title: "Easy Color Grading in DaVinci Resolve", by: "Elib Filmz" }], 
+    objective: "Match shots from different sources, protect skin tones, and give a piece one intentional look.",
+    deliverable: "One mixed-source sequence graded to a single look, with before and after.",
+    criteria: ["Shots match across sources","Skin tones look natural","The look has a stated intention"]
+  },
+  {
+    id: 'lad-08', code: 'SOUND-1', origin: 'added', type: 'course', level: 'Senior', hours: 3,
+    title: "Sound for Editors",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=f5JWZpa_LmY',
+    duration: "3 hours",
+    videos: [{ id: 'f5JWZpa_LmY', title: "Complete DaVinci Resolve Audio Course — Free Fairlight Training", by: "DaVinci Dojo" }, { id: 'r00ZfXkUA2Y', title: "How I Get PERFECT AUDIO in DaVinci Resolve", by: "Joris Hermans" }, { id: 'tbH2MKPnc_0', title: "Fairlight Training: Introduction to Mixing", by: "Blackmagic Design" }], 
+    objective: "Sound is half of the edit. Clean dialogue, level the mix and add a few designed effects.",
+    deliverable: "Give one existing edit a proper sound pass: clean voice, ambience, a few effects, levelled mix.",
+    criteria: ["Voice is always clear","No clipping","At least three designed sound effects"]
+  },
+  {
+    id: 'lad-09', code: '3D-3', origin: 'added', type: 'course', level: 'Senior', hours: 7,
+    title: "Blender Product Animation and Motion Graphics",
+    source: "Free YouTube courses",
+    url: 'https://www.youtube.com/watch?v=q3q3-iweRZ8',
+    duration: "7 hours",
+    videos: [{ id: 'q3q3-iweRZ8', title: "FREE COURSE: Blender Product Animation (do Chapter 1, serum bottle)", by: "JB 3D Studio" }, { id: 'tWvgHbZXCtA', title: "Geometry Nodes for Complete Beginners — Part 1", by: "Ryan King Art" }, { id: '-M-Y3WYPvnE', title: "Create Easy Motion Graphics With Geometry Nodes", by: "Terry Blend" }], 
+    objective: "Animate a lit product shot and learn the basics of procedural motion with Geometry Nodes.",
+    deliverable: "One animated product shot of 8 to 10 seconds, rendered and ready to drop into an edit.",
+    criteria: ["Camera move has a purpose","Lighting carried over from 3D-2","Renders cleanly with no flicker"]
+  },
+  {
+    id: 'lad-10', code: 'AI-1', origin: 'added', type: 'course', level: 'Senior', hours: 4,
+    title: "Free AI Video Workflow",
+    source: "Free and open source tools",
+    url: 'https://www.youtube.com/watch?v=0z8Pp4TaAl8',
+    duration: "4 hours",
+    videos: [{ id: '0z8Pp4TaAl8', title: "How to Generate AI Videos for FREE with ComfyUI", by: "Kevin Stratvert" }, { id: 'vQyLzgFprFU', title: "ComfyUI — Wan 2.1 Image to Video, Made Simple", by: "Arcane Ai Alchemy" }], 
+    objective: "Build a repeatable image to video workflow using free tools, so AI footage becomes something you can plan, not something you hope for. Local generation needs a capable graphics card; if the workstation cannot run it, repeat the same pipeline with the tools from CORE-01.",
+    deliverable: "One 5 second AI shot made with a documented, repeatable workflow, cut into a real edit.",
+    criteria: ["The workflow is written down so someone else can repeat it","Matches the grade of surrounding footage","Used where it helps the story"]
+  },
+  {
+    id: 'lad-11', code: 'CAPSTONE', origin: 'added', type: 'course', level: 'Senior', hours: 8,
+    title: "Senior Capstone — one piece, every skill",
+    source: "Internal — the proof of senior level",
+    url: '',
+    duration: "8 hours",
+    
+    objective: "Bring editing, motion, 3D and AI together in one piece, the way a senior would on a real brief.",
+    deliverable: "A 30 second piece that uses a real edit, a motion graphics layer, one Blender shot and one AI shot, graded and mixed.",
+    criteria: ["Starts from a written brief and a storyboard","Every technique serves the story","Graded, mixed and exported ready to publish","Presented in three minutes, with the reasoning"]
+  }
+];
+
+/* ---------- SPECIALISATIONS ----------
+   Personal, free, and they start once the shared path is done. */
 const BONUS_MISSIONS = [
   {
-    id: 'bon-montage', code: 'BONUS-ED', origin: 'added', type: 'practice',
-    stopName: 'Advanced Editing',
-    title: 'Advanced Montage — the editor’s specialism',
-    source: 'Internal — deep specialisation for the Motion Team',
-    url: '',
-    duration: '3 weeks',
-    objective: 'Editing is already the strongest tool in the kit. This turns it into a specialism: rhythm, structure, and the kind of cut that carries a whole film on its own.',
-    deliverable: 'Recut one existing project three ways — one built on rhythm, one on tension, one on contrast — and present which one earns its place.',
-    criteria: [
-      'Each version has a stated structural idea, not just different timings',
-      'Cut points are chosen before the timeline opens',
-      'One version uses only picture, no music crutch, and still works',
-      'You can defend the final choice in a sentence'
-    ]
+    id: 'bon-montage', code: 'SPEC-ED', origin: 'added', type: 'course', level: 'Specialisation', hours: 8,
+    title: "Advanced Montage",
+    source: "Internal — editing as a specialism",
+    url: 'https://www.youtube.com/watch?v=2AfnqysJuFI',
+    stopName: "Advanced Montage",
+    duration: "8 hours",
+    videos: [{ id: '2AfnqysJuFI', title: "Enhancing Storytelling with Rhythm & Pacing in Editing", by: "Hollywood Editing Mentor" }, { id: 'CcLarHrGbfo', title: "Video Editing Fundamentals: Cuts, Transitions & Pacing", by: "CodeLucky" }], 
+    objective: "Take the editing from EDIT-2 further: structure, rhythm and the kind of cut that carries a whole film on its own.",
+    deliverable: "Recut one existing project three ways — built on rhythm, tension and contrast — and present which one earns its place.",
+    criteria: ["Each version has a stated structural idea","Cut points are chosen before the timeline opens","One version works on picture alone","You can defend the final choice in a sentence"]
   },
   {
-    id: 'bon-3d', code: 'BONUS-3D', origin: 'added', type: 'practice',
-    stopName: '3D Foundations',
-    title: '3D Foundations — space, camera and light',
-    source: 'Internal — the step before Blender',
-    url: '',
-    duration: '2 weeks',
-    objective: 'Everything that makes 3D read well is decided before the software: where the camera sits, where the light comes from, how much space the subject gets. Learn that first and Blender becomes a tool rather than a puzzle.',
-    deliverable: 'One scene planned entirely on paper — camera position, key and fill light, subject placement — then matched in any 3D viewport.',
-    criteria: [
-      'Camera height and lens choice are deliberate',
-      'One clear key light with a reason behind its direction',
-      'The plan and the render sit side by side and match'
-    ]
+    id: 'bon-blender', code: 'SPEC-3D', origin: 'added', type: 'course', level: 'Specialisation', hours: 10,
+    title: "Blender Deep Dive",
+    source: "Free YouTube courses",
+    url: 'https://www.youtube.com/watch?v=q3q3-iweRZ8',
+    stopName: "Blender Deep Dive",
+    duration: "10 hours",
+    videos: [{ id: 'q3q3-iweRZ8', title: "FREE COURSE: Blender Product Animation — remaining chapters", by: "JB 3D Studio" }, { id: '_m6bh9O5MJk', title: "Blender Geometry Nodes for Beginners — Full Course", by: "Jakob Design" }], 
+    objective: "Go past one shot: finish a second product animation chapter and build a procedural scene with Geometry Nodes.",
+    deliverable: "A second finished product animation plus one procedural motion graphic, both cut into a sequence.",
+    criteria: ["Both pieces rendered and edited together","The Geometry Nodes setup is organised and reusable","Notes on what you would do differently next time"]
   },
   {
-    id: 'bon-blender', code: 'BONUS-BL', origin: 'added', type: 'practice',
-    stopName: 'Blender',
-    title: 'Blender — from first open to a finished shot',
-    source: 'Internal — builds directly on BONUS-3D',
-    url: '',
-    duration: '4 weeks',
-    objective: 'The destination of the 3D run. Model, light, shade and render one shot end to end, then bring it into an edit like any other piece of footage.',
-    deliverable: 'One finished 3D shot, rendered and cut into a real sequence — not shown on its own.',
-    criteria: [
-      'Modelled, lit and shaded by you, not a downloaded scene',
-      'Render settings chosen on purpose and documented',
-      'Sits inside an edit without looking pasted in',
-      'The whole thing is repeatable — you could do it again next week'
-    ]
+    id: 'bon-uiux', code: 'SPEC-UX', origin: 'added', type: 'course', level: 'Specialisation', hours: 10,
+    title: "UI/UX Foundations",
+    source: "Free YouTube courses (Figma free plan)",
+    url: 'https://www.youtube.com/watch?v=cKZEgtQUxlU',
+    stopName: "UI/UX",
+    duration: "10 hours",
+    videos: [{ id: 'cKZEgtQUxlU', title: "Design 101 Crash Course: UX/UI Design and Figma", by: "Zero To Mastery" }, { id: 'mT_Jjn8RJdo', title: "Learn Figma in 6 Hours — Full Course", by: "freeCodeCamp.org" }], 
+    objective: "Print and social are about attention. Screens are about what happens next. Learn flows, states and hierarchy for screens people actually use.",
+    deliverable: "One small app or landing flow, three screens minimum, with empty, loading, filled and error states.",
+    criteria: ["A user flow is drawn before any screen","Tap targets and text sizes checked on a real phone","Every screen has its empty and error state","One round of feedback from someone new"]
   },
   {
-    id: 'bon-edit', code: 'BONUS-VE', origin: 'added', type: 'practice',
-    stopName: 'Video & Motion',
-    title: 'Video Editing & Simple Motion',
-    source: 'Internal — cross-team, Motion Team mentoring',
-    url: '',
-    duration: '3 weeks',
-    objective: 'A designer who can cut a simple video and animate a simple layout can carry a whole campaign alone. Not a career change — range, so an account never waits on someone else for a fifteen-second cut.',
-    deliverable: 'One short edit assembled start to finish, plus one static layout of yours animated as a simple motion piece.',
-    criteria: [
-      'The cut has a beginning, a turn and an end',
-      'Audio levelled, no clipping',
-      'Animation eased on purpose, nothing on default',
-      'Reviewed once with someone from the Motion Team'
-    ]
-  },
-  {
-    id: 'bon-motion', code: 'BONUS-M', origin: 'added', type: 'practice',
-    stopName: 'Motion Basics',
-    title: 'Motion Basics — a light first pass',
-    source: 'Internal — cross-team, Motion Team mentoring',
-    url: '',
-    duration: '2 weeks',
-    objective: 'A gentle introduction to movement for a designer who works in stills. Just enough that a static layout can be given life, and enough shared language to brief the Motion Team properly.',
-    deliverable: 'Take one static piece you already made and bring it to life as a 10-second animation. Keep it simple: entrances, a hold, an exit.',
-    criteria: [
-      'Movement has a reason — nothing moves just because it can',
-      'Easing used deliberately rather than left on default',
-      'Type stays readable through the whole 10 seconds',
-      'Reviewed once with someone from the Motion Team'
-    ]
-  },
-  {
-    id: 'bon-uiux', code: 'BONUS-UX', origin: 'added', type: 'practice',
-    stopName: 'UI/UX',
-    title: 'UI/UX Foundations',
-    source: 'Internal — designing for screens people use, not just look at',
-    url: '',
-    duration: '3 weeks',
-    objective: 'Print and social are about attention. Screens are about what happens next. Learn the difference: flows, states, hierarchy under real constraints, and why a beautiful screen that nobody can use is a failed screen.',
-    deliverable: 'One small app or landing flow, three screens minimum, with every state drawn — empty, loading, filled and error.',
-    criteria: [
-      'A user flow is drawn before any screen is designed',
-      'Tap targets and text sizes work on a real phone, checked on one',
-      'Every screen has its empty and error state designed',
-      'One round of feedback from someone who has not seen it before'
-    ]
-  },
-  {
-    id: 'bon-brand', code: 'BONUS-BR', origin: 'added', type: 'practice',
-    stopName: 'Brand Identity',
-    title: 'Brand Identity — building one from zero',
-    source: 'Internal — the step beyond FRG-04 Brand Systems',
-    url: '',
-    duration: '3 weeks',
-    objective: 'Brand Systems teaches you to apply an identity. This teaches you to create one: positioning, personality, the mark, and the reasoning that holds it together. It is the step from running an account to defining what the account looks like.',
-    deliverable: 'A complete mini identity for one brand, real or fictional: positioning line, personality, logo, type and colour, and three applications that prove it works.',
-    criteria: [
-      'The positioning is written before any visual is made',
-      'Every visual decision traces back to that positioning',
-      'The mark works at both large and favicon size',
-      'Presented as a story, not a sheet of assets'
-    ]
+    id: 'bon-brand', code: 'SPEC-BR', origin: 'added', type: 'course', level: 'Specialisation', hours: 10,
+    title: "Brand Identity — from zero",
+    source: "Free YouTube courses",
+    url: 'https://www.youtube.com/watch?v=mhUMNu7XeTE',
+    stopName: "Brand Identity",
+    duration: "10 hours",
+    videos: [{ id: 'mhUMNu7XeTE', title: "Complete Brand Identity Design from Zero to Mockups", by: "GraphiqVibe" }, { id: 'FBTvh_OOcNY', title: "How to Design a Brand Identity (Full Guide 2026)", by: "Yanis Xavier" }, { id: 'yB2j6JJmnJk', title: "How To Design a Brand Identity — a real client process", by: "Anik Jain" }], 
+    objective: "Brand Systems teaches you to apply an identity. This teaches you to create one: positioning, personality, the mark, and the reasoning behind it.",
+    deliverable: "A mini identity for one brand, real or fictional: positioning line, personality, logo, type and colour, and three applications.",
+    criteria: ["The positioning is written before any visual","Every visual decision traces back to it","The mark works large and at favicon size","Presented as a story, not a sheet of assets"]
   }
 ];
 
@@ -469,7 +531,7 @@ const HEROES = [
       }
     ],
     boss: 'A video designer who walks in with the answer already built.',
-    extras: ['kin-03', 'kin-04', 'kin-05', 'kin-09'],
+    extras: ['kin-04', 'kin-05', null, 'kin-09'],
     bonus: ['bon-montage']
   },
   {
@@ -530,8 +592,70 @@ const HEROES = [
       }
     ],
     boss: 'A designer whose output lands right without needing a second pair of eyes.',
-    extras: ['kin-03', 'kin-06', 'kin-07', 'kin-09'],
-    bonus: ['bon-3d', 'bon-blender']
+    extras: ['kin-04', 'kin-05', null, 'kin-09'],
+    bonus: ['bon-montage', 'bon-blender']
+  },
+  {
+    id: 'abdelrahman', name: 'Abdelrahman Makhlouf', title: 'Video Designer',
+    division: 'kinetic', rank: 'Designer',
+    tagline: 'A fresh start on the same road: editing, motion and Blender, taken to senior level in 90 days.',
+    statusTag: 'Joining the Motion Team',
+    origin: [
+      'Abdelrahman joins the Motion Team on the same road as Shimaa: the shared standard first, then deeper editing, motion and Blender.',
+      'He starts with everything ahead of him and no old habits to unlearn, which is the easiest way to build a clean workflow.',
+      'His starting skill levels are being set by the Team Lead, so progress is measured on the same scale as everyone else.'
+    ],
+    powers: [
+      { name: 'Video Editing', from: 0, to: 0 },
+      { name: 'Motion Graphics', from: 0, to: 0 },
+      { name: 'Blender', from: 0, to: 0 },
+      { name: 'AI in Production', from: 0, to: 0 }
+    ],
+    powersPending: true,
+    focus: {
+      headline: 'Focus: reach senior editing, motion and Blender by day 90.',
+      why: 'Editing is the main craft here, with motion and 3D around it. The ladder is ordered so each step makes the next one easier.',
+      moves: [
+        'Follow the path in order: each stop opens the next',
+        'Finish every course with the piece of work it asks for',
+        'Use Advanced Montage as the place to go deep on editing',
+        'Agree starting skill levels with the Team Lead in week one'
+      ]
+    },
+    phases: [
+      {
+        n: 1, name: 'Adopt', origin: 'added',
+        objectives: [
+          'Run everything on the new workflow — one process, no parallel track',
+          'Fold one AI tool per week into real client work',
+          'Storyboard before the timeline opens, every time',
+          'Bring every brief through the shared approval path'
+        ],
+        checkpoint: 'Three projects in a row delivered fully on the new workflow.'
+      },
+      {
+        n: 2, name: 'Consistency', origin: 'added',
+        objectives: [
+          'Hold the written standard without a review pass',
+          'Keep deliverables on one account tightly matched',
+          'Handle revisions independently',
+          'Use the AI tools in production, not as a side experiment'
+        ],
+        checkpoint: 'Two deliverables in a row clear review with no standard notes.'
+      },
+      {
+        n: 3, name: 'Self-direction', origin: 'added',
+        objectives: [
+          'Own a project end to end',
+          'Propose the treatment rather than receive it',
+          'Present the direction before execution'
+        ],
+        checkpoint: 'A project where the treatment was hers and shipped as proposed.'
+      }
+    ],
+    boss: 'A video designer working at senior level in editing, motion and Blender.',
+    extras: ['kin-04', 'kin-05', null, 'kin-09'],
+    bonus: ['bon-montage', 'bon-blender']
   },
   {
     id: 'mahmoud', name: 'Mahmoud', title: 'Senior Designer',
@@ -593,7 +717,7 @@ const HEROES = [
     ],
     boss: 'Senior Designer to Creative Lead — the person the standard runs through.',
     extras: ['frg-01', 'frg-04', 'frg-06', 'frg-07'],
-    bonus: ['bon-brand', 'bon-edit']
+    bonus: ['bon-brand']
   },
   {
     id: 'islam', name: 'Islam', title: 'Graphic Designer',
@@ -783,8 +907,8 @@ const HEROES = [
       }
     ],
     boss: 'From production support to Junior-ready — the title just catching up.',
-    extras: ['frg-02', 'frg-05', 'frg-07'],
-    bonus: ['bon-motion', 'bon-uiux', 'bon-brand']
+    extras: ['frg-02', 'frg-05', null, 'frg-07'],
+    bonus: ['bon-uiux', 'bon-brand']
   }
 ];
 
@@ -793,48 +917,57 @@ const HEROES = [
    before it is fully complete. core = explicit course ids;
    arc / track = indices into that person's priority and team lists. */
 const JOURNEY = [
-  { n: 1, chapter: 1, name: 'Briefing & Feedback',
-    tagline: 'Start every project knowing the goal, and set up a feedback loop that works.',
+  { n: 1, chapter: 1, level: 'Foundation', name: 'Briefing & Planning',
+    tagline: "Start every project knowing the goal, and plan before you open any software.",
     core: ['core-07'], arc: [0], track: [], bonus: [] },
-  { n: 2, chapter: 1, name: 'AI Production I',
-    tagline: 'Move from prompting to a node workflow you can re-run and hand over.',
-    core: ['core-01', 'core-02'], arc: [], track: [], bonus: [] },
-  { n: 3, chapter: 1, name: 'AI Production II',
-    tagline: 'Chain the tools into one pipeline the whole team can open and reuse.',
-    core: ['core-03'], arc: [], track: [0], bonus: [] },
-  { n: 4, chapter: 2, name: 'Typography',
-    tagline: 'Text hierarchy, and applying it so anything reads in two seconds.',
+  { n: 2, chapter: 1, level: 'Foundation', name: 'AI Workflow',
+    tagline: "Move from prompting to a node workflow you can re-run and hand over.",
+    core: ['core-01','core-02','core-03'], arc: [], track: [], bonus: [] },
+  { n: 3, chapter: 1, level: 'Foundation', name: 'Editing Foundations',
+    tagline: "One editing tool end to end, then the craft of the cut.",
+    core: ['lad-01','lad-02'], arc: [], track: [], bonus: [] },
+  { n: 4, chapter: 1, level: 'Foundation', name: 'Typography',
+    tagline: "Text hierarchy, so anything reads in two seconds.",
     core: ['core-04'], arc: [], track: [], bonus: [] },
-  { n: 5, chapter: 2, name: 'Colour',
-    tagline: 'Turn colour from instinct into a system you can defend in a review.',
-    core: ['core-06'], arc: [], track: [1], bonus: [] },
-  { n: 6, chapter: 2, name: 'Craft & Retouching',
-    tagline: 'Manual technique and AI technique, and knowing which one a job needs.',
+  { n: 5, chapter: 1, level: 'Foundation', name: 'Colour',
+    tagline: "Turn colour from instinct into a system you can defend.",
+    core: ['core-06'], arc: [], track: [], bonus: [] },
+  { n: 6, chapter: 2, level: 'Practitioner', name: 'Motion Foundations',
+    tagline: "Animate in After Effects, then shape the timing.",
+    core: ['lad-03','lad-04'], arc: [], track: [], bonus: [] },
+  { n: 7, chapter: 2, level: 'Practitioner', name: 'Blender Foundations',
+    tagline: "One complete 3D scene from first open to final render.",
+    core: ['lad-05'], arc: [], track: [], bonus: [] },
+  { n: 8, chapter: 2, level: 'Practitioner', name: 'Craft & Composition',
+    tagline: "Manual and AI technique, and knowing which one a job needs.",
     core: ['core-05'], arc: [1], track: [], bonus: [] },
-  { n: 7, chapter: 3, name: 'Presenting Work',
-    tagline: 'Explaining the work so the reasoning survives the meeting.',
-    core: ['core-08'], arc: [2], track: [], bonus: [] },
-  { n: 8, chapter: 3, name: 'Critique & Review',
-    tagline: 'Giving and receiving feedback that is specific and actionable.',
-    core: ['core-09'], arc: [], track: [2], bonus: [] },
-  { n: 9, chapter: 3, name: 'Consolidation',
-    tagline: 'Everything from the previous stages applied together on live work.',
-    core: [], arc: [3], track: [3, 4, 5, 6, 7, 8, 9], bonus: [] },
-  { n: 10, chapter: 3, name: 'Specialisation I',
-    tagline: 'A personal specialisation, starting once the shared plan is complete.',
+  { n: 9, chapter: 2, level: 'Practitioner', name: 'Presenting & Review',
+    tagline: "Explain the work, and give and take feedback that is specific.",
+    core: ['core-08','core-09'], arc: [2], track: [], bonus: [] },
+  { n: 10, chapter: 3, level: 'Senior', name: 'Blender: Light & Product',
+    tagline: "Lighting, materials and a finished animated shot.",
+    core: ['lad-06','lad-09'], arc: [], track: [], bonus: [] },
+  { n: 11, chapter: 3, level: 'Senior', name: 'Grade & Sound',
+    tagline: "Colour grade and sound, the two things that finish an edit.",
+    core: ['lad-07','lad-08'], arc: [], track: [], bonus: [] },
+  { n: 12, chapter: 3, level: 'Senior', name: 'AI Video Workflow',
+    tagline: "A free, repeatable AI video pipeline.",
+    core: ['lad-10'], arc: [], track: [], bonus: [] },
+  { n: 13, chapter: 3, level: 'Senior', name: 'Senior Capstone',
+    tagline: "One piece that uses every skill, presented as a senior would.",
+    core: ['lad-11'], arc: [3], track: [], bonus: [] },
+  { n: 14, chapter: 3, level: 'Specialisation', name: 'Specialisation I',
+    tagline: "A personal specialisation, starting once the shared path is complete.",
     core: [], arc: [], track: [], bonus: [0] },
-  { n: 11, chapter: 3, name: 'Specialisation II',
-    tagline: 'The next step of the specialisation.',
-    core: [], arc: [], track: [], bonus: [1] },
-  { n: 12, chapter: 3, name: 'Specialisation III',
-    tagline: 'The final step of the specialisation.',
-    core: [], arc: [], track: [], bonus: [2] }
+  { n: 15, chapter: 3, level: 'Specialisation', name: 'Specialisation II',
+    tagline: "The second specialisation.",
+    core: [], arc: [], track: [], bonus: [1] }
 ];
 
 const CHAPTERS = {
-  1: { name: 'Month 1 — Foundations', sub: 'Getting the ground solid' },
-  2: { name: 'Month 2 — Craft', sub: 'Building the range' },
-  3: { name: 'Month 3 — Independence', sub: 'Running it without supervision' }
+  1: { name: 'Month 1 — Foundations', sub: 'Mid-level fundamentals, built in order' },
+  2: { name: 'Month 2 — Practitioner', sub: 'Motion, 3D and craft in practice' },
+  3: { name: 'Month 3 — Senior', sub: 'Senior-level work and a capstone' }
 };
 
 /* ---------- SKILL TREE (deck: final "Learning Track" slide) ---------- */

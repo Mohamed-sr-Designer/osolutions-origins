@@ -26,6 +26,7 @@ const COURSE_INDEX = (() => {
   const m = {};
   CORE_MISSIONS.forEach(x => m[x.id] = x);
   Object.values(TRACK_MISSIONS).flat().forEach(x => m[x.id] = x);
+  LADDER_MISSIONS.forEach(x => m[x.id] = x);
   BONUS_MISSIONS.forEach(x => m[x.id] = x);
   return m;
 })();
@@ -38,41 +39,48 @@ function nextRank(rank) {
   return i > -1 && i < PROGRAM.ranks.length - 1 ? PROGRAM.ranks[i + 1] : null;
 }
 
-/* ---------- video thumbnails ----------
-   YouTube links resolve their own poster frame. Anything else can set
-   `thumb: 'https://…'` on the course. */
+/* ---------- videos ----------
+   A course lists its videos as { id, title, by }. Thumbnails come from the
+   YouTube id. A course with only a url still gets one thumbnail. */
 function youtubeId(url) {
   const m = String(url || '').match(
     /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/
   );
   return m ? m[1] : null;
 }
-function thumbFor(c) {
-  if (c.thumb) return c.thumb;
+function videosFor(c) {
+  if (c.videos && c.videos.length) return c.videos;
   const id = youtubeId(c.url);
-  return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null;
+  return id ? [{ id, title: c.title, by: '' }] : [];
 }
-function thumbHTML(c) {
-  const t = thumbFor(c);
-  if (!t) return '';
+function videoCard(v) {
   return `
-    <a class="thumb" href="${esc(c.url)}" target="_blank" rel="noopener"
-       aria-label="Watch: ${esc(c.title)}">
-      <img src="${esc(t)}" alt="" loading="lazy" onerror="this.closest('.thumb').remove()">
-      <span class="thumb__play" aria-hidden="true">▶</span>
+    <a class="vid" href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener"
+       aria-label="Watch: ${esc(v.title)}">
+      <span class="vid__img">
+        <img src="https://img.youtube.com/vi/${esc(v.id)}/hqdefault.jpg" alt="" loading="lazy"
+             onerror="this.closest('.vid').remove()">
+        <span class="vid__play" aria-hidden="true">▶</span>
+      </span>
+      <span class="vid__title">${esc(v.title)}</span>
+      ${v.by ? `<span class="vid__by">${esc(v.by)}</span>` : ''}
     </a>`;
 }
+function videosHTML(c) {
+  const vs = videosFor(c);
+  if (!vs.length) return '';
+  return `<div class="vids"><div class="sub-label">Watch</div><div class="vids__grid">${vs.map(videoCard).join('')}</div></div>`;
+}
+const thumbHTML = videosHTML;
 
 /* ============================================================
    STRUCTURE
    ============================================================ */
 function personCourses(p) {
-  const track = TRACK_MISSIONS[p.division] || [];
-  const priority = new Set(p.extras || []);
   return {
     core: CORE_MISSIONS,
-    arc: track.filter(c => priority.has(c.id)),
-    track: track.filter(c => !priority.has(c.id))
+    arc: (p.extras || []).map(id => (id ? COURSE_INDEX[id] : null)),
+    track: []
   };
 }
 function personBonus(p) {
@@ -105,6 +113,8 @@ function stages(p) {
         st: r.st, courses: r.courses, done, total: r.courses.length, complete,
         /* a specialisation stage is named after the subject being learned */
         label: (isSpec && r.courses[0].stopName) || r.st.name,
+        hours: r.courses.reduce((t, c) => t + hrs(c), 0),
+        level: r.st.level,
         spec: isSpec,
         locked: !unlocked, index: i, count: all.length,
         pct: Math.round(done / r.courses.length * 100)
@@ -113,6 +123,12 @@ function stages(p) {
       return row;
     });
 }
+
+const hrs = c => c.hours || 0;
+function personHours(p) {
+  return stages(p).reduce((s, r) => s + r.courses.reduce((t, c) => t + hrs(c), 0), 0);
+}
+const WEEKS = Math.round(PROGRAM.days / 7);
 
 function personStats(p) {
   const rows = stages(p);
@@ -203,7 +219,7 @@ function courseHTML(p, c) {
                 aria-label="Mark ${esc(c.title)} complete">✓</button>
         <span class="course__code">${esc(c.code)}</span>
         <span class="course__title">${esc(c.title)}</span>
-        <span class="course__meta">${esc(c.duration)}</span>
+        <span class="course__meta">${c.hours ? c.hours + ' h' : esc(c.duration)}</span>
         <span class="src src--${c.origin}">${c.origin === 'deck' ? 'From deck' : 'Added'}</span>
         <button class="course__more">Details <span aria-hidden="true">›</span></button>
       </div>
@@ -267,10 +283,12 @@ function pathHTML(p) {
     if (r.st.chapter !== lastMonth) {
       lastMonth = r.st.chapter;
       const ch = CHAPTERS[lastMonth];
+      const mh = rows.filter(x => x.st.chapter === lastMonth).reduce((s, x) => s + x.hours, 0);
       html += `
         <div class="phase-head">
           <span class="phase-head__name">${esc(ch.name)}</span>
           <span class="phase-head__sub">${esc(ch.sub)}</span>
+          <span class="phase-head__hrs">${mh} hours</span>
         </div>`;
     }
 
@@ -286,11 +304,11 @@ function pathHTML(p) {
         <button class="stage__head" aria-expanded="${openStage === r.index}">
           <span class="stage__num">${r.complete ? '✓' : (r.locked ? '🔒' : r.index + 1)}</span>
           <span class="stage__text">
-            <span class="stage__name">${esc(r.label)}${r.spec ? '<span class="spec-tag">Specialisation</span>' : ''}</span>
+            <span class="stage__name">${esc(r.label)}<span class="lvl lvl--${r.level.toLowerCase()}">${esc(r.level)}</span></span>
             <span class="stage__tag">${esc(r.st.tagline)}</span>
           </span>
           <span class="stage__side">
-            <span class="stage__count">${r.done}/${r.total} courses</span>
+            <span class="stage__count">${r.hours} h · ${r.done}/${r.total}</span>
             ${status}
             <span class="stage__caret" aria-hidden="true">›</span>
           </span>
@@ -356,7 +374,7 @@ function nextUpHTML(p) {
       <div class="nextup__body">
         <div class="nextup__label">Next course</div>
         <div class="nextup__title">${esc(n.course.title)}</div>
-        <p class="nextup__meta">${esc(n.row.label)} · stage ${n.row.index + 1} of ${n.row.count} · ${esc(n.course.duration)}</p>
+        <p class="nextup__meta">${esc(n.row.label)} · stage ${n.row.index + 1} of ${n.row.count} · ${n.course.hours ? n.course.hours + ' h' : esc(n.course.duration)}</p>
       </div>
       <button class="btn nextup__go" data-stage="${n.row.index}" data-cid="${n.course.id}">Open</button>
     </div>`;
@@ -461,6 +479,7 @@ function renderPerson(id) {
             <span class="chip-s">Level · ${esc(p.rank)}</span>
             ${nr ? `<span class="chip-s">Next level · ${esc(nr)}</span>` : ''}
             <span class="chip-s chip-s--a">${esc(p.statusTag)}</span>
+            <span class="chip-s">${personHours(p)} hours · about ${Math.round(personHours(p) / WEEKS)} a week</span>
           </div>
         </div>
         <div class="phead__prog">
@@ -474,6 +493,7 @@ function renderPerson(id) {
       </div>
 
       <p class="quote">${esc(p.tagline)}</p>
+      <p class="target"><b>Target</b>${esc(PROGRAM.target)}</p>
 
       <div class="grid-2 mt-l">
         <div class="card pad">
@@ -575,12 +595,17 @@ function renderCatalogue() {
 
   const who = c => HEROES.filter(p => (p.bonus || []).includes(c.id)).map(p => p.name).join(', ');
 
+  const placed = new Set(HEROES.flatMap(p => stages(p).flatMap(r => r.courses.map(c => c.id))));
+  const priority = Object.values(TRACK_MISSIONS).flat().filter(c => placed.has(c.id));
+  const library = Object.values(TRACK_MISSIONS).flat().filter(c => !placed.has(c.id));
+
   const html =
     block('Shared core', 'Everyone takes all nine. One standard across the team.', 'var(--ink)', CORE_MISSIONS) +
-    block('Motion Team track', 'Video editing, animation and AI production.', 'var(--teal)', TRACK_MISSIONS.kinetic) +
-    block('Design Team track', 'Graphic design, branding and AI production.', 'var(--orange)', TRACK_MISSIONS.forge) +
+    block('Editing, motion and Blender ladder', 'Free material, taken by everyone, ordered from mid-level to senior.', 'var(--orange)', LADDER_MISSIONS) +
+    block('Personal priority courses', 'Chosen for specific people. They sit inside the path at the stage where they fit.', 'var(--teal)', priority) +
     block('Specialisations', 'Personal, and only start once someone has completed the shared plan.', 'var(--violet)',
-      BONUS_MISSIONS.map(c => ({ ...c, source: c.source + ' · assigned to ' + (who(c) || 'nobody yet') })));
+      BONUS_MISSIONS.map(c => ({ ...c, source: c.source + ' · assigned to ' + (who(c) || 'nobody yet') }))) +
+    block('Reference library', 'Extra material that is not on anyone’s 90 day path. Use it to go deeper after the path.', 'var(--muted)', library);
 
   $('#catalogue').innerHTML = html ||
     `<p class="empty">Nothing matches “${esc(query)}”. Try a course code, a tool name, or a subject.</p>`;
