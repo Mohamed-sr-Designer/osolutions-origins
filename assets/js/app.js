@@ -28,6 +28,7 @@ const COURSE_INDEX = (() => {
   Object.values(TRACK_MISSIONS).flat().forEach(x => m[x.id] = x);
   LADDER_MISSIONS.forEach(x => m[x.id] = x);
   DESIGN_MISSIONS.forEach(x => m[x.id] = x);
+  STAGE2_MISSIONS.forEach(x => m[x.id] = x);
   BONUS_MISSIONS.forEach(x => m[x.id] = x);
   return m;
 })();
@@ -149,7 +150,7 @@ function programClock() {
   const start = new Date(PROGRAM.startDate + 'T00:00:00');
   const day = Math.floor((new Date() - start) / 86400000) + 1;
   const d = Math.min(Math.max(day, 1), PROGRAM.days);
-  return { day: d, left: Math.max(PROGRAM.days - d, 0), month: Math.min(Math.ceil(d / 30), 3) };
+  return { day: d, left: Math.max(PROGRAM.days - d, 0), month: Math.min(Math.ceil(d / 30), 4) };
 }
 
 function toast(msg, sub) {
@@ -531,7 +532,7 @@ function renderPerson(id) {
         </div>
         <div class="grid-3">${months}</div>
         <div class="goal mt-m">
-          <span class="goal__l">90-day goal</span>
+          <span class="goal__l">120-day goal</span>
           <span class="goal__t">${esc(p.boss)}</span>
         </div>
       </div>
@@ -609,7 +610,7 @@ function renderCatalogue() {
     block('Personal priority courses', 'Chosen for specific people. They sit inside the path at the stage where they fit.', 'var(--teal)', priority) +
     block('Specialisations', 'Personal, and only start once someone has completed the shared plan.', 'var(--violet)',
       BONUS_MISSIONS.map(c => ({ ...c, source: c.source + ' · assigned to ' + (who(c) || 'nobody yet') }))) +
-    block('Reference library', 'Extra material that is not on anyone’s 90 day path. Use it to go deeper after the path.', 'var(--muted)', library);
+    block('Reference library', 'Extra material that is not on anyone’s 120 day path. Use it to go deeper after the path.', 'var(--muted)', library);
 
   $('#catalogue').innerHTML = html ||
     `<p class="empty">Nothing matches “${esc(query)}”. Try a course code, a tool name, or a subject.</p>`;

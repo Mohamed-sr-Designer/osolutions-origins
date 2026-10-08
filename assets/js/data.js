@@ -7,13 +7,13 @@
 
 const PROGRAM = {
   title: 'Osolutions Learning Path',
-  subtitle: 'Enhance & Process — 90 day development plan',
+  subtitle: 'Enhance & Process — 120 day development plan',
   startDate: '2026-08-18',
-  days: 90,
+  days: 120,
   ranks: ['Intern', 'Junior', 'Designer', 'Senior', 'Lead'],
   levels: ['—', 'Emerging', 'Developing', 'Competent', 'Strong', 'Independent'],
-  cap: 'Every track is capped at 3 months. Nothing here runs past the 90-day window.',
-  target: 'By day 90 everyone works at senior level in editing, motion and Blender, using free learning material.'
+  cap: 'Every track is capped at 4 months: three for Stage 1, one for Stage 2. Nothing here runs past the 120-day window.',
+  target: 'By day 120 everyone works at senior level in editing, motion and Blender, using free learning material.'
 };
 
 const DIVISIONS = {
@@ -581,6 +581,121 @@ const DESIGN_MISSIONS = [
   }
 ];
 
+/* ---------- STAGE 2 (month 4) ----------
+   Extra depth, found by search, still free. */
+const STAGE2_MISSIONS = [
+  {
+    id: 's2-01', code: 'S2-PORT', origin: 'added', type: 'course', level: 'Stage 2', hours: 4,
+    title: "Portfolio and Case Studies",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=qelg3fYlxAE',
+    duration: '4 hours',
+    videos: [{ id: 'qelg3fYlxAE', title: "Presenting Your Graphic Design Portfolio: A Creative Director's Tips", by: "Tirso Gamboa" }, { id: 'jo6t-TxbUL0', title: "What to include in a design case study", by: "Monica's Design Process" }, { id: 'zCgM6JQYyTg', title: "7 Tips For Design Portfolio Presentation", by: "Zimri Mayfield" }, { id: 'w-PoV_sIWos', title: "Presenting portfolio projects in a design interview", by: "femke.design" }, { id: 'VFAkgNpAVSo', title: "Portfolio Tips: Reviewing Your Design Work", by: "The Futur Academy" }],
+    objective: "Work that is not documented is invisible. Turn four months of work into case studies that show the problem, the thinking and the result.",
+    deliverable: "Two case studies from work done on this plan, each with the brief, your role, the process and the outcome.",
+    criteria: ["Each case study starts from the problem, not the software","Process shown with real sketches or drafts","You can present either one in three minutes"]
+  },
+  {
+    id: 's2-02', code: 'S2-AE', origin: 'added', type: 'course', level: 'Stage 2', hours: 5,
+    title: "After Effects Expressions",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=3_m_vwRF4_U',
+    duration: '5 hours',
+    videos: [{ id: '3_m_vwRF4_U', title: "How to Use Wiggle Expression in After Effects", by: "Quick Fix Up" }, { id: 'UvZqWnVkBto', title: "After Effects Tutorial: loopOut() Expression", by: "Andy Ford Video" }, { id: 'RpAdFa7IzLU', title: "How to Use LoopOut + Wiggle Expression", by: "Mike Murphy" }, { id: 'vyu7s4-3Vio', title: "After Effects Expression Basics", by: "WOO Visual Art" }],
+    objective: "Expressions let you build motion once and reuse it: loops, wiggles and links that replace hundreds of keyframes.",
+    deliverable: "Rebuild one earlier motion piece so its repeating moves run on expressions, with the keyframe count cut by at least half.",
+    criteria: ["At least three different expressions used","Nothing is hard coded that should be controllable","The piece looks identical to the original"]
+  },
+  {
+    id: 's2-03', code: 'S2-VFX', origin: 'added', type: 'course', level: 'Stage 2', hours: 7,
+    title: "Blender Camera Tracking and VFX Integration",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=ui0JUHE12k8',
+    duration: '7 hours',
+    videos: [{ id: 'ui0JUHE12k8', title: "A Beginner's Guide to Camera Tracking in Blender 4.0", by: "Jacob Zirkle" }, { id: 'EAjbcod1HRQ', title: "Complete Blender Camera Tracking Tutorial: From Footage to Finished VFX", by: "Axel Olsson" }, { id: '-aWApR4tUFo', title: "Blender Motion Tracking Part 3: Lighting, Compositing & Final", by: "UDOCGI" }],
+    objective: "Put a 3D object into real footage so it sits there convincingly: tracking, matching light and shadow, and compositing.",
+    deliverable: "A 5 second shot of a 3D object tracked into your own footage, with matching light and shadow.",
+    criteria: ["The track does not slide","Shadows and reflections match the scene","Exported and cut into an edit"]
+  },
+  {
+    id: 's2-04', code: 'S2-ED', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "Editing Commercials and Brand Films",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=UMTyVhq7k-E',
+    duration: '6 hours',
+    videos: [{ id: 'UMTyVhq7k-E', title: "How to edit a TV Commercial", by: "Michael Odelberth" }, { id: 'dsRkaKAuORQ', title: "How to Edit a Commercial in DaVinci Resolve", by: "Images By Zel" }, { id: 'pUlH1UQgK0o', title: "How to Edit a Motion Graphics Commercial (Premiere Pro)", by: "Premiere Basics" }, { id: 'cwCCUAOV0I4', title: "Editing Tricks to Level Up Your Video Ads", by: "Linx Digital" }],
+    objective: "Commercials are edited to a clock and a message. Learn how a 30 second ad is structured and cut.",
+    deliverable: "A 30 second commercial cut from supplied footage, with a hook in the first three seconds and a clear call to action.",
+    criteria: ["The hook works with the sound off","Exactly the right length for its platform","One message, stated clearly"]
+  },
+  {
+    id: 's2-05', code: 'S2-PACK', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "Packaging Design",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=vVmJXUakZUk',
+    duration: '6 hours',
+    videos: [{ id: 'vVmJXUakZUk', title: "Product Packaging Design From Scratch: Full Process", by: "itsbossin" }, { id: 'hbABAW2csEE', title: "Modern Product Packaging Design Tutorial (3D Mockup)", by: "Megan Weeks" }, { id: 'WeDJv63Wgjk', title: "Learn Packaging Design Part 3: Dielines into 3D Mockups", by: "GraphiqVibe" }, { id: 'YxjpEiO-fMQ', title: "How To Create a Product Packaging Mockup Template in Photoshop", by: "VerticDesigns" }],
+    objective: "Packaging is identity you can hold. Learn dielines, structure and how a design wraps across a physical object.",
+    deliverable: "Packaging for one product built on a real dieline, with a mockup, applying your brand identity work.",
+    criteria: ["Built on a correct dieline","Legible on every face","Shown in a believable mockup"]
+  },
+  {
+    id: 's2-06', code: 'S2-EDIT', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "Editorial Layout in InDesign",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=yvDvSG2HxVA',
+    duration: '6 hours',
+    videos: [{ id: 'yvDvSG2HxVA', title: "Create a Stunning Magazine Layout from Scratch", by: "The Online Learning Space" }, { id: 'kb7VvaiS_70', title: "Design a Stunning Magazine Layout in InDesign & Illustrator", by: "The Online Learning Space" }, { id: 'LbnXpxehVsY', title: "Design a Magazine Spread in Adobe InDesign", by: "Matt Dombrowski" }],
+    objective: "Long form layout is where grids, type and hierarchy are tested together. Learn styles, master pages and flow.",
+    deliverable: "A four page editorial spread built with paragraph styles, a grid and master pages.",
+    criteria: ["All text uses styles, none set by hand","A visible grid holds every page","Reads clearly at a glance"]
+  },
+  {
+    id: 's2-07', code: 'S2-SOC', origin: 'added', type: 'course', level: 'Stage 2', hours: 5,
+    title: "Social Design Systems and Templates",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=LEEiSUlfgIo',
+    duration: '5 hours',
+    videos: [{ id: 'LEEiSUlfgIo', title: "Design Better Social Media Posts (Full Process)", by: "GraphiqVibe" }, { id: 'Ac3b4vmYJks', title: "How to build unbreakable Brand Templates", by: "Canva" }, { id: 'Ds7hQKDxdrQ', title: "How to Keep Your Brand Consistent", by: "DIY Design Club" }, { id: 'G9dYsmyvNos', title: "Building Designs for Your Brand's Social Media", by: "Adobe Live" }],
+    objective: "Turn one-off posts into a system others can use without breaking the brand.",
+    deliverable: "A template set for one account: five post types, locked structure, editable content, written rules.",
+    criteria: ["A teammate can use it without asking you","The brand holds across all five types","Works in all required formats"]
+  },
+  {
+    id: 's2-08', code: 'S2-LEAD', origin: 'added', type: 'course', level: 'Stage 2', hours: 6,
+    title: "Giving Direction and Critique",
+    source: "Free YouTube lessons",
+    url: 'https://www.youtube.com/watch?v=fcoMDIn52pE',
+    duration: '6 hours',
+    videos: [{ id: 'fcoMDIn52pE', title: "How to Give Better Design Feedback", by: "Superside" }, { id: 'JcqG3dILKZY', title: "How to Give a Professional Design Critique", by: "Lindsay Marsh" }, { id: 'wySDdnwxtRY', title: "How to give great creative direction to other creatives and designers", by: "Creative Director Studio" }, { id: 'jrm5rVNhZ2I', title: "Design Leadership: One on One Meetings to Build Trust", by: "Headway" }, { id: 'dRjW-bscMVA', title: "Advice for New Creative Directors", by: "Philip VanDusen" }],
+    objective: "Leading creative work means giving notes that move it forward and building trust with the people doing it.",
+    deliverable: "Run three real critiques and write down, for each, the note you gave and what changed because of it.",
+    criteria: ["Notes are about the work, never the person","The designer knows exactly what to do next","You asked at least one question per critique"]
+  },
+  {
+    id: 's2-09', code: 'S2-PROJ-M', origin: 'added', type: 'course', level: 'Stage 2', hours: 10,
+    title: "Stage 2 Project: a real motion piece",
+    source: "Internal — the proof of Stage 2",
+    url: '',
+    duration: '10 hours',
+    
+    objective: "Deliver one real piece for a real brief, using what Stage 2 added.",
+    deliverable: "A 45 second piece for a real account that uses expressions, a tracked or 3D element and a commercial structure, delivered on time.",
+    criteria: ["Starts from a written brief","At least two Stage 2 techniques used","Delivered and accepted by the account owner"]
+  },
+  {
+    id: 's2-11', code: 'S2-PROJ-D', origin: 'added', type: 'course', level: 'Stage 2', hours: 10,
+    title: "Stage 2 Project: a real design system",
+    source: "Internal — the proof of Stage 2",
+    url: '',
+    duration: '10 hours',
+    
+    objective: "Deliver one real piece of work that proves the extra depth: not a single asset but a system.",
+    deliverable: "A real project delivered end to end: strategy, identity or packaging or editorial, and the templates to run it.",
+    criteria: ["Starts from a written brief","More than one format delivered","Delivered and accepted by the account owner"]
+  }
+];
+
 /* ---------- SPECIALISATIONS ----------
    Personal, free, and they start once the shared path is done. */
 const BONUS_MISSIONS = [
@@ -675,6 +790,14 @@ const HEROES = [
           'Arrive with the solution already formed'
         ],
         checkpoint: 'A full campaign delivered brief-to-master in a single revision round.'
+      },
+      {
+        n: 4, name: 'Stage 2 — Depth', origin: 'added',
+        objectives: ['Speed up repeatable motion with expressions',
+          'Add real VFX and commercial structure to the toolkit',
+          'Turn the work into portfolio case studies',
+          'Deliver one real piece for a real account'],
+        checkpoint: "A portfolio with two case studies and one delivered client piece."
       }
     ],
     boss: 'A video designer who walks in with the answer already built.',
@@ -736,6 +859,14 @@ const HEROES = [
           'Present the direction before execution'
         ],
         checkpoint: 'A project where the treatment was hers and shipped as proposed.'
+      },
+      {
+        n: 4, name: 'Stage 2 — Depth', origin: 'added',
+        objectives: ['Speed up repeatable motion with expressions',
+          'Add real VFX and commercial structure to the toolkit',
+          'Turn the work into portfolio case studies',
+          'Deliver one real piece for a real account'],
+        checkpoint: "A portfolio with two case studies and one delivered client piece."
       }
     ],
     boss: 'A designer whose output lands right without needing a second pair of eyes.',
@@ -745,7 +876,7 @@ const HEROES = [
   {
     id: 'abdelrahman', name: 'Abdelrahman Makhlouf', title: 'Video Designer',
     division: 'kinetic', rank: 'Designer',
-    tagline: 'A fresh start on the same road: editing, motion and Blender, taken to senior level in 90 days.',
+    tagline: 'A fresh start on the same road: editing, motion and Blender, taken to senior level in 120 days.',
     statusTag: 'Joining the Motion Team',
     origin: [
       'Abdelrahman joins the Motion Team on the same road as Shimaa: the shared standard first, then deeper editing, motion and Blender.',
@@ -760,7 +891,7 @@ const HEROES = [
     ],
     powersPending: true,
     focus: {
-      headline: 'Focus: reach senior editing, motion and Blender by day 90.',
+      headline: 'Focus: reach senior editing, motion and Blender by day 120.',
       why: 'Editing is the main craft here, with motion and 3D around it. The ladder is ordered so each step makes the next one easier.',
       moves: [
         'Follow the path in order: each stop opens the next',
@@ -798,6 +929,14 @@ const HEROES = [
           'Present the direction before execution'
         ],
         checkpoint: 'A project where the treatment was hers and shipped as proposed.'
+      },
+      {
+        n: 4, name: 'Stage 2 — Depth', origin: 'added',
+        objectives: ['Speed up repeatable motion with expressions',
+          'Add real VFX and commercial structure to the toolkit',
+          'Turn the work into portfolio case studies',
+          'Deliver one real piece for a real account'],
+        checkpoint: "A portfolio with two case studies and one delivered client piece."
       }
     ],
     boss: 'A video designer working at senior level in editing, motion and Blender.',
@@ -861,6 +1000,14 @@ const HEROES = [
           'Run first-level quality reviews'
         ],
         checkpoint: 'First-level review is his. The Lead sees escalations only.'
+      },
+      {
+        n: 4, name: 'Stage 2 — Lead', origin: 'added',
+        objectives: ['Give direction and critique that moves the work',
+          'Build systems that hold across social, print and packaging',
+          'Turn the work into portfolio case studies',
+          'Deliver one real project end to end'],
+        checkpoint: "Three critiques run, two case studies, and one delivered project."
       }
     ],
     boss: 'Senior Designer to Creative Lead — the person the standard runs through.',
@@ -923,6 +1070,14 @@ const HEROES = [
           'Handle feedback and revisions'
         ],
         checkpoint: 'An account running under his name, Lead at delivery only.'
+      },
+      {
+        n: 4, name: 'Stage 2 — Senior-ready', origin: 'added',
+        objectives: ['Add packaging, editorial and systems work to the range',
+          'Give and take direction as a senior would',
+          'Turn the work into portfolio case studies',
+          'Deliver one real project end to end'],
+        checkpoint: "A portfolio that reads as senior, and one delivered project."
       }
     ],
     boss: 'From executor to Account Owner — the person the client asks for.',
@@ -987,6 +1142,13 @@ const HEROES = [
           'Make the call and back it'
         ],
         checkpoint: 'She presents her own work to the account owner and holds the room.'
+      },
+      {
+        n: 4, name: 'Stage 2 — Stronger', origin: 'added',
+        objectives: ['Add packaging, editorial and systems work to the range',
+          'Turn the work into portfolio case studies',
+          'Deliver one real project end to end'],
+        checkpoint: "Two case studies and one delivered project, beyond the level expected."
       }
     ],
     boss: 'From task execution to project responsibility — the work becomes hers.',
@@ -1053,6 +1215,13 @@ const HEROES = [
           'Show she is ready for Junior-level work'
         ],
         checkpoint: 'She is doing Junior work before the title changes.'
+      },
+      {
+        n: 4, name: 'Stage 2 — Stronger', origin: 'added',
+        objectives: ['Add packaging, editorial and systems work to the range',
+          'Turn the work into portfolio case studies',
+          'Deliver one real project end to end'],
+        checkpoint: "Two case studies and one delivered project, beyond the level expected."
       }
     ],
     boss: 'From production support to Junior-ready — the title just catching up.',
@@ -1123,18 +1292,46 @@ const JOURNEY = [
   { n: 19, chapter: 3, level: 'Senior', name: "Capstone",
     tagline: "One piece that uses every skill, presented as a senior would.",
     core: [], arc: [3], track: [], team: {'kinetic':['lad-11'],'forge':['des-12']}, people: {}, bonus: [] },
-  { n: 20, chapter: 3, level: 'Specialisation', name: "Specialisation I",
+  { n: 20, chapter: 4, level: 'Stage 2', name: "Portfolio & Case Studies",
+    tagline: "Document the work so it can be seen.",
+    core: ['s2-01'], arc: [], track: [], team: {}, people: {}, bonus: [] },
+  { n: 21, chapter: 4, level: 'Stage 2', name: "Expressions",
+    tagline: "Build motion once and reuse it.",
+    core: [], arc: [], track: [], team: {'kinetic':['s2-02']}, people: {}, bonus: [] },
+  { n: 22, chapter: 4, level: 'Stage 2', name: "Tracking & VFX",
+    tagline: "Put 3D into real footage.",
+    core: [], arc: [], track: [], team: {}, people: {'alice':['s2-03']}, bonus: [] },
+  { n: 23, chapter: 4, level: 'Stage 2', name: "Commercial Editing",
+    tagline: "Cut to a clock and a message.",
+    core: [], arc: [], track: [], team: {'kinetic':['s2-04']}, people: {}, bonus: [] },
+  { n: 24, chapter: 4, level: 'Stage 2', name: "Packaging",
+    tagline: "Identity you can hold.",
+    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['s2-05'],'islam':['s2-05'],'yomna':['s2-05'],'asmaa':['s2-05']}, bonus: [] },
+  { n: 25, chapter: 4, level: 'Stage 2', name: "Editorial Layout",
+    tagline: "Long form layout with real systems.",
+    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['s2-06'],'islam':['s2-06'],'yomna':['s2-06'],'asmaa':['s2-06']}, bonus: [] },
+  { n: 26, chapter: 4, level: 'Stage 2', name: "Social Systems",
+    tagline: "Templates other people can use without breaking the brand.",
+    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['s2-07'],'islam':['s2-07'],'yomna':['s2-07'],'asmaa':['s2-07']}, bonus: [] },
+  { n: 27, chapter: 4, level: 'Stage 2', name: "Direction & Critique",
+    tagline: "Give notes that move the work and build trust.",
+    core: [], arc: [], track: [], team: {}, people: {'mahmoud':['s2-08'],'islam':['s2-08']}, bonus: [] },
+  { n: 28, chapter: 4, level: 'Stage 2', name: "Stage 2 Project",
+    tagline: "One real piece that proves the extra depth.",
+    core: [], arc: [], track: [], team: {'kinetic':['s2-09'],'forge':['s2-11']}, people: {}, bonus: [] },
+  { n: 29, chapter: 4, level: 'Specialisation', name: "Specialisation I",
     tagline: "A personal specialisation, starting once the shared path is complete.",
     core: [], arc: [], track: [], team: {}, people: {}, bonus: [0] },
-  { n: 21, chapter: 3, level: 'Specialisation', name: "Specialisation II",
+  { n: 30, chapter: 4, level: 'Specialisation', name: "Specialisation II",
     tagline: "The second specialisation.",
     core: [], arc: [], track: [], team: {}, people: {}, bonus: [1] }
 ];
 
 const CHAPTERS = {
-  1: { name: 'Month 1 — Foundations', sub: 'Mid-level fundamentals, built in order' },
-  2: { name: 'Month 2 — Practitioner', sub: 'Motion, 3D and craft in practice' },
-  3: { name: 'Month 3 — Senior', sub: 'Senior-level work and a capstone' }
+  1: { name: 'Stage 1 · Month 1 — Foundations', sub: 'Mid-level fundamentals, built in order' },
+  2: { name: 'Stage 1 · Month 2 — Practitioner', sub: 'Motion, 3D and craft in practice' },
+  3: { name: 'Stage 1 · Month 3 — Senior', sub: 'Senior-level work and a capstone' },
+  4: { name: 'Stage 2 · Month 4 — Depth', sub: 'Extra craft, a portfolio and a real project' }
 };
 
 /* ---------- SKILL TREE (deck: final "Learning Track" slide) ---------- */
