@@ -758,7 +758,7 @@ function updateHUD() {
 /* ============================================================
    ROUTER
    ============================================================ */
-const VIEWS = ['team', 'person', 'curriculum', 'tracks', 'resources'];
+const VIEWS = ['team', 'person', 'library', 'curriculum', 'tracks', 'resources'];
 
 function route() {
   const [name, arg] = (location.hash.replace('#', '') || 'team').split('/');
@@ -771,6 +771,7 @@ function route() {
 
   if (view === 'team') renderTeam();
   if (view === 'person') renderPerson(arg);
+  if (view === 'library') renderLibrary();
   if (view === 'curriculum') renderCatalogue();
   if (view === 'tracks') renderTracks();
   if (view === 'resources') renderResources();

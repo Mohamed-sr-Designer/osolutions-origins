@@ -27,6 +27,7 @@
     </a>
     <nav class="nav">
       <button data-go="team">Team</button>
+      <button data-go="library">Library</button>
       <button data-go="curriculum">Curriculum</button>
       <button data-go="tracks">Learning Tracks</button>
       <button data-go="resources">Resources</button>
@@ -85,6 +86,27 @@
 
 <!-- ============ PERSON ============ -->
 <section class="view" id="view-person"></section>
+
+<!-- ============ LIBRARY ============ -->
+<section class="view" id="view-library">
+  <div class="wrap">
+    <p class="eyebrow">Library</p>
+    <h1 class="h-xl">Find what to learn next.</h1>
+    <p class="lede mt-s">
+      Answer four short questions and get free video courses picked for you. You choose what goes on your list.
+      Nothing here needs a password. The library holds <b id="lib-count">0</b> free videos on video, editing, motion, direction, UI/UX, 3D, design, branding and AI.
+    </p>
+    <div class="card pad mt-m" id="lib-quiz"></div>
+    <div id="lib-results" class="mt-l"></div>
+    <div class="card pad mt-l"><h2 class="h-s">My list</h2><div class="mt-s" id="lib-mine"></div></div>
+    <div class="mt-xl">
+      <div class="sec-head"><div><h2 class="h-l">The whole library</h2><p class="lede small mt-s">Filter by topic and level, or search for a word.</p></div></div>
+      <div class="search"><span class="search__icon" aria-hidden="true">⌕</span><input id="lib-search" type="search" placeholder="Search videos, for example “transitions”, “Figma”, “lighting”" aria-label="Search videos" autocomplete="off"></div>
+      <div id="lib-filters" class="mt-s"></div>
+      <div id="lib-all" class="mt-s"></div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ CURRICULUM ============ -->
 <section class="view" id="view-curriculum">
@@ -159,5 +181,6 @@
 
 <script src="assets/js/data.js"></script>
 <script src="assets/js/app.js"></script>
+<script src="assets/js/library.js"></script>
 </body>
 </html>
