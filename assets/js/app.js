@@ -336,7 +336,7 @@ function askPassword(p, label, onOk) {
   wrap.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); close(); } });
   box.addEventListener('submit', async e => {
     e.preventDefault();
-    const ok = (await sha256('osol|' + input.value.trim().toLowerCase())) === STAGE_KEYS[label];
+    const ok = (await sha256('osol|' + input.value.trim().toLowerCase())) === (STAGE_KEYS[p.id] || {})[label];
     if (ok) { pwSave(p, label); close(); toast('Stage unlocked', label); onOk(); }
     else { err.hidden = false; box.classList.remove('is-shake'); void box.offsetWidth; box.classList.add('is-shake'); input.select(); }
   });
