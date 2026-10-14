@@ -645,72 +645,6 @@ function renderPerson(id) {
 }
 
 /* ============================================================
-   CURRICULUM
-   ============================================================ */
-let query = '';
-
-function renderCatalogue() {
-  const q = query.trim().toLowerCase();
-  const tokens = q.split(/\s+/).filter(Boolean);
-  const match = c => {
-    if (!tokens.length) return true;
-    const hay = [c.code, c.title, c.stopName, c.objective, c.source, c.deliverable,
-                 (c.criteria || []).join(' ')].filter(Boolean).join(' ').toLowerCase();
-    return tokens.every(t => hay.includes(t) || (t.length >= 5 && hay.includes(t.slice(0, 5))));
-  };
-
-  const row = c => `
-    <div class="crow-card">
-      ${thumbHTML(c)}
-      <div class="crow-card__top">
-        <span class="course__code">${esc(c.code)}</span>
-        <span class="src src--${c.origin}">${c.origin === 'deck' ? 'From deck' : 'Added'}</span>
-        <span class="crow-card__title">${esc(c.title)}</span>
-        <span class="course__meta">${esc(c.duration)}</span>
-      </div>
-      <p class="lede small">${esc(c.objective)}</p>
-      <div class="crow"><div class="sub-label">What you hand in</div><p>${esc(c.deliverable)}</p></div>
-      <div class="cfoot">
-        ${c.url ? `<a class="link-btn" href="${esc(c.url)}" target="_blank" rel="noopener">Open material ↗</a>` : ''}
-        <span class="cfoot__src">Source: ${esc(c.source)}</span>
-      </div>
-    </div>`;
-
-  const block = (t, note, color, items) => {
-    const hits = items.filter(match);
-    if (!hits.length) return '';
-    return `
-      <div class="mt-l">
-        <div class="sec-head">
-          <div><h2 class="h-l" style="color:${color}">${esc(t)}</h2><p class="lede small mt-s">${esc(note)}</p></div>
-          <span class="chip-s">${hits.length}${q ? ' of ' + items.length : ''} courses</span>
-        </div>${hits.map(row).join('')}
-      </div>`;
-  };
-
-  const who = c => HEROES.filter(p => (p.path || []).some(st => st.courses.includes(c.id))).map(p => p.name).join(', ');
-
-  const placed = new Set(HEROES.flatMap(p => stages(p).flatMap(r => r.courses.map(c => c.id))));
-  const priority = Object.values(TRACK_MISSIONS).flat().filter(c => placed.has(c.id));
-  const library = Object.values(TRACK_MISSIONS).flat().filter(c => !placed.has(c.id));
-
-  const html =
-    block('Shared core', 'Everyone takes all nine. One standard across the team.', 'var(--ink)', CORE_MISSIONS) +
-    block('Editing, motion and Blender ladder', 'Free material, taken by everyone, ordered from mid-level to senior.', 'var(--orange)', LADDER_MISSIONS) +
-    block('Thinking', 'Look at a brief from more than one side before you design or cut.', 'var(--teal)', THINKING_MISSIONS) +
-    block('Team Lead track: Blender, Cinema 4D, AI and VFX', 'Free video lessons, from basics to advanced, for the Graphic Team Lead.', 'var(--orange)', TL_MISSIONS) +
-    block('Stage 2 courses (months 4 to 6)', 'More free video lessons for the second half: motion, 3D, editing, design craft, UX and leadership.', 'var(--violet)', [...STAGE2_MISSIONS, ...STAGE3_MISSIONS]) +
-    block('Design Team ladder', 'Free material for craft, branding, art direction and AI, taken by the Design Team at the depth each person needs.', 'var(--orange)', DESIGN_MISSIONS) +
-    block('Personal priority courses', 'Chosen for specific people. They sit inside the path at the stage where they fit.', 'var(--teal)', priority) +
-    block('Specialisations', 'Personal, and only start once someone has completed the shared plan.', 'var(--violet)',
-      BONUS_MISSIONS.map(c => ({ ...c, source: c.source + ' · assigned to ' + (who(c) || 'nobody yet') }))) +
-    block('Reference library', 'Extra material that is not on anyone’s 120 day path. Use it to go deeper after the path.', 'var(--muted)', library);
-
-  $('#catalogue').innerHTML = html ||
-    `<p class="empty">Nothing matches “${esc(query)}”. Try a course code, a tool name, or a subject.</p>`;
-}
-
-/* ============================================================
    TRACKS / RESOURCES
    ============================================================ */
 function renderTracks() {
@@ -758,7 +692,7 @@ function updateHUD() {
 /* ============================================================
    ROUTER
    ============================================================ */
-const VIEWS = ['team', 'person', 'library', 'curriculum', 'tracks', 'resources'];
+const VIEWS = ['team', 'person', 'library', 'tracks', 'resources'];
 
 function route() {
   const [name, arg] = (location.hash.replace('#', '') || 'team').split('/');
@@ -772,7 +706,6 @@ function route() {
   if (view === 'team') renderTeam();
   if (view === 'person') renderPerson(arg);
   if (view === 'library') renderLibrary();
-  if (view === 'curriculum') renderCatalogue();
   if (view === 'tracks') renderTracks();
   if (view === 'resources') renderResources();
 
@@ -793,20 +726,9 @@ function init() {
     renderTeam();
   }));
 
-  const search = $('#search'), clear = $('#search-clear');
-  search.addEventListener('input', () => {
-    query = search.value;
-    clear.hidden = !query;
-    renderCatalogue();
-  });
-  clear.addEventListener('click', () => {
-    search.value = ''; query = ''; clear.hidden = true;
-    renderCatalogue(); search.focus();
-  });
 
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
-    if (document.activeElement === search && search.value) { clear.click(); return; }
     if (location.hash.startsWith('#person/')) location.hash = '#team';
   });
 
