@@ -146,18 +146,16 @@ function libCourseCard(x) {
   </article>`;
 }
 
-const LIB_STEPS = 4;
+const LIB_STEPS = 2;
 function libOpt(group, id, name, sub, on, multi) {
   return `<button type="button" class="opt ${on ? 'is-on' : ''}" data-q="${group}" data-v="${id}" aria-pressed="${on}">
     <span class="opt__mark">${multi ? '' : ''}</span><span class="opt__name">${esc(name)}</span><span class="opt__sub">${esc(sub || '')}</span></button>`;
 }
 function libQuizHTML() {
-  const a = libState.answers, st = libState.step || 0;
+  const a = libState.answers, st = Math.min(libState.step || 0, LIB_STEPS - 1);
   const steps = [
     { t: 'What do you want to learn?', h: 'Pick as many as you like.', body: LIB_TOPICS.map(t => libOpt('topics', t.id, t.name, LIB_TOPIC_SUB[t.id], a.topics.includes(t.id), true)).join(''), multi: true, ok: a.topics.length > 0 },
-    { t: 'Where are you today?', h: 'Be honest. It decides where your plan starts.', body: [1, 2, 3].map(n => libOpt('level', n, LIB_LEVELS[n], LIB_LEVEL_SUB[n], a.level === n)).join('') },
-    { t: 'Where do you want to get to?', h: 'Your goal shapes which courses come last.', body: LIB_GOALS.map(g => libOpt('goal', g.id, g.name, LIB_GOAL_SUB[g.id], a.goal === g.id)).join('') },
-    { t: 'How much time can you give?', h: 'Your plan is sized to fit about three months at this pace.', body: LIB_TIME.map(t => libOpt('time', t.id, t.name, t.sub, a.time === t.id)).join('') }
+    { t: 'Where are you today?', h: 'Be honest. It decides where your plan starts.', body: [1, 2, 3].map(n => libOpt('level', n, LIB_LEVELS[n], LIB_LEVEL_SUB[n], a.level === n)).join('') }
   ];
   const s2 = steps[st];
   return `<div class="wiz">
@@ -167,14 +165,14 @@ function libQuizHTML() {
     <div class="opts opts--${st === 0 ? 'wide' : 'norm'}">${s2.body}</div>
     <div class="wiz__nav">
       <button class="btn btn--ghost" id="lib-back" ${st === 0 ? 'hidden' : ''}>Back</button>
-      ${(s2.multi || st === LIB_STEPS - 1) ? `<button class="btn" id="lib-next" ${(s2.multi ? s2.ok : !!a.time) ? '' : 'disabled'}>${st === LIB_STEPS - 1 ? 'Build my plan' : 'Next'}</button>` : ''}
+      ${(s2.multi || st === LIB_STEPS - 1) ? `<button class="btn" id="lib-next" ${(s2.multi ? s2.ok : !!a.level) ? '' : 'disabled'}>${st === LIB_STEPS - 1 ? 'Build my plan' : 'Next'}</button>` : ''}
     </div></div>`;
 }
 function libSummaryHTML() {
   const a = libState.answers, g = LIB_GOALS.find(x => x.id === a.goal), t = LIB_TIME.find(x => x.id === a.time);
   return `<div class="sum"><div class="sum__chips">
     ${a.topics.map(id => '<span class="sum__c">' + esc(LIB_TOPICS.find(z => z.id === id).name) + '</span>').join('')}
-    <span class="sum__c sum__c--n">${LIB_LEVELS[a.level]}</span><span class="sum__c sum__c--n">${esc(g ? g.name : '')}</span><span class="sum__c sum__c--n">${esc(t ? t.name : '')}</span></div>
+    <span class="sum__c sum__c--n">${LIB_LEVELS[a.level]}</span></div>
     <button class="btn btn--ghost btn--small" id="lib-edit">Change my answers</button></div>`;
 }
 
@@ -258,7 +256,7 @@ document.addEventListener('click', e => {
     if (g === 'topics') { a.topics = a.topics.includes(v) ? a.topics.filter(x => x !== v) : [...a.topics, v]; libSave(); $('#lib-quiz').innerHTML = libQuizHTML(); return; }
     if (g === 'level') a.level = +v; else a[g] = v;
     libSave(); $('#lib-quiz').innerHTML = libQuizHTML();
-    if (g !== 'time') setTimeout(() => { libState.step = Math.min(LIB_STEPS - 1, (libState.step || 0) + 1); libSave(); libShowQuiz(); }, 220);
+    
   } else if (t.id === 'lib-next') {
     if ((libState.step || 0) >= LIB_STEPS - 1) libFinish(); else { libState.step = (libState.step || 0) + 1; libSave(); libShowQuiz(); }
   } else if (t.id === 'lib-back') {
