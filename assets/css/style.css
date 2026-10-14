@@ -585,3 +585,17 @@ h1, h2, h3 { margin: 0; font-family: var(--f-display); font-weight: 700; letter-
 
 .lvl--basics { background: #EDF1F6; color: var(--muted); }
 .lvl--advanced { background: var(--orange-soft); color: var(--orange); }
+
+/* ---------- STAGE PASSWORD ---------- */
+.pill--key { background: var(--orange-soft); color: var(--orange); }
+.pw { position: fixed; inset: 0; z-index: 998; background: rgba(17, 37, 62, .55); backdrop-filter: blur(3px); display: grid; place-items: center; padding: 20px; animation: fade .18s ease both; }
+.pw__box { width: min(100%, 400px); background: var(--card); border-radius: 12px; padding: 28px 26px 24px; box-shadow: 0 24px 60px -20px rgba(17, 37, 62, .6); text-align: center; }
+.pw__box.is-shake { animation: shake .35s ease; }
+@keyframes shake { 20%, 60% { transform: translateX(-8px); } 40%, 80% { transform: translateX(8px); } }
+.pw__key { font-size: 30px; margin-bottom: 6px; }
+.pw__title { font-size: 19px; }
+.pw__text { color: var(--muted); font-size: .92rem; margin: 8px 0 16px; }
+.pw__in { width: 100%; font: inherit; font-size: 16px; text-align: center; padding: 12px 14px; border: 1px solid var(--line-2); border-radius: 8px; color: var(--ink); }
+.pw__in:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(247, 99, 2, .16); }
+.pw__err { color: #C0332B; font-size: .86rem; margin: 10px 0 0; }
+.pw__btns { display: flex; gap: 10px; justify-content: center; margin-top: 18px; }

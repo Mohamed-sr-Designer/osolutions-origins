@@ -298,6 +298,58 @@ function wireCourses(p, root) {
    ============================================================ */
 let openStage = null;
 
+/* ---------- stage passwords ----------
+   A soft gate: the site is static, so this keeps people on the plan's order,
+   it is not security. Only hashes are in the code. */
+const PW_KEY = 'osol-stage-pw-v1';
+function pwStore() { try { return JSON.parse(localStorage.getItem(PW_KEY)) || {}; } catch (e) { return {}; } }
+function pwOk(p, label) { return !!(pwStore()[p.id] || {})[label]; }
+function pwSave(p, label) {
+  const s = pwStore(); s[p.id] = s[p.id] || {}; s[p.id][label] = true;
+  try { localStorage.setItem(PW_KEY, JSON.stringify(s)); } catch (e) {}
+}
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+}
+function askPassword(p, label, onOk) {
+  const wrap = document.createElement('div');
+  wrap.className = 'pw';
+  wrap.innerHTML = `
+    <form class="pw__box" autocomplete="off">
+      <div class="pw__key" aria-hidden="true">🔑</div>
+      <h2 class="pw__title">${esc(label)}</h2>
+      <p class="pw__text">This stage has a password. Ask the Team Lead for it.</p>
+      <input class="pw__in" type="text" placeholder="Enter the password" aria-label="Password" autocapitalize="off" spellcheck="false">
+      <p class="pw__err" hidden>That is not it. Check the spelling and try again.</p>
+      <div class="pw__btns">
+        <button type="button" class="btn btn--ghost pw__cancel">Cancel</button>
+        <button type="submit" class="btn">Unlock</button>
+      </div>
+    </form>`;
+  document.body.appendChild(wrap);
+  const input = $('.pw__in', wrap), err = $('.pw__err', wrap), box = $('.pw__box', wrap);
+  const close = () => wrap.remove();
+  input.focus();
+  $('.pw__cancel', wrap).addEventListener('click', close);
+  wrap.addEventListener('mousedown', e => { if (e.target === wrap) close(); });
+  wrap.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); close(); } });
+  box.addEventListener('submit', async e => {
+    e.preventDefault();
+    const ok = (await sha256('osol|' + input.value.trim().toLowerCase())) === STAGE_KEYS[label];
+    if (ok) { pwSave(p, label); close(); toast('Stage unlocked', label); onOk(); }
+    else { err.hidden = false; box.classList.remove('is-shake'); void box.offsetWidth; box.classList.add('is-shake'); input.select(); }
+  });
+}
+function unlockAndOpen(p, i) {
+  const host = $('#path');
+  openStage = i;
+  host.innerHTML = pathHTML(p); wirePath(p);
+  const el = $('#path .stage[data-i="' + i + '"]');
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+
 function pathHTML(p) {
   const rows = stages(p);
   let html = '';
@@ -325,11 +377,13 @@ function pathHTML(p) {
       ? '<span class="pill pill--done">Complete</span>'
       : r.locked
         ? '<span class="pill pill--locked">Locked</span>'
-        : '<span class="pill pill--now">In progress</span>';
+        : !pwOk(p, r.label)
+          ? '<span class="pill pill--key">🔑 Password</span>'
+          : '<span class="pill pill--now">In progress</span>';
 
     html += `
-      <div class="stage ${state} ${openStage === r.index ? 'is-open' : ''}" data-i="${r.index}">
-        <button class="stage__head" aria-expanded="${openStage === r.index}">
+      <div class="stage ${state} ${(openStage === r.index && pwOk(p, r.label)) ? 'is-open' : ''}" data-i="${r.index}">
+        <button class="stage__head" aria-expanded="${openStage === r.index && pwOk(p, r.label)}">
           <span class="stage__num">${r.complete ? '✓' : (r.locked ? '🔒' : r.index + 1)}</span>
           <span class="stage__text">
             <span class="stage__name">${esc(r.label)}<span class="lvl lvl--${r.level.toLowerCase().replace(/[^a-z0-9]+/g, '-')}">${esc(r.level)}</span></span>
@@ -346,7 +400,9 @@ function pathHTML(p) {
             ? `<p class="locked-note">Complete <b>${esc(rows[r.index - 1].label)}</b> first —
                ${rows[r.index - 1].total - rows[r.index - 1].done} course${rows[r.index - 1].total - rows[r.index - 1].done === 1 ? '' : 's'} to go.
                Each stage opens the next.</p>`
-            : r.courses.map(c => courseHTML(p, c)).join('')}
+            : !pwOk(p, r.label)
+              ? '<p class="locked-note">This stage needs a password. Open it and enter the password from the Team Lead.</p>'
+              : r.courses.map(c => courseHTML(p, c)).join('')}
         </div>
       </div>`;
   });
@@ -360,6 +416,7 @@ function wirePath(p) {
     $('.stage__head', el).addEventListener('click', () => {
       const rows = stages(p);
       if (rows[i].locked) { toast(`Complete ${rows[i - 1].label} first`); return; }
+      if (!pwOk(p, rows[i].label)) { askPassword(p, rows[i].label, () => unlockAndOpen(p, i)); return; }
       const nowOpen = !el.classList.contains('is-open');
       $$('#path .stage').forEach(x => x.classList.remove('is-open'));
       $$('#path .stage__head').forEach(x => x.setAttribute('aria-expanded', 'false'));
@@ -371,7 +428,7 @@ function wirePath(p) {
         openStage = null;
       }
     });
-    if (!stages(p)[i].locked) wireCourses(p, el);
+    if (!stages(p)[i].locked && pwOk(p, stages(p)[i].label)) wireCourses(p, el);
   });
 }
 
@@ -413,6 +470,8 @@ function wireNextUp(p) {
   if (!b) return;
   b.addEventListener('click', () => {
     const i = +b.dataset.stage, cid = b.dataset.cid;
+    const lab = stages(p)[i].label;
+    if (!pwOk(p, lab)) { askPassword(p, lab, () => { unlockAndOpen(p, i); b.click(); }); return; }
     openStage = i;
     const stage = $(`#path .stage[data-i="${i}"]`);
     $$('#path .stage').forEach(x => x.classList.remove('is-open'));
