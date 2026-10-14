@@ -127,6 +127,10 @@ Surfaced on the Resources page rather than guessed at:
 Mohamed Tarek (Graphic Team Lead) has his own custom path, separate from the shared core:
 Blender from basics to advanced (modeling, sculpting, light and materials, geometry nodes,
 simulation, rigging), Cinema 4D from basics to production (MoGraph, product lighting), AI from
-zero to advanced (prompting, ComfyUI, ControlNet and IPAdapter, training your own LoRA, AI video),
+zero to advanced (prompting, ControlNet and style references, training your own LoRA, AI video),
 and VFX (keying, tracking, Fusion compositing). Six months, all video, about 6 hours a week.
 A person with `custom: true` takes only the courses listed for them in a stage's `people` map.
+
+## How paths are ordered now
+
+Every person has their own ordered `path` in `data.js`: stages, each with courses. Courses are grouped by subject and Blender always comes last as one complete sequence, followed only by the wrap-up (capstone, project, portfolio). Months follow the hours. A video shows once per path. ComfyUI is not used anywhere.

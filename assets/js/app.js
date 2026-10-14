@@ -31,6 +31,7 @@ const COURSE_INDEX = (() => {
   STAGE2_MISSIONS.forEach(x => m[x.id] = x);
   STAGE3_MISSIONS.forEach(x => m[x.id] = x);
   TL_MISSIONS.forEach(x => m[x.id] = x);
+  THINKING_MISSIONS.forEach(x => m[x.id] = x);
   BONUS_MISSIONS.forEach(x => m[x.id] = x);
   return m;
 })();
@@ -108,27 +109,43 @@ function stageCourses(p, st) {
 
 /* Stages for this person, empties dropped, prerequisites resolved in order. */
 function stages(p) {
+  const MONTHS = 6;
+  const seen = new Set();              // a video shows only once on a person's path
+  const raw = (p.path || []).map(def => ({
+    def,
+    courses: def.courses.map(id => COURSE_INDEX[id]).filter(Boolean).map(c => {
+      const vs = videosFor(c).filter(v => !seen.has(v.id));
+      vs.forEach(v => seen.add(v.id));
+      return { ...c, videos: vs, url: vs[0] ? 'https://www.youtube.com/watch?v=' + vs[0].id : c.url };
+    })
+  })).filter(r => r.courses.length);
+
+  /* months follow the hours, so the load is even and the order never changes */
+  const total = raw.reduce((s, r) => s + r.courses.reduce((t, c) => t + hrs(c), 0), 0) || 1;
+  let acc = 0;
+  raw.forEach(r => {
+    const h = r.courses.reduce((t, c) => t + hrs(c), 0);
+    r.month = Math.min(MONTHS, Math.floor((acc + h / 2) / total * MONTHS) + 1);
+    acc += h;
+  });
+
   let unlocked = true;
-  return JOURNEY
-    .map(st => ({ st, courses: stageCourses(p, st) }))
-    .filter(r => r.courses.length > 0)
-    .map((r, i, all) => {
-      const done = r.courses.filter(c => isDone(p.id, c.id)).length;
-      const complete = done === r.courses.length;
-      const isSpec = !r.st.core.length && !r.st.arc.length && !r.st.track.length;
-      const row = {
-        st: r.st, courses: r.courses, done, total: r.courses.length, complete,
-        /* a specialisation stage is named after the subject being learned */
-        label: (isSpec && r.courses[0].stopName) || r.st.name,
-        hours: r.courses.reduce((t, c) => t + hrs(c), 0),
-        level: (p.midCap && r.st.level === 'Senior') ? (p.midLabel || 'Strong mid-level') : r.st.level,
-        spec: isSpec,
-        locked: !unlocked, index: i, count: all.length,
-        pct: Math.round(done / r.courses.length * 100)
-      };
-      if (!complete) unlocked = false;
-      return row;
-    });
+  return raw.map((r, i, all) => {
+    const done = r.courses.filter(c => isDone(p.id, c.id)).length;
+    const complete = done === r.courses.length;
+    const row = {
+      st: { name: r.def.name, tagline: r.def.tagline, level: r.def.level, chapter: r.month },
+      courses: r.courses, done, total: r.courses.length, complete,
+      label: r.def.name,
+      hours: r.courses.reduce((t, c) => t + hrs(c), 0),
+      level: (p.midCap && r.def.level === 'Senior') ? (p.midLabel || 'Strong mid-level') : r.def.level,
+      spec: false, bonus: false,
+      locked: !unlocked, index: i, count: all.length,
+      pct: Math.round(done / r.courses.length * 100)
+    };
+    if (!complete) unlocked = false;
+    return row;
+  });
 }
 
 const hrs = c => c.hours || 0;
@@ -289,9 +306,11 @@ function pathHTML(p) {
   rows.forEach(r => {
     if (r.st.chapter !== lastMonth) {
       lastMonth = r.st.chapter;
-      const ch = (p.chapterNames && p.chapterNames[lastMonth]) ? p.chapterNames[lastMonth] : (p.midCap && lastMonth === 3)
-        ? { name: 'Stage 1 · Month 3 — ' + (p.midLabel || 'Strong mid-level'), sub: (p.midLabel || 'Strong mid-level') + ' work and a capstone' }
-        : CHAPTERS[lastMonth];
+      const covers = [...new Set(rows.filter(x => x.st.chapter === lastMonth).map(x => x.label.split(':')[0]))];
+      const ch = {
+        name: (lastMonth <= 3 ? 'Stage 1' : 'Stage 2') + ' · Month ' + lastMonth,
+        sub: covers.length > 3 ? covers.slice(0, 3).join(' · ') + ' …' : covers.join(' · ')
+      };
       const mh = rows.filter(x => x.st.chapter === lastMonth).reduce((s, x) => s + x.hours, 0);
       html += `
         <div class="phase-head">
@@ -610,7 +629,7 @@ function renderCatalogue() {
       </div>`;
   };
 
-  const who = c => HEROES.filter(p => (p.bonus || []).includes(c.id)).map(p => p.name).join(', ');
+  const who = c => HEROES.filter(p => (p.path || []).some(st => st.courses.includes(c.id))).map(p => p.name).join(', ');
 
   const placed = new Set(HEROES.flatMap(p => stages(p).flatMap(r => r.courses.map(c => c.id))));
   const priority = Object.values(TRACK_MISSIONS).flat().filter(c => placed.has(c.id));
@@ -619,6 +638,7 @@ function renderCatalogue() {
   const html =
     block('Shared core', 'Everyone takes all nine. One standard across the team.', 'var(--ink)', CORE_MISSIONS) +
     block('Editing, motion and Blender ladder', 'Free material, taken by everyone, ordered from mid-level to senior.', 'var(--orange)', LADDER_MISSIONS) +
+    block('Thinking', 'Look at a brief from more than one side before you design or cut.', 'var(--teal)', THINKING_MISSIONS) +
     block('Team Lead track: Blender, Cinema 4D, AI and VFX', 'Free video lessons, from basics to advanced, for the Graphic Team Lead.', 'var(--orange)', TL_MISSIONS) +
     block('Stage 2 courses (months 4 to 6)', 'More free video lessons for the second half: motion, 3D, editing, design craft, UX and leadership.', 'var(--violet)', [...STAGE2_MISSIONS, ...STAGE3_MISSIONS]) +
     block('Design Team ladder', 'Free material for craft, branding, art direction and AI, taken by the Design Team at the depth each person needs.', 'var(--orange)', DESIGN_MISSIONS) +

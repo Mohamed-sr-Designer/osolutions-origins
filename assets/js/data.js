@@ -161,7 +161,7 @@ const TRACK_MISSIONS = {
       criteria: ['The 5 beats written before touching the timeline', 'Every cut serves a beat', 'Someone who has not seen it can retell the story after one watch']
     },
     {
-      id: 'kin-04', code: 'KIN-04', hours: 5, videos: [{ id: 'Uls_jXy9RuU', title: "Create Consistent Characters from an Input Image with Flux", by: "Mickmumpitz" }, { id: 'QpUhPw_H6Qk', title: "Generate Image Using Reference Image with Stable Diffusion and Flux", by: "AI Ninja" }], origin: 'added', type: 'practice',
+      id: 'kin-04', code: 'KIN-04', hours: 5, videos: [{ id: 'jC2srIYbA78', title: "Character Consistency: A Kling AI Canvas Workflow", by: "Sergio Valdez" }, { id: 'RK-989PgFk4', title: "How to Make Consistent Characters in Veo 3", by: "AI Video School" }], origin: 'added', type: 'practice',
       title: 'Character Sets & Environments',
       source: 'Internal — named in the deck as a required skill',
       url: '',
@@ -208,7 +208,7 @@ const TRACK_MISSIONS = {
       criteria: ['Dialogue or VO always intelligible', 'At least 3 designed effects', 'No clipping, levels checked against a standard']
     },
     {
-      id: 'kin-09', code: 'KIN-09', hours: 6, videos: [{ id: '0z8Pp4TaAl8', title: "How to Generate AI Videos for FREE with ComfyUI", by: "Kevin Stratvert" }, { id: 'vQyLzgFprFU', title: "ComfyUI: Wan 2.1 Image to Video, Made Simple", by: "Arcane Ai Alchemy" }], origin: 'added', type: 'practice',
+      id: 'kin-09', code: 'KIN-09', hours: 6, videos: [{ id: '3PetDyf6Iwg', title: "5 FREE AI Video Generation Tools You Need to Try in 2026", by: "Digital Media Skills" }, { id: 'ziSfvzRFLac', title: "These 8 AI Video Tools Are Completely FREE", by: "Lassine AI" }], origin: 'added', type: 'practice',
       title: 'AI Video Production',
       source: 'Internal — extends the deck’s AI track into motion',
       url: '',
@@ -230,7 +230,7 @@ const TRACK_MISSIONS = {
   ],
   forge: [
     {
-      id: 'frg-01', code: 'FRG-01', hours: 4, videos: [{ id: '-oMqEVHcukg', title: "How a Brand Designer Actually Moodboards", by: "Will Paterson" }, { id: 'gK0ynvv9Yas', title: "How I Create Mood Boards For My Design Projects", by: "Paola Kassa" }, { id: 'GSBjVedREWE', title: "Mastering Moodboards: Great Creative Work", by: "orenmeetsworld" }], origin: 'deck', type: 'practice',
+      id: 'frg-01', code: 'FRG-01', hours: 4, videos: [{ id: 'D6gSFNWP-eU', title: "Mood Boards Explained: A Simple Brand Design Tool", by: "Coursera" }, { id: 'pF1BDc0tZ6w', title: "What is Mood Board", by: "Canva" }, { id: '3r67_pPBeQY', title: "Best Brainstorming Trick for Artists: Mood Boards", by: "Art Prof" }, { id: 'rVHKbGWJVi8', title: "Art directing a project: how to make a moodboard", by: "GarageFarm Academy" }], origin: 'deck', type: 'practice',
       title: 'Mood Board Before Execution',
       source: 'Internal — the deck’s stated fix for repeated work',
       url: '',
@@ -249,7 +249,7 @@ const TRACK_MISSIONS = {
       criteria: ['Grid documented and reusable', 'Every break from it is intentional', 'Holds across all 4 formats']
     },
     {
-      id: 'frg-03', code: 'FRG-03', hours: 5, videos: [{ id: 'L70dxMOSecU', title: "Advanced Photoshop for Everyone (free course)", by: "Envato Tuts+" }, { id: 'RzBHzo-IWQU', title: "Adobe Photoshop Free Course for Beginners", by: "Pixel & Bracket" }], origin: 'added', type: 'practice',
+      id: 'frg-03', code: 'FRG-03', hours: 5, videos: [{ id: 'KJhuHWeRr1k', title: "Easy Portrait Retouching Using Frequency Separation and Dodge and Burn", by: "Prince Meyson" }, { id: 'TGEtoMjLWvg', title: "Advanced Skin Retouching using Dodge & Burn and Frequency Separation", by: "The Tech Tourque" }, { id: 'PurAA6hWpuA', title: "Corrective Dodge and Burn and Frequency Separation", by: "iCapture Studios" }], origin: 'added', type: 'practice',
       title: 'Retouching & Compositing',
       source: 'Internal — extends CORE-05', url: '',
       duration: '1 week',
@@ -285,7 +285,7 @@ const TRACK_MISSIONS = {
       criteria: ['The two directions are genuinely different', 'Each has a written rationale', 'You recommend one and can defend it']
     },
     {
-      id: 'frg-07', code: 'FRG-07', hours: 4, videos: [{ id: '_WyYr1p1XVk', title: "How to Present Design So Clients Say YES", by: "Flux Academy" }, { id: 'RJEINa1G1cQ', title: "How to Present Logo Concepts to Clients", by: "Megan Weeks" }], origin: 'added', type: 'practice',
+      id: 'frg-07', code: 'FRG-07', hours: 4, videos: [{ id: '7hdtmyIvg-E', title: "Dream Big. Pitch Bigger: Storytelling and Pitch Decks", by: "BizLitFest" }, { id: 'Ri0Pe1Y6lwM', title: "15 Slides you NEED on your Pitch Deck", by: "Slidebean" }, { id: 'EJ4XV9k8Gcc', title: "The Perfect Pitch Deck Structure (50+ Real Examples)", by: "Nik Zechner" }, { id: 'iHNwH4oiPIE', title: "Ultimate Pitch Deck Guide with Examples", by: "Raw Startup" }], origin: 'added', type: 'practice',
       title: 'Deck & Presentation Craft',
       source: 'Internal', url: '',
       duration: '1 week',
@@ -426,8 +426,8 @@ const LADDER_MISSIONS = [
     source: "Free and open source tools",
     url: 'https://www.youtube.com/watch?v=0z8Pp4TaAl8',
     duration: "4 hours",
-    videos: [{ id: '0z8Pp4TaAl8', title: "How to Generate AI Videos for FREE with ComfyUI", by: "Kevin Stratvert" }, { id: 'vQyLzgFprFU', title: "ComfyUI — Wan 2.1 Image to Video, Made Simple", by: "Arcane Ai Alchemy" }], 
-    objective: "Build a repeatable image to video workflow using free tools, so AI footage becomes something you can plan, not something you hope for. Local generation needs a capable graphics card; if the workstation cannot run it, repeat the same pipeline with the tools from CORE-01.",
+    videos: [{ id: '31GR1pXlB1g', title: "My AI Filmmaking Workflow: Kling, Veo & Nano Banana", by: "AI Video School" }, { id: 'htpz-FgzJdM', title: "Kling 3.0 AI Video Generator: Free AI Video Tool", by: "BrainyBytes" }, { id: '17YPqat8aDE', title: "Kling AI Image to Video Tutorial", by: "Cem Eygi Media" }, { id: '3PetDyf6Iwg', title: "5 FREE AI Video Generation Tools You Need to Try in 2026", by: "Digital Media Skills" }], 
+    objective: "Build a repeatable image to video workflow with free tools, so AI footage becomes something you can plan, not something you hope for. Free tools give limited credits, so test on short clips first.",
     deliverable: "One 5 second AI shot made with a documented, repeatable workflow, cut into a real edit.",
     criteria: ["The workflow is written down so someone else can repeat it","Matches the grade of surrounding footage","Used where it helps the story"]
   },
@@ -541,7 +541,7 @@ const DESIGN_MISSIONS = [
     source: "Free and open source tools",
     url: 'https://www.youtube.com/watch?v=w8EcDV3tOCI',
     duration: '5 hours',
-    videos: [{ id: 'w8EcDV3tOCI', title: "Beginner's Guide to Writing Your First Prompt", by: "OpenArt" }, { id: 'Fc_DmHp2hOc', title: "Use Flux and Stable Diffusion for Free in ComfyUI", by: "Open Integrator" }, { id: '2mZgRdcyN8w', title: "Full AI Art Workflow: ControlNet & Stable Diffusion", by: "Sebastian Kamph" }, { id: 'g-9wo9v4mCs', title: "120 FREE Art Styles to Unlock Flux", by: "Promptvara" }, { id: 'Hd1Li22jjBU', title: "How to Install Stable Diffusion (Forge)", by: "Endangered AI" }],
+    videos: [{ id: 'w8EcDV3tOCI', title: "Beginner's Guide to Writing Your First Prompt", by: "OpenArt" }, { id: '2mZgRdcyN8w', title: "Full AI Art Workflow: ControlNet & Stable Diffusion", by: "Sebastian Kamph" }, { id: 'g-9wo9v4mCs', title: "120 FREE Art Styles to Unlock Flux", by: "Promptvara" }, { id: 'Hd1Li22jjBU', title: "How to Install Stable Diffusion (Forge)", by: "Endangered AI" }],
     objective: "Use free generative tools as part of a design workflow rather than a one off trick: prompting, references, and finishing in Photoshop. If the workstation cannot run models locally, use the free cloud options shown in the videos.",
     deliverable: "Three finished assets for a real brief where AI made the raw image and you did the finishing, with the workflow written down.",
     criteria: ["The workflow is documented so someone can repeat it","Finished in Photoshop, not used raw","Style matches the brand, not the tool default"]
@@ -552,8 +552,8 @@ const DESIGN_MISSIONS = [
     source: "Free and open source tools",
     url: 'https://www.youtube.com/watch?v=Uls_jXy9RuU',
     duration: '5 hours',
-    videos: [{ id: 'Uls_jXy9RuU', title: "Create Consistent Characters from an Input Image with Flux", by: "Mickmumpitz" }, { id: 'QpUhPw_H6Qk', title: "Generate Image Using Reference Image with Stable Diffusion and Flux", by: "AI Ninja" }, { id: 'phtGr4mZ-vU', title: "Improve your Flux image generation with prompts", by: "Code Crafters Corner" }],
-    objective: "The senior skill is control: one visual language held across a whole set, not a lucky single image.",
+    videos: [{ id: 'phtGr4mZ-vU', title: "Improve your Flux image generation with prompts", by: "Code Crafters Corner" }, { id: 'A269uxDhc5s', title: "How to Use and Install Controlnet in ForgeUI", by: "Ai Foundry" }, { id: 'DWvcLggvWcQ', title: "Controlnet Stable Diffusion Tutorial In 8 Minutes", by: "Bitesized Genius" }, { id: 'mmZSOBSg2E4', title: "ControlNet Stable Diffusion Updated Full Tutorial", by: "Aigen" }],
+    objective: "The senior skill is control: one visual language held across a whole set, not a lucky single image. Use pose and style controls to keep a set consistent.",
     deliverable: "A set of six images in one consistent style or with one consistent character, with the setup that produced them.",
     criteria: ["All six clearly belong to one world","The reference and prompt set is saved and reusable","Directed by the brand moodboard from ART-1"]
   },
@@ -569,12 +569,12 @@ const DESIGN_MISSIONS = [
     criteria: ["Notes are specific and about the work","The designer leaves knowing what to change","The review ends with a decision"]
   },
   {
-    id: 'des-12', code: 'CAPSTONE-D', origin: 'added', type: 'course', level: 'Senior', hours: 8, videos: [{ id: 'FBTvh_OOcNY', title: "How to Design a Brand Identity (Full Guide 2026)", by: "Yanis Xavier" }, { id: 'vVmJXUakZUk', title: "Product Packaging Design From Scratch: Full Process", by: "itsbossin" }, { id: 'LEEiSUlfgIo', title: "Design Better Social Media Posts (Full Process)", by: "GraphiqVibe" }],
+    id: 'des-12', code: 'CAPSTONE-D', origin: 'added', type: 'course', level: 'Senior', hours: 8, videos: [{ id: 'C65_Po3pt_8', title: "The ONLY Graphic Design Tutorial You Will Ever Need: Full Process", by: "Satori Graphics" }, { id: 'wALKWj7rQq4', title: "My Logo & Brand Identity Design Process", by: "Typefool" }, { id: 'MFCMSRnxE28', title: "Brand Identity Design Process: Custom Logo Design", by: "Megan Weeks" }],
     title: "Design Capstone: one brand, one campaign",
     source: "Internal — the proof of level",
     url: 'https://www.youtube.com/watch?v=mhUMNu7XeTE',
     duration: '8 hours',
-    videos: [{ id: 'mhUMNu7XeTE', title: "Complete Brand Identity Design from Zero to Mockups (reference)", by: "GraphiqVibe" }],
+    
     objective: "Bring strategy, identity, art direction and AI into one piece of work, the way it happens on a real account.",
     deliverable: "A mini brand with strategy, identity, guidelines and a three execution campaign, presented in five minutes.",
     criteria: ["Starts from a written strategy","Identity and campaign clearly belong together","At least one AI assisted asset, finished by hand","Presented with the reasoning for every major decision"]
@@ -673,7 +673,7 @@ const STAGE2_MISSIONS = [
     criteria: ["Notes are about the work, never the person","The designer knows exactly what to do next","You asked at least one question per critique"]
   },
   {
-    id: 's2-09', code: 'S2-PROJ-M', origin: 'added', type: 'course', level: 'Stage 2', hours: 10, videos: [{ id: 'vlRmtD1FGlA', title: "The Story to Motion Design Workflow: From Brief to Animation", by: "Styleframe Saturdays" }, { id: 'UMTyVhq7k-E', title: "How to edit a TV Commercial", by: "Michael Odelberth" }, { id: 'EAjbcod1HRQ', title: "Complete Blender Camera Tracking Tutorial", by: "Axel Olsson" }],
+    id: 's2-09', code: 'S2-PROJ-M', origin: 'added', type: 'course', level: 'Stage 2', hours: 10, videos: [{ id: 'sB9cbAvC1L0', title: "Storyboards for Motion Design", by: "ECAbrams" }, { id: '84rA66PobII', title: "From Storyboard to Motion", by: "ECAbrams" }, { id: 'HtFOnuH6c-Q', title: "How to Create Amazing Style Frames for Motion Design", by: "Ben Marriott" }, { id: 'NvifSxoYmEg', title: "Style Frames for Motion Design", by: "ECAbrams" }],
     title: "Stage 2 Project: a real motion piece",
     source: "Internal — the proof of Stage 2",
     url: '',
@@ -684,7 +684,7 @@ const STAGE2_MISSIONS = [
     criteria: ["Starts from a written brief","At least two Stage 2 techniques used","Delivered and accepted by the account owner"]
   },
   {
-    id: 's2-11', code: 'S2-PROJ-D', origin: 'added', type: 'course', level: 'Stage 2', hours: 10, videos: [{ id: 'mhUMNu7XeTE', title: "Complete Brand Identity Design from Zero to Mockups", by: "GraphiqVibe" }, { id: 'LEEiSUlfgIo', title: "Design Better Social Media Posts (Full Process)", by: "GraphiqVibe" }, { id: 'vVmJXUakZUk', title: "Product Packaging Design From Scratch", by: "itsbossin" }],
+    id: 's2-11', code: 'S2-PROJ-D', origin: 'added', type: 'course', level: 'Stage 2', hours: 10, videos: [{ id: 'sYQIMii1FII', title: "Logo guidelines: a walk through a guidelines document", by: "Rock Your Brand" }, { id: 'nPS-TOeiRCg', title: "Layout & Typography for Beginners", by: "dedicated designer" }, { id: 'qJ946Xf6rjw', title: "How to Effectively Brief a Graphic Design Project", by: "magier" }],
     title: "Stage 2 Project: a real design system",
     source: "Internal — the proof of Stage 2",
     url: '',
@@ -979,11 +979,11 @@ const TL_MISSIONS = [
   },
   {
     id: 'tl-06', code: 'TL-AI-2', origin: 'added', type: 'course', level: 'Intermediate', hours: 6,
-    title: "ComfyUI: ControlNet and IPAdapter",
+    title: "AI Control: ControlNet and Style References",
     source: "Free YouTube lessons",
     url: 'https://www.youtube.com/watch?v=hTSt0yCY-oE',
     duration: '6 hours',
-    videos: [{ id: 'hTSt0yCY-oE', title: "ComfyUI ControlNet Tutorial (Control LoRA)", by: "ControlAltAI" }, { id: 'WD0EmOE4boc', title: "ComfyUI Controlnet + IPAdapter Workflow", by: "Rudy's Hobby Channel" }, { id: 'KinUqRWG8q4', title: "IPAdapter and LoRA for Flux", by: "ELPixel" }, { id: 'g8W3xe5kRBQ', title: "Flux.1: IPAdapter, ControlNets & LoRAs from XLabs AI", by: "Nerdy Rodent" }],
+    videos: [{ id: 'WZg3e6B2yPQ', title: "How to use ControlNet. ControlNet for Stable Diffusion Tutorial", by: "Sebastian Kamph" }, { id: 'kT96mgrtQFU', title: "Controlnet Open Pose Stable Diffusion Tutorial In 7 Minutes", by: "Bitesized Genius" }, { id: 'mmZSOBSg2E4', title: "ControlNet Stable Diffusion Updated Full Tutorial", by: "Aigen" }, { id: 'A269uxDhc5s', title: "How to Use and Install Controlnet in ForgeUI", by: "Ai Foundry" }],
     objective: "Steer the result instead of hoping: pose, depth and style references.",
     deliverable: "Five images that follow a reference pose and share one style reference.",
     criteria: ["Pose follows the reference","Style stays consistent across the set","Workflow file saved"]
@@ -1038,8 +1038,8 @@ const TL_MISSIONS = [
     source: "Free YouTube lessons",
     url: 'https://www.youtube.com/watch?v=8AZmT8gS7TI',
     duration: '6 hours',
-    videos: [{ id: '8AZmT8gS7TI', title: "Training LoRA inside ComfyUI for character and style", by: "Iren Bondareva" }, { id: 'DYzHAX15QL4', title: "ComfyUI Tutorial Series Ep 72: Z-Image Turbo, ControlNet, LoRA Training", by: "pixaroma" }, { id: 'Y2kUmaYldkk', title: "FREE Generative AI Workshop: ComfyUI, ControlNet", by: "Miro Leon" }],
-    objective: "Teach a model your own style or character so results stay on brand.",
+    videos: [{ id: 'cQLAtDvHZD8', title: "Free FLUX LoRA Training: FluxGym Tutorial", by: "AI Voice Tutor" }, { id: 'OXU72JOPjqc', title: "FluxGym: Simple FLUX LoRA training Web UI with LOW VRAM support", by: "DevsKingdom" }, { id: '1DyfPhIkX78', title: "Fluxgym Full Guide For Flux LoRA Training", by: "Future Thinker" }, { id: 'faAj4n4fDf4', title: "Fluxgym: Training LoRAs", by: "A Latent Place" }],
+    objective: "Teach a model your own style or character so results stay on brand. One video trains on a free cloud GPU, so a strong local graphics card is not required.",
     deliverable: "A trained LoRA of one style or character, with ten test images.",
     criteria: ["Training images are curated and captioned","The style holds across ten different prompts","Settings and files documented"]
   },
@@ -1071,7 +1071,7 @@ const TL_MISSIONS = [
     source: "Free YouTube lessons",
     url: 'https://www.youtube.com/watch?v=htpz-FgzJdM',
     duration: '5 hours',
-    videos: [{ id: 'htpz-FgzJdM', title: "Kling 3.0 AI Video Generator: Free AI Video Tool", by: "BrainyBytes" }, { id: '0YccN8G7-_A', title: "100% Free AI Video Generator: Kling, Veo and Runway", by: "Zohaib Bodla" }, { id: 'VwMFUbRg70g', title: "Workflow Completo com Kling e Wan", by: "INEMA TDS" }, { id: '17YPqat8aDE', title: "Kling AI Image to Video Tutorial", by: "Cem Eygi Media" }],
+    videos: [{ id: 'VwMFUbRg70g', title: "Workflow Completo com Kling e Wan", by: "INEMA TDS" }, { id: '0YccN8G7-_A', title: "100% Free AI Video Generator: Kling, Veo and Runway", by: "Zohaib Bodla" }, { id: 'jC2srIYbA78', title: "Character Consistency: A Kling AI Canvas Workflow", by: "Sergio Valdez" }, { id: 'RK-989PgFk4', title: "How to Make Consistent Characters in Veo 3", by: "AI Video School" }, { id: 'D4tzDHwDkhE', title: "Create Cinematic AI Videos with Runway Gen-4 (Full Course)", by: "Tao Prompts" }, { id: 'lfiASPH1lvE', title: "Gen-4 References", by: "Runway Academy" }],
     objective: "Build a repeatable video pipeline: first and last frame control, reference video, and finishing.",
     deliverable: "A 15 second AI sequence with consistent look, finished and graded.",
     criteria: ["Same character and style across shots","First and last frames planned","Graded to match real footage"]
@@ -1086,6 +1086,21 @@ const TL_MISSIONS = [
     objective: "Combine everything into one piece that shows the whole range.",
     deliverable: "A 30 second piece with a Blender or Cinema 4D render, an AI element and a VFX shot, ready for the studio reel.",
     criteria: ["Starts from a written brief","All three skills serve the idea","Presented to the team with the reasoning"]
+  }
+];
+
+/* ---------- THINKING ---------- */
+const THINKING_MISSIONS = [
+  {
+    id: 'ang-01', code: 'THINK-1', origin: 'added', type: 'course', level: 'Foundation', hours: 4,
+    title: "Seeing a Problem from Different Angles",
+    source: 'Free YouTube lessons',
+    url: 'https://www.youtube.com/watch?v=4oMF1F5eEuo',
+    duration: '4 hours',
+    videos: [{ id: '4oMF1F5eEuo', title: "What is Lateral Thinking? (Easiest Explanation)", by: "Helpful Professor" }, { id: 'o2xgXxGDlL0', title: "10 Ways to use Lateral Thinking for Idea Generation & Problem Solving", by: "Paul Sloane" }, { id: 'BUdempbxbRI', title: "Design Thinking for Beginners: How to Think Like a Graphic Designer", by: "4 The Creatives" }, { id: '1JP59E5oKss', title: "7 Step Creative Process for Graphic Designers", by: "Design With Kellie" }, { id: 'gViIbCzRkv0', title: "Mind Mapping Tutorial: Find Graphic Design Inspiration and New Ideas", by: "Design With Kellie" }, { id: 'dIL15TOv0_4', title: "Concept Ideation & Approach in Design (Ep. 3)", by: "Adobe Creative Cloud" }],
+    objective: "Before you design or cut, look at the brief from more than one side: question the obvious answer, map the options, and choose an angle on purpose.",
+    deliverable: "Take one real brief and write down five genuinely different angles on it (a mind map plus five one-line concepts). Choose one and say why.",
+    criteria: ["Five angles that are really different from each other", "The obvious answer is listed first, then challenged", "The chosen angle is defended in one sentence"]
   }
 ];
 
@@ -1134,6 +1149,219 @@ const BONUS_MISSIONS = [
 const HEROES = [
   {
     id: 'alice', name: 'Alice', title: 'Video Designer',
+    path: [
+      {
+        "name": "Typography",
+        "level": "Foundation",
+        "tagline": "Text hierarchy first, then the details that make type look professionally set.",
+        "courses": [
+          "core-04",
+          "d-03"
+        ]
+      },
+      {
+        "name": "Thinking in Different Angles",
+        "level": "Foundation",
+        "tagline": "Read the brief, then look at it from more than one side before you design or cut.",
+        "courses": [
+          "core-07",
+          "ang-01",
+          "m-05",
+          "des-08"
+        ]
+      },
+      {
+        "name": "AI Workflow",
+        "level": "Foundation",
+        "tagline": "Move from prompting to a node workflow you can re-run and hand over.",
+        "courses": [
+          "core-01",
+          "core-02",
+          "core-03"
+        ]
+      },
+      {
+        "name": "AI from Zero",
+        "level": "Foundation",
+        "tagline": "Prompting and the free tools.",
+        "courses": [
+          "tl-02"
+        ]
+      },
+      {
+        "name": "AI Video",
+        "level": "Intermediate",
+        "tagline": "A free, repeatable image to video pipeline.",
+        "courses": [
+          "lad-10"
+        ]
+      },
+      {
+        "name": "Colour",
+        "level": "Foundation",
+        "tagline": "Turn colour from instinct into a system you can defend.",
+        "courses": [
+          "core-06"
+        ]
+      },
+      {
+        "name": "Manual & AI Technique",
+        "level": "Foundation",
+        "tagline": "Build it by hand and with AI, and know which one a job needs.",
+        "courses": [
+          "core-05"
+        ]
+      },
+      {
+        "name": "Editing: Premiere Pro",
+        "level": "Foundation",
+        "tagline": "Premiere Pro end to end, then the story concepts behind every edit.",
+        "courses": [
+          "lad-01",
+          "lad-12"
+        ]
+      },
+      {
+        "name": "Editing: Cuts & Rhythm",
+        "level": "Intermediate",
+        "tagline": "The cut types, pacing, and cutting to music.",
+        "courses": [
+          "lad-02",
+          "m-07"
+        ]
+      },
+      {
+        "name": "Editing: Story Formats",
+        "level": "Intermediate",
+        "tagline": "Interviews, commercials and short-form video.",
+        "courses": [
+          "m-03",
+          "s2-04",
+          "m-09"
+        ]
+      },
+      {
+        "name": "Editing: Advanced Montage",
+        "level": "Senior",
+        "tagline": "Editing as a specialism.",
+        "courses": [
+          "bon-montage"
+        ]
+      },
+      {
+        "name": "Editing: Resolve, Grade & Sound",
+        "level": "Senior",
+        "tagline": "The free tool that finishes an edit, then colour and sound.",
+        "courses": [
+          "lad-13",
+          "lad-07",
+          "lad-08"
+        ]
+      },
+      {
+        "name": "Motion: After Effects",
+        "level": "Foundation",
+        "tagline": "Animate in After Effects, then shape the timing.",
+        "courses": [
+          "lad-03",
+          "lad-04"
+        ]
+      },
+      {
+        "name": "Motion: Principles & Type",
+        "level": "Intermediate",
+        "tagline": "Apply the principles of animation, then make type move.",
+        "courses": [
+          "m-01",
+          "m-02"
+        ]
+      },
+      {
+        "name": "Motion: Expressions & Workflow",
+        "level": "Intermediate",
+        "tagline": "Build motion once, and link Premiere with After Effects.",
+        "courses": [
+          "s2-02",
+          "m-08"
+        ]
+      },
+      {
+        "name": "Motion: Planning",
+        "level": "Senior",
+        "tagline": "Storyboards and style frames, the way studios plan motion.",
+        "courses": [
+          "m-06"
+        ]
+      },
+      {
+        "name": "Presenting & Feedback",
+        "level": "Intermediate",
+        "tagline": "Explain the work, and give and take feedback that is specific.",
+        "courses": [
+          "core-08",
+          "core-09"
+        ]
+      },
+      {
+        "name": "Blender: Foundations",
+        "level": "Foundation",
+        "tagline": "One complete 3D scene from first open to final render.",
+        "courses": [
+          "lad-05"
+        ]
+      },
+      {
+        "name": "Blender: Light & Materials",
+        "level": "Intermediate",
+        "tagline": "Lighting and materials that look professional.",
+        "courses": [
+          "lad-06",
+          "m-10"
+        ]
+      },
+      {
+        "name": "Blender: Animation",
+        "level": "Intermediate",
+        "tagline": "Animate in 3D and finish a product shot.",
+        "courses": [
+          "m-04",
+          "lad-09"
+        ]
+      },
+      {
+        "name": "Blender: Tracking & VFX",
+        "level": "Senior",
+        "tagline": "Put 3D into real footage.",
+        "courses": [
+          "s2-03"
+        ]
+      },
+      {
+        "name": "Capstone",
+        "level": "Senior",
+        "tagline": "One piece that uses every skill.",
+        "courses": [
+          "lad-11"
+        ]
+      },
+      {
+        "name": "Project",
+        "level": "Senior",
+        "tagline": "One real piece that proves the extra depth.",
+        "courses": [
+          "s2-09"
+        ]
+      },
+      {
+        "name": "Portfolio & Reel",
+        "level": "Senior",
+        "tagline": "Document the work so it can be seen.",
+        "courses": [
+          "s2-01",
+          "m-11"
+        ]
+      }
+    ],
     division: 'kinetic', rank: 'Designer',
     tagline: 'Editing was never the question. The question was how much more she could be trusted with — and the answer keeps growing.',
     statusTag: 'Role expanding',
@@ -1199,6 +1427,219 @@ const HEROES = [
   },
   {
     id: 'shimaa', name: 'Shimaa', title: 'Video Designer',
+    path: [
+      {
+        "name": "Typography",
+        "level": "Foundation",
+        "tagline": "Text hierarchy first, then the details that make type look professionally set.",
+        "courses": [
+          "core-04",
+          "d-03"
+        ]
+      },
+      {
+        "name": "Thinking in Different Angles",
+        "level": "Foundation",
+        "tagline": "Read the brief, then look at it from more than one side before you design or cut.",
+        "courses": [
+          "core-07",
+          "ang-01",
+          "m-05",
+          "des-08"
+        ]
+      },
+      {
+        "name": "AI Workflow",
+        "level": "Foundation",
+        "tagline": "Move from prompting to a node workflow you can re-run and hand over.",
+        "courses": [
+          "core-01",
+          "core-02",
+          "core-03"
+        ]
+      },
+      {
+        "name": "AI from Zero",
+        "level": "Foundation",
+        "tagline": "Prompting and the free tools.",
+        "courses": [
+          "tl-02"
+        ]
+      },
+      {
+        "name": "AI Video",
+        "level": "Intermediate",
+        "tagline": "A free, repeatable image to video pipeline.",
+        "courses": [
+          "lad-10"
+        ]
+      },
+      {
+        "name": "Colour",
+        "level": "Foundation",
+        "tagline": "Turn colour from instinct into a system you can defend.",
+        "courses": [
+          "core-06"
+        ]
+      },
+      {
+        "name": "Manual & AI Technique",
+        "level": "Foundation",
+        "tagline": "Build it by hand and with AI, and know which one a job needs.",
+        "courses": [
+          "core-05"
+        ]
+      },
+      {
+        "name": "Editing: Premiere Pro",
+        "level": "Foundation",
+        "tagline": "Premiere Pro end to end, then the story concepts behind every edit.",
+        "courses": [
+          "lad-01",
+          "lad-12"
+        ]
+      },
+      {
+        "name": "Editing: Cuts & Rhythm",
+        "level": "Intermediate",
+        "tagline": "The cut types, pacing, and cutting to music.",
+        "courses": [
+          "lad-02",
+          "m-07"
+        ]
+      },
+      {
+        "name": "Editing: Story Formats",
+        "level": "Intermediate",
+        "tagline": "Interviews, commercials and short-form video.",
+        "courses": [
+          "m-03",
+          "s2-04",
+          "m-09"
+        ]
+      },
+      {
+        "name": "Editing: Advanced Montage",
+        "level": "Senior",
+        "tagline": "Editing as a specialism.",
+        "courses": [
+          "bon-montage"
+        ]
+      },
+      {
+        "name": "Editing: Resolve, Grade & Sound",
+        "level": "Senior",
+        "tagline": "The free tool that finishes an edit, then colour and sound.",
+        "courses": [
+          "lad-13",
+          "lad-07",
+          "lad-08"
+        ]
+      },
+      {
+        "name": "Motion: After Effects",
+        "level": "Foundation",
+        "tagline": "Animate in After Effects, then shape the timing.",
+        "courses": [
+          "lad-03",
+          "lad-04"
+        ]
+      },
+      {
+        "name": "Motion: Principles & Type",
+        "level": "Intermediate",
+        "tagline": "Apply the principles of animation, then make type move.",
+        "courses": [
+          "m-01",
+          "m-02"
+        ]
+      },
+      {
+        "name": "Motion: Expressions & Workflow",
+        "level": "Intermediate",
+        "tagline": "Build motion once, and link Premiere with After Effects.",
+        "courses": [
+          "s2-02",
+          "m-08"
+        ]
+      },
+      {
+        "name": "Motion: Planning",
+        "level": "Senior",
+        "tagline": "Storyboards and style frames, the way studios plan motion.",
+        "courses": [
+          "m-06"
+        ]
+      },
+      {
+        "name": "Presenting & Feedback",
+        "level": "Intermediate",
+        "tagline": "Explain the work, and give and take feedback that is specific.",
+        "courses": [
+          "core-08",
+          "core-09"
+        ]
+      },
+      {
+        "name": "Blender: Foundations",
+        "level": "Foundation",
+        "tagline": "One complete 3D scene from first open to final render.",
+        "courses": [
+          "lad-05"
+        ]
+      },
+      {
+        "name": "Blender: Light & Materials",
+        "level": "Intermediate",
+        "tagline": "Lighting and materials that look professional.",
+        "courses": [
+          "lad-06",
+          "m-10"
+        ]
+      },
+      {
+        "name": "Blender: Animation",
+        "level": "Intermediate",
+        "tagline": "Animate in 3D and finish a product shot.",
+        "courses": [
+          "m-04",
+          "lad-09"
+        ]
+      },
+      {
+        "name": "Blender: Deep Dive",
+        "level": "Senior",
+        "tagline": "Go past one shot: a second animation and procedural work.",
+        "courses": [
+          "bon-blender"
+        ]
+      },
+      {
+        "name": "Capstone",
+        "level": "Senior",
+        "tagline": "One piece that uses every skill.",
+        "courses": [
+          "lad-11"
+        ]
+      },
+      {
+        "name": "Project",
+        "level": "Senior",
+        "tagline": "One real piece that proves the extra depth.",
+        "courses": [
+          "s2-09"
+        ]
+      },
+      {
+        "name": "Portfolio & Reel",
+        "level": "Senior",
+        "tagline": "Document the work so it can be seen.",
+        "courses": [
+          "s2-01",
+          "m-11"
+        ]
+      }
+    ],
     division: 'kinetic', rank: 'Designer',
     tagline: 'Learned a whole new discipline from zero this cycle. That is the hard part, and it is already done.',
     statusTag: 'New skill established',
@@ -1268,6 +1709,219 @@ const HEROES = [
   },
   {
     id: 'abdelrahman', name: 'Abdelrahman Makhlouf', title: 'Video Designer',
+    path: [
+      {
+        "name": "Typography",
+        "level": "Foundation",
+        "tagline": "Text hierarchy first, then the details that make type look professionally set.",
+        "courses": [
+          "core-04",
+          "d-03"
+        ]
+      },
+      {
+        "name": "Thinking in Different Angles",
+        "level": "Foundation",
+        "tagline": "Read the brief, then look at it from more than one side before you design or cut.",
+        "courses": [
+          "core-07",
+          "ang-01",
+          "m-05",
+          "des-08"
+        ]
+      },
+      {
+        "name": "AI Workflow",
+        "level": "Foundation",
+        "tagline": "Move from prompting to a node workflow you can re-run and hand over.",
+        "courses": [
+          "core-01",
+          "core-02",
+          "core-03"
+        ]
+      },
+      {
+        "name": "AI from Zero",
+        "level": "Foundation",
+        "tagline": "Prompting and the free tools.",
+        "courses": [
+          "tl-02"
+        ]
+      },
+      {
+        "name": "AI Video",
+        "level": "Intermediate",
+        "tagline": "A free, repeatable image to video pipeline.",
+        "courses": [
+          "lad-10"
+        ]
+      },
+      {
+        "name": "Colour",
+        "level": "Foundation",
+        "tagline": "Turn colour from instinct into a system you can defend.",
+        "courses": [
+          "core-06"
+        ]
+      },
+      {
+        "name": "Manual & AI Technique",
+        "level": "Foundation",
+        "tagline": "Build it by hand and with AI, and know which one a job needs.",
+        "courses": [
+          "core-05"
+        ]
+      },
+      {
+        "name": "Editing: Premiere Pro",
+        "level": "Foundation",
+        "tagline": "Premiere Pro end to end, then the story concepts behind every edit.",
+        "courses": [
+          "lad-01",
+          "lad-12"
+        ]
+      },
+      {
+        "name": "Editing: Cuts & Rhythm",
+        "level": "Intermediate",
+        "tagline": "The cut types, pacing, and cutting to music.",
+        "courses": [
+          "lad-02",
+          "m-07"
+        ]
+      },
+      {
+        "name": "Editing: Story Formats",
+        "level": "Intermediate",
+        "tagline": "Interviews, commercials and short-form video.",
+        "courses": [
+          "m-03",
+          "s2-04",
+          "m-09"
+        ]
+      },
+      {
+        "name": "Editing: Advanced Montage",
+        "level": "Senior",
+        "tagline": "Editing as a specialism.",
+        "courses": [
+          "bon-montage"
+        ]
+      },
+      {
+        "name": "Editing: Resolve, Grade & Sound",
+        "level": "Senior",
+        "tagline": "The free tool that finishes an edit, then colour and sound.",
+        "courses": [
+          "lad-13",
+          "lad-07",
+          "lad-08"
+        ]
+      },
+      {
+        "name": "Motion: After Effects",
+        "level": "Foundation",
+        "tagline": "Animate in After Effects, then shape the timing.",
+        "courses": [
+          "lad-03",
+          "lad-04"
+        ]
+      },
+      {
+        "name": "Motion: Principles & Type",
+        "level": "Intermediate",
+        "tagline": "Apply the principles of animation, then make type move.",
+        "courses": [
+          "m-01",
+          "m-02"
+        ]
+      },
+      {
+        "name": "Motion: Expressions & Workflow",
+        "level": "Intermediate",
+        "tagline": "Build motion once, and link Premiere with After Effects.",
+        "courses": [
+          "s2-02",
+          "m-08"
+        ]
+      },
+      {
+        "name": "Motion: Planning",
+        "level": "Senior",
+        "tagline": "Storyboards and style frames, the way studios plan motion.",
+        "courses": [
+          "m-06"
+        ]
+      },
+      {
+        "name": "Presenting & Feedback",
+        "level": "Intermediate",
+        "tagline": "Explain the work, and give and take feedback that is specific.",
+        "courses": [
+          "core-08",
+          "core-09"
+        ]
+      },
+      {
+        "name": "Blender: Foundations",
+        "level": "Foundation",
+        "tagline": "One complete 3D scene from first open to final render.",
+        "courses": [
+          "lad-05"
+        ]
+      },
+      {
+        "name": "Blender: Light & Materials",
+        "level": "Intermediate",
+        "tagline": "Lighting and materials that look professional.",
+        "courses": [
+          "lad-06",
+          "m-10"
+        ]
+      },
+      {
+        "name": "Blender: Animation",
+        "level": "Intermediate",
+        "tagline": "Animate in 3D and finish a product shot.",
+        "courses": [
+          "m-04",
+          "lad-09"
+        ]
+      },
+      {
+        "name": "Blender: Deep Dive",
+        "level": "Senior",
+        "tagline": "Go past one shot: a second animation and procedural work.",
+        "courses": [
+          "bon-blender"
+        ]
+      },
+      {
+        "name": "Capstone",
+        "level": "Senior",
+        "tagline": "One piece that uses every skill.",
+        "courses": [
+          "lad-11"
+        ]
+      },
+      {
+        "name": "Project",
+        "level": "Senior",
+        "tagline": "One real piece that proves the extra depth.",
+        "courses": [
+          "s2-09"
+        ]
+      },
+      {
+        "name": "Portfolio & Reel",
+        "level": "Senior",
+        "tagline": "Document the work so it can be seen.",
+        "courses": [
+          "s2-01",
+          "m-11"
+        ]
+      }
+    ],
     division: 'kinetic', rank: 'Designer',
     tagline: 'A fresh start on the same road: editing, motion and Blender, taken to senior level in 180 days.',
     statusTag: 'Joining the Motion Team',
@@ -1338,6 +1992,238 @@ const HEROES = [
   },
   {
     id: 'mahmoud', name: 'Mahmoud', title: 'Senior Designer',
+    path: [
+      {
+        "name": "Art Direction",
+        "level": "Intermediate",
+        "tagline": "Visual language, moodboards and campaign ideas.",
+        "courses": [
+          "core-07",
+          "des-07",
+          "frg-01",
+          "des-08"
+        ]
+      },
+      {
+        "name": "Typography",
+        "level": "Foundation",
+        "tagline": "Text hierarchy first, then the details that make type look professionally set.",
+        "courses": [
+          "core-04",
+          "d-03"
+        ]
+      },
+      {
+        "name": "Layout & Editorial",
+        "level": "Intermediate",
+        "tagline": "Grids, then long-form layout.",
+        "courses": [
+          "des-03",
+          "s2-06"
+        ]
+      },
+      {
+        "name": "Colour",
+        "level": "Foundation",
+        "tagline": "Turn colour from instinct into a system you can defend.",
+        "courses": [
+          "core-06"
+        ]
+      },
+      {
+        "name": "Manual & AI Technique",
+        "level": "Foundation",
+        "tagline": "Build it by hand and with AI, and know which one a job needs.",
+        "courses": [
+          "core-05"
+        ]
+      },
+      {
+        "name": "Brand Strategy",
+        "level": "Intermediate",
+        "tagline": "Decide who the brand is for before drawing anything.",
+        "courses": [
+          "des-04"
+        ]
+      },
+      {
+        "name": "Identity & Guidelines",
+        "level": "Senior",
+        "tagline": "Build the identity, then document it.",
+        "courses": [
+          "des-05",
+          "des-06"
+        ]
+      },
+      {
+        "name": "Packaging & Social Systems",
+        "level": "Senior",
+        "tagline": "Identity you can hold, and templates others can use.",
+        "courses": [
+          "s2-05",
+          "s2-07"
+        ]
+      },
+      {
+        "name": "AI Workflow",
+        "level": "Foundation",
+        "tagline": "Move from prompting to a node workflow you can re-run and hand over.",
+        "courses": [
+          "core-01",
+          "core-02",
+          "core-03"
+        ]
+      },
+      {
+        "name": "AI for Design",
+        "level": "Intermediate",
+        "tagline": "A free, repeatable AI image workflow.",
+        "courses": [
+          "tl-02",
+          "des-09"
+        ]
+      },
+      {
+        "name": "AI: Control & Style",
+        "level": "Senior",
+        "tagline": "Hold one style across a whole set.",
+        "courses": [
+          "des-10"
+        ]
+      },
+      {
+        "name": "Editing: Premiere Pro",
+        "level": "Foundation",
+        "tagline": "Premiere Pro end to end, then the story concepts behind every edit.",
+        "courses": [
+          "lad-01",
+          "lad-12"
+        ]
+      },
+      {
+        "name": "Editing: Cuts & Formats",
+        "level": "Intermediate",
+        "tagline": "Cutting to music, and video for social.",
+        "courses": [
+          "m-07",
+          "m-09"
+        ]
+      },
+      {
+        "name": "Motion: After Effects",
+        "level": "Foundation",
+        "tagline": "Animate in After Effects, then shape the timing.",
+        "courses": [
+          "lad-03",
+          "lad-04"
+        ]
+      },
+      {
+        "name": "Motion: Principles & Type",
+        "level": "Intermediate",
+        "tagline": "The principles of animation, and type that moves.",
+        "courses": [
+          "m-01",
+          "m-02"
+        ]
+      },
+      {
+        "name": "Motion: Workflow & Your Designs",
+        "level": "Intermediate",
+        "tagline": "Link the apps, then bring your own designs to life.",
+        "courses": [
+          "m-08",
+          "d-01"
+        ]
+      },
+      {
+        "name": "UI/UX: Foundations",
+        "level": "Foundation",
+        "tagline": "Design for screens people actually use.",
+        "courses": [
+          "bon-uiux"
+        ]
+      },
+      {
+        "name": "UX: Process",
+        "level": "Intermediate",
+        "tagline": "Research, wireframes and testing.",
+        "courses": [
+          "u-01"
+        ]
+      },
+      {
+        "name": "UI: Prototyping & Systems",
+        "level": "Senior",
+        "tagline": "Make screens feel real, then turn them into a system.",
+        "courses": [
+          "u-02",
+          "u-03"
+        ]
+      },
+      {
+        "name": "Presenting & Feedback",
+        "level": "Intermediate",
+        "tagline": "Explain the work and run reviews.",
+        "courses": [
+          "core-08",
+          "core-09",
+          "des-11",
+          "d-05"
+        ]
+      },
+      {
+        "name": "Leading a Team",
+        "level": "Senior",
+        "tagline": "Give direction and run one to ones.",
+        "courses": [
+          "s2-08",
+          "d-06"
+        ]
+      },
+      {
+        "name": "Blender: Foundations",
+        "level": "Foundation",
+        "tagline": "One complete 3D scene from first open to final render.",
+        "courses": [
+          "lad-05"
+        ]
+      },
+      {
+        "name": "Blender: Light & Materials",
+        "level": "Intermediate",
+        "tagline": "Lighting and materials that look professional.",
+        "courses": [
+          "lad-06",
+          "m-10"
+        ]
+      },
+      {
+        "name": "Blender: Animation",
+        "level": "Intermediate",
+        "tagline": "Animate in 3D.",
+        "courses": [
+          "m-04"
+        ]
+      },
+      {
+        "name": "Capstone & Project",
+        "level": "Senior",
+        "tagline": "One brand, one campaign, and one real project.",
+        "courses": [
+          "des-12",
+          "s2-11"
+        ]
+      },
+      {
+        "name": "Portfolio",
+        "level": "Senior",
+        "tagline": "Document the work so it can be seen.",
+        "courses": [
+          "s2-01"
+        ]
+      }
+    ],
     target: "Senior-level branding, art direction and creative direction, with working skills in editing, motion and Blender.",
     division: 'forge', rank: 'Senior',
     tagline: 'The biggest move anyone made this cycle. Quality no longer depends on one person, because it depends on him too.',
@@ -1408,6 +2294,212 @@ const HEROES = [
   },
   {
     id: 'islam', name: 'Islam', title: 'Graphic Designer',
+    path: [
+      {
+        "name": "Brief & Direction",
+        "level": "Intermediate",
+        "tagline": "Read the brief, find the visual language, and find the idea.",
+        "courses": [
+          "core-07",
+          "des-07",
+          "des-08"
+        ]
+      },
+      {
+        "name": "Typography",
+        "level": "Foundation",
+        "tagline": "Text hierarchy first, then the details that make type look professionally set.",
+        "courses": [
+          "core-04",
+          "d-03"
+        ]
+      },
+      {
+        "name": "Layout & Editorial",
+        "level": "Intermediate",
+        "tagline": "Grids, then long-form layout.",
+        "courses": [
+          "des-03",
+          "s2-06"
+        ]
+      },
+      {
+        "name": "Colour",
+        "level": "Foundation",
+        "tagline": "Turn colour from instinct into a system you can defend.",
+        "courses": [
+          "core-06"
+        ]
+      },
+      {
+        "name": "Manual & AI Technique",
+        "level": "Foundation",
+        "tagline": "Build it by hand and with AI, and know which one a job needs.",
+        "courses": [
+          "core-05"
+        ]
+      },
+      {
+        "name": "Photoshop & Illustrator Craft",
+        "level": "Intermediate",
+        "tagline": "The file craft that every strong design sits on.",
+        "courses": [
+          "des-01",
+          "des-02"
+        ]
+      },
+      {
+        "name": "Retouching & Icons",
+        "level": "Intermediate",
+        "tagline": "Clean retouching, compositing and your own icons.",
+        "courses": [
+          "d-02",
+          "frg-03",
+          "d-04"
+        ]
+      },
+      {
+        "name": "Brand Strategy",
+        "level": "Intermediate",
+        "tagline": "Decide who the brand is for before drawing anything.",
+        "courses": [
+          "des-04"
+        ]
+      },
+      {
+        "name": "Identity & Guidelines",
+        "level": "Senior",
+        "tagline": "Build the identity, then document it.",
+        "courses": [
+          "des-05",
+          "des-06"
+        ]
+      },
+      {
+        "name": "Packaging & Social Systems",
+        "level": "Senior",
+        "tagline": "Identity you can hold, and templates others can use.",
+        "courses": [
+          "s2-05",
+          "s2-07",
+          "frg-05"
+        ]
+      },
+      {
+        "name": "AI Workflow",
+        "level": "Foundation",
+        "tagline": "Move from prompting to a node workflow you can re-run and hand over.",
+        "courses": [
+          "core-01",
+          "core-02",
+          "core-03"
+        ]
+      },
+      {
+        "name": "AI for Design",
+        "level": "Intermediate",
+        "tagline": "A free, repeatable AI image workflow.",
+        "courses": [
+          "tl-02",
+          "des-09"
+        ]
+      },
+      {
+        "name": "AI: Control & Style",
+        "level": "Senior",
+        "tagline": "Hold one style across a whole set.",
+        "courses": [
+          "des-10"
+        ]
+      },
+      {
+        "name": "Editing: Premiere Pro",
+        "level": "Foundation",
+        "tagline": "Premiere Pro end to end, then the story concepts behind every edit.",
+        "courses": [
+          "lad-01",
+          "lad-12"
+        ]
+      },
+      {
+        "name": "Editing: Cuts & Formats",
+        "level": "Intermediate",
+        "tagline": "Cutting to music, and video for social.",
+        "courses": [
+          "m-07",
+          "m-09"
+        ]
+      },
+      {
+        "name": "Motion: After Effects",
+        "level": "Foundation",
+        "tagline": "Animate in After Effects.",
+        "courses": [
+          "lad-03"
+        ]
+      },
+      {
+        "name": "Motion: Workflow & Your Designs",
+        "level": "Intermediate",
+        "tagline": "Link the apps, then bring your own designs to life.",
+        "courses": [
+          "m-08",
+          "d-01"
+        ]
+      },
+      {
+        "name": "Presenting & Feedback",
+        "level": "Intermediate",
+        "tagline": "Explain the work and run reviews.",
+        "courses": [
+          "core-08",
+          "core-09",
+          "d-05"
+        ]
+      },
+      {
+        "name": "Leading",
+        "level": "Senior",
+        "tagline": "Give direction and run one to ones.",
+        "courses": [
+          "s2-08",
+          "d-06"
+        ]
+      },
+      {
+        "name": "Blender: Foundations",
+        "level": "Foundation",
+        "tagline": "One complete 3D scene from first open to final render.",
+        "courses": [
+          "lad-05"
+        ]
+      },
+      {
+        "name": "Blender: Animation",
+        "level": "Intermediate",
+        "tagline": "Animate in 3D.",
+        "courses": [
+          "m-04"
+        ]
+      },
+      {
+        "name": "Capstone & Project",
+        "level": "Senior",
+        "tagline": "One brand, one campaign, and one real project.",
+        "courses": [
+          "des-12",
+          "s2-11"
+        ]
+      },
+      {
+        "name": "Portfolio",
+        "level": "Senior",
+        "tagline": "Document the work so it can be seen.",
+        "courses": [
+          "s2-01"
+        ]
+      }
+    ],
     target: "Senior-bound: complete branding, art direction and AI practice, ready for a senior role, with working skills in editing, motion and Blender.",
     division: 'forge', rank: 'Designer',
     tagline: 'A clear run ahead: from making what is asked to deciding what gets asked for.',
@@ -1478,6 +2570,195 @@ const HEROES = [
   },
   {
     id: 'yomna', name: 'Yomna', title: 'Junior Designer',
+    path: [
+      {
+        "name": "Brief & Art Direction",
+        "level": "Intermediate",
+        "tagline": "Read the brief and find the visual language.",
+        "courses": [
+          "core-07",
+          "des-07"
+        ]
+      },
+      {
+        "name": "Typography",
+        "level": "Foundation",
+        "tagline": "Text hierarchy first, then the details that make type look professionally set.",
+        "courses": [
+          "core-04",
+          "d-03"
+        ]
+      },
+      {
+        "name": "Layout & Editorial",
+        "level": "Intermediate",
+        "tagline": "Grids, then long-form layout.",
+        "courses": [
+          "des-03",
+          "s2-06"
+        ]
+      },
+      {
+        "name": "Colour",
+        "level": "Foundation",
+        "tagline": "Turn colour from instinct into a system you can defend.",
+        "courses": [
+          "core-06"
+        ]
+      },
+      {
+        "name": "Manual & AI Technique",
+        "level": "Foundation",
+        "tagline": "Build it by hand and with AI, and know which one a job needs.",
+        "courses": [
+          "core-05"
+        ]
+      },
+      {
+        "name": "Photoshop & Illustrator Craft",
+        "level": "Intermediate",
+        "tagline": "The file craft that every strong design sits on.",
+        "courses": [
+          "des-01",
+          "des-02"
+        ]
+      },
+      {
+        "name": "Retouching & Icons",
+        "level": "Intermediate",
+        "tagline": "Clean retouching, compositing and your own icons.",
+        "courses": [
+          "d-02",
+          "frg-03",
+          "d-04"
+        ]
+      },
+      {
+        "name": "Brand Strategy",
+        "level": "Intermediate",
+        "tagline": "Decide who the brand is for before drawing anything.",
+        "courses": [
+          "des-04"
+        ]
+      },
+      {
+        "name": "Identity & Guidelines",
+        "level": "Senior",
+        "tagline": "Build the identity, then document it.",
+        "courses": [
+          "des-05",
+          "des-06"
+        ]
+      },
+      {
+        "name": "Packaging & Social Systems",
+        "level": "Senior",
+        "tagline": "Identity you can hold, and templates others can use.",
+        "courses": [
+          "s2-05",
+          "s2-07",
+          "frg-05"
+        ]
+      },
+      {
+        "name": "AI Workflow",
+        "level": "Foundation",
+        "tagline": "Move from prompting to a node workflow you can re-run and hand over.",
+        "courses": [
+          "core-01",
+          "core-02",
+          "core-03"
+        ]
+      },
+      {
+        "name": "AI for Design",
+        "level": "Intermediate",
+        "tagline": "A free, repeatable AI image workflow.",
+        "courses": [
+          "tl-02",
+          "des-09"
+        ]
+      },
+      {
+        "name": "Editing: Premiere Pro",
+        "level": "Foundation",
+        "tagline": "Premiere Pro end to end, then the story concepts behind every edit.",
+        "courses": [
+          "lad-01",
+          "lad-12"
+        ]
+      },
+      {
+        "name": "Editing: Cuts & Formats",
+        "level": "Intermediate",
+        "tagline": "Cutting to music, and video for social.",
+        "courses": [
+          "m-07",
+          "m-09"
+        ]
+      },
+      {
+        "name": "Motion: After Effects",
+        "level": "Foundation",
+        "tagline": "Animate in After Effects.",
+        "courses": [
+          "lad-03"
+        ]
+      },
+      {
+        "name": "Motion: Workflow & Your Designs",
+        "level": "Intermediate",
+        "tagline": "Link the apps, then bring your own designs to life.",
+        "courses": [
+          "m-08",
+          "d-01"
+        ]
+      },
+      {
+        "name": "Presenting & Feedback",
+        "level": "Intermediate",
+        "tagline": "Explain the work and take feedback.",
+        "courses": [
+          "core-08",
+          "core-09",
+          "d-05",
+          "frg-07"
+        ]
+      },
+      {
+        "name": "Blender: Foundations",
+        "level": "Foundation",
+        "tagline": "One complete 3D scene from first open to final render.",
+        "courses": [
+          "lad-05"
+        ]
+      },
+      {
+        "name": "Blender: Animation",
+        "level": "Intermediate",
+        "tagline": "Animate in 3D.",
+        "courses": [
+          "m-04"
+        ]
+      },
+      {
+        "name": "Capstone & Project",
+        "level": "Senior",
+        "tagline": "One brand, one campaign, and one real project.",
+        "courses": [
+          "des-12",
+          "s2-11"
+        ]
+      },
+      {
+        "name": "Portfolio",
+        "level": "Senior",
+        "tagline": "Document the work so it can be seen.",
+        "courses": [
+          "s2-01"
+        ]
+      }
+    ],
     midCap: true,
     target: "A strong mid-level designer in branding, art direction and AI, with working skills in editing, motion and Blender.",
     division: 'forge', rank: 'Junior',
@@ -1550,6 +2831,210 @@ const HEROES = [
   },
   {
     id: 'asmaa', name: 'Asmaa', title: 'Intern Designer',
+    path: [
+      {
+        "name": "Brief & Art Direction",
+        "level": "Intermediate",
+        "tagline": "Read the brief and find the visual language.",
+        "courses": [
+          "core-07",
+          "des-07"
+        ]
+      },
+      {
+        "name": "Typography",
+        "level": "Foundation",
+        "tagline": "Text hierarchy first, then the details that make type look professionally set.",
+        "courses": [
+          "core-04",
+          "d-03"
+        ]
+      },
+      {
+        "name": "Layout & Editorial",
+        "level": "Intermediate",
+        "tagline": "Grids, then long-form layout.",
+        "courses": [
+          "des-03",
+          "s2-06"
+        ]
+      },
+      {
+        "name": "Colour",
+        "level": "Foundation",
+        "tagline": "Turn colour from instinct into a system you can defend.",
+        "courses": [
+          "core-06"
+        ]
+      },
+      {
+        "name": "Manual & AI Technique",
+        "level": "Foundation",
+        "tagline": "Build it by hand and with AI, and know which one a job needs.",
+        "courses": [
+          "core-05"
+        ]
+      },
+      {
+        "name": "Photoshop & Illustrator Craft",
+        "level": "Intermediate",
+        "tagline": "The file craft that every strong design sits on.",
+        "courses": [
+          "des-01",
+          "des-02"
+        ]
+      },
+      {
+        "name": "Retouching & Icons",
+        "level": "Intermediate",
+        "tagline": "Clean retouching and your own icons.",
+        "courses": [
+          "d-02",
+          "d-04"
+        ]
+      },
+      {
+        "name": "Brand Strategy",
+        "level": "Intermediate",
+        "tagline": "Decide who the brand is for before drawing anything.",
+        "courses": [
+          "des-04"
+        ]
+      },
+      {
+        "name": "Identity",
+        "level": "Senior",
+        "tagline": "Build an identity from the strategy.",
+        "courses": [
+          "des-05"
+        ]
+      },
+      {
+        "name": "Packaging & Social Systems",
+        "level": "Senior",
+        "tagline": "Identity you can hold, and templates others can use.",
+        "courses": [
+          "s2-05",
+          "s2-07",
+          "frg-05"
+        ]
+      },
+      {
+        "name": "AI Workflow",
+        "level": "Foundation",
+        "tagline": "Move from prompting to a node workflow you can re-run and hand over.",
+        "courses": [
+          "core-01",
+          "core-02",
+          "core-03"
+        ]
+      },
+      {
+        "name": "AI for Design",
+        "level": "Intermediate",
+        "tagline": "A free, repeatable AI image workflow.",
+        "courses": [
+          "tl-02",
+          "des-09"
+        ]
+      },
+      {
+        "name": "Editing: Premiere Pro",
+        "level": "Foundation",
+        "tagline": "Premiere Pro end to end, then the story concepts behind every edit.",
+        "courses": [
+          "lad-01",
+          "lad-12"
+        ]
+      },
+      {
+        "name": "Editing: Cuts & Formats",
+        "level": "Intermediate",
+        "tagline": "Cutting to music, and video for social.",
+        "courses": [
+          "m-07",
+          "m-09"
+        ]
+      },
+      {
+        "name": "Motion: After Effects",
+        "level": "Foundation",
+        "tagline": "Animate in After Effects.",
+        "courses": [
+          "lad-03"
+        ]
+      },
+      {
+        "name": "Motion: Workflow & Your Designs",
+        "level": "Intermediate",
+        "tagline": "Link the apps, then bring your own designs to life.",
+        "courses": [
+          "m-08",
+          "d-01"
+        ]
+      },
+      {
+        "name": "UI/UX: Foundations",
+        "level": "Foundation",
+        "tagline": "Design for screens people actually use.",
+        "courses": [
+          "bon-uiux"
+        ]
+      },
+      {
+        "name": "UX: Process",
+        "level": "Intermediate",
+        "tagline": "Research, wireframes and testing.",
+        "courses": [
+          "u-01"
+        ]
+      },
+      {
+        "name": "UI: Prototyping & Systems",
+        "level": "Senior",
+        "tagline": "Make screens feel real, then turn them into a system.",
+        "courses": [
+          "u-02",
+          "u-03"
+        ]
+      },
+      {
+        "name": "Presenting & Feedback",
+        "level": "Intermediate",
+        "tagline": "Explain the work and take feedback.",
+        "courses": [
+          "core-08",
+          "core-09",
+          "d-05",
+          "frg-07"
+        ]
+      },
+      {
+        "name": "Blender: Foundations",
+        "level": "Foundation",
+        "tagline": "One complete 3D scene from first open to final render.",
+        "courses": [
+          "lad-05"
+        ]
+      },
+      {
+        "name": "Capstone & Project",
+        "level": "Senior",
+        "tagline": "One brand, one campaign, and one real project.",
+        "courses": [
+          "des-12",
+          "s2-11"
+        ]
+      },
+      {
+        "name": "Portfolio",
+        "level": "Senior",
+        "tagline": "Document the work so it can be seen.",
+        "courses": [
+          "s2-01"
+        ]
+      }
+    ],
     midCap: true,
     midLabel: 'Full mid-level',
     target: "A full mid-level designer, well beyond the junior track, with working skills in editing, motion and Blender.",
@@ -1625,12 +3110,186 @@ const HEROES = [
   },
   {
     id: 'tarek', name: 'Mohamed Tarek', title: 'Graphic Team Lead',
+    path: [
+      {
+        "name": "Cinema 4D: Getting Started",
+        "level": "Foundation",
+        "tagline": "Interface, objects, cameras and a first render.",
+        "courses": [
+          "tl-04"
+        ]
+      },
+      {
+        "name": "Cinema 4D: MoGraph",
+        "level": "Intermediate",
+        "tagline": "Cloners, effectors and fields.",
+        "courses": [
+          "tl-05"
+        ]
+      },
+      {
+        "name": "Cinema 4D: Product Work",
+        "level": "Senior",
+        "tagline": "Lighting and rendering for campaigns.",
+        "courses": [
+          "tl-07"
+        ]
+      },
+      {
+        "name": "AI from Zero",
+        "level": "Foundation",
+        "tagline": "Prompting and free image tools.",
+        "courses": [
+          "tl-02",
+          "des-09"
+        ]
+      },
+      {
+        "name": "AI Video",
+        "level": "Intermediate",
+        "tagline": "A free, repeatable image to video pipeline.",
+        "courses": [
+          "lad-10"
+        ]
+      },
+      {
+        "name": "AI: Control",
+        "level": "Intermediate",
+        "tagline": "ControlNet and style references.",
+        "courses": [
+          "tl-06"
+        ]
+      },
+      {
+        "name": "AI: Your Own Model",
+        "level": "Senior",
+        "tagline": "Train a LoRA on your own style.",
+        "courses": [
+          "tl-11"
+        ]
+      },
+      {
+        "name": "AI Video: Advanced",
+        "level": "Senior",
+        "tagline": "Consistent characters and a full pipeline.",
+        "courses": [
+          "tl-14"
+        ]
+      },
+      {
+        "name": "VFX: Keying & Roto",
+        "level": "Intermediate",
+        "tagline": "Clean cut-outs in After Effects.",
+        "courses": [
+          "tl-12"
+        ]
+      },
+      {
+        "name": "VFX: Compositing",
+        "level": "Senior",
+        "tagline": "Node-based compositing in Fusion.",
+        "courses": [
+          "tl-13"
+        ]
+      },
+      {
+        "name": "Leading the Team",
+        "level": "Senior",
+        "tagline": "Run one to ones and reviews.",
+        "courses": [
+          "d-06"
+        ]
+      },
+      {
+        "name": "Blender: Foundations",
+        "level": "Foundation",
+        "tagline": "From first open to a finished scene.",
+        "courses": [
+          "lad-05"
+        ]
+      },
+      {
+        "name": "Blender: Modeling",
+        "level": "Foundation",
+        "tagline": "Hard surface and sculpting.",
+        "courses": [
+          "tl-01",
+          "tl-03"
+        ]
+      },
+      {
+        "name": "Blender: Light & Materials",
+        "level": "Intermediate",
+        "tagline": "Lighting and materials that look professional.",
+        "courses": [
+          "lad-06",
+          "m-10"
+        ]
+      },
+      {
+        "name": "Blender: Procedural",
+        "level": "Intermediate",
+        "tagline": "Build things that change with a slider.",
+        "courses": [
+          "tl-08"
+        ]
+      },
+      {
+        "name": "Blender: Product Animation",
+        "level": "Intermediate",
+        "tagline": "Animate a lit product shot.",
+        "courses": [
+          "lad-09"
+        ]
+      },
+      {
+        "name": "Blender: Simulation",
+        "level": "Senior",
+        "tagline": "Smoke, cloth and fluid.",
+        "courses": [
+          "tl-09"
+        ]
+      },
+      {
+        "name": "Blender: Characters",
+        "level": "Senior",
+        "tagline": "Rigging and animation.",
+        "courses": [
+          "tl-10"
+        ]
+      },
+      {
+        "name": "Blender: Tracking",
+        "level": "Senior",
+        "tagline": "Put 3D into real footage.",
+        "courses": [
+          "s2-03"
+        ]
+      },
+      {
+        "name": "Lead Capstone",
+        "level": "Senior",
+        "tagline": "One piece with 3D, AI and VFX.",
+        "courses": [
+          "tl-15"
+        ]
+      },
+      {
+        "name": "Portfolio & Reel",
+        "level": "Senior",
+        "tagline": "Document the work.",
+        "courses": [
+          "s2-01",
+          "m-11"
+        ]
+      }
+    ],
     custom: true,
     division: 'forge', rank: 'Lead',
     target: 'Strong, hands-on range in Blender, Cinema 4D, AI production and VFX, from basics to advanced, so the lead can direct and produce across the whole studio.',
     chapterNames: {
       1: { name: 'Month 1 — Blender and AI basics', sub: 'Modeling, sculpting and prompting' },
-      2: { name: 'Month 2 — Cinema 4D basics', sub: 'First scenes, MoGraph and ComfyUI' },
+      2: { name: 'Month 2 — Cinema 4D basics', sub: 'First scenes, MoGraph and free AI workflows' },
       3: { name: 'Month 3 — Production', sub: 'Product work, procedural 3D and controlled AI' },
       4: { name: 'Month 4 — Advanced 3D', sub: 'Simulations, characters and your own AI model' },
       5: { name: 'Month 5 — VFX', sub: 'Keying, tracking, compositing and AI video' },
@@ -1663,7 +3322,7 @@ const HEROES = [
     },
     phases: [
       { n: 1, name: 'Basics', origin: 'added', objectives: ['Learn Blender modeling and sculpting', 'Learn lighting and materials in Blender', 'Start AI from zero with prompting and free tools'], checkpoint: 'A modeled object, a sculpt and a working prompt guide.' },
-      { n: 2, name: 'Cinema 4D', origin: 'added', objectives: ['Learn the Cinema 4D interface and first scenes', 'Build MoGraph pieces', 'Run a free image workflow in ComfyUI'], checkpoint: 'A Cinema 4D still, a MoGraph loop and a free AI image workflow.' },
+      { n: 2, name: 'Cinema 4D', origin: 'added', objectives: ['Learn the Cinema 4D interface and first scenes', 'Build MoGraph pieces', 'Run a free AI image workflow'], checkpoint: 'A Cinema 4D still, a MoGraph loop and a free AI image workflow.' },
       { n: 3, name: 'Production', origin: 'added', objectives: ['Light and render products in Cinema 4D and Blender', 'Build procedural scenes with Geometry Nodes', 'Control AI results with ControlNet and IPAdapter'], checkpoint: 'A main product render and a controlled AI image set.' },
       { n: 4, name: 'Advanced 3D', origin: 'added', objectives: ['Add simulations to shots', 'Rig and animate a character', 'Train your own LoRA'], checkpoint: 'A simulated shot, an animated character and a trained LoRA.' },
       { n: 5, name: 'VFX', origin: 'added', objectives: ['Key and rotoscope footage', 'Track 3D into real footage', 'Composite in Fusion and build an AI video pipeline'], checkpoint: 'A composited VFX shot and a 15 second AI sequence.' },
