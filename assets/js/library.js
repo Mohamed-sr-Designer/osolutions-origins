@@ -23,10 +23,21 @@ const LIB_GOALS = [
   { id: 'own', name: 'Make my own projects', topics: [], pin: [] }
 ];
 const LIB_TIME = [
-  { id: 'light', name: 'Up to 3 hours', max: 3 },
-  { id: 'normal', name: '3 to 6 hours', max: 5 },
-  { id: 'heavy', name: '6 hours or more', max: 8 }
+  { id: 'light', name: 'About 2 hours a week', h: 2, sub: 'A little each week' },
+  { id: 'normal', name: 'About 5 hours a week', h: 5, sub: 'A steady habit' },
+  { id: 'heavy', name: '8 hours or more a week', h: 8, sub: 'Serious focus' }
 ];
+const LIB_TOPIC_SUB = {
+  video: 'Shooting, framing, lighting, filmmaking basics', editing: 'Cutting, pacing, colour, sound, Premiere and DaVinci',
+  motion: 'After Effects, animation, VFX, showreels', direction: 'Art direction, concepts, creative leadership',
+  ui: 'Apps, websites, Figma, user research', '3d': 'Blender, Cinema 4D, lighting and rendering',
+  design: 'Layout, typography, composition, Photoshop, Illustrator', brand: 'Logos, identity systems, brand guidelines', ai: 'AI tools for images, video and workflow'
+};
+const LIB_LEVEL_SUB = { 1: 'I know little or nothing yet', 2: 'I can do the basics on my own', 3: 'I am comfortable and want to go deeper' };
+const LIB_GOAL_SUB = {
+  job: 'A strong portfolio and showreel', freelance: 'Branding, direction, working with clients', levelup: 'Sharper skills in what you already do',
+  lead: 'Direction, feedback and managing creative work', own: 'Personal films, apps, art and experiments'
+};
 const LIB_TOPIC_OF = {
   video: ['m-05', 'kin-05', 'lad-11', 'core-07'],
   editing: ['lad-01', 'lad-12', 'lad-02', 'lad-13', 'lad-07', 'lad-08', 'bon-montage', 'm-03', 'm-07', 'm-09', 's2-04', 'm-08'],
@@ -77,19 +88,39 @@ function libRecommend() {
   const a = libState.answers;
   const goal = LIB_GOALS.find(g => g.id === a.goal);
   const topics = [...new Set([...(a.topics || []), ...(goal ? goal.topics : [])])];
-  const max = (LIB_TIME.find(t => t.id === a.time) || { max: 5 }).max;
+  const hw = (LIB_TIME.find(t => t.id === a.time) || { h: 5 }).h;
+  const cap = hw * 12;                       // a plan that fits in about 3 months at this pace
   const lv = a.level || 1;
-  const allowed = new Set([lv, Math.min(3, lv + 1)]);
   const all = libCourses();
-  const extras = libAllVideos().filter(v => !v.course);
-  const groups = topics.map(t => {
-    const courses = all.filter(x => x.topic === t && allowed.has(x.level))
-      .sort((p, q) => p.level - q.level || (p.c.hours || 0) - (q.c.hours || 0)).slice(0, max);
-    const more = extras.filter(v => v.topic === t && allowed.has(v.level)).slice(0, 8);
-    return { topic: t, courses, more };
-  }).filter(g => g.courses.length || g.more.length);
-  const pinned = goal ? goal.pin.map(id => all.find(x => x.c.id === id)).filter(Boolean) : [];
-  return { groups, pinned, goal };
+  const queues = topics.map(t => {
+    const q = all.filter(x => x.topic === t && (x.level === lv || x.level === lv + 1))
+      .sort((p, q2) => Math.abs(p.level - lv) - Math.abs(q2.level - lv) || p.level - q2.level || (p.c.hours || 0) - (q2.c.hours || 0));
+    return { t, q: (a.topics || []).includes(t) ? q : q.slice(0, 2) };
+  });
+  const picked = []; let hours = 0, more = true;
+  const used = new Set();
+  while (more) {
+    more = false;
+    for (const { t, q } of queues) {
+      const x = q.shift(); if (!x) continue; more = true;
+      if (used.has(x.c.id) || hours + (x.c.hours || 0) > cap) continue;
+      used.add(x.c.id); hours += x.c.hours || 0;
+      const why = [];
+      if ((a.topics || []).includes(t)) why.push('You picked ' + LIB_TOPICS.find(z => z.id === t).name);
+      else why.push('Supports your goal: ' + goal.name.toLowerCase());
+      why.push(x.level === lv ? 'matches your level' : 'a step up from your level');
+      picked.push({ ...x, why: why.join(', ') });
+    }
+  }
+  if (goal) goal.pin.forEach(id => {
+    const x = all.find(z => z.c.id === id);
+    if (x && !used.has(id) && hours + (x.c.hours || 0) <= cap + 6) { used.add(id); hours += x.c.hours || 0; picked.push({ ...x, why: 'Built for your goal: ' + goal.name.toLowerCase() }); }
+  });
+  picked.sort((p, q2) => p.level - q2.level);   // easier first, stable within a level
+  const weeks = Math.max(1, Math.round(hours / hw));
+  const topicHours = topics.map(t => ({ t, h: picked.filter(x => x.topic === t).reduce((s2, x) => s2 + (x.c.hours || 0), 0) })).filter(z => z.h);
+  const extras = libAllVideos().filter(v => !v.course && topics.includes(v.topic) && (v.level === lv || v.level === lv + 1)).slice(0, 12);
+  return { picked, hours, weeks, hw, goal, topicHours, extras, lv };
 }
 
 function libVidCard(v) {
@@ -115,34 +146,56 @@ function libCourseCard(x) {
   </article>`;
 }
 
+const LIB_STEPS = 4;
+function libOpt(group, id, name, sub, on, multi) {
+  return `<button type="button" class="opt ${on ? 'is-on' : ''}" data-q="${group}" data-v="${id}" aria-pressed="${on}">
+    <span class="opt__mark">${multi ? '' : ''}</span><span class="opt__name">${esc(name)}</span><span class="opt__sub">${esc(sub || '')}</span></button>`;
+}
 function libQuizHTML() {
-  const a = libState.answers;
-  const chip = (group, id, name, on) => `<button type="button" class="qchip ${on ? 'is-on' : ''}" data-q="${group}" data-v="${id}" aria-pressed="${on}">${esc(name)}</button>`;
-  return `
-    <div class="q"><div class="q__n">1</div><div class="q__b"><h3 class="q__t">What are you interested in?</h3><p class="q__h">Pick as many as you like.</p>
-      <div class="qchips">${LIB_TOPICS.map(t => chip('topics', t.id, t.name, a.topics.includes(t.id))).join('')}</div></div></div>
-    <div class="q"><div class="q__n">2</div><div class="q__b"><h3 class="q__t">What is your level?</h3><p class="q__h">Be honest, it only changes what you see first.</p>
-      <div class="qchips">${[1, 2, 3].map(n => chip('level', n, ['', 'I am just starting', 'I can do the basics', 'I am comfortable and want more'][n], a.level === n)).join('')}</div></div></div>
-    <div class="q"><div class="q__n">3</div><div class="q__b"><h3 class="q__t">Where do you want to get to?</h3>
-      <div class="qchips">${LIB_GOALS.map(g => chip('goal', g.id, g.name, a.goal === g.id)).join('')}</div></div></div>
-    <div class="q"><div class="q__n">4</div><div class="q__b"><h3 class="q__t">How much time do you have each week?</h3>
-      <div class="qchips">${LIB_TIME.map(t => chip('time', t.id, t.name, a.time === t.id)).join('')}</div></div></div>
-    <div class="q__go"><button class="btn" id="lib-go">Show my recommendations</button><button class="btn btn--ghost" id="lib-clear">Start over</button></div>`;
+  const a = libState.answers, st = libState.step || 0;
+  const steps = [
+    { t: 'What do you want to learn?', h: 'Pick as many as you like.', body: LIB_TOPICS.map(t => libOpt('topics', t.id, t.name, LIB_TOPIC_SUB[t.id], a.topics.includes(t.id), true)).join(''), multi: true, ok: a.topics.length > 0 },
+    { t: 'Where are you today?', h: 'Be honest. It decides where your plan starts.', body: [1, 2, 3].map(n => libOpt('level', n, LIB_LEVELS[n], LIB_LEVEL_SUB[n], a.level === n)).join('') },
+    { t: 'Where do you want to get to?', h: 'Your goal shapes which courses come last.', body: LIB_GOALS.map(g => libOpt('goal', g.id, g.name, LIB_GOAL_SUB[g.id], a.goal === g.id)).join('') },
+    { t: 'How much time can you give?', h: 'Your plan is sized to fit about three months at this pace.', body: LIB_TIME.map(t => libOpt('time', t.id, t.name, t.sub, a.time === t.id)).join('') }
+  ];
+  const s2 = steps[st];
+  return `<div class="wiz">
+    <div class="wiz__bar"><span style="width:${(st / LIB_STEPS) * 100}%"></span></div>
+    <div class="wiz__count">Question ${st + 1} of ${LIB_STEPS}</div>
+    <h2 class="wiz__t">${s2.t}</h2><p class="wiz__h">${s2.h}</p>
+    <div class="opts opts--${st === 0 ? 'wide' : 'norm'}">${s2.body}</div>
+    <div class="wiz__nav">
+      <button class="btn btn--ghost" id="lib-back" ${st === 0 ? 'hidden' : ''}>Back</button>
+      ${(s2.multi || st === LIB_STEPS - 1) ? `<button class="btn" id="lib-next" ${(s2.multi ? s2.ok : !!a.time) ? '' : 'disabled'}>${st === LIB_STEPS - 1 ? 'Build my plan' : 'Next'}</button>` : ''}
+    </div></div>`;
+}
+function libSummaryHTML() {
+  const a = libState.answers, g = LIB_GOALS.find(x => x.id === a.goal), t = LIB_TIME.find(x => x.id === a.time);
+  return `<div class="sum"><div class="sum__chips">
+    ${a.topics.map(id => '<span class="sum__c">' + esc(LIB_TOPICS.find(z => z.id === id).name) + '</span>').join('')}
+    <span class="sum__c sum__c--n">${LIB_LEVELS[a.level]}</span><span class="sum__c sum__c--n">${esc(g ? g.name : '')}</span><span class="sum__c sum__c--n">${esc(t ? t.name : '')}</span></div>
+    <button class="btn btn--ghost btn--small" id="lib-edit">Change my answers</button></div>`;
 }
 
 function libResultsHTML() {
-  const a = libState.answers;
-  if (!a.topics.length) return '<p class="empty">Pick at least one interest above, then press “Show my recommendations”.</p>';
   const r = libRecommend();
-  const goalTxt = r.goal ? ' Goal: ' + r.goal.name.toLowerCase() + '.' : '';
-  let h = `<div class="sec-head"><div><h2 class="h-l">Recommended for you</h2><p class="lede small mt-s">Level: ${LIB_LEVELS[a.level || 1]}.${esc(goalTxt)} Start at the top of each group and work down. You choose what goes on your list.</p></div></div>`;
-  if (r.pinned.length) h += `<div class="mgroup"><h3 class="lib-h">For your goal</h3>${r.pinned.map(libCourseCard).join('')}</div>`;
-  r.groups.forEach(g => {
-    const t = LIB_TOPICS.find(x => x.id === g.topic);
-    h += `<div class="mgroup"><h3 class="lib-h">${esc(t.name)}</h3>${g.courses.map(libCourseCard).join('')}`;
-    if (g.more.length) h += `<div class="lib-more"><div class="sub-label">More videos on ${esc(t.name)}</div><div class="vids__grid">${g.more.map(libVidCard).join('')}</div></div>`;
-    h += '</div>';
-  });
+  if (!r.picked.length) return '<p class="empty">No courses match those answers yet. Try another level or add more interests.</p>';
+  const allIn = r.picked.every(x => libState.mine.includes(x.c.id));
+  const mx = Math.max(...r.topicHours.map(z => z.h), 1);
+  let h = `<div class="plan">
+    <p class="eyebrow">Your plan</p>
+    <h2 class="h-l">${r.picked.length} courses, ${r.hours} hours, about ${r.weeks} weeks</h2>
+    <p class="lede small mt-s">Built from your answers. At ${r.hw} hours a week you can finish it in about ${r.weeks} weeks. Start at step 1 and go in order. Remove anything you do not want.</p>
+    <div class="plan__split">${r.topicHours.map(z => `<div class="plan__row"><span>${esc(LIB_TOPICS.find(x => x.id === z.t).name)}</span><span class="plan__bar"><i style="width:${Math.round(z.h / mx * 100)}%"></i></span><b>${z.h} h</b></div>`).join('')}</div>
+    <div class="plan__go"><button class="btn" id="lib-addall">${allIn ? '✓ Whole plan is in my list' : 'Add the whole plan to my list'}</button></div>
+  </div>`;
+  let wk = 0;
+  h += '<div class="steps">' + r.picked.map((x, i) => {
+    const start = Math.floor(wk) + 1; wk += (x.c.hours || 0) / r.hw;
+    return `<div class="step"><div class="step__n">${i + 1}</div><div class="step__b"><div class="step__when">${Math.ceil(wk) > start ? 'Weeks ' + start + ' to ' + Math.ceil(wk) : 'Week ' + start} · ${esc(x.why)}</div>${libCourseCard(x)}</div></div>`;
+  }).join('') + '</div>';
+  if (r.extras.length) h += `<div class="lib-more"><div class="sub-label">Extra videos on your topics</div><div class="vids__grid">${r.extras.map(libVidCard).join('')}</div></div>`;
   return h;
 }
 
@@ -164,14 +217,24 @@ function libAllHTML() {
     ${all.length > shown.length ? '<div class="lib-showmore"><button class="btn btn--ghost" id="lib-more">Show more</button></div>' : ''}`;
 }
 
+function libRefreshAdd(id) {
+  $$('#lib-results [data-add="' + id + '"]').forEach(btn => {
+    const on = libState.mine.includes(id);
+    btn.textContent = on ? '✓ In my list' : '+ Add to my list'; btn.classList.toggle('btn--ghost', !on);
+  });
+  const all = $('#lib-addall');
+  if (all) { const r = libRecommend(); all.textContent = r.picked.every(x => libState.mine.includes(x.c.id)) ? '✓ Whole plan is in my list' : 'Add the whole plan to my list'; }
+}
+function libShowQuiz() {
+  const done = libState.shown;
+  $('#lib-quiz').innerHTML = done ? libSummaryHTML() : libQuizHTML();
+  $('#lib-results').innerHTML = done ? libResultsHTML() : '';
+}
 function renderLibrary() {
-  const total = libAllVideos().length;
-  $('#lib-count').textContent = total;
-  $('#lib-quiz').innerHTML = libQuizHTML();
-  $('#lib-results').innerHTML = libState.shown ? libResultsHTML() : '';
+  $('#lib-count').textContent = libAllVideos().length;
+  libShowQuiz();
   $('#lib-mine').innerHTML = libMineHTML();
-  const f = $('#lib-filters');
-  f.innerHTML = `<div class="filters">
+  $('#lib-filters').innerHTML = `<div class="filters">
       <button class="filter ${!libFilter.topic ? 'is-on' : ''}" data-ft="">All topics</button>
       ${LIB_TOPICS.map(t => `<button class="filter ${libFilter.topic === t.id ? 'is-on' : ''}" data-ft="${t.id}">${esc(t.name)}</button>`).join('')}
     </div>
@@ -181,6 +244,10 @@ function renderLibrary() {
     </div>`;
   $('#lib-all').innerHTML = libAllHTML();
 }
+function libFinish() {
+  libState.shown = true; libSave(); libShowQuiz();
+  $('#lib-quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 document.addEventListener('click', e => {
   if (!$('#view-library') || !$('#view-library').classList.contains('is-active')) return;
@@ -188,28 +255,30 @@ document.addEventListener('click', e => {
   const a = libState.answers;
   if (t.dataset.q) {
     const g = t.dataset.q, v = t.dataset.v;
-    if (g === 'topics') a.topics = a.topics.includes(v) ? a.topics.filter(x => x !== v) : [...a.topics, v];
-    else if (g === 'level') a.level = +v;
-    else a[g] = a[g] === v ? '' : v;
+    if (g === 'topics') { a.topics = a.topics.includes(v) ? a.topics.filter(x => x !== v) : [...a.topics, v]; libSave(); $('#lib-quiz').innerHTML = libQuizHTML(); return; }
+    if (g === 'level') a.level = +v; else a[g] = v;
     libSave(); $('#lib-quiz').innerHTML = libQuizHTML();
-  } else if (t.id === 'lib-go') {
-    libState.shown = true; libSave(); $('#lib-results').innerHTML = libResultsHTML();
-    $('#lib-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  } else if (t.id === 'lib-clear') {
-    libState.answers = { topics: [], level: 0, goal: '', time: '' }; libState.shown = false; libSave(); renderLibrary();
+    if (g !== 'time') setTimeout(() => { libState.step = Math.min(LIB_STEPS - 1, (libState.step || 0) + 1); libSave(); libShowQuiz(); }, 220);
+  } else if (t.id === 'lib-next') {
+    if ((libState.step || 0) >= LIB_STEPS - 1) libFinish(); else { libState.step = (libState.step || 0) + 1; libSave(); libShowQuiz(); }
+  } else if (t.id === 'lib-back') {
+    libState.step = Math.max(0, (libState.step || 0) - 1); libSave(); libShowQuiz();
+  } else if (t.id === 'lib-edit') {
+    libState.shown = false; libState.step = 0; libSave(); libShowQuiz(); $('#lib-quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else if (t.id === 'lib-addall') {
+    const r = libRecommend(), ids = r.picked.map(x => x.c.id);
+    const every = ids.every(id => libState.mine.includes(id));
+    libState.mine = every ? libState.mine.filter(id => !ids.includes(id)) : [...new Set([...libState.mine, ...ids])];
+    libSave(); $('#lib-mine').innerHTML = libMineHTML(); ids.forEach(libRefreshAdd);
+    toast(every ? 'Plan removed from your list' : 'Plan added to your list', ids.length + ' courses');
   } else if (t.dataset.add) {
     const id = t.dataset.add;
     libState.mine = libState.mine.includes(id) ? libState.mine.filter(x => x !== id) : [...libState.mine, id];
-    libSave(); $('#lib-mine').innerHTML = libMineHTML();
-    $$('#lib-results [data-add="' + id + '"]').forEach(b => {
-      const on = libState.mine.includes(id);
-      b.textContent = on ? '✓ In my list' : '+ Add to my list'; b.classList.toggle('btn--ghost', !on);
-    });
+    libSave(); $('#lib-mine').innerHTML = libMineHTML(); libRefreshAdd(id);
     if (libState.mine.includes(id)) toast('Added to your list', COURSE_INDEX[id].title);
   } else if (t.dataset.rm) {
     libState.mine = libState.mine.filter(x => x !== t.dataset.rm); libSave();
-    $('#lib-mine').innerHTML = libMineHTML();
-    $$('#lib-results [data-add="' + t.dataset.rm + '"]').forEach(b => { b.textContent = '+ Add to my list'; b.classList.add('btn--ghost'); });
+    $('#lib-mine').innerHTML = libMineHTML(); libRefreshAdd(t.dataset.rm);
   } else if (t.dataset.ft !== undefined) {
     libFilter.topic = t.dataset.ft; libFilter.n = 48; renderLibrary();
   } else if (t.dataset.fl !== undefined) {
