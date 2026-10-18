@@ -645,32 +645,8 @@ function renderPerson(id) {
 }
 
 /* ============================================================
-   TRACKS / RESOURCES
+   RESOURCES
    ============================================================ */
-function renderTracks() {
-  const colors = { 'gem-type': 'var(--orange)', 'gem-color': 'var(--teal)', 'gem-ai': 'var(--violet)' };
-  $('#tracks').innerHTML = SKILL_TREE.map(g => {
-    const done = g.feeds.filter(id => HEROES.some(p => isDone(p.id, id))).length;
-    const pct = Math.round(done / g.feeds.length * 100);
-    const c = colors[g.id] || 'var(--orange)';
-    return `
-      <div class="card pad track" style="--tc:${c}">
-        <h2 class="track__name">${esc(g.name)}</h2>
-        <p class="track__creed">${esc(g.creed)}</p>
-        <ul class="track__list">
-          ${g.feeds.map(id => {
-            const m = COURSE_INDEX[id];
-            return m ? `<li><code>${esc(m.code)}</code>${esc(m.title)}</li>` : '';
-          }).join('')}
-        </ul>
-        <div class="mt-s">
-          <div class="prog__top"><span>${done} of ${g.feeds.length} started</span><span>${pct}%</span></div>
-          <div class="prog__track"><div class="prog__fill" style="width:${pct}%;background:${c}"></div></div>
-        </div>
-      </div>`;
-  }).join('');
-}
-
 function renderResources() {
   $('#vault').innerHTML = VAULT.map(v => `
     <a class="vrow" href="${esc(v.url)}" target="_blank" rel="noopener">
@@ -692,7 +668,7 @@ function updateHUD() {
 /* ============================================================
    ROUTER
    ============================================================ */
-const VIEWS = ['team', 'person', 'library', 'tracks', 'resources'];
+const VIEWS = ['team', 'person', 'library', 'resources'];
 
 function route() {
   const [name, arg] = (location.hash.replace('#', '') || 'team').split('/');
@@ -706,7 +682,6 @@ function route() {
   if (view === 'team') renderTeam();
   if (view === 'person') renderPerson(arg);
   if (view === 'library') renderLibrary();
-  if (view === 'tracks') renderTracks();
   if (view === 'resources') renderResources();
 
   if (view !== 'person') window.scrollTo(0, 0);
