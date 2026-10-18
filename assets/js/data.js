@@ -1172,7 +1172,7 @@ const STAGE_KEYS = {
   "Blender: Tracking & VFX": "414e15d5661a3941959197c82f1aae423766f3aac7457f639ecd77ada98edfc9",
   "Capstone": "d34b1d201b22a81b97390a43f93102e09d0980055e3dedf47ed41119ebbd0b89",
   "Project": "1e776424cda92ada418e44dce0af76ece766623bcfcb430eccec3c33bb2adaf9",
-  "Portfolio & Reel": "49f29d68a0c5bd1a860a190181f639339b126f101c7e255b5eb5c1f503e71f95"
+  "Showreel": "21f178d69f307b635e8782eb0194276234d2bef809a073e9843d6a9fe9e862af"
  },
  "shimaa": {
   "Typography": "560546716ce625424795bbdded8dff97ac94e934b89e3012c060e8fcc20db0b4",
@@ -1198,7 +1198,7 @@ const STAGE_KEYS = {
   "Blender: Deep Dive": "2d8d896da31de44e2e01034549188ccb94fcd5c25c29fdcae74a1decf23ab1d6",
   "Capstone": "fd0925ed659c77ea412825379e08fc5809c3694b20cc9f840d527a2eb5030a0b",
   "Project": "6e3c527cc3a95871bb09c4b3424d9a633226daaa19e6a26100529ef1d53c0d27",
-  "Portfolio & Reel": "eca0a6aa74cc6ded723de46c1d6b8c2c1281b00a62e306a20692c5f2c9c1d559"
+  "Showreel": "87b116a335b8c7bb50d9f0a4cc52e96facaf2a22896e896e9c225c5c41dbfd4d"
  },
  "abdelrahman": {
   "Typography": "4271b0f2b5141c8b479fc4ed81a5dbb4fb90bcc573f2d0a185cc8670ee1fa119",
@@ -1224,7 +1224,7 @@ const STAGE_KEYS = {
   "Blender: Deep Dive": "cd92b8b18ed5807362c0e34d4236a8cb54545a836e36e73c9d035e82d6e957b7",
   "Capstone": "d5ec5eed401558dfae7e31ea50f95bc1292e28c2fd7f68312bcb99687f3ecd1e",
   "Project": "2c7365df79a70e158a82203e05492327f141433d9b54cfebd17a54c2db4bb926",
-  "Portfolio & Reel": "9d9ef341e9d6c40e9f40bb3d4ac29c2cd03c787a6e91061b4a71da887c5334a1"
+  "Showreel": "722227084fbd589fb9f41c5eec22075dc083e43869d0bd85711b99299c80a22e"
  },
  "mahmoud": {
   "Art Direction": "b233ca8e6d804cc6c7b77d2784395b2cffc8f2a03d4047711074ee0bebd43815",
@@ -1251,8 +1251,7 @@ const STAGE_KEYS = {
   "Blender: Foundations": "d29e63210c05caf59e2835c77b140933ee782548cc192344923096c5aadb89a8",
   "Blender: Light & Materials": "c70175dcb41805e7054e45cf95d3ab27458e21365917c59f829e55402935ae8a",
   "Blender: Animation": "8cd0f0b4044fcafec5dc8e89a60a046072cff54f1ba5bffd5e7372fde13217ac",
-  "Capstone & Project": "e1869d09ab3d9919d238a369bba13d8d517f87e26f242b52bc578f89e8c14e0f",
-  "Portfolio": "a6771ab667e3c86130af448ec8cdae0f84b868cabec8f530fbcfd31d4d126bc8"
+  "Capstone & Project": "e1869d09ab3d9919d238a369bba13d8d517f87e26f242b52bc578f89e8c14e0f"
  },
  "islam": {
   "Brief & Direction": "49fa0614091ab04fe5e55bdf5b3d5d5a2d0409464823eb75a444075b0e7cbf2c",
@@ -1271,13 +1270,17 @@ const STAGE_KEYS = {
   "Editing: Premiere Pro": "4f780a3f92790b6ea37cc2b2a31e6ccf582a907328b92df937e78505b727c458",
   "Editing: Cuts & Formats": "358c67d9ab71f9bf3605f4f323b667c8865d10ef176b78dd8a65746ed7835280",
   "Motion: After Effects": "1494133058a36e808167095aa8c74753a1087ba99993a05534cce254d6fdb35d",
+  "Motion: Principles & Type": "26d7742a7711e343b408c6429a30e993731a20d37eb6f4d3c146b6c1d633b4b8",
   "Motion: Workflow & Your Designs": "f91aa6856d3864eeffc52547d9928edeed6303b882f7d1013be7606e44e9db05",
+  "UI/UX: Foundations": "77e9911984230d4bb4fb04fa53fab75d929159612fa2d1daec61218c24a3611c",
+  "UX: Process": "71431907a44cad1e651ff5bcbd5a575364fe10a286a5cf1ecd2369117535215c",
+  "UI: Prototyping & Systems": "7a9039a5e243d5c9406f2e4154e368567569be88e94d1aa2cf02bc2f4c58a4e1",
   "Presenting & Feedback": "7b48fba9da16a7e2d93f216849f04b239cec9af14c43b0a543f2e7238bc3b09a",
   "Leading": "d3f027d06f29b308329b8ecb740599a775c6acfb17f41445e247c060e6359ee9",
   "Blender: Foundations": "1f25da4433ceb06488dd57cdafce0e712e455bc0080012804dfa0a4aaaf83963",
+  "Blender: Light & Materials": "cc4dc29d4959bf9190b7773477c070ddde49be2ae5fb4fa121be6c7e375f0ee5",
   "Blender: Animation": "c9bb252d211798ff075f6c12154a5de95483b3bdab8df728d96d9cc8a7b38393",
-  "Capstone & Project": "c83f17036707ff5d48481ef9c18b885ed23a36c0e245e5a7c9091fc8bcf8b9fb",
-  "Portfolio": "b6281f739a6877df12329bbbef4c4f9e3f3d55d5f4231695c7ff486d4ba6a822"
+  "Capstone & Project": "c83f17036707ff5d48481ef9c18b885ed23a36c0e245e5a7c9091fc8bcf8b9fb"
  },
  "yomna": {
   "Brief & Art Direction": "ccdeda11dbabbe447b6f1fdc22a17953adc09534309fe263b352802dd6f3fe9b",
@@ -1299,8 +1302,7 @@ const STAGE_KEYS = {
   "Presenting & Feedback": "8c5ee8f5672f3b3178bc10d99bd15309afaf50323749c09c2cfba13d7a7f77fe",
   "Blender: Foundations": "f80910407246c047e06ffa3abe1c7f21769c23fe3ddefc9067d4ade2ae33eedf",
   "Blender: Animation": "f8165f86bc7ef2964af82a118b1bc5d3b789789da384921b1dd2439d9a61c13d",
-  "Capstone & Project": "8fdfe32adaa73ffae9a88bf1cdbd16c670f28921c62aa83ff1ba49074ee04ae8",
-  "Portfolio": "d4ac099a7f6bd21ac7d47aa3a654942522cd6201bae67fd865786157eb5552b5"
+  "Capstone & Project": "8fdfe32adaa73ffae9a88bf1cdbd16c670f28921c62aa83ff1ba49074ee04ae8"
  },
  "asmaa": {
   "Brief & Art Direction": "2340eb0f1bbf252a9db83116e9273be790333c5d33d9a571d52742d8d000bee3",
@@ -1324,8 +1326,7 @@ const STAGE_KEYS = {
   "UI: Prototyping & Systems": "59a37d019142fbc3a64d613dbf5c5d8a97de40eb638c64bc690ad418a41a105c",
   "Presenting & Feedback": "571e54e6a78601f00e3bedd02663c70337a601a7a981a71c79964e608dbd3b35",
   "Blender: Foundations": "322c9780898aa27f7f42476919fa028ffe353480f51024351a3972b960897097",
-  "Capstone & Project": "39c1181bc3ec0aa48c7d4490cc1a50d9e88a9209d13acce05e039c88cd0eabf7",
-  "Portfolio": "c7d0ba37e2bcaf5bfd039734935f50e193ee5e3f311c43ce2ff8af0993da43ad"
+  "Capstone & Project": "39c1181bc3ec0aa48c7d4490cc1a50d9e88a9209d13acce05e039c88cd0eabf7"
  },
  "tarek": {
   "Cinema 4D: Getting Started": "9c8333a9d3643ec7f2eecd4f8db52a455f968885690e47b95a289dd2c7e53cf7",
@@ -1348,7 +1349,7 @@ const STAGE_KEYS = {
   "Blender: Characters": "77c1c6fcc70022adcad7b68f4145ee677f21bd99d08b67ebea31d19e36b2538f",
   "Blender: Tracking": "5b3f9e71cc1540d011955b1b123d7645b16efcccea17151524d09e0d16bad38d",
   "Lead Capstone": "858df8ca868d777918bbdb800732e3e2dcc61573f1924d00fd35df2696ac0f40",
-  "Portfolio & Reel": "79d846bc86593509214003e1a72ccded824bb8290a825a9e905db4c29145e3c9"
+  "Showreel": "84472a17d2db191bd8b6167b5a42976048bc8de43e65c66ace6a7b06621b2b00"
  }
 };
 
@@ -1560,11 +1561,10 @@ const HEROES = [
         ]
       },
       {
-        "name": "Portfolio & Reel",
+        "name": "Showreel",
         "level": "Senior",
-        "tagline": "Document the work so it can be seen.",
+        "tagline": "Cut the best motion work into one reel people finish watching.",
         "courses": [
-          "s2-01",
           "m-11"
         ]
       }
@@ -1838,11 +1838,10 @@ const HEROES = [
         ]
       },
       {
-        "name": "Portfolio & Reel",
+        "name": "Showreel",
         "level": "Senior",
-        "tagline": "Document the work so it can be seen.",
+        "tagline": "Cut the best motion work into one reel people finish watching.",
         "courses": [
-          "s2-01",
           "m-11"
         ]
       }
@@ -2120,11 +2119,10 @@ const HEROES = [
         ]
       },
       {
-        "name": "Portfolio & Reel",
+        "name": "Showreel",
         "level": "Senior",
-        "tagline": "Document the work so it can be seen.",
+        "tagline": "Cut the best motion work into one reel people finish watching.",
         "courses": [
-          "s2-01",
           "m-11"
         ]
       }
@@ -2421,14 +2419,6 @@ const HEROES = [
           "des-12",
           "s2-11"
         ]
-      },
-      {
-        "name": "Portfolio",
-        "level": "Senior",
-        "tagline": "Document the work so it can be seen.",
-        "courses": [
-          "s2-01"
-        ]
       }
     ],
     target: "Senior-level branding, art direction and creative direction, with working skills in editing, motion and Blender.",
@@ -2509,6 +2499,7 @@ const HEROES = [
         "courses": [
           "core-07",
           "des-07",
+          "frg-01",
           "des-08"
         ]
       },
@@ -2642,7 +2633,17 @@ const HEROES = [
         "level": "Foundation",
         "tagline": "Animate in After Effects.",
         "courses": [
-          "lad-03"
+          "lad-03",
+          "lad-04"
+        ]
+      },
+      {
+        "name": "Motion: Principles & Type",
+        "level": "Intermediate",
+        "tagline": "The principles of animation, and type that moves.",
+        "courses": [
+          "m-01",
+          "m-02"
         ]
       },
       {
@@ -2652,6 +2653,31 @@ const HEROES = [
         "courses": [
           "m-08",
           "d-01"
+        ]
+      },
+      {
+        "name": "UI/UX: Foundations",
+        "level": "Foundation",
+        "tagline": "Design for screens people actually use.",
+        "courses": [
+          "bon-uiux"
+        ]
+      },
+      {
+        "name": "UX: Process",
+        "level": "Intermediate",
+        "tagline": "Research, wireframes and testing.",
+        "courses": [
+          "u-01"
+        ]
+      },
+      {
+        "name": "UI: Prototyping & Systems",
+        "level": "Senior",
+        "tagline": "Make screens feel real, then turn them into a system.",
+        "courses": [
+          "u-02",
+          "u-03"
         ]
       },
       {
@@ -2682,6 +2708,15 @@ const HEROES = [
         ]
       },
       {
+        "name": "Blender: Light & Materials",
+        "level": "Intermediate",
+        "tagline": "Lighting and materials that look professional.",
+        "courses": [
+          "lad-06",
+          "m-10"
+        ]
+      },
+      {
         "name": "Blender: Animation",
         "level": "Intermediate",
         "tagline": "Animate in 3D.",
@@ -2696,14 +2731,6 @@ const HEROES = [
         "courses": [
           "des-12",
           "s2-11"
-        ]
-      },
-      {
-        "name": "Portfolio",
-        "level": "Senior",
-        "tagline": "Document the work so it can be seen.",
-        "courses": [
-          "s2-01"
         ]
       }
     ],
@@ -2955,14 +2982,6 @@ const HEROES = [
         "courses": [
           "des-12",
           "s2-11"
-        ]
-      },
-      {
-        "name": "Portfolio",
-        "level": "Senior",
-        "tagline": "Document the work so it can be seen.",
-        "courses": [
-          "s2-01"
         ]
       }
     ],
@@ -3232,14 +3251,6 @@ const HEROES = [
           "des-12",
           "s2-11"
         ]
-      },
-      {
-        "name": "Portfolio",
-        "level": "Senior",
-        "tagline": "Document the work so it can be seen.",
-        "courses": [
-          "s2-01"
-        ]
       }
     ],
     midCap: true,
@@ -3482,11 +3493,10 @@ const HEROES = [
         ]
       },
       {
-        "name": "Portfolio & Reel",
+        "name": "Showreel",
         "level": "Senior",
-        "tagline": "Document the work.",
+        "tagline": "Cut the best motion work into one reel people finish watching.",
         "courses": [
-          "s2-01",
           "m-11"
         ]
       }
