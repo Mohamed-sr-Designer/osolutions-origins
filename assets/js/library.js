@@ -1,6 +1,6 @@
 /* ============================================================
    LIBRARY: a question flow that recommends free video courses.
-   No password. Built from every course on the site plus extra videos.
+   Built from every course on the site plus extra videos.
    ============================================================ */
 const LIB_KEY = 'osol-library-v1';
 const LIB_TOPICS = [
