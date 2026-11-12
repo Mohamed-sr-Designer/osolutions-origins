@@ -469,29 +469,6 @@ function renderPerson(id) {
 
   openStage = currentStage(p);
 
-  const skills = p.powers.map(k => {
-    const segs = [1, 2, 3, 4, 5].map(i => {
-      let cls = '';
-      if (k.to > 0 && i <= k.to) cls = 'is-now';
-      if (k.from > 0 && i <= k.from) cls = 'is-base';
-      return `<span class="seg ${cls}"></span>`;
-    }).join('');
-    const lvl = k.to > 0 ? `${PROGRAM.levels[k.from]} → ${PROGRAM.levels[k.to]}` : 'Being set';
-    return `
-      <div class="skill">
-        <div class="skill__top"><span class="skill__name">${esc(k.name)}</span><span class="skill__lvl">${esc(lvl)}</span></div>
-        <div class="skill__track">${segs}</div>
-      </div>`;
-  }).join('');
-
-  const months = p.phases.map(ph => `
-    <div class="card month">
-      <div class="month__n">${esc(ph.label || 'Month ' + ph.n)}${ph.origin === 'added' ? '<span class="draft">Draft</span>' : ''}</div>
-      <div class="month__name">${esc(ph.name)}</div>
-      <ul>${ph.objectives.map(o => `<li>${esc(o)}</li>`).join('')}</ul>
-      <div class="month__check"><b>Checkpoint</b>${esc(ph.checkpoint)}</div>
-    </div>`).join('');
-
   const nr = nextRank(p.rank);
 
   view.innerHTML = `
@@ -519,48 +496,6 @@ function renderPerson(id) {
           <div class="prog__track"><div class="prog__fill" id="p-fill" style="width:${s.pct}%"></div></div>
           <div id="nextup-host">${nextUpHTML(p)}</div>
           <button class="btn btn--ghost btn--small mt-s" id="person-reset">Reset ${esc(p.name.split(' ')[0])}’s progress</button>
-        </div>
-      </div>
-
-      <p class="quote">${esc(p.tagline)}</p>
-      <p class="target"><b>Target</b>${esc(p.target || PROGRAM.target)}</p>
-      <p class="target-note">This target is a starting point. The final goal for ${esc(p.name.split(' ')[0])} will be set from the evaluation the Team Lead sent.</p>
-
-      <div class="grid-2 mt-l">
-        <div class="card pad">
-          <h2 class="h-s">Where they are now</h2>
-          ${p.origin.map(x => `<p class="lede" style="margin-bottom:12px">${esc(x)}</p>`).join('')}
-        </div>
-        <div class="card pad">
-          <h2 class="h-s">Skill levels</h2>
-          <div class="mt-s">${skills}</div>
-          <div class="legend-row">
-            <span><i class="sw sw--base"></i>May baseline</span>
-            <span><i class="sw sw--now"></i>Now</span>
-          </div>
-          ${p.powersPending ? `<p class="note">${esc(p.pendingNote || ('Baseline levels for ' + p.name + ' are being set by the Team Lead, so progress is measured on the same scale as the rest of the team.'))}</p>` : ''}
-        </div>
-      </div>
-
-      <div class="card pad focus mt-l">
-        <h2 class="h-s">Development focus</h2>
-        <p class="focus__head">${esc(p.focus.headline)}</p>
-        <p class="lede">${esc(p.focus.why)}</p>
-        <div class="sub-label mt-s">How to get there</div>
-        <ul class="moves">${p.focus.moves.map(m => `<li>${esc(m)}</li>`).join('')}</ul>
-      </div>
-
-      <div class="mt-l">
-        <div class="sec-head">
-          <div>
-            <h2 class="h-l">The plan, month by month</h2>
-            <p class="lede small mt-s">${esc(PROGRAM.cap)}</p>
-          </div>
-        </div>
-        <div class="grid-2">${months}</div>
-        <div class="goal mt-m">
-          <span class="goal__l">120-day goal</span>
-          <span class="goal__t">${esc(p.boss)}</span>
         </div>
       </div>
 
